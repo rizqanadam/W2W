@@ -115,7 +115,7 @@ html * {
                             </div>
                             <div>
                                 <a href="./index1.html">
-                                <button  class="site-btn btn login-btn" style="color: white; text-transform: initial; width: 100%">Sign In</button>
+                                <button  id="signin" class="site-btn btn login-btn" style="color: white; text-transform: initial; width: 100%">Sign In</button>
                             </a>
                             </div>
                             <div>
@@ -129,6 +129,35 @@ html * {
         </div>
     </div>
     <!-- Register Form Section End -->
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    //required to run jquery library
+    </script>
+
+    <script>
+        
+        $(document).ready(function(){
+            //button request API on click
+            $('#signin').on('click',function(){
+                SigninUser();
+            });
+        });
+    
+        function SigninUser() {
+
+            var email = 
+            $.ajax({
+                url: 'http://codeviable.com/w2w2/public/user',
+                success: function (response){
+                    if(response.email ===  email && response.password === password)
+                }
+            });
+        }
+
+    </script>
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>

@@ -129,9 +129,9 @@ i {
                                     <a href="./register.html" class="or-login" style="color: #0099FF;">Terms and Conditions.</a>
                                 </p>
                             </div>
-                            <a href="./index1.html">
-                            <button class="btn btn-success float-right">Create company account</button>
-                        </a>
+                           
+                            <button id="create_acc" value="submit" class="btn btn-success float-right">Create company account</button>
+                        
                     </div>
                     </div>
                 </div>
@@ -140,6 +140,36 @@ i {
     </div>
 </div>
     <!-- Register Form Section End -->
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+    <script>
+
+        $(document).ready(function(){
+            $('#create_acc').on('click',function(){
+                RegisterUser();
+            });
+        });
+
+        function RegisterUser(){
+            var userdata = JSON.parse(localStorage.getItem('company'));
+            
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/user/add",
+                type: "POST",
+                data: userdata,
+                success: function(response){
+                    console.log(response);
+                },
+                error: function(response){
+                    console.log(response);
+                }
+            });
+        }
+    </script>
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>

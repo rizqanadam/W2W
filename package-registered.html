@@ -142,12 +142,12 @@ i {
         <div class="row">         
             <div class="card col-md-2 mx-auto">
                 <div style="margin-left: auto; margin-right: auto;">
-                    <h4 class="text-center text-type">Package A</h4>
+                    <h4 id="package_nameA" class="text-center text-type"></h4>
                     <p></p>
-                    <h2 class="text-center text-price"> RM 0</h2>
+                    <h2 id="package_priceA" class="text-center text-price"></h2>
                     <div class="line-bottom"></div>
                     <div class="text-center text-package">
-                        <div>3 Months</div>
+                        <div id="package_durationA"></div>
                     </div>
                     <div style="padding: 20px;">
                         <button class="btn button-subscribe">Subscribe</button>
@@ -156,12 +156,12 @@ i {
             </div>
             <div class="card col-md-2 mx-auto">
                 <div style="margin-left: auto; margin-right: auto;">
-                    <h4 class="text-center text-type">Package B</h4>
+                    <h4 id="package_nameB" class="text-center text-type"></h4>
                     <p></p>
-                    <h2 class="text-center text-price"> RM 100</h2>
+                    <h2 id="package_priceB" class="text-center text-price"></h2>
                     <div class="line-bottom"></div>
                     <div class="text-center text-package">
-                        <div>6 Months</div>
+                        <div id="package_durationB"></div>
                     </div>
                     <div style="padding: 20px;">
                         <button class="btn button-subscribe">Subscribe</button>
@@ -170,12 +170,12 @@ i {
             </div>
             <div class="card col-md-2 mx-auto">
                 <div style="margin-left: auto; margin-right: auto;">
-                    <h4 class="text-center text-type">Package C</h4>
+                    <h4 id="package_nameC" class="text-center text-type"></h4>
                     <p></p>
-                    <h2 class="text-center text-price"> RM 200</h2>
+                    <h2 id="package_priceC" class="text-center text-price"> </h2>
                     <div class="line-bottom"></div>
                     <div class="text-center text-package">
-                        <div>12 Months</div>
+                        <div id="package_durationC"></div>
                     </div>
                     <div style="padding: 20px;">
                         <button class="btn button-subscribe">Subscribe</button>
@@ -184,12 +184,12 @@ i {
             </div>
             <div class="card col-md-2 mx-auto">
                 <div style="margin-left: auto; margin-right: auto;">
-                    <h4 class="text-center text-type">Premium Package A</h4>
+                    <h4 id="package_namePA" class="text-center text-type"></h4>
                     <p></p>
-                    <h2 class="text-center text-price"> RM 300</h2>
+                    <h2 id="package_pricePA" class="text-center text-price"></h2>
                     <div class="line-bottom-premium"></div>
                     <div class="text-center text-package">
-                        <div>3 Months</div>
+                        <div id="package_durationPA"></div>
                         <div>Premium Listing</div>
                     </div>
                     <div style="padding: 20px;">
@@ -199,12 +199,12 @@ i {
             </div>
             <div class="card col-md-2 mx-auto">
                 <div style="margin-left: auto; margin-right: auto;">
-                    <h4 class="text-center text-type">Premium Package B</h4>
+                    <h4 id="package_namePB"class="text-center text-type"></h4>
                     <p></p>
-                    <h2 class="text-center text-price"> RM 400</h2>
+                    <h2 id="package_pricePB" class="text-center text-price"></h2>
                     <div class="line-bottom-premium"></div>
                     <div class="text-center text-package">
-                        <div>6 Months</div>
+                        <div id="package_durationPB"></div>
                         <div>Premium Listing</div>
                     </div>
                     <div style="padding: 20px;">
@@ -247,6 +247,53 @@ i {
     </body>
 
     </html>
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+        //required to run jquery library
+        </script>
+
+        <script>
+            $(document).ready(function(){
+                $.ajax({
+                    url: "http://codeviable.com/w2w2/public/packages",
+                    type: "GET",
+                    success: function(response){
+                        if(response[0].package_id == 1){
+                            $('#package_nameA').html(response[0].package_name);
+                            $('#package_priceA').html(response[0].package_price);
+                            $('#package_durationA').html(response[0].package_duration);
+                        }
+
+                        if(response[1].package_id == 2){
+                            $('#package_nameB').html(response[1].package_name);
+                            $('#package_priceB').html(response[1].package_price);
+                            $('#package_durationB').html(response[1].package_duration);
+                        }
+
+                        if(response[2].package_id == 3){
+                            $('#package_nameC').html(response[2].package_name);
+                            $('#package_priceC').html(response[2].package_price);
+                            $('#package_durationC').html(response[2].package_duration);
+                        }
+
+                        if(response[3].package_id == 4){
+                            $('#package_namePA').html(response[3].package_name);
+                            $('#package_pricePA').html(response[3].package_price);
+                            $('#package_durationPA').html(response[3].package_duration);
+                        }
+
+                        if(response[4].package_id == 5){
+                            $('#package_namePB').html(response[4].package_name);
+                            $('#package_pricePB').html(response[4].package_price);
+                            $('#package_durationPB').html(response[4].package_duration);
+                        }
+                    }
+                })
+            });
+        </script>
 
 
     <!-- Js Plugins -->

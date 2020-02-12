@@ -171,10 +171,10 @@ i {
             existing = existing ? JSON.parse(existing) : {};
 
             //Add new data to localStorage
-            existing['user_email'] = $('#email').val();
-            existing['password'] = $('#password').val();
-            existing['confirmpassword'] = $('#confirmpassword').val();
-            existing['user_type'] = "Individual";
+            existing['user_email'] = document.getElementById("email").value;
+            existing['password'] = document.getElementById("password").value;
+            existing['confirmpassword'] = document.getElementById("confirmpassword").value;
+            existing['user_type'] = "individual";
           
             //set new data to localStorage
             localStorage.setItem('user', JSON.stringify(existing));

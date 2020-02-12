@@ -123,7 +123,7 @@ i {
                         </div>
                             <div class="form-group">
                                 <p>Contact address</p>
-                                <label class="login-text" for="username">Company address</label>
+                                <label class="login-text" for="username">user address</label>
                                 <input type="text" placeholder="Line 1" class="form-control" id="address">
                                 <label class="login-text" for="username"></label>
                                 <input type="text" placeholder="Line 2" class="form-control" id="address2">
@@ -140,7 +140,7 @@ i {
                             </div>
                             </div>
                             <div class="form-group">
-                                <label class="login-text" for="pass" style="padding-top: 10px;">Company contact number</label>
+                                <label class="login-text" for="pass" style="padding-top: 10px;">user contact number</label>
                                 <input type="text" class="form-control" id="contactnumber">
                             </div>
                              <div class="form-group" style="padding-bottom: 20px;">
@@ -177,7 +177,7 @@ i {
         function AddUser(){
 
             //get the existing data
-            var existing = localStorage.getItem('company');
+            var existing = localStorage.getItem('user');
 
             // If no existing data, create an array
             // Otherwise, convert the localStorage string to an array
@@ -191,7 +191,7 @@ i {
             existing['job_title'] = document.getElementById("jobtitle").value;
           
             //set new data to localStorage
-            localStorage.setItem('company', JSON.stringify(existing));
+            localStorage.setItem('user', JSON.stringify(existing));
     
         }
     </script>

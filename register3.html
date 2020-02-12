@@ -160,6 +160,7 @@ i {
             $.ajax({
                 url: "http://codeviable.com/w2w2/public/user/add",
                 type: "POST",
+                dataType: "JSON",
                 data: userdata,
                 success: function(response){
                     console.log(response);

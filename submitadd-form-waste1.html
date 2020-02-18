@@ -1,35 +1,109 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <style>
+    .login-text {
+        font-size: 12px !important;
+    }
 
-.login-text {
-    font-size: 12px !important;
-}
-
-.login-form .group-input .gi-more label input:checked~span:after {
-    border-color: white !important;
-}
-
-.footer-section {
-    padding-top: none !important;
-}
-
-html * {
-    font-family: 'Roboto' !important;
-}
+    .header-margin {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
 
 
-i {
-    font-family: "FontAwesome" !important;
+    .headtext-weight {
+        font-weight: bold;
+        font-size: 20px !important;
+        margin-bottom: 20px !important;
+        text-weight: bold !important
+    }
 
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-}
+    .normal-text {
+        font-size: 16px !important
+    }
+
+    .page-color {
+        background-color: #FAFAFA;
+    }
+
+    .body-color {
+        background-color: lightblue;
+    }
+
+    .text-padding {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .line-bottom {
+        height: 2px;
+        background-color: lightgray;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    .register-linesection {
+        height: 1px;
+        background-color: grey;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .signin-linesection {
+        height: 2px;
+        background-color: limegreen;
+        width: 100%;
+    }
+
+    html * {
+        font-family: 'Roboto' !important;
+    }
 
 
+    i {
+        font-family: "FontAwesome" !important;
+
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    ul li a {
+        color: #707070;
+        font-size: 16px;
+        line-height: 2.5;
+    }
+
+    .icon-menu {
+        color: white;
+    }
+
+    ul li a:hover {
+        color: black;
+    }
+
+    ul li a:hover .icon-menu {
+        color: black;
+    }
+
+    ul li a.active {
+        font-weight: bold;
+        color: black !important;
+    }
+
+    ul li a.active i {
+        color: black !important;
+    }
+
+    .footer-stay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
 </style>
 
 <head>
@@ -56,129 +130,237 @@ i {
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
-<body>
+<body class="page-color">
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
 
     <!-- Header Section Begin -->
-    <div class="col-md-10 offset-md-1">
-    <header class="header-section" style="margin-bottom: 50px !important">
-        <div class="header-top">
-        <div class="container">
-            <div class="inner-header" style="padding: 0 !important; padding-top: 15px !important">
+    <div class="col-md-12">
+        <div class="col-md-10 offset-md-1">
+            <header class="header-section" style="margin-bottom: 50px !important">
+                <div class="header-top">
+                    <div class="container">
+                        <div class="inner-header" style="padding: 0 !important; padding-top: 15px !important">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-2" style="padding: 0;">
+                                    <div class="logo">
+                                        <a href="./index.html">
+                                            <img src="img/prospect2.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-10 text-right" style="padding: 20px;">
+                                    <button class="btn">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Header End -->
+
+            <div class="container" style="padding-bottom: 50px;">
                 <div class="row">
-                    <div class="col-lg-2 col-md-2" style="padding: 0;">
-                        <div class="logo">
-                            <a href="./index.html">
-                                <img src="img/prospect2.jpg">
-                            </a>
-                        </div>
+                    <div class="col-md-3 text-right">
+                        <div class="headtext-weight" style="margin-right: 20px;">Forms</div>
+                        <ul style="list-style-type: none;">
+                            <li><a href=""><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
+                            <li><a href="" class="active"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li>
+                            <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
+                            <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Service</a></li>
+                        </ul>
                     </div>
-                    <div class="col-lg-10 text-right" style="padding: 20px;">
-                        <button class="btn">My Account</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </header>
-    <!-- Header End -->
 
-    
-    <div class="container" style= "padding-bottom: 50px;">
-        <div class="row">
-            <div class="col-md-2">
-                <ul>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                </ul>
-            </div>
+                    <div class="card col-md-9" style="padding: 0;">
+                        <div style="padding: 50px;">
+                            <div class="headtext-weight">Choose perspective form</div>
+                            <div class="group-input" style="margin-left: 20px;">
+                                <div class="gi-more">
+                                    <label class="login-text" for="save-pass1">
+                                        <input type="radio" id="save-pass1" name="waste" onchange="checkRadio1()">
+                                        <span class="checkmark"></span>
+                                        Available
+                                    </label>
+                                </div>
+                                <div class="gi-more">
+                                    <label class="login-text" for="save-pass2">
+                                        <input type="radio" id="save-pass2" name="waste" onchange="checkRadio2()">
+                                        <span class="checkmark"></span>
+                                        Wanted
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="test" style="display: none">
+                            <div class="line-bottom"></div>
 
-            <div class="col-md-8">
-                <div class="card">
-                    <div>
-                    <h4>Choose perspective form</h4>
-                    <div class="group-input">
-                        <div class="gi-more">
-                            <label class="login-text" for="save-pass">
-                                <input type="radio" id="save-pass">
-                                <span class="checkmark"></span>
-                                Keep me signed in.
-                            </label>
+                            <div style="padding: 70px">
+                                <div class="headtext-weight">Material Information</div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Date of submission</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Name of material</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Material status</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">State of material</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Category</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Product season</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Quantity</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Price</label>
+                                    </div>
+                                    <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
+                                        <div>RM</div>
+                                    </div>
+                                    <div class="col-md-2" style="padding-left: 0;">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Shelflife/degradation period</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Package</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">State</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">location</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div>
-                    <h4>Material Information</h4>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="login-text">Date of submission</label>
-                        </div>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <p></p>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="login-text">Name of material</label>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <p></p>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="login-text">Material status</label>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <p></p>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="login-text">State of material</label>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <p></p>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="login-text">Category</label>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control">
+
+                        <div id="test1" style="display: none">
+                            <div class="line-bottom"></div>
+
+                            <div style="padding: 70px">
+                                <div class="headtext-weight">Material Information</div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Date of submission</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Name of material</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">State of material</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Category</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
-    </div>
 
-    <footer class="footer-section" style="background-color: #3A595D;">
-       <div class="container">
-           <div class="row" style="padding-top: 5px;">
-               <div class="col-lg-2 text-right">
-                <a href="#" style="color: white;">Contact Us</a>
-               </div>
-               <div class="col-lg-4">
-                <a href="#" style="color: white;">Terms and Conditions</a>
-               </div>
-               <div class="col-lg-5 text-right">
-                 <p style="color: white;"><i class="fa fa-copyright"></i>Prospect W2W. All rights reserved.</p>
-               </div>
-           </div>
+    <footer id="footer" class="footer-section footer-stay" style="background-color: #3A595D;">
+        <div class="container">
+            <div class="row" style="padding-top: 5px;">
+                <div class="col-lg-2 text-right">
+                    <a href="#" style="color: white;">Contact Us</a>
+                </div>
+                <div class="col-lg-4">
+                    <a href="#" style="color: white;">Terms and Conditions</a>
+                </div>
+                <div class="col-lg-5 text-right">
+                    <p style="color: white;"><i class="fa fa-copyright"></i>Prospect W2W. All rights reserved.</p>
+                </div>
+            </div>
         </div>
     </footer>
+
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -191,6 +373,33 @@ i {
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+
+        function checkRadio1() {
+            if ($('#save-pass1').prop('checked', true)) {
+                console.log('keluar form available');
+                $('#test').css('display', 'block');
+                $('#testing').css('display', 'block');
+
+                $('#test1').css('display', 'none');
+
+                $('#footer').removeClass('footer-stay');
+            }
+        }
+
+        function checkRadio2() {
+            if ($('#save-pass2').prop('checked', true)) {
+                console.log('keluar form wanted');
+                $('#test1').css('display', 'block');
+                $('#testing').css('display', 'block');
+
+                $('#test').css('display', 'none');
+
+                $('#footer').removeClass('footer-stay');
+            }
+        }
+    </script>
 </body>
 
 </html>

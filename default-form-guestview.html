@@ -6,12 +6,37 @@
     font-size: 12px !important;
 }
 
-.login-form .group-input .gi-more label input:checked~span:after {
-    border-color: white !important;
+.header-margin{
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
-.footer-section {
-    padding-top: none !important;
+.detext-margin{
+    padding: 20px 0px 20px 20px;
+}
+
+.paragraphline-height {
+    line-height: 1.6;
+    margin-left: 20px;
+}
+
+.headtext-weight {
+    font-weight: bold;
+    font-size: 20px !important;
+    margin-bottom: 20px !important;
+    text-weight: bold !important
+}
+
+.normal-text {
+    font-size: 16px !important
+}
+
+.page-color {
+    background-color: #FAFAFA;
+}
+
+.body-color {
+    background-color: lightblue;
 }
 
 html * {
@@ -27,6 +52,33 @@ i {
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+}
+
+ul li a{
+    color: #707070;
+    font-size: 16px;
+    line-height: 2.5;
+}
+
+.icon-menu {
+    color: white;
+}
+
+ul li a:hover{
+    color: black;
+}
+
+ul li a:hover .icon-menu{
+    color: black;
+}
+
+ul li a.active{
+    font-weight: bold;
+    color: black!important;
+}
+
+ul li a.active i {
+    color: black!important;
 }
 
 
@@ -63,6 +115,7 @@ i {
     </div>
 
     <!-- Header Section Begin -->
+<div class="col-md-12 page-color">
     <div class="col-md-10 offset-md-1">
     <header class="header-section" style="margin-bottom: 50px !important">
         <div class="header-top">
@@ -77,7 +130,7 @@ i {
                         </div>
                     </div>
                     <div class="col-lg-10 text-right" style="padding: 20px;">
-                        <button class="btn">My Account</button>
+                        <button class="btn">Login</button>
                     </div>
                 </div>
             </div>
@@ -86,97 +139,64 @@ i {
     </header>
     <!-- Header End -->
 
-    
-    <div class="container" style= "padding-bottom: 50px;">
+    <div class="container" style="padding-bottom: 50px;">
         <div class="row">
-            <div class="col-md-2">
-                <ul>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
+            <div class="col-md-3 text-right">
+                <div class="headtext-weight" style="margin-right: 20px;">Forms</div>
+                <ul style="list-style-type: none;">
+                    <li><a href="" class="active"><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
+                    <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li> 
+                    <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
+                    <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Service</a></li> 
                 </ul>
             </div>
-
-            <div class="col-md-8">
-                <div class="card">
-                    <div>
-                    <h4>Choose perspective form</h4>
-                    <div class="group-input">
-                        <div class="gi-more">
-                            <label class="login-text" for="save-pass">
-                                <input type="radio" id="save-pass">
-                                <span class="checkmark"></span>
-                                Keep me signed in.
-                            </label>
-                        </div>
+            <div class="card col-md-8" style="padding: 30px;">
+                <div>
+                <div style="margin-bottom: 30px;">
+                    <div class="headtext-weight">Choose your right form</div>
+                    <div class="normal-text">You want to advertise your product? Or are you looking for wanted product?</div>
+                    <div class="normal-text">Make your choice by choosing the right form according to your needs:</div>
+                    <div class="detext-margin">
+                    <ul style="font-style: italic; margin-bottom: 0;">
+                        <li>
+                            <p>Available</p>
+                        </li>
+                    </ul>
+                    <div class="paragraphline-height">The available is just right for you if you are choosing to advertise your own product.</div>
+                    <ul style="font-style: italic; margin-bottom: 0;">
+                        <li><p>Wanted</p></li>
+                    </ul>
+                    <div class="paragraphline-height">The wanted form is to submit and advertise your demand or wanted product,to request the product from respective supplier
+                    </div>
                     </div>
                 </div>
-                <div>
-                    <h4>Material Information</h4>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="login-text">Date of submission</label>
-                        </div>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <p></p>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="login-text">Name of material</label>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <p></p>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="login-text">Material status</label>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <p></p>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="login-text">State of material</label>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <p></p>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="login-text">Category</label>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
+                    <div class="normal-text">Choose your form according to the right category of your needs:</div>
+                    <ul style="padding-left: 20px; font-size: 16px; font-style: italic;">
+                        <li><p>Waste</p></li>
+                        <li><p>Technology</p></li>
+                        <li><p>Service</p></li>
+                    </ul>        
                 </div>
             </div>
         </div>
-        </div>
     </div>
-    </div>
+</div>
+</div>
+
 
     <footer class="footer-section" style="background-color: #3A595D;">
        <div class="container">
-           <div class="row" style="padding-top: 5px;">
-               <div class="col-lg-2 text-right">
+            <div class="row" style="padding-top: 5px;">
+            <div class="col-lg-2 text-right">
                 <a href="#" style="color: white;">Contact Us</a>
-               </div>
-               <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4">
                 <a href="#" style="color: white;">Terms and Conditions</a>
-               </div>
-               <div class="col-lg-5 text-right">
-                 <p style="color: white;"><i class="fa fa-copyright"></i>Prospect W2W. All rights reserved.</p>
-               </div>
-           </div>
+            </div>
+            <div class="col-lg-5 text-right">
+                <p style="color: white;"><i class="fa fa-copyright"></i>Prospect W2W. All rights reserved.</p>
+            </div>
+            </div>
         </div>
     </footer>
 

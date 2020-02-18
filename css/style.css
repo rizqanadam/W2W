@@ -81,7 +81,7 @@ p {
 	color: #636363;
 	font-weight: 400;
 	line-height: 26px;
-	margin: 0 0 15px 0;
+	margin: 0 0 5px 0;
 }
 
 img {
@@ -413,7 +413,7 @@ ol {
 }
 
 .inner-header {
-	padding: 39px 0;
+	padding: 30px 0;
 }
 
 .inner-header .logo {

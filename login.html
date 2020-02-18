@@ -98,11 +98,11 @@ html * {
                             </div>
                             <div class="form-group">
                                 <label class="login-text" for="username">Email </label>
-                                <input type="text" class="form-control" id="username">
+                                <input type="text" class="form-control" id="email">
                             </div>
                             <div class="form-group">
                                 <label class="login-text" for="pass">Password </label>
-                                <input type="text" class="form-control" id="pass">
+                                <input type="password" class="form-control" id="password">
                             </div>
                             <div class="group-input">
                                 <div class="gi-more">
@@ -114,9 +114,9 @@ html * {
                                 </div>
                             </div>
                             <div>
-                                <a href="./index1.html">
-                                <button  class="site-btn btn login-btn" style="color: white; text-transform: initial; width: 100%">Sign In</button>
-                            </a>
+                                
+                                <button  id="signin" value="submit" class="site-btn btn login-btn" style="color: white; text-transform: initial; width: 100%">Sign In</button>
+                           
                             </div>
                             <div>
                                 <a href="#" class="forget-pass float-right login-text" style="color: #D91F1F; padding-top: 20px;">Forgot pasword?</a>
@@ -129,6 +129,45 @@ html * {
         </div>
     </div>
     <!-- Register Form Section End -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    </script>
+
+    <script> 
+        $(document).ready(function(){
+            $('#signin').on('click',function(){
+                    LoginUser();
+                    //window.location.href = "./index1.html";
+            });
+        });
+
+        function LoginUser(){
+            var email = $('#email').val();
+            var password = $('#password').val();
+
+            if( email !== "" && password !== ""){
+                $.ajax({
+                    url: 'http://codeviable.com/w2w2/public/login?user_email=&password=',
+                    type: 'POST',
+                    data: { 'user_email' : email, 'password' : password },
+                    success: function (response){
+                        if(response.email === email && response.password === password){
+                            console.log(response);
+                            console.log("Logged in");
+                            alert("You're logged in.");
+                        }
+                        else{
+                            console.log(response);
+                            console.log("Invalid email/password");}
+                    }
+                });  
+            }
+            else
+                console.log("Please fill all fields.");
+        }
+    </script>
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>

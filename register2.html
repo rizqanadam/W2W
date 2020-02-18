@@ -124,19 +124,19 @@ i {
                             <div class="form-group">
                                 <p>Email and password</p>
                                 <label class="login-text" for="username">Email</label>
-                                <input type="text" class="form-control" id="email">
+                                <input type="text" class="form-control" id="email" required>
                             </div>
                             <div class="form-group">
                                 <label class="login-text" for="pass">Password</label>
-                                <input type="text" class="form-control" id="password">
+                                <input type="password" class="form-control" id="password" required>
                             </div>
                             <div class="form-group" style="padding-bottom: 20px;">
                                 <label class="login-text" for="pass">Confirm password</label>
-                                <input type="text" class="form-control" id="password">
-                            <a href="./register3.html">
+                                <input type="password" class="form-control" id="confirmpassword">
+                            
                             </div>
-                            <button class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
-                            </a>
+                            <button id="next" value="submit" class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                            
                     </div>
                     </div>
                 </div>
@@ -146,6 +146,41 @@ i {
     </div>
 </div>
     <!-- Register Form Section End -->
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+    <script>
+
+        $(document).on('click', function(){
+            $('#next').on('click',function(){
+                AddUser();
+                window.location.href = "./register3.html";
+            });
+        });
+
+        function AddUser(){
+        
+            //get the existing data
+            var existing = localStorage.getItem('user');
+
+            // If no existing data, create an array
+            // Otherwise, convert the localStorage string to an array
+            existing = existing ? JSON.parse(existing) : {};
+
+            //Add new data to localStorage
+            existing['user_email'] = document.getElementById("email").value;
+            existing['password'] = document.getElementById("password").value;
+            existing['confirmpassword'] = document.getElementById("confirmpassword").value;
+            existing['user_type'] = "individual";
+          
+            //set new data to localStorage
+            localStorage.setItem('user', JSON.stringify(existing));
+    
+        }
+    </script>
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>

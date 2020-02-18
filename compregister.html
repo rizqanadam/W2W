@@ -134,9 +134,9 @@ i {
                                 <label class="login-text" for="pass">Company description</label>
                                 <textarea type="text" class="form-control" id="compdescription"></textarea>
                             </div>
-                            <a href="./compregister1.html">
-                            <button class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
-                        </a>
+                            
+                            <button id="next" value="submit" class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                        
                     </div>
                     </div>
                 </div>
@@ -146,6 +146,33 @@ i {
     </div>
 </div>
     <!-- Register Form Section End -->
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+    <script>
+
+        $(document).on('click', function(){
+            $('#next').on('click',function(){
+                AddUser();
+                window.location.href = "./compregister1.html";
+            });
+        });
+
+        function AddUser(){
+           
+            var postdata = {
+            companyname: document.getElementById("compname").value,
+            companyregisternumber: document.getElementById("compregistrationnumber").value,
+            companydesc: document.getElementById("compdescription").value
+            };
+
+            localStorage.setItem('user', JSON.stringify(postdata));
+    
+        }
+    </script>
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>

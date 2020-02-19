@@ -103,6 +103,12 @@ ul li a.active{
     color: #27AE60!important;
 }
 
+#user_fname::-webkit-input-placeholder,
+#user_lname::-webkit-input-placeholder
+{
+  color:    #DCDCDC;
+}
+
 
 </style>
 <head>
@@ -127,6 +133,10 @@ ul li a.active{
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -144,7 +154,7 @@ ul li a.active{
                   <div class="row">
                       <div class="col-lg-2 col-md-2" style="padding: 0;">
                           <div class="logo">
-                              <a href="./index.html">
+                              <a href="./index1.html">
                                   <img src="img/prospect2.jpg">
                               </a>
                           </div>
@@ -167,9 +177,17 @@ ul li a.active{
                               <a href="#">Link 3</a>
                             </div>
                           </div>
-                          <button class="btn" style="padding: 10px;"><a href="#"></a><img src="img/user.svg">
-                          <h5 style="margin-top: 8px; color: gray;">My Account</h5>
-                      </button>
+                          
+                           <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
+                            <h5 style="margin-top: 8px; color: gray;">My Account</h5>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="./myaccount-defaultview.html">My account</a></li>
+                              <li class="divider"></li>
+                              <li><a href="#">Logout</a></li>
+                            </ul>
+                          </div>
                           <button class="btn btn-warning">Submit Ad</button>
                       </div>
                   </div>
@@ -183,17 +201,17 @@ ul li a.active{
           <div class="col-md-3" style="margin-top: 40px;">
             <div class="row">
             <div class="col-md-4">
-              <img src="img/henrycavill.jpg" alt="Avatar" style="width:300px; border-radius: 50%">
+              <img id="image1" src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
             </div>
             <div class="col-md-8">
-              <div style="font-weight: bold;">Henry Cavill</div>
-              <p style="color: #8B8B8B;">Edit profile</p>
+              <div id="user_name" style="font-weight: bold; text-transform:capitalize;"> </div>
+              <a href="./myaccount-defaultview.html"><p style="color: #8B8B8B;">&#9998; Edit profile</p></a>
             </div>
           </div>
             <div class="line-bottom"></div>
               <ul style="list-style-type: none;">
-                  <li><a href="" class="active">My Account</a></li>
-                  <li><a href="">My Product</a></li> 
+                  <li><a href="./myaccount-defaultview.html" class="active">My Account</a></li>
+                  <li><a href="./myaccount-myproduct-adsubmitted.html">My Product</a></li> 
                   <li><a href="">My Purchase</a></li>
                   <li><a href="">Notification</a></li> 
               </ul>
@@ -203,6 +221,7 @@ ul li a.active{
             <div>
             <div style="font-weight: bolder; font-size: 20px;">My Profile</div>
             <div>Manage and protect your account</div>
+            <div id="update_status" style="color: orangered; font-weight: bold; font-size: 16px;"></div>
             <div class="line-bottom"></div>
           </div>
           <div class="row">
@@ -211,8 +230,15 @@ ul li a.active{
                 <div class="col-md-4 text-right">
                     <label class="edit-text">Name</label>
                 </div>
-                <div class="col-md-8">
-                    <input type="text" class="form-control">
+                  <div class="col-md-8">
+                    <div class="row">
+                    <div class="col-md-6">
+                      <input id="user_fname" type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="col-md-6">
+                      <input id="user_lname" type="text" class="form-control" placeholder="Last name">
+                    </div>   
+                  </div>
                 </div>
             </div>
             <div class="row text-padding">
@@ -220,7 +246,7 @@ ul li a.active{
                     <label class="edit-text">Email</label>
                 </div>
                 <div class="col-md-8 text-left">
-                    <div>irwan@gmail.com<div><a href="#" style="color: blue; text-decoration: underline;">Change</a></div></div>
+                    <input id="user_email" type="text" class="form-control">
                 </div>
             </div>
             <div class="row text-padding">
@@ -228,7 +254,7 @@ ul li a.active{
                     <label class="edit-text">Company</label>
                 </div>
                 <div class="col-md-8">
-                    <input type="text" class="form-control">
+                    <input style="text-transform:capitalize;" type="text" class="form-control">
                 </div>
             </div>
             <div class="row text-padding">
@@ -236,13 +262,13 @@ ul li a.active{
                     <label class="edit-text">Contact number</label>
                 </div>
                 <div class="col-md-8 text-left">
-                    <div>011-34375756<div><a href="#" style="color: blue;text-decoration: underline;">Change</a></div></div>
+                  <input id="contactnumber" type="text" class="form-control">
                 </div>
             </div>
             <div class="row text-padding" style="margin-top: 40px;">
                 <div class="col-md-4 text-right"></div>
                 <div class="col-md-8 text-left">
-                    <button class="btn btn-success" style="width: 40%;">Save</button>
+                    <button id="save_update" class="btn btn-success" style="width: 40%;">Save</button>
                 </div>
             </div>
           </div>
@@ -251,11 +277,17 @@ ul li a.active{
           </div>
           <div class="col-md-3">
             <div>
-              <img src="img/henrycavill.jpg" alt="Avatar" style="width:150px; border-radius: 50%;">
-              <button class="btn btn-warning" style="margin-top: 20px; width: 100%;">Select image</button>
+
+              <div id="openFile" style="width: 120px; height: 120px; border-radius: 100px; background-color: lightgray; margin-bottom: 20px; display: flex" class="mx-auto dependantImg">
+                <img id="previewProfile" style="width: 120px; height: 120px; border-radius: 100px" src="img/default-profile.png">
+              </div>
+              
+              <input type="file" id="imageUpload" onchange="readURL(this)" accept="image/*" style="display: none">
+              <label for="imageUpload" class="btn btn-warning btn-block btn-outlined">Select image</label>
+              
             </div>
             <div>
-              <p style="padding: 10px; color: #CBCBCB; font-size: 14px;">Please update square image for the perfect fit.</p>
+              <p style="padding: 1px; color: #CBCBCB; font-size: 12px;">Please update square image for the perfect fit.</p>
             </div>
           </div>
           </div>
@@ -281,6 +313,93 @@ ul li a.active{
           </div>
       </div>
   </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+
+        $(document).ready(function(){
+            $userid = localStorage.getItem("user_id");
+
+            $('#openFile').on('click',function(){
+                $('#imageUpload').trigger('click');
+            });
+          
+            userData();
+
+            $('#save_update').on('click',function(){
+                updateUser();
+            });
+            
+        });
+
+        //display user data
+        function userData(){
+
+          $.ajax({
+            url: 'http://codeviable.com/w2w2/public/user/detail?user_id=',
+            type: 'GET',
+            data: { "user_id" : $userid },
+            success: function(response){
+              console.log(response);
+                $("#image1").html(response.profilepicture);
+                $("#user_name").html(response.user_fname+" "+response.user_lname);
+            }
+          });
+        }
+
+        //update user information 
+        function updateUser(){
+
+          var user_fname = $("#user_fname").val();
+          var user_lname = $("#user_lname").val();
+          var user_email = $("#user_email").val();
+          var user_contact = $("#contactnumber").val();
+          var profile_picture = $("#imageUpload").prop('files');
+          
+          var formData = new FormData();
+          formData.append("user_id", $userid);
+          formData.append("user_fname" , user_fname);
+          formData.append("user_lname" , user_lname);
+          formData.append("user_email" , user_email);
+          formData.append("user_contact" , user_contact);
+          formData.append("profilepicture" , profile_picture[0]);
+
+          $.ajax({
+            url: "http://codeviable.com/w2w2/public/user/update?user_id=&user_fname&user_lname&user_email&user_contact&profilepicture",
+            dataType: "JSON",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response){
+              $("#update_status").html("Successfully updated!").delay(2000).fadeOut(300);
+              setTimeout(function () {
+                location.reload(true);
+              }, 3000);
+            }
+          });
+        }
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#previewProfile')
+                        .attr('src', e.target.result)
+                        .css('object-fit', 'cover')
+                        .width(120)
+                        .height(120);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+
+    </script>
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>

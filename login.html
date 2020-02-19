@@ -98,18 +98,18 @@ html * {
                             </div>
                             <div class="form-group">
                                 <label class="login-text" for="username">Email </label>
-                                <input type="text" class="form-control" id="email">
+                                <input type="text" class="form-control" id="email" required>
                             </div>
                             <div class="form-group">
                                 <label class="login-text" for="pass">Password </label>
-                                <input type="password" class="form-control" id="password">
+                                <input type="password" class="form-control" id="password" required>
                             </div>
                             <div class="group-input">
                                 <div class="gi-more">
                                     <label class="login-text" for="save-pass">
                                         Keep me signed in.
                                         <input type="checkbox" id="save-pass">
-                                        <span class="checkmark"></span>
+                                        <span id="keepme_signedin" class="checkmark"></span>
                                     </label>
                                 </div>
                             </div>
@@ -138,8 +138,12 @@ html * {
     <script> 
         $(document).ready(function(){
             $('#signin').on('click',function(){
-                    LoginUser();
-                    //window.location.href = "./index1.html";
+                    LoginUser();    
+                    //setCookie();
+            });
+            
+            $('#keepme_signedin').on('click',function(){
+                setCookie();
             });
         });
 
@@ -156,17 +160,26 @@ html * {
                         if(response.email === email && response.password === password){
                             console.log(response);
                             console.log("Logged in");
-                            alert("You're logged in.");
+                            localStorage.setItem("user_id", JSON.stringify(response.id));
+                            window.location.href = "./index1.html"; 
                         }
                         else{
                             console.log(response);
                             console.log("Invalid email/password");}
                     }
-                });  
+                });
             }
             else
-                console.log("Please fill all fields.");
+                console.log("Please fill all fields.");   
         }
+
+        /*function setCookie() {
+            var email = $('#email').val();
+            
+            localStorage.setItem("email", JSON.stringify(email));
+            document.cookie = escape('email') + "=" + email;
+        }*/
+
     </script>
 
     <!-- Js Plugins -->

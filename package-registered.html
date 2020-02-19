@@ -50,6 +50,12 @@
     padding-bottom: 10px;
 }
 
+.footer-stay {
+     position: absolute;
+     bottom: 0; 
+     width: 100%;
+}
+
 .button-subscribe {
     background-color: #008D50 !important; 
     color: white !important; 
@@ -126,11 +132,29 @@ i {
                         </div>
                     </div>
                     <div class="col-lg-10 text-right" style="padding: 20px;">
-                        <button class="btn">My Account</button>
+                        <a  href="./myaccount-defaultview.html">
+                        <button class="btn" style="padding: 0px;"><img href="#" src="img/user.svg">
+                        <h5 style="margin-top: 8px; color: gray;">My Account</h5></a>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
+
+        <div class="nav-item">
+            <div class="container" style="display: flex;">
+                <nav class="nav-menu mobile-menu" style="margin-right: auto; margin-left: auto;">
+                    <ul style="margin-bottom: 0px; margin-top: 0px;  color: slategrey;">
+                        <li ><a href="./index1.html">Home</a></li>
+                        <li><a href="#">Listings</a></li>
+                        <li><a href="#">Demands</a></li>
+                        <li class="active"><a href="./package-registered.html">Pricing</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">News</a></li>
+                    </ul>
+                </nav>
+                <div id="mobile-menu-wrap"></div>
+            </div>
         </div>
     </header>
     <!-- Header End -->
@@ -176,14 +200,11 @@ i {
             </div>
             <div class="card col-md-2 mx-auto">
                 <div style="margin-left: auto; margin-right: auto;">
-<<<<<<< HEAD
-                    <h4 class="text-center text-type">Premium Package A</h4>
-                    <h2 class="text-center text-price"> RM 300</h2>
-=======
+
                     <h4 id="package_namePA" class="text-center text-type"></h4>
                     <p></p>
                     <h2 id="package_pricePA" class="text-center text-price"></h2>
->>>>>>> 78e74060050028b6ab86b4b74433720e0c752984
+
                     <div class="line-bottom-premium"></div>
                     <div class="text-center text-package">
                         <div id="package_durationPA"></div>
@@ -193,14 +214,10 @@ i {
             </div>
             <div class="card col-md-2 mx-auto">
                 <div style="margin-left: auto; margin-right: auto;">
-<<<<<<< HEAD
-                    <h4 class="text-center text-type">Premium Package B</h4>
-                    <h2 class="text-center text-price"> RM 400</h2>
-=======
                     <h4 id="package_namePB"class="text-center text-type"></h4>
                     <p></p>
                     <h2 id="package_pricePB" class="text-center text-price"></h2>
->>>>>>> 78e74060050028b6ab86b4b74433720e0c752984
+
                     <div class="line-bottom-premium"></div>
                     <div class="text-center text-package">
                         <div id="package_durationPB"></div>
@@ -212,21 +229,21 @@ i {
     </div>
 </div>
 
-    <footer class="footer-section" style="background-color: #3A595D;">
-       <div class="container">
-           <div class="row" style="padding-top: 5px;">
-               <div class="col-lg-2 text-right">
-                <a href="#" style="color: white;">Contact Us</a>
-               </div>
-               <div class="col-lg-4">
-                <a href="#" style="color: white;">Terms and Conditions</a>
-               </div>
-               <div class="col-lg-5 text-right">
-                 <p style="color: white;"><i class="fa fa-copyright"></i>Prospect W2W. All rights reserved.</p>
-               </div>
-           </div>
-        </div>
-    </footer>
+<footer id="footer" class="footer-section footer-stay" style="background-color: #3A595D;">
+    <div class="container">
+         <div class="row" style="padding-top: 5px;">
+         <div class="col-lg-2 text-right">
+             <a href="#" style="color: white;">Contact Us</a>
+         </div>
+         <div class="col-lg-4">
+             <a href="#" style="color: white;">Terms and Conditions</a>
+         </div>
+         <div class="col-lg-5 text-right">
+             <p style="color: white;"><i class="fa fa-copyright"></i>Prospect W2W. All rights reserved.</p>
+         </div>
+         </div>
+     </div>
+ </footer>
 
 
         <!-- Js Plugins -->

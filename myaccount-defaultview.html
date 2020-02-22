@@ -109,6 +109,30 @@ ul li a.active{
   color:    #DCDCDC;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #27AE60 ;
+}
+
 
 </style>
 <head>
@@ -134,9 +158,6 @@ ul li a.active{
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -155,19 +176,19 @@ ul li a.active{
                       <div class="col-lg-2 col-md-2" style="padding: 0;">
                           <div class="logo">
                               <a href="./index1.html">
-                                  <img src="img/prospect2.jpg">
+                                <img src="img/website-logo.png">
                               </a>
                           </div>
                       </div>
-                      <div class="col-lg-6 col-md-6" style="padding: 20px;padding-left: 60px;">
-                          <div class="advanced-search">
-                              <button type="button" class="category-btn">Category</button>
-                              <div class="input-group">
-                                  <input type="text" placeholder="What are you looking for?">
-                                  <button type="button"><i class="fa fa-search"></i>  Search  </button>
-                              </div>
-                          </div>
-                      </div>
+                      <div class="col-lg-6 col-md-6" style="padding: 20px; padding-left: 60px;">
+                        <div class="advanced-search">
+                            <button type="button" class="category-btn">Category</button>
+                            <div class="input-group">
+                                <input type="text" placeholder="What are you looking for?">
+                                <button type="button"><i class="fa fa-search"></i>  Search  </button>
+                            </div>
+                        </div>
+                    </div>
                       <div class="col-lg-4 text-right col-md-4" style="padding: 10px;">
                           <div class="dropdown">
                           <button class="btn"><a href="#"></a><img src="img/ukk.png"></button>
@@ -177,16 +198,15 @@ ul li a.active{
                               <a href="#">Link 3</a>
                             </div>
                           </div>
-                          
-                           <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
+
+                          <div class="dropdown">
+                            <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
                             <h5 style="margin-top: 8px; color: gray;">My Account</h5>
                             </button>
-                            <ul class="dropdown-menu">
-                              <li><a href="./myaccount-defaultview.html">My account</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">Logout</a></li>
-                            </ul>
+                            <div class="dropdown-content">
+                              <a href="./myaccount-defaultview.html">My account</a>
+                              <a href="./index.html">Logout</a>
+                            </div>
                           </div>
                           <button class="btn btn-warning">Submit Ad</button>
                       </div>
@@ -212,7 +232,7 @@ ul li a.active{
               <ul style="list-style-type: none;">
                   <li><a href="./myaccount-defaultview.html" class="active">My Account</a></li>
                   <li><a href="./myaccount-myproduct-adsubmitted.html">My Product</a></li> 
-                  <li><a href="">My Purchase</a></li>
+                  <li><a href="./myaccount-mypurchase-purchasehistory.html">My Purchase</a></li>
                   <li><a href="">Notification</a></li> 
               </ul>
           </div>
@@ -333,6 +353,10 @@ ul li a.active{
             $('#save_update').on('click',function(){
                 updateUser();
             });
+
+            $('#btn_logout').on('click', function(){
+                localStorage.clear();
+            });
             
         });
 
@@ -344,7 +368,6 @@ ul li a.active{
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-              console.log(response);
                 $("#image1").html(response.profilepicture);
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
@@ -375,15 +398,25 @@ ul li a.active{
             data: formData,
             processData: false,
             contentType: false,
-            success: function(response){
-              $("#update_status").html("Successfully updated!").delay(2000).fadeOut(300);
-              setTimeout(function () {
-                location.reload(true);
-              }, 3000);
-            }
+          }).done(function(response) {
+            getUserProfile();
           });
         }
 
+        function getUserProfile(){
+          $.ajax({
+            url: 'http://codeviable.com/w2w2/public/user/detail?user_id=',
+            type: 'GET',
+            data: { "user_id" : $userid },
+            }).done(function(response){
+              $("#user_name").html(response.user_fname+" "+response.user_lname);
+              $("#update_status").html("Successfully updated!").delay(2000).fadeOut(300);
+              setTimeout(() => {
+                $('#update_status').html('').css('display', 'block');
+              }, 3000);
+          });
+        }
+        
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

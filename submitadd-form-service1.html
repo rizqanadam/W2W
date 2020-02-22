@@ -15,7 +15,7 @@
         font-weight: bold;
         font-size: 20px !important;
         margin-bottom: 20px !important;
-        font-weight: bold !important;
+        text-weight: bold !important
     }
 
     .normal-text {
@@ -151,20 +151,10 @@
         visibility: visible;
     }
 
-    .shelflife {
-        visibility: hidden;
-        position: absolute;
-        z-index: 1;
-        border-radius: 5px;
-    }
-
-    .show-shelflife {
-        visibility: visible;
-    }
-
     .location-none{
         display: none;
     }
+
 
 
 </style>
@@ -210,12 +200,12 @@
                                 <div class="col-lg-2 col-md-2" style="padding: 0;">
                                     <div class="logo">
                                         <a href="./index.html">
-                                            <img src="img/website-logo.png">
+                                            <img src="img/prospect2.jpg">
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-lg-10 text-right" style="padding: 40px;">
-                                    <button onclick="window.location.href='./login.html';" class="btn">Login</button>
+                                <div class="col-lg-10 text-right" style="padding: 20px;">
+                                    <button class="btn">Login</button>
                                 </div>
                             </div>
                         </div>
@@ -230,9 +220,9 @@
                         <div class="headtext-weight" style="margin-right: 20px;">Forms</div>
                         <ul style="list-style-type: none;">
                             <li><a href=""><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
-                            <li><a href="" class="active"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li>
+                            <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li>
                             <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
-                            <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Service</a></li>
+                            <li><a href="" class="active"><i class="fa fa-chevron-right icon-menu"></i>Service</a></li>
                         </ul>
                     </div>
 
@@ -260,7 +250,7 @@
                             <div class="line-bottom"></div>
 
                             <div style="padding: 70px">
-                                <div class="headtext-weight">Material Information</div>
+                                <div class="headtext-weight">Service Information</div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
                                         <label class="login-text">Date of submission</label>
@@ -271,23 +261,10 @@
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Name of material</label>
+                                        <label class="login-text">Name of service</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">State of material</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <select class="form-control">
-                                          <option disabled selected>Please choose</option>
-                                          <option>Solid</option>
-                                          <option>Liquid</option>
-                                          <option>Gaseous</option>
-                                        </select>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -297,53 +274,18 @@
                                     <div class="col-md-9">
                                         <select class="form-control">
                                           <option disabled selected>Please choose</option>
-                                          <option>Acids</option>
-                                          <option>Alkalis</option>
-                                          <option>Construction/Building materials</option>
-                                          <option>Equipment and Supplies</option>
-                                          <option>Gaseous</option>
-                                          <option>Metal and Metal Sludges</option>
-                                          <option>Biomass</option>
-                                          <option>Oil and Waxes</option>
-                                          <option>Other Inorganic Chemical</option>
-                                          <option>Other Organic Chemical</option>
-                                          <option>Plastics</option>
-                                          <option>Rubber</option>
-                                          <option>Glass</option>
-                                          <option>Solvents</option>
-                                          <option>Textiles and Leather</option>
-                                          <option>Paints and Coatings</option>
-                                          <option>Wood and Paper</option>
-                                          <option>Labaratory Chemicals</option>
-                                          <option>Electronics</option>
+                                          <option>Transportation</option>
+                                          <option>Analysis</option>
+                                          <option>Packaging</option>
+                                          <option>Waste Treatment</option>
+                                          <option>Recycling</option>
                                           <option>Others</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Product season</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <select class="form-control">
-                                          <option disabled selected>Please choose</option>
-                                          <option>Continuous</option>
-                                          <option>One-Time</option>
-                                          <option>Seasonal</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">Quantity</label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder="0">
-                                    </div>
-                                </div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">Price</label>
+                                        <label class="login-text">Price range</label>
                                     </div>
                                     <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
                                         <div>RM</div>
@@ -351,23 +293,14 @@
                                     <div class="col-md-2" style="padding-left: 0;">
                                         <input type="text" class="form-control" placeholder="0.00">
                                     </div>
-                                </div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">Shelflife  <i class="fas fa-info-circle" id="shelflifepop" style="color: blue;"></i></label></label>
-                                        <div id="shelflife" class="shelflife" style="width: 300px;border: solid lightgray; background-color: #F2F2F2; padding: 10px; margin-left: 50px;">
-                                            <p>Degradation period</p>
-                                            <h5>The length of time for which an item remains usable, fit for consumption, or saleable</h5>
-                                        </div>
+                                    <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
+                                        <div>-</div>
                                     </div>
-                                    <div class="col-md-9">
-                                        <select class="form-control">
-                                          <option disabled selected>Please choose</option>
-                                          <option>Within 3 months</option>
-                                          <option>Within 6 months</option>
-                                          <option>Within 1 year</option>
-                                          <option>Never</option>
-                                        </select>
+                                    <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
+                                        <div>RM</div>
+                                    </div>
+                                    <div class="col-md-2" style="padding-left: 0;">
+                                        <input type="text" class="form-control" placeholder="0.00">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -433,8 +366,8 @@
                                 </div>
                             <div style="margin-top: 30px; margin-bottom: 20px;">
                                 <div style="margin-bottom: 10px; font-weight: bold;">Location</div>
-                                <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                <input type="text" class="form-control" placeholder="Enter your material Address, City, Postcode and State">
+                                <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your service location</div>
+                                <input type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                 <br>
                                 <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                 <div class="row">
@@ -444,11 +377,11 @@
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" placeholder="Longitude">
                                 </div>
-                                </div>
+                                </div> 
                                 <div  id="locationextra1" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
-                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                    <input type="text" class="form-control" placeholder="Enter your material Address, City, Postcode and State">
+                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your service location</div>
+                                    <input type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
                                     <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                     <div class="row">
@@ -462,8 +395,8 @@
                                 </div>
                                 <div  id="locationextra2" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
-                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                    <input type="text" class="form-control" placeholder="Enter your material Address, City, Postcode and State">
+                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your service location</div>
+                                    <input type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
                                     <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                     <div class="row">
@@ -480,14 +413,10 @@
                             </div>
                             <div class="row text-padding">
                                 <div class="col-md-3">
-                                    <label class="login-text">Transportation mode</label>
+                                    <label class="login-text">Website</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <select class="form-control">
-                                      <option disabled selected>Please choose</option>
-                                      <option>Pick up by customer</option>
-                                      <option>Delivered by seller</option>
-                                    </select>
+                                    <input type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="row text-padding">
@@ -582,15 +511,17 @@
                                     </div>
                                 </div>
                             </div>
-                            </div>    
-                        </div>
+                            
+                            </div>
+                            
+                            </div>
                         </div>
 
                         <div id="test1" style="display: none">
                             <div class="line-bottom"></div>
 
                             <div style="padding: 70px">
-                                <div class="headtext-weight">Material Information</div>
+                                <div class="headtext-weight">Service Information</div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
                                         <label class="login-text">Date of submission</label>
@@ -601,23 +532,10 @@
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Name of material</label>
+                                        <label class="login-text">Name of service</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">State of material</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <select class="form-control">
-                                          <option disabled selected>Please choose</option>
-                                          <option>Solid</option>
-                                          <option>Liquid</option>
-                                          <option>Gaseous</option>
-                                        </select>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -627,40 +545,33 @@
                                     <div class="col-md-9">
                                         <select class="form-control">
                                           <option disabled selected>Please choose</option>
-                                          <option>Acids</option>
-                                          <option>Alkalis</option>
-                                          <option>Construction/Building materials</option>
-                                          <option>Equipment and Supplies</option>
-                                          <option>Gaseous</option>
-                                          <option>Metal and Metal Sludges</option>
-                                          <option>Biomass</option>
-                                          <option>Oil and Waxes</option>
-                                          <option>Other Inorganic Chemical</option>
-                                          <option>Other Organic Chemical</option>
-                                          <option>Plastics</option>
-                                          <option>Rubber</option>
-                                          <option>Glass</option>
-                                          <option>Solvents</option>
-                                          <option>Textiles and Leather</option>
-                                          <option>Paints and Coatings</option>
-                                          <option>Wood and Paper</option>
-                                          <option>Labaratory Chemicals</option>
-                                          <option>Electronics</option>
+                                          <option>Transportation</option>
+                                          <option>Analysis</option>
+                                          <option>Packaging</option>
+                                          <option>Waste Treatment</option>
+                                          <option>Recycling</option>
                                           <option>Others</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Product season</label>
+                                        <label class="login-text">Price range</label>
                                     </div>
-                                    <div class="col-md-9">
-                                        <select class="form-control">
-                                          <option disabled selected> Please choose</option>
-                                          <option>Continuous</option>
-                                          <option>One-Time</option>
-                                          <option>Seasonal</option>
-                                        </select>
+                                    <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
+                                        <div>RM</div>
+                                    </div>
+                                    <div class="col-md-2" style="padding-left: 0;">
+                                        <input type="text" class="form-control" placeholder="0.00">
+                                    </div>
+                                    <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
+                                        <div>-</div>
+                                    </div>
+                                    <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
+                                        <div>RM</div>
+                                    </div>
+                                    <div class="col-md-2" style="padding-left: 0;">
+                                        <input type="text" class="form-control" placeholder="0.00">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -726,8 +637,8 @@
                                 </div>
                             <div style="margin-top: 30px; margin-bottom: 20px;">
                                 <div style="margin-bottom: 10px; font-weight: bold;">Location</div>
-                                <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                <input type="text" class="form-control" placeholder="Enter your material Address, City, Postcode and State">
+                                <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your service location</div>
+                                <input type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                 <br>
                                 <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                 <div class="row">
@@ -740,8 +651,8 @@
                                 </div>
                                 <div  id="locationextra3" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
-                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                    <input type="text" class="form-control" placeholder="Enter your material Address, City, Postcode and State">
+                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your service location</div>
+                                    <input type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
                                     <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                     <div class="row">
@@ -755,8 +666,8 @@
                                 </div>
                                 <div  id="locationextra4" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
-                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                    <input type="text" class="form-control" placeholder="Enter your material Address, City, Postcode and State">
+                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your service location</div>
+                                    <input type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
                                     <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                     <div class="row">
@@ -773,14 +684,10 @@
                             </div>
                             <div class="row text-padding">
                                 <div class="col-md-3">
-                                    <label class="login-text">Transportation mode</label>
+                                    <label class="login-text">Website</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <select class="form-control">
-                                      <option disabled selected>Please choose</option>
-                                      <option>Pick up by customer</option>
-                                      <option>Delivered by seller</option>
-                                    </select>
+                                    <input type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="row text-padding">
@@ -875,9 +782,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            </div>
-                            
                             </div>
                         </div>
                         </div>
@@ -944,6 +848,7 @@
                 $('#productPicture5').trigger('click');
             });
 
+
             $("#showpackage").on('click', function() {
                 if($('#pop').hasClass('show-pop')) {
                     $('#pop').removeClass('show-pop');
@@ -957,14 +862,6 @@
                     $('#pop2').removeClass('show-pop');
                 } else {
                     $('#pop2').addClass('show-pop');
-                }
-            });
-
-            $("#shelflifepop").on('click', function() {
-                if($('#shelflife').hasClass('show-shelflife')) {
-                    $('#shelflife').removeClass('show-shelflife');
-                } else {
-                    $('#shelflife').addClass('show-shelflife');
                 }
             });
 
@@ -985,7 +882,6 @@
                     $('#addlocation1').css('display','none');
                 }
             })
-
         });
 
         function checkRadio1() {

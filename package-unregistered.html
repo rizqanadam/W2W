@@ -2,6 +2,10 @@
 <html lang="zxx">
 <style>
 
+.nav-item .nav-menu li a {
+        color: black !important;
+}       
+
 .login-text {
     font-size: 16px !important;
 }
@@ -127,16 +131,32 @@ i {
                     <div class="col-lg-2 col-md-2" style="padding: 0;">
                         <div class="logo">
                             <a href="./index.html">
-                                <img src="img/prospect2.jpg">
+                                <img src="img/website-logo.png">
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-10 text-right" style="padding: 20px;">
-                        <button class="btn">Login</button>
+                    <div class="col-lg-10 text-right" style="padding: 40px;">
+                        <a href="./login.html"><button class="btn">Login</button></a>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
+
+        <div class="nav-item">
+            <div class="container" style="display: flex;">
+                <nav class="nav-menu mobile-menu" style="margin-right: auto; margin-left: auto;">
+                    <ul style="margin-bottom: 0px; margin-top: 0px;">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="#">Available</a></li>
+                        <li><a href="#">Wanted</a></li>
+                        <li class="active"><a href="./package-registered.html">Pricing</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <div id="mobile-menu-wrap"></div>
+            </div>
         </div>
     </header>
     <!-- Header End -->

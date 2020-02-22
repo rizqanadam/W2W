@@ -113,6 +113,30 @@ ul ul a {
   font-weight: normal;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #27AE60;
+}
+
 
 </style>
 <head>
@@ -154,8 +178,8 @@ ul ul a {
                   <div class="row">
                       <div class="col-lg-2 col-md-2" style="padding: 0;">
                           <div class="logo">
-                              <a href="./index.html">
-                                  <img src="img/prospect2.jpg">
+                              <a href="./index1.html">
+                                <img src="img/website-logo.png">
                               </a>
                           </div>
                       </div>
@@ -177,8 +201,15 @@ ul ul a {
                               <a href="#">Link 3</a>
                             </div>
                           </div>
-                          <button class="btn" style="padding: 10px;"><a href="#"></a><img src="img/user.svg">
-                          <h5 style="margin-top: 8px; color: gray;">My Account</h5>
+                          <div class="dropdown">
+                            <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
+                            <h5 style="margin-top: 8px; color: gray;">My Account</h5>
+                            </button>
+                            <div class="dropdown-content">
+                              <a href="./myaccount-defaultview.html">My account</a>
+                              <a href="./index.html">Logout</a>
+                            </div>
+                          </div>
                       </button>
                           <button class="btn btn-warning">Submit Ad</button>
                       </div>
@@ -193,10 +224,10 @@ ul ul a {
           <div class="col-md-3" style="margin-top: 40px;">
             <div class="row">
             <div class="col-md-4">
-              <img src="img/henrycavill.jpg" alt="Avatar" style="width:300px; border-radius: 50%">
+              <img src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
             </div>
             <div class="col-md-8">
-              <div style="font-weight: bold;">Henry Cavill</div>
+              <div id="user_name" style="font-weight: bold; text-transform:capitalize;"> </div>
               <!-- <span style='font-size:100px;'>&#9998;</span> -->
               <a href="./myaccount-defaultview.html"><p style="color: #8B8B8B;">&#9998; Edit profile</p></a>
             </div>
@@ -210,32 +241,15 @@ ul ul a {
                     <a href="">Ratings and Review</a>
                   </ul>
                 </li>
-                  <li><a href="">My Purchase</a></li>
+                  <li><a href="./myaccount-mypurchase-purchasehistory.html">My Purchase</a></li>
                   <li><a href="">Notification</a></li> 
               </ul>
           </div>
 
           <div class="card col-md-8" style="padding: 20px; margin-bottom: 50px;">
-            <div>
-            <div class="row">
-              <div class="col-md-2">
-                <img src="img/henrycavill.jpg">
-              </div>
-              <div class="col-md-8">
-                <p>Organic compose</p>
-              </div>
+            <div id="product_display">
+
             </div>
-            <div class="line-bottom"></div>
-            <div class="row">
-              <div class="col-md-2">
-                <img src="img/henrycavill.jpg">
-              </div>
-              <div class="col-md-8">
-                <p>Plastic pellets</p>
-              </div>
-            </div>
-            <div class="line-bottom"></div>
-          </div>
           </div>
         </div>
       </div>
@@ -244,20 +258,91 @@ ul ul a {
 
 
   <footer class="footer-section" style="background-color: #3A595D;">
-     <div class="container">
-          <div class="row" style="padding-top: 5px;">
-          <div class="col-lg-2 ">
-              <a href="#" style="color: white;">Contact Us</a>
-          </div>
-          <div class="col-lg-6">
-              <a href="#" style="color: white;">Terms and Conditions</a>
-          </div>
-          <div class="col-lg-4 text-right">
-              <p style="color: white;"><i class="fa fa-copyright"></i> Prospect W2W. All rights reserved.</p>
-          </div>
-          </div>
-      </div>
-  </footer>
+    <div class="container">
+         <div class="row" style="padding-top: 5px;">
+         <div class="col-lg-2 ">
+             <a href="#" style="color: white;">Contact Us</a>
+         </div>
+         <div class="col-lg-6">
+             <a href="#" style="color: white;">Terms and Conditions</a>
+         </div>
+         <div class="col-lg-4 text-right">
+             <p style="color: white;"><i class="fa fa-copyright"></i> Prospect W2W. All rights reserved.</p>
+         </div>
+         </div>
+     </div>
+ </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+
+        $(document).ready(function(){
+            $userid = localStorage.getItem("user_id");
+          
+            userData();
+
+            $('#btn_logout').on('click', function(){
+                localStorage.clear();
+            });
+
+            displayProduct();
+            
+        });
+
+        //display user data
+        function userData(){
+          $.ajax({
+            url: 'http://codeviable.com/w2w2/public/user/detail?user_id=',
+            type: 'GET',
+            data: { "user_id" : $userid },
+            success: function(response){
+              console.log(response);
+                $("#image1").html(response.profilepicture);
+                $("#user_name").html(response.user_fname+" "+response.user_lname);
+            }
+          });
+        }
+
+        function displayProduct() {
+          $.ajax({
+            url: "http://codeviable.com/w2w2/public/product/listuserproduct?user_id=",
+            type: "GET",
+            data: { 'user_id' : $userid },
+          }).done(function(response) {
+            console.log(response);
+            var tr = "";
+            var dummyImg = 'img/petroleum.jpg';
+
+            $.each(response, function(i, data){
+              
+                tr += '<div class="row"><div class="col-md-2"><img src="' + dummyImg + '"></div><div class="col-md-8"><p style="text-transform:capitalize;"> ' + data.product_name + '</p></div></div>';
+                tr += '<div class="line-bottom"></div>';
+
+            });
+
+            $("#product_display").html(tr);
+          
+          });
+        }
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#product_image')
+                        .attr('src', e.target.result)
+                        .css('object-fit', 'cover')
+                        .width(120)
+                        .height(120);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>

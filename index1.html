@@ -30,11 +30,6 @@
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 .margin-centre{
     margin-top: auto;
@@ -79,6 +74,29 @@ i {
     background-color: gray !important;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+    color: #27AE60 ;
+}
 </style>
 <head>
     <meta charset="UTF-8">
@@ -120,7 +138,7 @@ i {
                     <div class="col-lg-2 col-md-2" style="padding: 0;">
                         <div class="logo">
                             <a href="./index.html">
-                                <img src="img/prospect2.jpg">
+                                <img src="img/website-logo.png">
                             </a>
                         </div>
                     </div>
@@ -142,10 +160,17 @@ i {
                             <a href="#">Link 3</a>
                           </div>
                         </div>
-                        <a  href="./myaccount-defaultview.html">
-                        <button class="btn" style="padding: 10px;"><img href="#" src="img/user.svg">
-                        <h5 style="margin-top: 8px; color: gray;">My Account</h5></a>
-                    </button>
+
+                        <div class="dropdown">
+                            <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
+                            <h5 style="margin-top: 8px; color: gray;">My Account</h5>
+                            </button>
+                            <div class="dropdown-content">
+                              <a href="./myaccount-defaultview.html">My account</a>
+                              <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    
                         <button class="btn btn-warning">Submit Ad</button>
                     </div>
                 </div>
@@ -157,11 +182,11 @@ i {
                 <nav class="nav-menu mobile-menu" style="margin-right: auto; margin-left: auto;">
                     <ul style="margin-bottom: 0px; margin-top: 0px;">
                         <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./shop.html">Listings</a></li>
-                        <li><a href="#">Demands</a></li>
+                        <li><a href="#">Available</a></li>
+                        <li><a href="#">Wanted</a></li>
                         <li><a href="./package-registered.html">Pricing</a></li>
-                        <li><a href="./contact.html">Contact Us</a></li>
                         <li><a href="#">News</a></li>
+                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>

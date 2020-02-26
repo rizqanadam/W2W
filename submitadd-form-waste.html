@@ -170,10 +170,10 @@ ul li a.active i {
             <div class="col-md-3 text-right">
                 <div class="headtext-weight" style="margin-right: 20px;">Forms</div>
                 <ul style="list-style-type: none;">
-                    <li><a href=""><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
-                    <li><a href="" class="active"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li> 
-                    <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
-                    <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Service</a></li> 
+                    <li><a href="./default-form-guestview.html"><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
+                    <li><a href="./submitadd-form-waste.html" class="active"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li> 
+                    <li><a href="./submitadd-form-technology.html"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
+                    <li><a href="./submitadd-form-service.html"><i class="fa fa-chevron-right icon-menu"></i>Service</a></li> 
                 </ul>
             </div>
 
@@ -182,15 +182,15 @@ ul li a.active i {
                     <div class="headtext-weight">Choose perspective form</div>
                     <div class="group-input" style="margin-left: 20px;">
                         <div class="gi-more">
-                            <label class="login-text" for="save-pass1">
-                                <input type="radio" id="save-pass1" name="waste" onchange="checkRadio1()">
+                            <label style="cursor:pointer" class="login-text" for="save-pass1">
+                                <input style="cursor:pointer" type="radio" id="save-pass1" name="waste" onchange="checkRadio1()">
                                 <span class="checkmark"></span>
                                 Available
                             </label>
                         </div>
                          <div class="gi-more">
-                            <label class="login-text" for="save-pass2">
-                                <input type="radio" id="save-pass2" name="waste" onchange="checkRadio2()">
+                            <label style="cursor:pointer" class="login-text" for="save-pass2">
+                                <input style="cursor:pointer" type="radio" id="save-pass2" name="waste" onchange="checkRadio2()">
                                 <span class="checkmark"></span>
                                 Wanted
                             </label>
@@ -304,7 +304,7 @@ ul li a.active i {
                         <label class="login-text">Email</label>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control">
+                        <input id="email" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="row text-padding">
@@ -312,7 +312,7 @@ ul li a.active i {
                         <label class="login-text">Password</label>
                     </div>
                     <div class="col-md-4">
-                        <input type="Password" class="form-control">
+                        <input id="password" type="Password" class="form-control">
                     </div>
                 </div>
                 <div class="row text-padding">
@@ -329,9 +329,9 @@ ul li a.active i {
                         </div>
                     </div>
                     <div>
-                    <a href="./index.html">
-                        <button  class="btn btn-success" style="color: white; text-transform: initial; width: 100%">Sign In</button>
-                    </a>
+                    
+                        <button  id="signin" class="btn btn-success" style="color: white; text-transform: initial; width: 100%">Sign In</button>
+                    
                     </div>
                     <div>
                         <a href="#" class="forget-pass float-right login-text" style="color: #D91F1F; padding-top: 20px;">Forgot pasword?</a>
@@ -435,6 +435,58 @@ ul li a.active i {
                  $('#footer').removeClass('footer-stay');
             }
         }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    </script>
+
+    <script> 
+        $(document).ready(function(){
+            $('#signin').on('click',function(){
+                LoginUser();    
+                setCookie();
+            });
+            
+            $('#keepme_signedin').on('click',function(){
+                setCookie();
+            });
+        });
+
+        function LoginUser(){
+            var email = $('#email').val();
+            var password = $('#password').val();
+
+            if( email !== "" && password !== ""){
+                $.ajax({
+                    url: 'http://codeviable.com/w2w2/public/login?user_email=&password=',
+                    type: 'POST',
+                    data: { 'user_email' : email, 'password' : password },
+                    success: function (response){
+                        if(response.email === email && response.password === password){
+                            console.log(response);
+                            console.log("Logged in");
+                            localStorage.setItem("user_id", JSON.stringify(response.id));
+                            window.location.href = "./submitadd-form-waste1.html"; 
+                        }
+                        else{
+                            console.log(response);
+                            console.log("Invalid email/password");}
+                    }
+                });
+            }
+            else
+                console.log("Please fill all fields.");   
+        }
+
+        function setCookie() {
+            var email = $('#email').val();
+            
+            localStorage.setItem("email", JSON.stringify(email));
+            document.cookie = escape('email') + "=" + email;
+        }
+
     </script>
 </body>
 

@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <style>
+
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /*z-index: 1;*/
+    }
+
+    .dropdown-content a {
+    color: black;
+    padding: 6px;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    }
+
     .login-text {
         font-size: 14px !important;
     }
@@ -15,7 +38,7 @@
         font-weight: bold;
         font-size: 20px !important;
         margin-bottom: 20px !important;
-        text-weight: bold !important
+        font-weight: bold !important
     }
 
     .normal-text {
@@ -124,6 +147,7 @@
         width: 22px !important;
     }
 
+    textarea::placeholder,
     input::placeholder{
         color: lightgray !important;
     }
@@ -155,7 +179,29 @@
         display: none;
     }
 
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
 
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    font-size: small;
+    }
+
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+
+    .dropdown-content a:hover {
+    color: #27AE60 ;
+    }
 
 
 </style>
@@ -200,13 +246,21 @@
                             <div class="row">
                                 <div class="col-lg-2 col-md-2" style="padding: 0;">
                                     <div class="logo">
-                                        <a href="./index.html">
-                                            <img src="img/prospect2.jpg">
+                                        <a href="./index1.html">
+                                            <img src="img/website-logo.png">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-lg-10 text-right" style="padding: 20px;">
-                                    <button class="btn">Login</button>
+                                    <div class="dropdown">
+                                        <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
+                                        <h5 style="margin-top: 8px; color: gray;">My Account</h5>
+                                        </button>
+                                        <div class="dropdown-content">
+                                          <a href="./myaccount-defaultview.html">My account</a>
+                                          <a href="./index.html">Logout</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -220,10 +274,10 @@
                     <div class="col-md-3 text-right">
                         <div class="headtext-weight" style="margin-right: 20px;">Forms</div>
                         <ul style="list-style-type: none;">
-                            <li><a href=""><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
-                            <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li>
-                            <li><a href="" class="active"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
-                            <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Service</a></li>
+                            <li><a href="./default-form-userview.html"><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
+                            <li><a href="./submitadd-form-waste1.html"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li>
+                            <li><a href="./submitadd-form-technology1.html" class="active"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
+                            <li><a href="./submitadd-form-service1.html"><i class="fa fa-chevron-right icon-menu"></i>Service</a></li>
                         </ul>
                     </div>
 
@@ -232,15 +286,15 @@
                             <div class="headtext-weight">Choose your respective form</div>
                             <div class="group-input" style="margin-left: 20px;">
                                 <div class="gi-more">
-                                    <label class="login-text" for="save-pass1">
-                                        <input type="radio" id="save-pass1" name="waste" onchange="checkRadio1()">
+                                    <label style="cursor:pointer" class="login-text" for="save-pass1">
+                                        <input style="cursor:pointer" type="radio" id="save-pass1" name="waste" onchange="checkRadio1()">
                                         <span class="checkmark"></span>
                                         Available
                                     </label>
                                 </div>
                                 <div class="gi-more">
-                                    <label class="login-text" for="save-pass2">
-                                        <input type="radio" id="save-pass2" name="waste" onchange="checkRadio2()">
+                                    <label style="cursor:pointer" class="login-text" for="save-pass2">
+                                        <input style="cursor:pointer" type="radio" id="save-pass2" name="waste" onchange="checkRadio2()">
                                         <span class="checkmark"></span>
                                         Wanted
                                     </label>
@@ -257,7 +311,7 @@
                                         <label class="login-text">Date of submission</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="text" class="form-control">
+                                        <input id="dateSubmission" type="text" class="form-control" placeholder="dd/mm/yyyy">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -265,7 +319,7 @@
                                         <label class="login-text">Name of technology</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="product_name" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -273,7 +327,7 @@
                                         <label class="login-text">Category</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select class="form-control">
+                                        <select id="categoryDropdown" style="cursor:pointer" class="form-control">
                                           <option disabled selected>Please choose</option>
                                           <option>Recycling</option>
                                           <option>Energy Saving</option>
@@ -288,7 +342,7 @@
                                         <label class="login-text">Target industry</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="product_target" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -299,7 +353,7 @@
                                         <div>RM</div>
                                     </div>
                                     <div class="col-md-2" style="padding-left: 0;">
-                                        <input type="text" class="form-control" placeholder="0.00">
+                                        <input id="product_price" type="text" class="form-control" placeholder="0.00">
                                     </div>
                                     <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
                                         <div>-</div>
@@ -308,7 +362,7 @@
                                         <div>RM</div>
                                     </div>
                                     <div class="col-md-2" style="padding-left: 0;">
-                                        <input type="text" class="form-control" placeholder="0.00">
+                                        <input id="product_price2" type="text" class="form-control" placeholder="0.00">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -362,7 +416,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-9">
-                                        <select class="form-control">
+                                        <select id="packageDropdown" style="cursor:pointer" class="form-control">
                                           <option disabled selected>Please choose</option>
                                           <option>Package A</option>
                                           <option>Package B</option>
@@ -375,44 +429,44 @@
                             <div style="margin-top: 30px; margin-bottom: 20px;">
                                 <div style="margin-bottom: 10px; font-weight: bold;">Location</div>
                                 <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your technology location</div>
-                                <input type="text" class="form-control" placeholder="Enter your technology Address, City, Postcode and State">
+                                <input id="product_location" type="text" class="form-control" placeholder="Enter your technology Address, City, Postcode and State">
                                 <br>
                                 <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                 <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Latitude">
+                                    <input id="latitude" type="text" class="form-control" placeholder="Latitude">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Longitude">
+                                    <input id="longitude" type="text" class="form-control" placeholder="Longitude">
                                 </div>
                                 </div>
                                 <div  id="locationextra1" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
                                     <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your technology location</div>
-                                    <input type="text" class="form-control" placeholder="Enter your technology Address, City, Postcode and State">
+                                    <input id="product_location2" type="text" class="form-control" placeholder="Enter your technology Address, City, Postcode and State">
                                     <br>
                                     <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                     <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Latitude">
+                                        <input id="latitude2" type="text" class="form-control" placeholder="Latitude">
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Longitude">
+                                        <input id="longitude2" type="text" class="form-control" placeholder="Longitude">
                                     </div>
                                     </div>
                                 </div>
                                 <div  id="locationextra2" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
                                     <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your technology location</div>
-                                    <input type="text" class="form-control" placeholder="Enter your technology Address, City, Postcode and State">
+                                    <input id="product_location3" type="text" class="form-control" placeholder="Enter your technology Address, City, Postcode and State">
                                     <br>
                                     <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                     <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Latitude">
+                                        <input id="latitude3" type="text" class="form-control" placeholder="Latitude">
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Longitude">
+                                        <input id="longitude3" type="text" class="form-control" placeholder="Longitude">
                                     </div>
                                     </div>
                                 </div> 
@@ -424,7 +478,7 @@
                                     <label class="login-text">Website</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control">
+                                    <input id="website" type="text" class="form-control" placeholder="Please state">
                                 </div>
                             </div>
                             <div class="row text-padding">
@@ -432,7 +486,7 @@
                                     <label class="login-text">Additional information</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <textarea type="text" class="form-control"></textarea>
+                                    <textarea id="product_desc" type="text" class="form-control" placeholder="Write your additional information..."></textarea>
                                 </div>
                             </div>
                             <div style="margin-top: 30px;">
@@ -486,7 +540,7 @@
                                         <label class="login-text">Company name</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="company_name" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -494,7 +548,7 @@
                                         <label class="login-text">Email address</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="company_email" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -502,7 +556,7 @@
                                         <label class="login-text">Telephone number</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="company_contact" type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -515,7 +569,20 @@
                                         <button class="btn btn-cancell" style="width: 100%">Preview add</button>
                                     </div>
                                     <div class="col-md-5" style="margin-right: auto;">
-                                        <button class="btn btn-success" style="width: 100%">Submit</button>
+                                        <div class="container">
+                                            <button id="submitButton" class="btn btn-success" data-toggle="modal" data-target="#myModal" style="width: 100%">Submit</button>
+                                            <div class="modal fade" id="myModal">
+                                              <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                  <div class="modal-body mx-auto">
+                                                    <img src="img/checkijau.svg">
+                                                  </div>
+                                                  <div class="mx-auto" style="margin: 10px;">Your ad has been submitted</div>
+                                                    <button onclick="window.location.href='./index1.html';" type="button" class="btn btn-success" data-dismiss="modal">Go to homepage</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
                                     </div>
                                 </div>
                             </div>
@@ -535,7 +602,7 @@
                                         <label class="login-text">Date of submission</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="text" class="form-control">
+                                        <input id="dateSubmission2" type="text" class="form-control" placeholder="dd/mm/yyyy">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -543,7 +610,7 @@
                                         <label class="login-text">Name of technology</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="product_name2" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -551,7 +618,7 @@
                                         <label class="login-text">Category</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select class="form-control">
+                                        <select id="categoryDropdown2" style="cursor:pointer" class="form-control">
                                           <option disabled selected>Please choose</option>
                                           <option>Recycling</option>
                                           <option>Energy Saving</option>
@@ -566,7 +633,7 @@
                                         <label class="login-text">Target industry</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="product_target" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -577,7 +644,7 @@
                                         <div>RM</div>
                                     </div>
                                     <div class="col-md-2" style="padding-left: 0;">
-                                        <input type="text" class="form-control" placeholder="0.00">
+                                        <input id="product_price3" type="text" class="form-control" placeholder="0.00">
                                     </div>
                                     <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
                                         <div>-</div>
@@ -586,7 +653,7 @@
                                         <div>RM</div>
                                     </div>
                                     <div class="col-md-2" style="padding-left: 0;">
-                                        <input type="text" class="form-control" placeholder="0.00">
+                                        <input id="product_price4" type="text" class="form-control" placeholder="0.00">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -640,7 +707,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-9">
-                                        <select class="form-control">
+                                        <select id="categoryDropdown2" style="cursor:pointer" class="form-control">
                                           <option disabled selected>Please choose</option>
                                           <option>Package A</option>
                                           <option>Package B</option>
@@ -653,44 +720,44 @@
                             <div style="margin-top: 30px; margin-bottom: 20px;">
                                 <div style="margin-bottom: 10px; font-weight: bold;">Location</div>
                                 <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your technology location</div>
-                                <input type="text" class="form-control" placeholder="Enter your technology Address, City, Postcode and State">
+                                <input id="product_location4" type="text" class="form-control" placeholder="Enter your technology Address, City, Postcode and State">
                                 <br>
                                 <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                 <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Latitude">
+                                    <input id="latitude4" type="text" class="form-control" placeholder="Latitude">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Longitude">
+                                    <input id="longitude4" type="text" class="form-control" placeholder="Longitude">
                                 </div>
                                 </div> 
                                 <div  id="locationextra3" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
                                     <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your technology location</div>
-                                    <input type="text" class="form-control" placeholder="Enter your technology Address, City, Postcode and State">
+                                    <input id="product_location5" type="text" class="form-control" placeholder="Enter your technology Address, City, Postcode and State">
                                     <br>
                                     <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                     <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Latitude">
+                                        <input id="latitude5" type="text" class="form-control" placeholder="Latitude">
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Longitude">
+                                        <input id="longitude5" type="text" class="form-control" placeholder="Longitude">
                                     </div>
                                     </div>
                                 </div>
                                 <div  id="locationextra4" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
                                     <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your technology location</div>
-                                    <input type="text" class="form-control" placeholder="Enter your technology Address, City, Postcode and State">
+                                    <input id="product_location6" type="text" class="form-control" placeholder="Enter your technology Address, City, Postcode and State">
                                     <br>
                                     <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                     <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Latitude">
+                                        <input id="latitude6" type="text" class="form-control" placeholder="Latitude">
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Longitude">
+                                        <input id="longitude6" type="text" class="form-control" placeholder="Longitude">
                                     </div>
                                     </div>
                                 </div> 
@@ -702,7 +769,7 @@
                                     <label class="login-text">Website</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control">
+                                    <input id="website2" type="text" class="form-control" placeholder="Please state">
                                 </div>
                             </div>
                             <div class="row text-padding">
@@ -710,7 +777,7 @@
                                     <label class="login-text">Additional information</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <textarea type="text" class="form-control"></textarea>
+                                    <textarea id="product_desc2" type="text" class="form-control" placeholder="Write your additional information..."></textarea>
                                 </div>
                             </div>
                             <div style="margin-top: 30px;">
@@ -722,35 +789,35 @@
                                     <div class="col-md-9">
                                     <div class="row">
                                     <div class="col-md-3">
-                                        <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
-                                        <div id="openFile1" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
-                                        <img id="previewProfile1" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <input id="productPicture6" type="file" onchange="readURL(this, 'previewProfile6')" style="display: none">
+                                        <div id="openFile6" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                        <img id="previewProfile6" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="productPicture2" type="file" onchange="readURL(this, 'previewProfile2')" style="display: none">
-                                        <div id="openFile2" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
-                                        <img id="previewProfile2" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <input id="productPicture7" type="file" onchange="readURL(this, 'previewProfile7')" style="display: none">
+                                        <div id="openFile7" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                        <img id="previewProfile7" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="productPicture3" type="file" onchange="readURL(this, 'previewProfile3')" style="display: none">
-                                        <div id="openFile3" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
-                                        <img id="previewProfile3" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <input id="productPicture8" type="file" onchange="readURL(this, 'previewProfile8')" style="display: none">
+                                        <div id="openFile8" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                        <img id="previewProfile8" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="productPicture4" type="file" onchange="readURL(this, 'previewProfile4')" style="display: none">
-                                        <div id="openFile4" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
+                                        <input id="productPicture9" type="file" onchange="readURL(this, 'previewProfile9')" style="display: none">
+                                        <div id="openFile9" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
                                          class="mx-auto dependantImg choose-photo">
-                                        <img id="previewProfile4" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <img id="previewProfile9" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="productPicture5" type="file" onchange="readURL(this, 'previewProfile5')" style="display: none">
-                                        <div id="openFile5" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
+                                        <input id="productPicture10" type="file" onchange="readURL(this, 'previewProfile10')" style="display: none">
+                                        <div id="openFile10" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
                                          class="mx-auto dependantImg choose-photo">
-                                        <img id="previewProfile5" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <img id="previewProfile10" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     </div>
@@ -764,7 +831,7 @@
                                         <label class="login-text">Company name</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="company_name2" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -772,7 +839,7 @@
                                         <label class="login-text">Email address</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="company_email2" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -780,7 +847,7 @@
                                         <label class="login-text">Telephone number</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="company_contact2" type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -793,7 +860,20 @@
                                         <button class="btn btn-cancell" style="width: 100%">Preview add</button>
                                     </div>
                                     <div class="col-md-5" style="margin-right: auto;">
-                                        <button class="btn btn-success" style="width: 100%">Submit</button>
+                                        <div class="container">
+                                            <button id="submitButton2" class="btn btn-success" data-toggle="modal" data-target="#myModal2" style="width: 100%">Submit</button>
+                                            <div class="modal fade" id="myModal2">
+                                              <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                  <div class="modal-body mx-auto">
+                                                    <img src="img/checkijau.svg">
+                                                  </div>
+                                                  <div class="mx-auto" style="margin: 10px;">Your ad has been submitted</div>
+                                                    <button onclick="window.location.href='./index1.html';" type="button" class="btn btn-success" data-dismiss="modal">Go to homepage</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
                                     </div>
                                 </div>
                             </div>
@@ -861,6 +941,26 @@
 
             $('#openFile5').on('click', function() {
                 $('#productPicture5').trigger('click');
+            });
+
+            $('#openFile6').on('click', function() {
+                $('#productPicture6').trigger('click');
+            });
+
+             $('#openFile7').on('click', function() {
+                $('#productPicture7').trigger('click');
+            });
+
+            $('#openFile8').on('click', function() {
+                $('#productPicture8').trigger('click');
+            });
+
+            $('#openFile9').on('click', function() {
+                $('#productPicture9').trigger('click');
+            });
+
+            $('#openFile10').on('click', function() {
+                $('#productPicture10').trigger('click');
             });
 
             $("#showpackage").on('click', function() {
@@ -936,6 +1036,198 @@
                         reader.readAsDataURL(input.files[0]);
                     }
                 }
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+
+        $(document).ready(function(){
+            $userid = localStorage.getItem("user_id");
+            categoryDropdownList();
+            packageDropdownList();
+            
+            $('#submitButton').on('click',function(){
+                submitAvailableProduct();
+            })
+
+            $('#submitButton2').on('click',function(){
+                submitWantedProduct();
+            })
+        })
+
+        function categoryDropdownList(){
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/category?idmaincategory=technology",
+                type: "GET",
+            }).done(function(response){
+                var tr = '<option disabled selected>Please choose</option>';  
+
+                $.each(response, function(i, data){
+                    tr += '<option style="text-transform:capitalize;">'+ data.name + '</option>';
+                })
+                $('#categoryDropdown').html(tr);
+                $('#categoryDropdown2').html(tr);
+            })
+        }
+
+        function packageDropdownList(){
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/packages",
+                type: "GET",
+            }).done(function(response){
+                var tr = '<option disabled selected>Please choose</option>';  
+
+                $.each(response, function(i, data){
+                    tr += '<option style="text-transform:capitalize;">'+ data.package_name + '</option>';
+                })
+                $('#packageDropdown').html(tr);
+                $('#packageDropdown2').html(tr);
+            })
+        }
+
+        function submitAvailableProduct(){
+
+            var dateSubmission = $('#dateSubmission').val();
+            var product_name = $('#product_name').val();
+            var product_category = $('#categoryDropdown').val();
+            var product_target = $('#product_target').val();
+            var product_price = $('#product_price').val();
+            var product_price2 = $('#product_price2').val();
+            var product_package = $('#packageDropdown').val();
+            var stateMaterialDropdown = $('#stateMaterialDropdown').val();
+            var product_location = $('#product_location').val();
+            var latitude = $('#latitude').val();
+            var longitude = $('#longitude').val();
+            var product_location2 = $('#product_location2').val();
+            var latitude2 = $('#latitude2').val();
+            var longitude2 = $('#longitude2').val();
+            var product_location3 = $('#product_location3').val();
+            var latitude3 = $('#latitude3').val();
+            var longitude3 = $('#longitude3').val();
+            var website = $('#website').val();
+            var product_description = $('#product_desc').val();
+            var image1 = $("#productPicture1").prop('files');
+            var image2 = $("#productPicture2").prop('files');
+            var image3 = $("#productPicture3").prop('files');
+            var image4 = $("#productPicture4").prop('files');
+            var image5 = $("#productPicture5").prop('files');
+            var company_name = $('#company_name').val();
+            var company_email = $('#company_email').val();
+            var company_contact = $('#company_contact').val();
+
+
+            var formData = new FormData();
+            formData.append("product_date" , dateSubmission);
+            formData.append("product_name" , product_name);
+            formData.append("product_category" , product_category);
+            formData.append("product_target" , product_target);
+            formData.append("product_price" , product_price + " - " + product_price2);
+            formData.append("product_package" , product_package);
+            formData.append("product_pricemax" , product_price2);
+            formData.append("product_material" , stateMaterialDropdown);
+            formData.append("product_location" , product_location);
+            formData.append("latitud" , latitude);
+            formData.append("longitud" , longitude);
+            formData.append("website" , website);
+            formData.append("product_description" , product_description);
+            formData.append("product_image[]" , image1[0]);
+            formData.append("product_image[]" , image2[0]);
+            formData.append("product_image[]" , image3[0]);
+            formData.append("product_image[]" , image4[0]);
+            formData.append("product_image[]" , image5[0]);
+            formData.append("company_name" , company_name);
+            formData.append("company_email" , company_email);
+            formData.append("company_contact" , company_contact);
+            formData.append("mainstatus" , "available");
+            formData.append("user_id" , $userid);
+
+
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/product/add",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+            }).done(function(response){
+                console.log(response);
+            })
+
+        }
+
+        function submitWantedProduct(){
+
+            var dateSubmission = $('#dateSubmission2').val();
+            var product_name = $('#product_name2').val();
+            var product_category = $('#categoryDropdown2').val();
+            var product_target = $('#product_target2').val();
+            var product_price = $('#product_price3').val();
+            var product_price2 = $('#product_price4').val();
+            var product_package = $('#packageDropdown2').val();
+            var stateMaterialDropdown = $('#stateMaterialDropdown2').val();
+            var product_location = $('#product_location4').val();
+            var latitude = $('#latitude4').val();
+            var longitude = $('#longitude4').val();
+            var product_location2 = $('#product_location5').val();
+            var latitude2 = $('#latitude5').val();
+            var longitude2 = $('#longitude5').val();
+            var product_location3 = $('#product_location6').val();
+            var latitude3 = $('#latitude6').val();
+            var longitude3 = $('#longitude6').val();
+            var website = $('#website2').val();
+            var product_description = $('#product_desc2').val();
+            var image1 = $("#productPicture6").prop('files');
+            var image2 = $("#productPicture7").prop('files');
+            var image3 = $("#productPicture8").prop('files');
+            var image4 = $("#productPicture9").prop('files');
+            var image5 = $("#productPicture10").prop('files');
+            var company_name = $('#company_name2').val();
+            var company_email = $('#company_email2').val();
+            var company_contact = $('#company_contact2').val();
+
+
+            var formData = new FormData();
+            formData.append("product_date" , dateSubmission);
+            formData.append("product_name" , product_name);
+            formData.append("product_category" , product_category);
+            formData.append("product_target" , product_target);
+            formData.append("product_price" , product_price);
+            formData.append("product_pricemax" , product_price2);
+            formData.append("product_package" , product_package);
+            formData.append("product_material" , stateMaterialDropdown);
+            formData.append("product_location" , product_location);
+            formData.append("latitud" , latitude);
+            formData.append("longitud" , longitude);
+            formData.append("website" , website);
+            formData.append("product_description" , product_description);
+            formData.append("product_image[]" , image1[0]);
+            formData.append("product_image[]" , image2[0]);
+            formData.append("product_image[]" , image3[0]);
+            formData.append("product_image[]" , image4[0]);
+            formData.append("product_image[]" , image5[0]);
+            formData.append("company_name" , company_name);
+            formData.append("company_email" , company_email);
+            formData.append("company_contact" , company_contact);
+            formData.append("mainstatus" , "wanted");
+            formData.append("user_id" , $userid);
+
+
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/product/add",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+            }).done(function(response){
+                console.log(response);
+            })
+
+        }
+
 
     </script>
 </body>

@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <style>
+.dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /*z-index: 1;*/
+    }
+
+    .dropdown-content a {
+    color: black;
+    padding: 6px;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    }
 
 .login-text {
     font-size: 12px !important;
@@ -24,7 +45,7 @@
     font-weight: bold;
     font-size: 20px !important;
     margin-bottom: 20px !important;
-    text-weight: bold !important
+    font-weight: bold !important
 }
 
 .normal-text {
@@ -85,6 +106,30 @@ h5 {
     color: gray !important;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    font-size: small;
+    }
+
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+
+    .dropdown-content a:hover {
+    color: #27AE60 ;
+    }
+
 
 </style>
 
@@ -129,14 +174,20 @@ h5 {
                     <div class="col-lg-2 col-md-2" style="padding: 0;">
                         <div class="logo">
                             <a href="./index.html">
-                                <img src="img/prospect2.jpg">
+                                <img src="img/website-logo.png">
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-10 text-right" style="padding: 10px;">
-                    <button class="btn"><a href="#"></a><img src="img/user.svg">
-                        <h5 style="padding-top: 5px;">My Account</h5>
-                    </button>
+                        <div class="dropdown">
+                            <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
+                            <h5 style="margin-top: 8px; color: gray;">My Account</h5>
+                            </button>
+                            <div class="dropdown-content">
+                              <a href="./myaccount-defaultview.html">My account</a>
+                              <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -150,10 +201,10 @@ h5 {
             <div class="col-md-3 text-right">
                 <div class="headtext-weight" style="margin-right: 20px;">Forms</div>
                 <ul style="list-style-type: none;">
-                    <li><a href="" class="active"><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
-                    <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li> 
-                    <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
-                    <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Service</a></li> 
+                    <li><a href="./default-form-userview.html" class="active"><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
+                    <li><a href="./submitadd-form-waste1.html"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li> 
+                    <li><a href="./submitadd-form-technology1.html"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
+                    <li><a href="./submitadd-form-service1.html"><i class="fa fa-chevron-right icon-menu"></i>Service</a></li> 
                 </ul>
             </div>
             <div class="card col-md-8" style="padding: 30px;">

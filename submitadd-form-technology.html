@@ -170,10 +170,10 @@ ul li a.active i {
             <div class="col-md-3 text-right">
                 <div class="headtext-weight" style="margin-right: 20px;">Forms</div>
                 <ul style="list-style-type: none;">
-                    <li><a href=""><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
-                    <li><a href="" ><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li> 
-                    <li><a href="" class="active"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
-                    <li><a href=""><i class="fa fa-chevron-right icon-menu"></i>Service</a></li> 
+                    <li><a href="./default-form-guestview.html"><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
+                    <li><a href="./submitadd-form-waste.html" ><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li> 
+                    <li><a href="./submitadd-form-technology.html" class="active"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
+                    <li><a href="./submitadd-form-service.html"><i class="fa fa-chevron-right icon-menu"></i>Service</a></li> 
                 </ul>
             </div>
 
@@ -280,7 +280,7 @@ ul li a.active i {
                         <label class="login-text">Email</label>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control">
+                        <input id="email" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="row text-padding">
@@ -288,7 +288,7 @@ ul li a.active i {
                         <label class="login-text">Password</label>
                     </div>
                     <div class="col-md-4">
-                        <input type="Password" class="form-control">
+                        <input id="password" type="Password" class="form-control">
                     </div>
                 </div>
                 <div class="row text-padding">
@@ -305,9 +305,9 @@ ul li a.active i {
                         </div>
                     </div>
                     <div>
-                    <a href="./index.html">
-                        <button  class="btn btn-success" style="color: white; text-transform: initial; width: 100%">Sign In</button>
-                    </a>
+                    
+                        <button  id="signin" class="btn btn-success" style="color: white; text-transform: initial; width: 100%">Sign In</button>
+                    
                     </div>
                     <div>
                         <a href="#" class="forget-pass float-right login-text" style="color: #D91F1F; padding-top: 20px;">Forgot pasword?</a>
@@ -318,7 +318,7 @@ ul li a.active i {
             <div id="registerarea" style="display: none;">
             <div class="row" style="margin-bottom: 40px;">
                 <div id="tabSignIn" class="col-md-6" style="text-align: center; padding-right: 0;">
-                    <div class="normal-text" style="margin-bottom: 10px;">Sign In</div>
+                    <div id="signin" class="normal-text" style="margin-bottom: 10px;">Sign In</div>
                 <div class="register-linesection"></div>
                 </div>
                 <div class="col-md-6" style="text-align: center; padding-left: 0;">
@@ -411,6 +411,58 @@ ul li a.active i {
                  $('#footer').removeClass('footer-stay');
             }
         }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    </script>
+
+    <script> 
+        $(document).ready(function(){
+            $('#signin').on('click',function(){
+                    LoginUser();    
+                    setCookie();
+            });
+            
+            $('#keepme_signedin').on('click',function(){
+                setCookie();
+            });
+        });
+
+        function LoginUser(){
+            var email = $('#email').val();
+            var password = $('#password').val();
+
+            if( email !== "" && password !== ""){
+                $.ajax({
+                    url: 'http://codeviable.com/w2w2/public/login?user_email=&password=',
+                    type: 'POST',
+                    data: { 'user_email' : email, 'password' : password },
+                    success: function (response){
+                        if(response.email === email && response.password === password){
+                            console.log(response);
+                            console.log("Logged in");
+                            localStorage.setItem("user_id", JSON.stringify(response.id));
+                            window.location.href = "./submitadd-form-technology1.html"; 
+                        }
+                        else{
+                            console.log(response);
+                            console.log("Invalid email/password");}
+                    }
+                });
+            }
+            else
+                console.log("Please fill all fields.");   
+        }
+
+        function setCookie() {
+            var email = $('#email').val();
+            
+            localStorage.setItem("email", JSON.stringify(email));
+            document.cookie = escape('email') + "=" + email;
+        }
+
     </script>
 </body>
 

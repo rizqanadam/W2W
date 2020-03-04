@@ -195,10 +195,11 @@ i {
                         </div>
                     </div>
                     <div class="col-lg-10 text-right col-md-2 header-margin">
+                        <button onclick="window.location.href='./index1.html';" class="btn">Home</button>
                         <button class="btn">Contact Us</button>
                         <div class="dropdown">
                             <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
-                            <h5 style="margin-top: 8px; color: gray;">My Account</h5>
+                            <h5 style="margin-top: 8px; color: black;">My Account</h5>
                             </button>
                             <div class="dropdown-content">
                               <a href="./myaccount-defaultview.html">My account</a>
@@ -364,7 +365,7 @@ i {
                 var dummyImg = 'img/organic-compose.jpg';
 
                 $.each(response, function(i, data){
-                    tr += '<div class="row"><div class="col-md-2"><img src="'+ dummyImg +'"></div><div class="col-md-7"><div style="font-size: 18px; text-transform:capitalize;">'+ data.product_name+'</div><p style="text-transform:capitalize;">'+ data.product_category+'</p><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px; text-transform:capitalize;">'+ data.product_description +'</div><div class="contact-text1"><i class="fa fa-phone"></i>  ' + data.company_contact + '</div><div class="contact-text1"><i class="fa fa-envelope"></i> '+ data.company_email +'</div></div><div class="col-md-3 text-right"><p>Dec 16 2019</p><p style="text-transform:capitalize;">'+ data.product_location+'</p></div></div>';
+                    tr += '<div class="row"><div class="col-md-2"><img src="'+ dummyImg +'"></div><div class="col-md-7"><div style="font-size: 18px; text-transform:capitalize;">'+ data.product_name+'</div><p style="text-transform:capitalize;">'+ data.product_category+'</p><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px; text-transform:initial;">'+ data.product_description +'</div><div class="contact-text1"><i class="fa fa-phone"></i>  ' + data.company_contact + '</div><div class="contact-text1"><i class="fa fa-envelope"></i> '+ data.company_email +'</div></div><div class="col-md-3 text-right"><p>Dec 16 2019</p><p style="text-transform:capitalize;">'+ data.product_location+'</p></div></div>';
                     tr += '<div class="line-bottom"></div>';
                 })
 

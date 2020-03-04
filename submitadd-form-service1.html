@@ -231,6 +231,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
+
 <body class="page-color">
     <!-- Page Preloder -->
     <div id="preloder">
@@ -253,9 +254,10 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-10 text-right" style="padding: 20px;">
+                                    <button onclick="window.location.href='./index1.html';" class="btn">Home</button>
                                     <div class="dropdown">
                                         <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
-                                        <h5 style="margin-top: 8px; color: gray;">My Account</h5>
+                                        <h5 style="margin-top: 8px; color: black;">My Account</h5>
                                         </button>
                                         <div class="dropdown-content">
                                           <a href="./myaccount-defaultview.html">My account</a>
@@ -420,6 +422,184 @@
                                 <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your service location</div>
                                 <input id="product_location" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                 <br>
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                      <option disabled selected>City</option>
+                                      <option>Johor Bahru</option>
+                                      <option>Batu Pahat</option>
+                                      <option>Kluang</option>
+                                      <option>Kulai</option>
+                                      <option>Muar</option>
+                                      <option>Kota Tinggi</option>
+                                      <option>Segamat</option>
+                                      <option>Pontian</option>
+                                      <option>Tangkak</option>
+                                      <option>Mersing</option>
+                                      <option>Sungai Petani</option>
+                                      <option>Alor Setar</option>
+                                      <option>Kulim</option>
+                                      <option>Kubang Pasu</option>
+                                      <option>Baling</option>
+                                      <option>Pendang</option>
+                                      <option>Langkawi</option>
+                                      <option>Yan</option>
+                                      <option>Sik</option>
+                                      <option>Padang Terap</option>
+                                      <option>Pokok Sena</option>
+                                      <option>Bandar Baharu</option>
+                                      <option>Kota Bharu</option>
+                                      <option>Pasir Mas</option>
+                                      <option>Tumpat</option>
+                                      <option>Bachok</option>
+                                      <option>Tanah Merah</option>
+                                      <option>Pasir Puteh</option>
+                                      <option>Kuala Krai</option>
+                                      <option>Machang</option>
+                                      <option>Gua Musang</option>
+                                      <option>Jeli</option>
+                                      <option>Lojing</option>
+                                      <option>Melaka Tengah</option>
+                                      <option>Alor Gajah</option>
+                                      <option>Jasin</option>
+                                      <option>Seremban</option>
+                                      <option>Jempol</option>
+                                      <option>Port Dickson</option>
+                                      <option>Tampin</option>
+                                      <option>Kuala Pilah</option>
+                                      <option>Rembah</option>
+                                      <option>Jelebu</option>
+                                      <option>Kuantan</option>
+                                      <option>Temerloh</option>
+                                      <option>Bentong</option>
+                                      <option>Maran</option>
+                                      <option>Rompin</option>
+                                      <option>Pekan</option>
+                                      <option>Bera</option>
+                                      <option>Raub</option>
+                                      <option>Jerantut</option>
+                                      <option>Lipis</option>
+                                      <option>Cameron Highlands</option>
+                                      <option>Kinta</option>
+                                      <option>Larut, Matang, Selama</option>
+                                      <option>Manjung</option>
+                                      <option>Hilir Perak</option>
+                                      <option>Kerian</option>
+                                      <option>Batang Padang</option>
+                                      <option>Kuala Kangsar</option>
+                                      <option>Perak Tengah</option>
+                                      <option>Hulu Perak</option>
+                                      <option>Kampar</option>
+                                      <option>Muallim</option>
+                                      <option>Bagan Datuk</option>
+                                      <option>Perlis</option>
+                                      <option>Timur Laut Pulau Pinang</option>
+                                      <option>Seberang Perai Tengah</option>
+                                      <option>Seberang Perai Utara</option>
+                                      <option>Barat Daya Pulau Pinang</option>
+                                      <option>Seberang Perai Selatan</option>
+                                      <option>Kota Kinabalu</option>
+                                      <option>Tawau</option>
+                                      <option>Sandakan</option>
+                                      <option>Lahad Datu</option>
+                                      <option>Keningau</option>
+                                      <option>Kinabatangan</option>
+                                      <option>Semporna</option>
+                                      <option>Papar</option>
+                                      <option>Penampang</option>
+                                      <option>Beluran</option>
+                                      <option>Tuaran</option>
+                                      <option>Ranau</option>
+                                      <option>Kota Belud</option>
+                                      <option>Kudat</option>
+                                      <option>Kota Marudu</option>
+                                      <option>Beaufort</option>
+                                      <option>Kunak</option>
+                                      <option>Tenom</option>
+                                      <option>Putatan</option>
+                                      <option>Pitas</option>
+                                      <option>Tambunan</option>
+                                      <option>Tongod</option>
+                                      <option>Sipitang</option>
+                                      <option>Nabawan</option>
+                                      <option>Kuala Penyu</option>
+                                      <option>Kuching</option>
+                                      <option>Miri</option>
+                                      <option>Sibu</option>
+                                      <option>Bintulu</option>
+                                      <option>Serian</option>
+                                      <option>Samarahan</option>
+                                      <option>Sri Aman</option>
+                                      <option>Marudu</option>
+                                      <option>Betong</option>
+                                      <option>Sarikei</option>
+                                      <option>Kapit</option>
+                                      <option>Bau</option>
+                                      <option>Limbang</option>
+                                      <option>Saratok</option>
+                                      <option>Mukah</option>
+                                      <option>Simunjan</option>
+                                      <option>Lawas</option>
+                                      <option>Belaga</option>
+                                      <option>Lundu</option>
+                                      <option>Asajaya</option>
+                                      <option>Daro</option>
+                                      <option>Tatau</option>
+                                      <option>Maradong</option>
+                                      <option>Kanowit</option>
+                                      <option>Lubok Antu</option>
+                                      <option>Selangau</option>
+                                      <option>Song</option>
+                                      <option>Dalat</option>
+                                      <option>Matu</option>
+                                      <option>Julau</option>
+                                      <option>Pakan	</option>
+                                      <option>Padawan</option>
+                                      <option>Petaling</option>
+                                      <option>Hulu Langat</option>
+                                      <option>Klang</option>
+                                      <option>Gombak</option>
+                                      <option>Kuala Langat</option>
+                                      <option>Sepang</option>
+                                      <option>Kuala Selangor</option>
+                                      <option>Hulu Selangor</option>
+                                      <option>Sabak Bernam</option>
+                                      <option>Kuala Terengganu</option>
+                                      <option>Kemaman</option>
+                                      <option>Dungun</option>
+                                      <option>Besut</option>
+                                      <option>Marang</option>
+                                      <option>Hulu Terengganu</option>
+                                      <option>Setiu</option>
+                                      <option>Kuala Nerus</option>
+                                      <option>Kuala Lumpur</option>
+                                      <option>Labuan</option>
+                                      <option>Putrajaya</option>
+                                    </select>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                            <option disabled selected>State</option>
+                                            <option>Johor</option>
+                                            <option>Kedah</option>
+                                            <option>Kelantan</option>
+                                            <option>Melaka</option>
+                                            <option>Negeri Sembilan</option>
+                                            <option>Pahang</option>
+                                            <option>Perak</option>
+                                            <option>Perlis</option>
+                                            <option>Pulau Pinang</option>
+                                            <option>Sabah</option>
+                                            <option>Sarawak</option>
+                                            <option>Selangor</option>
+                                            <option>Terengganu</option>
+                                            <option>Wilayah Persekutuan Malaysia</option>  
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Postal Code">
+                                    </div>
+                                </div> 
+                                <br>
                                 <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                 <div class="row">
                                 <div class="col-md-6">
@@ -434,6 +614,184 @@
                                     <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your service location</div>
                                     <input id="product_location2" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <option disabled selected>City</option>
+                                        <option>Johor Bahru</option>
+                                        <option>Batu Pahat</option>
+                                        <option>Kluang</option>
+                                        <option>Kulai</option>
+                                        <option>Muar</option>
+                                        <option>Kota Tinggi</option>
+                                        <option>Segamat</option>
+                                        <option>Pontian</option>
+                                        <option>Tangkak</option>
+                                        <option>Mersing</option>
+                                        <option>Sungai Petani</option>
+                                        <option>Alor Setar</option>
+                                        <option>Kulim</option>
+                                        <option>Kubang Pasu</option>
+                                        <option>Baling</option>
+                                        <option>Pendang</option>
+                                        <option>Langkawi</option>
+                                        <option>Yan</option>
+                                        <option>Sik</option>
+                                        <option>Padang Terap</option>
+                                        <option>Pokok Sena</option>
+                                        <option>Bandar Baharu</option>
+                                        <option>Kota Bharu</option>
+                                        <option>Pasir Mas</option>
+                                        <option>Tumpat</option>
+                                        <option>Bachok</option>
+                                        <option>Tanah Merah</option>
+                                        <option>Pasir Puteh</option>
+                                        <option>Kuala Krai</option>
+                                        <option>Machang</option>
+                                        <option>Gua Musang</option>
+                                        <option>Jeli</option>
+                                        <option>Lojing</option>
+                                        <option>Melaka Tengah</option>
+                                        <option>Alor Gajah</option>
+                                        <option>Jasin</option>
+                                        <option>Seremban</option>
+                                        <option>Jempol</option>
+                                        <option>Port Dickson</option>
+                                        <option>Tampin</option>
+                                        <option>Kuala Pilah</option>
+                                        <option>Rembah</option>
+                                        <option>Jelebu</option>
+                                        <option>Kuantan</option>
+                                        <option>Temerloh</option>
+                                        <option>Bentong</option>
+                                        <option>Maran</option>
+                                        <option>Rompin</option>
+                                        <option>Pekan</option>
+                                        <option>Bera</option>
+                                        <option>Raub</option>
+                                        <option>Jerantut</option>
+                                        <option>Lipis</option>
+                                        <option>Cameron Highlands</option>
+                                        <option>Kinta</option>
+                                        <option>Larut, Matang, Selama</option>
+                                        <option>Manjung</option>
+                                        <option>Hilir Perak</option>
+                                        <option>Kerian</option>
+                                        <option>Batang Padang</option>
+                                        <option>Kuala Kangsar</option>
+                                        <option>Perak Tengah</option>
+                                        <option>Hulu Perak</option>
+                                        <option>Kampar</option>
+                                        <option>Muallim</option>
+                                        <option>Bagan Datuk</option>
+                                        <option>Perlis</option>
+                                        <option>Timur Laut Pulau Pinang</option>
+                                        <option>Seberang Perai Tengah</option>
+                                        <option>Seberang Perai Utara</option>
+                                        <option>Barat Daya Pulau Pinang</option>
+                                        <option>Seberang Perai Selatan</option>
+                                        <option>Kota Kinabalu</option>
+                                        <option>Tawau</option>
+                                        <option>Sandakan</option>
+                                        <option>Lahad Datu</option>
+                                        <option>Keningau</option>
+                                        <option>Kinabatangan</option>
+                                        <option>Semporna</option>
+                                        <option>Papar</option>
+                                        <option>Penampang</option>
+                                        <option>Beluran</option>
+                                        <option>Tuaran</option>
+                                        <option>Ranau</option>
+                                        <option>Kota Belud</option>
+                                        <option>Kudat</option>
+                                        <option>Kota Marudu</option>
+                                        <option>Beaufort</option>
+                                        <option>Kunak</option>
+                                        <option>Tenom</option>
+                                        <option>Putatan</option>
+                                        <option>Pitas</option>
+                                        <option>Tambunan</option>
+                                        <option>Tongod</option>
+                                        <option>Sipitang</option>
+                                        <option>Nabawan</option>
+                                        <option>Kuala Penyu</option>
+                                        <option>Kuching</option>
+                                        <option>Miri</option>
+                                        <option>Sibu</option>
+                                        <option>Bintulu</option>
+                                        <option>Serian</option>
+                                        <option>Samarahan</option>
+                                        <option>Sri Aman</option>
+                                        <option>Marudu</option>
+                                        <option>Betong</option>
+                                        <option>Sarikei</option>
+                                        <option>Kapit</option>
+                                        <option>Bau</option>
+                                        <option>Limbang</option>
+                                        <option>Saratok</option>
+                                        <option>Mukah</option>
+                                        <option>Simunjan</option>
+                                        <option>Lawas</option>
+                                        <option>Belaga</option>
+                                        <option>Lundu</option>
+                                        <option>Asajaya</option>
+                                        <option>Daro</option>
+                                        <option>Tatau</option>
+                                        <option>Maradong</option>
+                                        <option>Kanowit</option>
+                                        <option>Lubok Antu</option>
+                                        <option>Selangau</option>
+                                        <option>Song</option>
+                                        <option>Dalat</option>
+                                        <option>Matu</option>
+                                        <option>Julau</option>
+                                        <option>Pakan	</option>
+                                        <option>Padawan</option>
+                                        <option>Petaling</option>
+                                        <option>Hulu Langat</option>
+                                        <option>Klang</option>
+                                        <option>Gombak</option>
+                                        <option>Kuala Langat</option>
+                                        <option>Sepang</option>
+                                        <option>Kuala Selangor</option>
+                                        <option>Hulu Selangor</option>
+                                        <option>Sabak Bernam</option>
+                                        <option>Kuala Terengganu</option>
+                                        <option>Kemaman</option>
+                                        <option>Dungun</option>
+                                        <option>Besut</option>
+                                        <option>Marang</option>
+                                        <option>Hulu Terengganu</option>
+                                        <option>Setiu</option>
+                                        <option>Kuala Nerus</option>
+                                        <option>Kuala Lumpur</option>
+                                        <option>Labuan</option>
+                                        <option>Putrajaya</option>
+                                      </select>
+                                  <br>
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                              <option disabled selected>State</option>
+                                              <option>Johor</option>
+                                              <option>Kedah</option>
+                                              <option>Kelantan</option>
+                                              <option>Melaka</option>
+                                              <option>Negeri Sembilan</option>
+                                              <option>Pahang</option>
+                                              <option>Perak</option>
+                                              <option>Perlis</option>
+                                              <option>Pulau Pinang</option>
+                                              <option>Sabah</option>
+                                              <option>Sarawak</option>
+                                              <option>Selangor</option>
+                                              <option>Terengganu</option>
+                                              <option>Wilayah Persekutuan Malaysia</option>  
+                                          </select>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <input type="text" class="form-control" placeholder="Postal Code">
+                                      </div>
+                                  </div> 
+                                  <br>
                                     <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                     <div class="row">
                                     <div class="col-md-6">
@@ -449,6 +807,184 @@
                                     <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your service location</div>
                                     <input id="product_location3" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <option disabled selected>City</option>
+                                        <option>Johor Bahru</option>
+                                        <option>Batu Pahat</option>
+                                        <option>Kluang</option>
+                                        <option>Kulai</option>
+                                        <option>Muar</option>
+                                        <option>Kota Tinggi</option>
+                                        <option>Segamat</option>
+                                        <option>Pontian</option>
+                                        <option>Tangkak</option>
+                                        <option>Mersing</option>
+                                        <option>Sungai Petani</option>
+                                        <option>Alor Setar</option>
+                                        <option>Kulim</option>
+                                        <option>Kubang Pasu</option>
+                                        <option>Baling</option>
+                                        <option>Pendang</option>
+                                        <option>Langkawi</option>
+                                        <option>Yan</option>
+                                        <option>Sik</option>
+                                        <option>Padang Terap</option>
+                                        <option>Pokok Sena</option>
+                                        <option>Bandar Baharu</option>
+                                        <option>Kota Bharu</option>
+                                        <option>Pasir Mas</option>
+                                        <option>Tumpat</option>
+                                        <option>Bachok</option>
+                                        <option>Tanah Merah</option>
+                                        <option>Pasir Puteh</option>
+                                        <option>Kuala Krai</option>
+                                        <option>Machang</option>
+                                        <option>Gua Musang</option>
+                                        <option>Jeli</option>
+                                        <option>Lojing</option>
+                                        <option>Melaka Tengah</option>
+                                        <option>Alor Gajah</option>
+                                        <option>Jasin</option>
+                                        <option>Seremban</option>
+                                        <option>Jempol</option>
+                                        <option>Port Dickson</option>
+                                        <option>Tampin</option>
+                                        <option>Kuala Pilah</option>
+                                        <option>Rembah</option>
+                                        <option>Jelebu</option>
+                                        <option>Kuantan</option>
+                                        <option>Temerloh</option>
+                                        <option>Bentong</option>
+                                        <option>Maran</option>
+                                        <option>Rompin</option>
+                                        <option>Pekan</option>
+                                        <option>Bera</option>
+                                        <option>Raub</option>
+                                        <option>Jerantut</option>
+                                        <option>Lipis</option>
+                                        <option>Cameron Highlands</option>
+                                        <option>Kinta</option>
+                                        <option>Larut, Matang, Selama</option>
+                                        <option>Manjung</option>
+                                        <option>Hilir Perak</option>
+                                        <option>Kerian</option>
+                                        <option>Batang Padang</option>
+                                        <option>Kuala Kangsar</option>
+                                        <option>Perak Tengah</option>
+                                        <option>Hulu Perak</option>
+                                        <option>Kampar</option>
+                                        <option>Muallim</option>
+                                        <option>Bagan Datuk</option>
+                                        <option>Perlis</option>
+                                        <option>Timur Laut Pulau Pinang</option>
+                                        <option>Seberang Perai Tengah</option>
+                                        <option>Seberang Perai Utara</option>
+                                        <option>Barat Daya Pulau Pinang</option>
+                                        <option>Seberang Perai Selatan</option>
+                                        <option>Kota Kinabalu</option>
+                                        <option>Tawau</option>
+                                        <option>Sandakan</option>
+                                        <option>Lahad Datu</option>
+                                        <option>Keningau</option>
+                                        <option>Kinabatangan</option>
+                                        <option>Semporna</option>
+                                        <option>Papar</option>
+                                        <option>Penampang</option>
+                                        <option>Beluran</option>
+                                        <option>Tuaran</option>
+                                        <option>Ranau</option>
+                                        <option>Kota Belud</option>
+                                        <option>Kudat</option>
+                                        <option>Kota Marudu</option>
+                                        <option>Beaufort</option>
+                                        <option>Kunak</option>
+                                        <option>Tenom</option>
+                                        <option>Putatan</option>
+                                        <option>Pitas</option>
+                                        <option>Tambunan</option>
+                                        <option>Tongod</option>
+                                        <option>Sipitang</option>
+                                        <option>Nabawan</option>
+                                        <option>Kuala Penyu</option>
+                                        <option>Kuching</option>
+                                        <option>Miri</option>
+                                        <option>Sibu</option>
+                                        <option>Bintulu</option>
+                                        <option>Serian</option>
+                                        <option>Samarahan</option>
+                                        <option>Sri Aman</option>
+                                        <option>Marudu</option>
+                                        <option>Betong</option>
+                                        <option>Sarikei</option>
+                                        <option>Kapit</option>
+                                        <option>Bau</option>
+                                        <option>Limbang</option>
+                                        <option>Saratok</option>
+                                        <option>Mukah</option>
+                                        <option>Simunjan</option>
+                                        <option>Lawas</option>
+                                        <option>Belaga</option>
+                                        <option>Lundu</option>
+                                        <option>Asajaya</option>
+                                        <option>Daro</option>
+                                        <option>Tatau</option>
+                                        <option>Maradong</option>
+                                        <option>Kanowit</option>
+                                        <option>Lubok Antu</option>
+                                        <option>Selangau</option>
+                                        <option>Song</option>
+                                        <option>Dalat</option>
+                                        <option>Matu</option>
+                                        <option>Julau</option>
+                                        <option>Pakan	</option>
+                                        <option>Padawan</option>
+                                        <option>Petaling</option>
+                                        <option>Hulu Langat</option>
+                                        <option>Klang</option>
+                                        <option>Gombak</option>
+                                        <option>Kuala Langat</option>
+                                        <option>Sepang</option>
+                                        <option>Kuala Selangor</option>
+                                        <option>Hulu Selangor</option>
+                                        <option>Sabak Bernam</option>
+                                        <option>Kuala Terengganu</option>
+                                        <option>Kemaman</option>
+                                        <option>Dungun</option>
+                                        <option>Besut</option>
+                                        <option>Marang</option>
+                                        <option>Hulu Terengganu</option>
+                                        <option>Setiu</option>
+                                        <option>Kuala Nerus</option>
+                                        <option>Kuala Lumpur</option>
+                                        <option>Labuan</option>
+                                        <option>Putrajaya</option>
+                                      </select>
+                                  <br>
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                              <option disabled selected>State</option>
+                                              <option>Johor</option>
+                                              <option>Kedah</option>
+                                              <option>Kelantan</option>
+                                              <option>Melaka</option>
+                                              <option>Negeri Sembilan</option>
+                                              <option>Pahang</option>
+                                              <option>Perak</option>
+                                              <option>Perlis</option>
+                                              <option>Pulau Pinang</option>
+                                              <option>Sabah</option>
+                                              <option>Sarawak</option>
+                                              <option>Selangor</option>
+                                              <option>Terengganu</option>
+                                              <option>Wilayah Persekutuan Malaysia</option>  
+                                          </select>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <input type="text" class="form-control" placeholder="Postal Code">
+                                      </div>
+                                  </div> 
+                                  <br>
                                     <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                     <div class="row">
                                     <div class="col-md-6">
@@ -700,6 +1236,184 @@
                                 <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your service location</div>
                                 <input id="product_location4" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                 <br>
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                      <option disabled selected>City</option>
+                                      <option>Johor Bahru</option>
+                                      <option>Batu Pahat</option>
+                                      <option>Kluang</option>
+                                      <option>Kulai</option>
+                                      <option>Muar</option>
+                                      <option>Kota Tinggi</option>
+                                      <option>Segamat</option>
+                                      <option>Pontian</option>
+                                      <option>Tangkak</option>
+                                      <option>Mersing</option>
+                                      <option>Sungai Petani</option>
+                                      <option>Alor Setar</option>
+                                      <option>Kulim</option>
+                                      <option>Kubang Pasu</option>
+                                      <option>Baling</option>
+                                      <option>Pendang</option>
+                                      <option>Langkawi</option>
+                                      <option>Yan</option>
+                                      <option>Sik</option>
+                                      <option>Padang Terap</option>
+                                      <option>Pokok Sena</option>
+                                      <option>Bandar Baharu</option>
+                                      <option>Kota Bharu</option>
+                                      <option>Pasir Mas</option>
+                                      <option>Tumpat</option>
+                                      <option>Bachok</option>
+                                      <option>Tanah Merah</option>
+                                      <option>Pasir Puteh</option>
+                                      <option>Kuala Krai</option>
+                                      <option>Machang</option>
+                                      <option>Gua Musang</option>
+                                      <option>Jeli</option>
+                                      <option>Lojing</option>
+                                      <option>Melaka Tengah</option>
+                                      <option>Alor Gajah</option>
+                                      <option>Jasin</option>
+                                      <option>Seremban</option>
+                                      <option>Jempol</option>
+                                      <option>Port Dickson</option>
+                                      <option>Tampin</option>
+                                      <option>Kuala Pilah</option>
+                                      <option>Rembah</option>
+                                      <option>Jelebu</option>
+                                      <option>Kuantan</option>
+                                      <option>Temerloh</option>
+                                      <option>Bentong</option>
+                                      <option>Maran</option>
+                                      <option>Rompin</option>
+                                      <option>Pekan</option>
+                                      <option>Bera</option>
+                                      <option>Raub</option>
+                                      <option>Jerantut</option>
+                                      <option>Lipis</option>
+                                      <option>Cameron Highlands</option>
+                                      <option>Kinta</option>
+                                      <option>Larut, Matang, Selama</option>
+                                      <option>Manjung</option>
+                                      <option>Hilir Perak</option>
+                                      <option>Kerian</option>
+                                      <option>Batang Padang</option>
+                                      <option>Kuala Kangsar</option>
+                                      <option>Perak Tengah</option>
+                                      <option>Hulu Perak</option>
+                                      <option>Kampar</option>
+                                      <option>Muallim</option>
+                                      <option>Bagan Datuk</option>
+                                      <option>Perlis</option>
+                                      <option>Timur Laut Pulau Pinang</option>
+                                      <option>Seberang Perai Tengah</option>
+                                      <option>Seberang Perai Utara</option>
+                                      <option>Barat Daya Pulau Pinang</option>
+                                      <option>Seberang Perai Selatan</option>
+                                      <option>Kota Kinabalu</option>
+                                      <option>Tawau</option>
+                                      <option>Sandakan</option>
+                                      <option>Lahad Datu</option>
+                                      <option>Keningau</option>
+                                      <option>Kinabatangan</option>
+                                      <option>Semporna</option>
+                                      <option>Papar</option>
+                                      <option>Penampang</option>
+                                      <option>Beluran</option>
+                                      <option>Tuaran</option>
+                                      <option>Ranau</option>
+                                      <option>Kota Belud</option>
+                                      <option>Kudat</option>
+                                      <option>Kota Marudu</option>
+                                      <option>Beaufort</option>
+                                      <option>Kunak</option>
+                                      <option>Tenom</option>
+                                      <option>Putatan</option>
+                                      <option>Pitas</option>
+                                      <option>Tambunan</option>
+                                      <option>Tongod</option>
+                                      <option>Sipitang</option>
+                                      <option>Nabawan</option>
+                                      <option>Kuala Penyu</option>
+                                      <option>Kuching</option>
+                                      <option>Miri</option>
+                                      <option>Sibu</option>
+                                      <option>Bintulu</option>
+                                      <option>Serian</option>
+                                      <option>Samarahan</option>
+                                      <option>Sri Aman</option>
+                                      <option>Marudu</option>
+                                      <option>Betong</option>
+                                      <option>Sarikei</option>
+                                      <option>Kapit</option>
+                                      <option>Bau</option>
+                                      <option>Limbang</option>
+                                      <option>Saratok</option>
+                                      <option>Mukah</option>
+                                      <option>Simunjan</option>
+                                      <option>Lawas</option>
+                                      <option>Belaga</option>
+                                      <option>Lundu</option>
+                                      <option>Asajaya</option>
+                                      <option>Daro</option>
+                                      <option>Tatau</option>
+                                      <option>Maradong</option>
+                                      <option>Kanowit</option>
+                                      <option>Lubok Antu</option>
+                                      <option>Selangau</option>
+                                      <option>Song</option>
+                                      <option>Dalat</option>
+                                      <option>Matu</option>
+                                      <option>Julau</option>
+                                      <option>Pakan	</option>
+                                      <option>Padawan</option>
+                                      <option>Petaling</option>
+                                      <option>Hulu Langat</option>
+                                      <option>Klang</option>
+                                      <option>Gombak</option>
+                                      <option>Kuala Langat</option>
+                                      <option>Sepang</option>
+                                      <option>Kuala Selangor</option>
+                                      <option>Hulu Selangor</option>
+                                      <option>Sabak Bernam</option>
+                                      <option>Kuala Terengganu</option>
+                                      <option>Kemaman</option>
+                                      <option>Dungun</option>
+                                      <option>Besut</option>
+                                      <option>Marang</option>
+                                      <option>Hulu Terengganu</option>
+                                      <option>Setiu</option>
+                                      <option>Kuala Nerus</option>
+                                      <option>Kuala Lumpur</option>
+                                      <option>Labuan</option>
+                                      <option>Putrajaya</option>
+                                    </select>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                            <option disabled selected>State</option>
+                                            <option>Johor</option>
+                                            <option>Kedah</option>
+                                            <option>Kelantan</option>
+                                            <option>Melaka</option>
+                                            <option>Negeri Sembilan</option>
+                                            <option>Pahang</option>
+                                            <option>Perak</option>
+                                            <option>Perlis</option>
+                                            <option>Pulau Pinang</option>
+                                            <option>Sabah</option>
+                                            <option>Sarawak</option>
+                                            <option>Selangor</option>
+                                            <option>Terengganu</option>
+                                            <option>Wilayah Persekutuan Malaysia</option>  
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Postal Code">
+                                    </div>
+                                </div> 
+                                <br>
                                 <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                 <div class="row">
                                 <div class="col-md-6">
@@ -714,6 +1428,184 @@
                                     <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your service location</div>
                                     <input id="product_location5" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                      <option disabled selected>City</option>
+                                      <option>Johor Bahru</option>
+                                      <option>Batu Pahat</option>
+                                      <option>Kluang</option>
+                                      <option>Kulai</option>
+                                      <option>Muar</option>
+                                      <option>Kota Tinggi</option>
+                                      <option>Segamat</option>
+                                      <option>Pontian</option>
+                                      <option>Tangkak</option>
+                                      <option>Mersing</option>
+                                      <option>Sungai Petani</option>
+                                      <option>Alor Setar</option>
+                                      <option>Kulim</option>
+                                      <option>Kubang Pasu</option>
+                                      <option>Baling</option>
+                                      <option>Pendang</option>
+                                      <option>Langkawi</option>
+                                      <option>Yan</option>
+                                      <option>Sik</option>
+                                      <option>Padang Terap</option>
+                                      <option>Pokok Sena</option>
+                                      <option>Bandar Baharu</option>
+                                      <option>Kota Bharu</option>
+                                      <option>Pasir Mas</option>
+                                      <option>Tumpat</option>
+                                      <option>Bachok</option>
+                                      <option>Tanah Merah</option>
+                                      <option>Pasir Puteh</option>
+                                      <option>Kuala Krai</option>
+                                      <option>Machang</option>
+                                      <option>Gua Musang</option>
+                                      <option>Jeli</option>
+                                      <option>Lojing</option>
+                                      <option>Melaka Tengah</option>
+                                      <option>Alor Gajah</option>
+                                      <option>Jasin</option>
+                                      <option>Seremban</option>
+                                      <option>Jempol</option>
+                                      <option>Port Dickson</option>
+                                      <option>Tampin</option>
+                                      <option>Kuala Pilah</option>
+                                      <option>Rembah</option>
+                                      <option>Jelebu</option>
+                                      <option>Kuantan</option>
+                                      <option>Temerloh</option>
+                                      <option>Bentong</option>
+                                      <option>Maran</option>
+                                      <option>Rompin</option>
+                                      <option>Pekan</option>
+                                      <option>Bera</option>
+                                      <option>Raub</option>
+                                      <option>Jerantut</option>
+                                      <option>Lipis</option>
+                                      <option>Cameron Highlands</option>
+                                      <option>Kinta</option>
+                                      <option>Larut, Matang, Selama</option>
+                                      <option>Manjung</option>
+                                      <option>Hilir Perak</option>
+                                      <option>Kerian</option>
+                                      <option>Batang Padang</option>
+                                      <option>Kuala Kangsar</option>
+                                      <option>Perak Tengah</option>
+                                      <option>Hulu Perak</option>
+                                      <option>Kampar</option>
+                                      <option>Muallim</option>
+                                      <option>Bagan Datuk</option>
+                                      <option>Perlis</option>
+                                      <option>Timur Laut Pulau Pinang</option>
+                                      <option>Seberang Perai Tengah</option>
+                                      <option>Seberang Perai Utara</option>
+                                      <option>Barat Daya Pulau Pinang</option>
+                                      <option>Seberang Perai Selatan</option>
+                                      <option>Kota Kinabalu</option>
+                                      <option>Tawau</option>
+                                      <option>Sandakan</option>
+                                      <option>Lahad Datu</option>
+                                      <option>Keningau</option>
+                                      <option>Kinabatangan</option>
+                                      <option>Semporna</option>
+                                      <option>Papar</option>
+                                      <option>Penampang</option>
+                                      <option>Beluran</option>
+                                      <option>Tuaran</option>
+                                      <option>Ranau</option>
+                                      <option>Kota Belud</option>
+                                      <option>Kudat</option>
+                                      <option>Kota Marudu</option>
+                                      <option>Beaufort</option>
+                                      <option>Kunak</option>
+                                      <option>Tenom</option>
+                                      <option>Putatan</option>
+                                      <option>Pitas</option>
+                                      <option>Tambunan</option>
+                                      <option>Tongod</option>
+                                      <option>Sipitang</option>
+                                      <option>Nabawan</option>
+                                      <option>Kuala Penyu</option>
+                                      <option>Kuching</option>
+                                      <option>Miri</option>
+                                      <option>Sibu</option>
+                                      <option>Bintulu</option>
+                                      <option>Serian</option>
+                                      <option>Samarahan</option>
+                                      <option>Sri Aman</option>
+                                      <option>Marudu</option>
+                                      <option>Betong</option>
+                                      <option>Sarikei</option>
+                                      <option>Kapit</option>
+                                      <option>Bau</option>
+                                      <option>Limbang</option>
+                                      <option>Saratok</option>
+                                      <option>Mukah</option>
+                                      <option>Simunjan</option>
+                                      <option>Lawas</option>
+                                      <option>Belaga</option>
+                                      <option>Lundu</option>
+                                      <option>Asajaya</option>
+                                      <option>Daro</option>
+                                      <option>Tatau</option>
+                                      <option>Maradong</option>
+                                      <option>Kanowit</option>
+                                      <option>Lubok Antu</option>
+                                      <option>Selangau</option>
+                                      <option>Song</option>
+                                      <option>Dalat</option>
+                                      <option>Matu</option>
+                                      <option>Julau</option>
+                                      <option>Pakan	</option>
+                                      <option>Padawan</option>
+                                      <option>Petaling</option>
+                                      <option>Hulu Langat</option>
+                                      <option>Klang</option>
+                                      <option>Gombak</option>
+                                      <option>Kuala Langat</option>
+                                      <option>Sepang</option>
+                                      <option>Kuala Selangor</option>
+                                      <option>Hulu Selangor</option>
+                                      <option>Sabak Bernam</option>
+                                      <option>Kuala Terengganu</option>
+                                      <option>Kemaman</option>
+                                      <option>Dungun</option>
+                                      <option>Besut</option>
+                                      <option>Marang</option>
+                                      <option>Hulu Terengganu</option>
+                                      <option>Setiu</option>
+                                      <option>Kuala Nerus</option>
+                                      <option>Kuala Lumpur</option>
+                                      <option>Labuan</option>
+                                      <option>Putrajaya</option>
+                                    </select>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                            <option disabled selected>State</option>
+                                            <option>Johor</option>
+                                            <option>Kedah</option>
+                                            <option>Kelantan</option>
+                                            <option>Melaka</option>
+                                            <option>Negeri Sembilan</option>
+                                            <option>Pahang</option>
+                                            <option>Perak</option>
+                                            <option>Perlis</option>
+                                            <option>Pulau Pinang</option>
+                                            <option>Sabah</option>
+                                            <option>Sarawak</option>
+                                            <option>Selangor</option>
+                                            <option>Terengganu</option>
+                                            <option>Wilayah Persekutuan Malaysia</option>  
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Postal Code">
+                                    </div>
+                                </div> 
+                                <br>
                                     <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                     <div class="row">
                                     <div class="col-md-6">
@@ -729,6 +1621,184 @@
                                     <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your service location</div>
                                     <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                      <option disabled selected>City</option>
+                                      <option>Johor Bahru</option>
+                                      <option>Batu Pahat</option>
+                                      <option>Kluang</option>
+                                      <option>Kulai</option>
+                                      <option>Muar</option>
+                                      <option>Kota Tinggi</option>
+                                      <option>Segamat</option>
+                                      <option>Pontian</option>
+                                      <option>Tangkak</option>
+                                      <option>Mersing</option>
+                                      <option>Sungai Petani</option>
+                                      <option>Alor Setar</option>
+                                      <option>Kulim</option>
+                                      <option>Kubang Pasu</option>
+                                      <option>Baling</option>
+                                      <option>Pendang</option>
+                                      <option>Langkawi</option>
+                                      <option>Yan</option>
+                                      <option>Sik</option>
+                                      <option>Padang Terap</option>
+                                      <option>Pokok Sena</option>
+                                      <option>Bandar Baharu</option>
+                                      <option>Kota Bharu</option>
+                                      <option>Pasir Mas</option>
+                                      <option>Tumpat</option>
+                                      <option>Bachok</option>
+                                      <option>Tanah Merah</option>
+                                      <option>Pasir Puteh</option>
+                                      <option>Kuala Krai</option>
+                                      <option>Machang</option>
+                                      <option>Gua Musang</option>
+                                      <option>Jeli</option>
+                                      <option>Lojing</option>
+                                      <option>Melaka Tengah</option>
+                                      <option>Alor Gajah</option>
+                                      <option>Jasin</option>
+                                      <option>Seremban</option>
+                                      <option>Jempol</option>
+                                      <option>Port Dickson</option>
+                                      <option>Tampin</option>
+                                      <option>Kuala Pilah</option>
+                                      <option>Rembah</option>
+                                      <option>Jelebu</option>
+                                      <option>Kuantan</option>
+                                      <option>Temerloh</option>
+                                      <option>Bentong</option>
+                                      <option>Maran</option>
+                                      <option>Rompin</option>
+                                      <option>Pekan</option>
+                                      <option>Bera</option>
+                                      <option>Raub</option>
+                                      <option>Jerantut</option>
+                                      <option>Lipis</option>
+                                      <option>Cameron Highlands</option>
+                                      <option>Kinta</option>
+                                      <option>Larut, Matang, Selama</option>
+                                      <option>Manjung</option>
+                                      <option>Hilir Perak</option>
+                                      <option>Kerian</option>
+                                      <option>Batang Padang</option>
+                                      <option>Kuala Kangsar</option>
+                                      <option>Perak Tengah</option>
+                                      <option>Hulu Perak</option>
+                                      <option>Kampar</option>
+                                      <option>Muallim</option>
+                                      <option>Bagan Datuk</option>
+                                      <option>Perlis</option>
+                                      <option>Timur Laut Pulau Pinang</option>
+                                      <option>Seberang Perai Tengah</option>
+                                      <option>Seberang Perai Utara</option>
+                                      <option>Barat Daya Pulau Pinang</option>
+                                      <option>Seberang Perai Selatan</option>
+                                      <option>Kota Kinabalu</option>
+                                      <option>Tawau</option>
+                                      <option>Sandakan</option>
+                                      <option>Lahad Datu</option>
+                                      <option>Keningau</option>
+                                      <option>Kinabatangan</option>
+                                      <option>Semporna</option>
+                                      <option>Papar</option>
+                                      <option>Penampang</option>
+                                      <option>Beluran</option>
+                                      <option>Tuaran</option>
+                                      <option>Ranau</option>
+                                      <option>Kota Belud</option>
+                                      <option>Kudat</option>
+                                      <option>Kota Marudu</option>
+                                      <option>Beaufort</option>
+                                      <option>Kunak</option>
+                                      <option>Tenom</option>
+                                      <option>Putatan</option>
+                                      <option>Pitas</option>
+                                      <option>Tambunan</option>
+                                      <option>Tongod</option>
+                                      <option>Sipitang</option>
+                                      <option>Nabawan</option>
+                                      <option>Kuala Penyu</option>
+                                      <option>Kuching</option>
+                                      <option>Miri</option>
+                                      <option>Sibu</option>
+                                      <option>Bintulu</option>
+                                      <option>Serian</option>
+                                      <option>Samarahan</option>
+                                      <option>Sri Aman</option>
+                                      <option>Marudu</option>
+                                      <option>Betong</option>
+                                      <option>Sarikei</option>
+                                      <option>Kapit</option>
+                                      <option>Bau</option>
+                                      <option>Limbang</option>
+                                      <option>Saratok</option>
+                                      <option>Mukah</option>
+                                      <option>Simunjan</option>
+                                      <option>Lawas</option>
+                                      <option>Belaga</option>
+                                      <option>Lundu</option>
+                                      <option>Asajaya</option>
+                                      <option>Daro</option>
+                                      <option>Tatau</option>
+                                      <option>Maradong</option>
+                                      <option>Kanowit</option>
+                                      <option>Lubok Antu</option>
+                                      <option>Selangau</option>
+                                      <option>Song</option>
+                                      <option>Dalat</option>
+                                      <option>Matu</option>
+                                      <option>Julau</option>
+                                      <option>Pakan	</option>
+                                      <option>Padawan</option>
+                                      <option>Petaling</option>
+                                      <option>Hulu Langat</option>
+                                      <option>Klang</option>
+                                      <option>Gombak</option>
+                                      <option>Kuala Langat</option>
+                                      <option>Sepang</option>
+                                      <option>Kuala Selangor</option>
+                                      <option>Hulu Selangor</option>
+                                      <option>Sabak Bernam</option>
+                                      <option>Kuala Terengganu</option>
+                                      <option>Kemaman</option>
+                                      <option>Dungun</option>
+                                      <option>Besut</option>
+                                      <option>Marang</option>
+                                      <option>Hulu Terengganu</option>
+                                      <option>Setiu</option>
+                                      <option>Kuala Nerus</option>
+                                      <option>Kuala Lumpur</option>
+                                      <option>Labuan</option>
+                                      <option>Putrajaya</option>
+                                    </select>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                            <option disabled selected>State</option>
+                                            <option>Johor</option>
+                                            <option>Kedah</option>
+                                            <option>Kelantan</option>
+                                            <option>Melaka</option>
+                                            <option>Negeri Sembilan</option>
+                                            <option>Pahang</option>
+                                            <option>Perak</option>
+                                            <option>Perlis</option>
+                                            <option>Pulau Pinang</option>
+                                            <option>Sabah</option>
+                                            <option>Sarawak</option>
+                                            <option>Selangor</option>
+                                            <option>Terengganu</option>
+                                            <option>Wilayah Persekutuan Malaysia</option>  
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Postal Code">
+                                    </div>
+                                </div> 
+                                <br>
                                     <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                     <div class="row">
                                     <div class="col-md-6">

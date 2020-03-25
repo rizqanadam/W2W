@@ -34,6 +34,7 @@ html * {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -97,13 +98,18 @@ html * {
                                     <a href="./choose-register.html" class="or-login" style="color: #0099FF;">Create an account</a>
                                 </p>
                             </div>
+                            <div id="error_email2" style="color: red; font-size: 12px; font-weight: lighter;"></div>
                             <div class="form-group">
                                 <label class="login-text" for="username">Email </label>
-                                <input type="text" class="form-control" id="email" required>
+                                <input type="text" class="form-control" id="email">
+                                <div id="error_email" style="color: red; font-size: 12px; font-weight: lighter;"></div>
+
                             </div>
                             <div class="form-group">
                                 <label class="login-text" for="pass">Password </label>
-                                <input type="password" class="form-control" id="password" required>
+                                <input type="password" class="form-control" id="password">
+                                <div id="error_password" style="color: red; font-size: 12px; font-weight: lighter;"></div>
+                                <div id="error_password2" style="color: red; font-size: 12px; font-weight: lighter;"></div>
                             </div>
                             <div class="group-input">
                                 <div class="gi-more">
@@ -115,9 +121,9 @@ html * {
                                 </div>
                             </div>
                             <div>
-                                
+
                                 <button  id="signin" value="submit" class="site-btn btn login-btn" style="color: white; text-transform: initial; width: 100%">Sign In</button>
-                           
+
                             </div>
                             <div>
                                 <a href="#" class="forget-pass float-right login-text" style="color: #D91F1F; padding-top: 20px;">Forgot pasword?</a>
@@ -136,13 +142,13 @@ html * {
     crossorigin="anonymous">
     </script>
 
-    <script> 
+    <script>
         $(document).ready(function(){
             $('#signin').on('click',function(){
-                    LoginUser();    
+                    LoginUser();
                     //setCookie();
             });
-            
+
             $('#keepme_signedin').on('click',function(){
                 setCookie();
             });
@@ -152,31 +158,49 @@ html * {
             var email = $('#email').val();
             var password = $('#password').val();
 
+
+            if(email == "" && password == ""){
+                $('#error_email').html('Email is required');
+                $('#error_password').html('Password is required');
+            }
+            else if(email == ""){
+                $('#error_email2').html('');
+                $('#error_email').html('Email is required');
+            }
+            else if(password == ""){
+                $('#error_password2').html('');
+                $('#error_password').html('Password is required');
+            }
+
             if( email !== "" && password !== ""){
                 $.ajax({
                     url: 'http://codeviable.com/w2w2/public/login?user_email=&password=',
                     type: 'POST',
                     data: { 'user_email' : email, 'password' : password },
-                    success: function (response){
-                        if(response.email === email && response.password === password){
+                }).done(function(response){
+                    console.log(response);
+                    if(response.user_email === email && response.password === password || response.email === email && response.password === password ){
                             console.log(response);
                             console.log("Logged in");
-                            localStorage.setItem("user_id", JSON.stringify(response.id));
-                            window.location.href = "./index1.html"; 
-                        }
-                        else{
-                            console.log(response);
-                            console.log("Invalid email/password");}
+                            localStorage.setItem("user_id", JSON.stringify(response.user_id));
+                            localStorage.setItem("user_type", JSON.stringify(response.user_type));
+                            window.location.href = "./index1.html";
                     }
+                    // else if( response.user_email !== email || response.password !== password || response.email !== email || response.password !== password){
+                    //     if(response.user_email !== email || response.email !== email){
+                    //         $('#error_email').html('');
+                    //         $('#error_email2').html('Invalid email address/password');
+                    //     }
+                    // }
+
                 });
             }
-            else
-                console.log("Please fill all fields.");   
+
         }
 
         /*function setCookie() {
             var email = $('#email').val();
-            
+
             localStorage.setItem("email", JSON.stringify(email));
             document.cookie = escape('email') + "=" + email;
         }*/

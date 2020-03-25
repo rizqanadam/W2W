@@ -2,30 +2,8 @@
 <html lang="zxx">
 <style>
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  /*z-index: 1;*/
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 6px;
-  text-align: left;
-  text-decoration: none;
-  display: block;
-}
-
 .nav-item .nav-menu li a {
-        color: black !important;
+     color: black !important;
 }       
 
 .line-bottom {
@@ -63,6 +41,17 @@
     color: #3A595D;
 }
 
+/* #submit{
+    width: 247px;
+    height: 54px;
+    border-radius: 30px;
+    align-content: center;
+    background-color: #27AE60;
+    color: white;
+    margin-left: auto; 
+    margin-right: auto;
+} */
+
 
 html * {
     font-family: 'Roboto' !important;
@@ -78,31 +67,7 @@ i {
     -webkit-font-smoothing: antialiased;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
-  font-size: small;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown-content a:hover {
-    color: #27AE60 ;
-}
-
-</style>
+</style> 
 
 <head>
     <meta charset="UTF-8">
@@ -151,15 +116,7 @@ i {
                         </div>
                         <div class="col-lg-10 text-right" style="padding: 40px;">
                             <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                            <div class="dropdown">
-                                <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
-                                <h5 style="margin-top: 8px; color: black;">My Account</h5>
-                                </button>
-                                <div class="dropdown-content">
-                                  <a href="./myaccount-defaultview.html">My account</a>
-                                  <a href="./index.html">Logout</a>
-                                </div>
-                            </div>
+                            <a href="./login.html"><button class="btn">Login</button></a>
                         </div>
                     </div>
                 </div>
@@ -174,7 +131,7 @@ i {
                             <li><a href="./productlistings-viewall.html">Available</a></li>
                             <li><a href="./productwanted-viewall.html">Wanted</a></li>
                             <li><a href="./package-registered.html">Pricing</a></li>
-                            <li><a href="#">News</a></li>
+                            <li><a href="./news-guestview.html">News</a></li>
                             <li  class="active"><a href="#">Contact Us</a></li>
                         </ul>
                     </nav>
@@ -192,6 +149,7 @@ i {
         </div>
 
         <div class="col-md-6 mx-auto" style="padding-bottom: 40px;">
+
             <div class="form-group">
                 <label class="login-text" for="name">Name </label>
                 <input style="background-color: #F2F2F2; border: none;" type="text" class="form-control" id="name" required>
@@ -200,6 +158,15 @@ i {
             <div class="form-group">
                 <label class="login-text" for="email">Email </label>
                 <input style="background-color: #F2F2F2; border: none;" type="text" class="form-control" id="email" required>
+            </div>
+
+            <div class="form-group">
+                <label class="login-text" for="name">Category</label>
+                <select id="categoryDropdown" style="background-color: #F2F2F2; border: none;" class="form-control">
+                    <option disabled selected>Please choose</option>
+                    <option>Support</option>
+                    <option>Report</option>
+                  </select>
             </div>
 
             <div class="form-group">

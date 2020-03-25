@@ -2,6 +2,28 @@
 <html lang="zxx">
 <style>
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /*z-index: 1;*/
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
+
 .nav-item .nav-menu li a {
         color: black !important;
 }       
@@ -41,17 +63,6 @@
     color: #3A595D;
 }
 
-/* #submit{
-    width: 247px;
-    height: 54px;
-    border-radius: 30px;
-    align-content: center;
-    background-color: #27AE60;
-    color: white;
-    margin-left: auto; 
-    margin-right: auto;
-} */
-
 
 html * {
     font-family: 'Roboto' !important;
@@ -65,6 +76,30 @@ i {
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+    color: #27AE60 ;
 }
 
 </style>
@@ -109,14 +144,22 @@ i {
                     <div class="row">
                         <div class="col-lg-2 col-md-2" style="padding: 0;">
                             <div class="logo">
-                                <a href="./index.html">
+                                <a href="./index1.html">
                                     <img src="img/website-logo.png">
                                 </a>
                             </div>
                         </div>
                         <div class="col-lg-10 text-right" style="padding: 40px;">
                             <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                            <a href="./login.html"><button class="btn">Login</button></a>
+                            <div class="dropdown">
+                                <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
+                                <h5 style="margin-top: 8px; color: black;">My Account</h5>
+                                </button>
+                                <div class="dropdown-content">
+                                  <a href="./myaccount-defaultview.html">My account</a>
+                                  <a href="./index.html">Logout</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -131,7 +174,7 @@ i {
                             <li><a href="./productlistings-viewall.html">Available</a></li>
                             <li><a href="./productwanted-viewall.html">Wanted</a></li>
                             <li><a href="./package-registered.html">Pricing</a></li>
-                            <li><a href="#">News</a></li>
+                            <li><a href="./news-userview.html">News</a></li>
                             <li  class="active"><a href="#">Contact Us</a></li>
                         </ul>
                     </nav>
@@ -160,8 +203,17 @@ i {
             </div>
 
             <div class="form-group">
+                <label class="login-text" for="name">Category</label>
+                <select id="categoryDropdown" style="background-color: #F2F2F2; border: none;" class="form-control">
+                    <option disabled selected>Please choose</option>
+                    <option>Support</option>
+                    <option>Report</option>
+                  </select>
+            </div>
+
+            <div class="form-group">
                 <label class="login-text">Additional information</label>
-                <textarea id="product_desc" type="text" class="form-control" style="background-color: #F2F2F2; border: none; height: 200px;"></textarea>
+                <textarea id="description" type="text" class="form-control" style="background-color: #F2F2F2; border: none; height: 200px;"></textarea>
             </div>
 
             <div class="col-md-6 mx-auto" style="padding: 40px;">
@@ -204,3 +256,42 @@ i {
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            $('#submit').on('click' , function(){
+                submitEnquiry();
+            });
+
+        });
+
+        function submitEnquiry(){
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var category = $('#categoryDropdown').val();
+            var description = $('#description').val();
+
+            var postdata = {
+                "name" : name,
+                "email" : email,
+                "category" : category,
+                "description" : description
+            }
+
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/enquiry",
+                type: "POST",
+                data: postdata,
+            }).done(function(response){
+                console.log(response);
+            })
+        }
+    
+    </script>

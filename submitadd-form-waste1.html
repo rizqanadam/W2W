@@ -2189,6 +2189,7 @@
             $userid = localStorage.getItem("user_id");
             categoryDropdownList();
             packageDropdownList();
+            userDetails();
             
             $('#submitButton').on('click',function(){
                 submitAvailableProduct();
@@ -2271,9 +2272,15 @@
             formData.append("product_price" , product_price);
             formData.append("product_period" , product_period);
             formData.append("product_package" , product_package);
-            formData.append("product_location" , product_location);
-            formData.append("latitud" , latitude);
-            formData.append("longitud" , longitude);
+            formData.append("product_location[]" , product_location);
+            formData.append("product_location[]" , product_location2);
+            formData.append("product_location[]" , product_location3);
+            formData.append("latitud[]" , latitude);
+            formData.append("latitud[]" , latitude2);
+            formData.append("latitud[]" , latitude3);
+            formData.append("longitud[]" , longitude);
+            formData.append("longitud[]" , longitude2);
+            formData.append("longitud[]" , longitude3);
             formData.append("product_transport" , product_transport);
             formData.append("product_description" , product_description);
             formData.append("product_image[]" , image1[0]);
@@ -2285,6 +2292,7 @@
             formData.append("company_email" , company_email);
             formData.append("company_contact" , company_contact);
             formData.append("mainstatus" , "available");
+            formData.append("maincategory" , "waste");
             formData.append("user_id" , $userid);
             
 
@@ -2363,6 +2371,18 @@
                 console.log(response);
             })
 
+        }
+
+        function userDetails() {
+
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/user",
+                type: "GET",
+            }).done(function(response){
+                $("#company_name").html(response.companyname);
+                $("#company_email").html(response.user_email);
+                $("#company_contact").html(response.user_contact);
+            })
         }
 
     </script>

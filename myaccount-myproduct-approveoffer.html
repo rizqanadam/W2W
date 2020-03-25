@@ -141,11 +141,35 @@ ul ul a {
   font-size: 12px;
 }
 
-.footer-stay {
+.nav-reserveproduct {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+  }
+
+  .nav-style {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 2px 15px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  .active-nav {
+    border-bottom: 6px solid #27AE60;
+    color: #27AE60;
+  }
+
+  .footer-stay {
      position: absolute;
      bottom: 0; 
      width: 100%;
-}
+    }
 
 </style>
 <head>
@@ -247,134 +271,49 @@ ul ul a {
                   <li><a href="./myaccount-defaultview.html">My Account</a></li>
                   <li><a href="./myaccount-myproduct-adsubmitted.html"class="active">My Products</a>
                   <ul style="margin-top: 0;">
-                    <a href="#" class="active" >Advertisment</a><br>
-                    <a href="./myaccount-myproduct-approveoffer.html">Approve Offer</a>
+                    <a href="./myaccount-myproduct-adsubmitted.html">Advertisment</a><br>
+                    <a href="" class="active" >Approve Offer</a>
                   </ul>
                 </li>
                   <li><a href="./myaccount-mypurchase-purchasehistory.html">My Purchases</a></li>
-                  <li><a href="./myaccount-notification.html">Notifications</a></li> 
+                  <li><a href="">Notifications</a></li> 
               </ul>
           </div>
 
-          <div class="card col-md-8" style="padding: 20px; margin-bottom: 50px;">
-            <div id="product_display">
-              <div class="row">
-                  <div class="col-md-2"><img src="img/organic-compose.jpg"></div>
-
-                  <div>
-                    <p style="font-size:16px; text-transform:capitalize; color: #008D50; font-weight: 500;">Organic Compose</p>
-                    <div style="margin-top: 12px;">
-                      <div class="text-product">Available/Wanted: Available</div>
-                      <div class="text-product">Type of Material: Solid</div>
-                      <div class="text-product">Category: Plastic & Rubber</div>
-                      <div class="text-product">Season: One-Time</div>
-                    </div>  
-                  </div>
-
-                  <div style="margin-top: auto; margin-left: 30px;">
-                    <div class="text-product">Quantity: 80 mton</div>
-                    <div class="text-product">Price: RM100</div>
-                    <div class="text-product">Expires: Never</div>
-                    <div class="text-product">Ad Period: 6 months</div>
-                  </div>
-                  
-                  <div class="col-md-3" style="margin-top: auto; margin-left: 15px;">
-                    <select id="categoryDropdown" style="font-size: 12px; border-color: #F2F2F2;" class="form-control">
-                      <option disabled selected>Availability Status</option>
-                      <option>On-going</option>
-                      <option>Sold Out</option>
-                      <option>Available</option>
-                    </select>
-                  </div>
-
-                  <div style="margin-top: auto;  margin-left: 20px;">
-                    <div class="text-product">July 17, 2020</div>
-                    <br>
-                    <div class="text-product">Pasir Gudang</div>
-                    <div class="text-product">Johor</div>
-                  </div>
-              </div>
-
-              <div class="line-bottom"></div>
-
-              <div class="row">
-                <div class="col-md-2"><img src="img/organic-compose.jpg"></div>
-
-                <div>
-                  <p style="font-size:16px; text-transform:capitalize; color: #008D50; font-weight: 500;">Organic Compose</p>
-                  <div style="margin-top: 12px;">
-                    <div class="text-product">Available/Wanted: Available</div>
-                    <div class="text-product">Type of Material: Solid</div>
-                    <div class="text-product">Category: Plastic & Rubber</div>
-                    <div class="text-product">Season: One-Time</div>
-                  </div>  
-                </div>
-
-                <div style="margin-top: auto; margin-left: 30px;">
-                  <div class="text-product">Quantity: 80 mton</div>
-                  <div class="text-product">Price: RM100</div>
-                  <div class="text-product">Expires: Never</div>
-                  <div class="text-product">Ad Period: 6 months</div>
-                </div>
-                
-                <div class="col-md-3" style="margin-top: auto; margin-left: 15px;">
-                  <select id="categoryDropdown" style="font-size: 12px; border-color: #F2F2F2;" class="form-control">
-                    <option disabled selected>Availability Status</option>
-                    <option>On-going</option>
-                    <option>Sold Out</option>
-                    <option>Available</option>
-                  </select>
-                </div>
-
-                <div style="margin-top: auto;  margin-left: 20px;">
-                  <div class="text-product">July 17, 2020</div>
-                  <br>
-                  <div class="text-product">Pasir Gudang</div>
-                  <div class="text-product">Johor</div>
-                </div>
+          <div class="col-md-8">
+            <div class="card" style="margin-bottom: 20px; border: none;">
+              <ul class="nav-reserveproduct">
+                <li class="col-md-3"><a class="active-nav nav-style" href="./myaccount-myproduct-approveoffer.html">All</a></li>
+                <li class="col-md-3"><a class="nav-style" href="./myaccount-myproduct-approveoffer-progress.html">Progress</a></li>
+                <li class="col-md-3"><a class="nav-style" href="./myaccount-myproduct-approveoffer-complete.html">Complete</a></li>
+                <li class="col-md-3"><a class="nav-style" href="./myaccount-myproduct-approveoffer-cancelled.html">Cancelled</a></li>
+              </ul>
             </div>
 
-            <div class="line-bottom"></div>
-
-            <div class="row">
-              <div class="col-md-2"><img src="img/organic-compose.jpg"></div>
-
-              <div>
-                <p style="font-size:16px; text-transform:capitalize; color: #008D50; font-weight: 500;">Organic Compose</p>
-                <div style="margin-top: 12px;">
-                  <div class="text-product">Available/Wanted: Available</div>
-                  <div class="text-product">Type of Material: Solid</div>
-                  <div class="text-product">Category: Plastic & Rubber</div>
-                  <div class="text-product">Season: One-Time</div>
-                </div>  
+            <div class="card" style="padding: 20px; margin-bottom: 50px;">
+              <div id="display_product">
+                <div class="row">
+                  <div class="col-md-2">
+                    <img src="img/organic-compose.jpg">
+                  </div>
+                  <div class="col-md-6">
+                    <div id="reject_status" style="color: #FF5700; font-size: 16px; font-weight: bold;"></div>
+                    <div id="reject_status2" style="color: #FF5700; font-size: 16px; font-weight: bold;"></div>
+                    <p id= "product_name" style="font-weight: bold;">Organic Compose</p>
+                    <div id="offered_price" style="color: red; font-weight: bold;">Offered Price: RM100</div>
+                    <div id="product_desc" style="font-size: 12px;">Have any questions regarding our product?</div>
+                    <div id="buyer_email" style="font-size: 12px; color: #8B8B8B; margin-top: 40px;">From: johndoe@gmail.com</div>
+                  </div>
+                  <div style="margin-top: 70px; margin-left: 60px;">
+                    <button id="accept_btn" class="btn btn-success">Accept</button>
+                    <button id="reject_btn" class="btn btn-danger">Reject</button>
+                  </div>
+                  </div>
+                
+                <div class="line-bottom"></div>
+                
               </div>
-
-              <div style="margin-top: auto; margin-left: 30px;">
-                <div class="text-product">Quantity: 80 mton</div>
-                <div class="text-product">Price: RM100</div>
-                <div class="text-product">Expires: Never</div>
-                <div class="text-product">Ad Period: 6 months</div>
               </div>
-              
-              <div class="col-md-3" style="margin-top: auto; margin-left: 15px;">
-                <select id="categoryDropdown" style="font-size: 12px; border-color: #F2F2F2;" class="form-control">
-                  <option disabled selected>Availability Status</option>
-                  <option>On-going</option>
-                  <option>Sold Out</option>
-                  <option>Available</option>
-                </select>
-              </div>
-
-              <div style="margin-top: auto;  margin-left: 20px;">
-                <div class="text-product">July 17, 2020</div>
-                <br>
-                <div class="text-product">Pasir Gudang</div>
-                <div class="text-product">Johor</div>
-              </div>
-          </div>
-
-          <div class="line-bottom"></div>
-
             </div>
           </div>
         </div>
@@ -399,6 +338,8 @@ ul ul a {
      </div>
   </footer>
 
+</body>
+</html>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous">
@@ -415,6 +356,10 @@ ul ul a {
             $('#btn_logout').on('click', function(){
                 localStorage.clear();
             });
+
+            $('#reject_btn').on('click', function(){
+              rejectProduct();
+            })
             
         });
 
@@ -445,6 +390,20 @@ ul ul a {
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        function rejectProduct(){
+          
+          $('#product_name').html("").css('display', 'none');
+          $('#offered_price').html("").css('display', 'none');
+          $('#product_desc').html("").css('display', 'none');
+          $('#buyer_email').html("").css('display', 'none');
+          $('#accept_btn').css('display', 'none');
+          $('#reject_btn').css('display', 'none');
+
+          $('#reject_status').html("You have reject the offer.");
+          $('#reject_status2').html("A notification will be sent to the buyer.");
+
+        }
     </script>
 
     <!-- Js Plugins -->
@@ -458,7 +417,5 @@ ul ul a {
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-</body>
 
-</html>
 

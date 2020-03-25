@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /*z-index: 1;*/
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
 
 .nav-item .nav-menu li a {
         color: black !important;
@@ -57,10 +78,6 @@ html * {
     font-family: 'Roboto' !important;
 }
 
-.text {
-    font-family: 'Times New Roman' !important;
-}
-
 i {
     font-family: "FontAwesome" !important;
 
@@ -69,6 +86,30 @@ i {
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+    color: #27AE60 ;
 }
 
 </style>
@@ -118,9 +159,17 @@ i {
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-10 text-right" style="padding: 40px;">
+                        <div class="col-lg-10 text-right" style="padding: 5px;">
                             <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                            <a href="./login.html"><button class="btn">Login</button></a>
+                            <div class="dropdown">
+                                <button class="btn" type="button" data-toggle="dropdown" style="padding: 30px;"><img href="#" src="img/user.svg">
+                                <h5 style="margin-top: 8px; color: black;">My Account</h5>
+                                </button>
+                                <div class="dropdown-content">
+                                  <a href="./myaccount-defaultview.html">My account</a>
+                                  <a href="./index.html">Logout</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -136,7 +185,7 @@ i {
                             <li><a href="./productwanted-viewall.html">Wanted</a></li>
                             <li><a href="./package-registered.html">Pricing</a></li>
                             <li class="active"><a href="#">News</a></li>
-                            <li><a href="./inquiry-form-guestview.html">Contact Us</a></li>
+                            <li><a href="./enquiry-form-userview.html">Contact Us</a></li>
                         </ul>
                     </nav>
                     <div id="mobile-menu-wrap"></div>
@@ -145,81 +194,52 @@ i {
         </header>
         <!-- Header End -->
 
-        <div class="col-md-10 mx-auto">
-            <div class="col-md-10 mx-auto">
-                <div >
-                    <a href="./news-guestview.html" style="color: #0099FF; text-decoration: underline;"><- Back to news list</a>
+        <div class="col-md-10 mx-auto" style="padding: 40px; margin-bottom: 50px;">
+            
+                <div class="row mx-auto">
+                    <div class="col-md-8">
+                        <a href="./news2-guestview.html" style="color: black;"><div style="font-size: 20px; font-weight: bold; padding-bottom: 10px;">The Hidden Power of Reward Systems In Design</div></a>
+                        <div style="font-size: 16px; color: #707070;">An interactive prototype and an illustrated description of the Breakpoints tool that could be implemented in Figma.</div>
+                        <div style="font-size: 16px; margin-top: 20px;">12 April 2019</div>
+                    </div>
+                    <div class="col-md-4">
+                        <img style="width: 152px; height: 152px; object-fit: cover;" src="img/news.png">
+                    </div>
                 </div>
-                <div style="margin-top: 20px;" >
-                    <div  style="font-size: 24px; font-weight: bold;">The Hidden Power of Reward Systems In Design</div>
-                    <div  style="font-size: 16px; color: #707070;">How to design effective and responsible rewards</div>
-                </div>
-                <div style="padding-bottom: 20px;"> 
-                    <img style="margin: 15px;  object-fit: cover;" src="img/news.png">
-                </div>
+            
+                <div style="padding: 40px;"></div>
 
-                <div  style="padding-bottom: 40px;">
-                    <div  style="font-size: 24px; font-weight: bold;">Rewards are powerful</div>
-                    <div  class="text" style="margin-top: 15px; font-size: 18px; color: #707070; text-align: justify; ">You’ve most likely downloaded a new app for your phone, only to delete it a few days later or never open it again. You may have also caught yourself scrolling through your Instagram feed for hours at a time, with no real reason. It’s clear that certain digital products know how to ingrain themselves in our daily routines while others cannot seem to get more than one or two uses. The most popular apps use reward systems to increase retention, engagement and organic sharing amongst its users. Reward systems are a powerful tool for designers to ensure that users get the most value out of their products.</div>
+                <div class="row mx-auto">
+                    <div class="col-md-8">
+                        <a href="#" style="color: black;"><div style="font-size: 20px; font-weight: bold; padding-bottom: 10px;">The Hidden Power of Reward Systems In Design</div></a>
+                        <div style="font-size: 16px; color: #707070;">An interactive prototype and an illustrated description of the Breakpoints tool that could be implemented in Figma.</div>
+                        <div style="font-size: 16px; margin-top: 20px;">25 April 2019</div>
+                    </div>
+                    <div class="col-md-4">
+                        <img style="width: 152px; height: 152px; object-fit: cover;" src="img/news2.jpg">
+                    </div>
                 </div>
-
-                <div  style="padding-bottom: 40px;">
-                    <div  style="font-size: 24px; font-weight: bold;">Different Delivery Methods</div>
-                    <div  class="text" style="margin-top: 15px; font-size: 18px; color: #707070; text-align: justify; ">Every day we’re rewarded for using digital products even if we’re not aware of it. These rewards are not always as obvious and the most subtle ones are usually the most effective. Even if a product uses all these delivery methods, the reward should always resonate on an emotional level with the user in order for it to be effective. The more powerful the emotion, the more successful the reward tends to be.</div>
+           
+                <div style="padding: 40px;"></div>
+            
+                <div class="row mx-auto">
+                    <div class="col-md-8">
+                        <a href="#" style="color: black;"><div style="font-size: 20px; font-weight: bold; padding-bottom: 10px;">The Hidden Power of Reward Systems In Design</div></a>
+                        <div style="font-size: 16px; color: #707070;">An interactive prototype and an illustrated description of the Breakpoints tool that could be implemented in Figma.</div>
+                        <div style="font-size: 16px; margin-top: 20px;">30 April 2019</div>
+                    </div>
+                    <div class="col-md-4">
+                        <img style="width: 152px; height: 152px; object-fit: cover;" src="img/news.png">
+                    </div>
                 </div>
-
-                <div  style="padding-bottom: 40px;">
-                    <div  style="font-size: 24px; font-weight: bold;">Slot Machine Mechanics</div>
-                    <div  class="text" style="margin-top: 15px; font-size: 18px; color: #707070; text-align: justify; ">In 2008, software developer Loren Brichter founded Tweetie, an app client for Twitter. Not long after, Twitter acquired Tweetie and turned the 3rd party app into its official iPhone app. As a result, Twitter was able to solidify its space in the app store and also brought the“pull-to-refresh” feature to the masses.</div>
-                </div>
-
-                <div style="padding-bottom: 20px;"> 
-                    <img style="margin: 15px;  object-fit: cover;" src="img/news.png">
-                </div>
-
-                <div  style="padding-bottom: 40px;">
-                    <div  style="font-size: 24px; font-weight: bold;">Conclusion</div>
-                    <div  class="text" style="margin-top: 15px; font-size: 18px; color: #707070; text-align: justify; ">Digital products are not limited to using only one reward, as you’ll likely see that your favorite apps use many delivery methods. When used responsibly, rewards can be a great way for users to see the value in your product, adding a deeper level of engagement to your product as a result.</div>
-                </div>
-            </div>
-    </div>
+            
+        </div>
+       
         
     </div>
     </div>
 
-    <div class="col-md-12" style="background-color: #F2F2F2; width: 1920px; height: 390px;">
-        <div class="col-md-9" style="padding: 20px; margin-left: auto; margin-right: auto;">
-            <div  style="font-size: 20px; font-weight: bold;">More News</div>
-            <hr>
-            <div class="row">
-                <div class="col-md-4" style="padding: 0;">
-                    <div class="row ">
-                        <div class="col-md-12">
-                            <img style="width: 360px; height: 230px; object-fit: cover; padding: 15px;" src="img/news2.jpg">
-                            <div class="col-lg-10 text" style="font-size: 14px; margin: 2px;">Adding a scheduling feature to Instagram.</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4" style="padding: 0;">
-                    <div class="row ">
-                        <div class="col-md-12">
-                            <img style="width: 360px; height: 230px; object-fit: cover; padding: 15px;" src="img/news.png">
-                            <div class="col-lg-10 text" style="font-size: 14px; margin: 2px;">How did my scrum team fall in love with online energizers</div>
-                        </div>
-                    </div>
-                </div> 
-                <div class="col-md-4" style="padding: 0;">
-                    <div class="row ">
-                        <div class="col-md-12">
-                            <img style="width: 360px; height: 230px; object-fit: cover; padding: 15px;" src="img/news2.jpg">
-                            <div class="col-lg-10 text" style="font-size: 14px; margin: 2px;">Spotify Stories</div>
-                        </div>
-                    </div>
-                </div> 
-            </div>    
-        </div> 
-    </div>
-
+        <!-- Footer begin -->
         <footer id="footer" class="footer-section" style="background-color: #3A595D;">
             <div class="container">
                 <div class="row" style="padding-top: 5px;">

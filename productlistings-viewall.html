@@ -380,7 +380,7 @@ i {
                 var dummyImg = 'img/organic-compose.jpg';
 
                 $.each(response, function(i, data){
-                    tr += '<div class="row"><div class="col-md-2"><img src="'+ dummyImg +'"></div><div class="col-md-7"><div style="font-size: 18px; text-transform:capitalize;">'+ data.product_name +'</div><div class="price-tag" style="text-transform:capitalize;">RM'+data.product_price+'</div><div style="font-size: 18px;color: #8B8B8B; position: absolute;bottom: 0; text-transform:capitalize;">'+ data.product_category+'</div></div><div class="col-md-3 text-right"><p>Dec 16 2019</p><p style="text-transform:capitalize;">'+ data.product_location+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                    tr += '<div class="row"><div class="col-md-2"><img src="'+ dummyImg +'"></div><div class="col-md-7"><div style="font-size: 18px; text-transform:capitalize;">'+ data.product_name +'</div><div class="price-tag" style="text-transform:capitalize;">RM'+data.product_price+'</div><div style="font-size: 18px;color: #8B8B8B; position: absolute;bottom: 0; text-transform:capitalize;">'+ data.mainstatus+'</div></div><div class="col-md-3 text-right"><p>Dec 16 2019</p><p style="text-transform:capitalize;">'+ data.product_location+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
                     tr += '<div class="line-bottom"></div>';
                 })
 

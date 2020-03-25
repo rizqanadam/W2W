@@ -473,7 +473,7 @@ ol {
 	height: 100%;
 	border: none;
 	font-size: 14px;
-	color: #gray !important;
+	color: gray !important;
 	padding-left: 20px;
 }
 
@@ -1790,7 +1790,6 @@ ol {
 	height: 30px;
 	width: 30px;
 	background: #ffffff;
-	color: #;
 	text-align: center;
 	line-height: 30px;
 	border-radius: 50%;

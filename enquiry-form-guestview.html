@@ -3,7 +3,7 @@
 <style>
 
 .nav-item .nav-menu li a {
-        color: black !important;
+     color: black !important;
 }       
 
 .line-bottom {
@@ -131,8 +131,8 @@ i {
                             <li><a href="./productlistings-viewall.html">Available</a></li>
                             <li><a href="./productwanted-viewall.html">Wanted</a></li>
                             <li><a href="./package-registered.html">Pricing</a></li>
-                            <li class="active"><a href="#">News</a></li>
-                            <li><a href="./enquiry-form-guestview.html">Contact Us</a></li>
+                            <li><a href="./news-guestview.html">News</a></li>
+                            <li  class="active"><a href="#">Contact Us</a></li>
                         </ul>
                     </nav>
                     <div id="mobile-menu-wrap"></div>
@@ -141,48 +141,43 @@ i {
         </header>
         <!-- Header End -->
 
-        <div class="col-md-10 mx-auto" style="padding: 40px; margin-bottom: 50px;">
-            
-                <div class="row mx-auto">
-                    <div class="col-md-8">
-                        <a href="./news2-guestview.html" style="color: black;"><div style="font-size: 20px; font-weight: bold; padding-bottom: 10px;">The Hidden Power of Reward Systems In Design</div></a>
-                        <div style="font-size: 16px; color: #707070;">An interactive prototype and an illustrated description of the Breakpoints tool that could be implemented in Figma.</div>
-                        <div style="font-size: 16px; margin-top: 20px;">12 April 2019</div>
-                    </div>
-                    <div class="col-md-4">
-                        <img style="width: 152px; height: 152px; object-fit: cover;" src="img/news.png">
-                    </div>
-                </div>
-            
-                <div style="padding: 40px;"></div>
-
-                <div class="row mx-auto">
-                    <div class="col-md-8">
-                        <a href="#" style="color: black;"><div style="font-size: 20px; font-weight: bold; padding-bottom: 10px;">The Hidden Power of Reward Systems In Design</div></a>
-                        <div style="font-size: 16px; color: #707070;">An interactive prototype and an illustrated description of the Breakpoints tool that could be implemented in Figma.</div>
-                        <div style="font-size: 16px; margin-top: 20px;">25 April 2019</div>
-                    </div>
-                    <div class="col-md-4">
-                        <img style="width: 152px; height: 152px; object-fit: cover;" src="img/news2.jpg">
-                    </div>
-                </div>
-           
-                <div style="padding: 40px;"></div>
-            
-                <div class="row mx-auto">
-                    <div class="col-md-8">
-                        <a href="#" style="color: black;"><div style="font-size: 20px; font-weight: bold; padding-bottom: 10px;">The Hidden Power of Reward Systems In Design</div></a>
-                        <div style="font-size: 16px; color: #707070;">An interactive prototype and an illustrated description of the Breakpoints tool that could be implemented in Figma.</div>
-                        <div style="font-size: 16px; margin-top: 20px;">30 April 2019</div>
-                    </div>
-                    <div class="col-md-4">
-                        <img style="width: 152px; height: 152px; object-fit: cover;" src="img/news.png">
-                    </div>
-                </div>
-            
+        <div class="container" style="margin-right: auto; margin-left: auto; padding-bottom: 40px;">
+            <div>
+                <p class="text-center">Have any questions regarding our product?</p>
+                <p class="text-center">We will help you ;)</p>
+            </div>
         </div>
-       
-        
+
+        <div class="col-md-6 mx-auto" style="padding-bottom: 40px;">
+
+            <div class="form-group">
+                <label class="login-text" for="name">Name </label>
+                <input style="background-color: #F2F2F2; border: none;" type="text" class="form-control" id="name" required>
+            </div>
+
+            <div class="form-group">
+                <label class="login-text" for="email">Email </label>
+                <input style="background-color: #F2F2F2; border: none;" type="text" class="form-control" id="email" required>
+            </div>
+
+            <div class="form-group">
+                <label class="login-text" for="name">Category</label>
+                <select id="categoryDropdown" style="background-color: #F2F2F2; border: none;" class="form-control">
+                    <option disabled selected>Please choose</option>
+                    <option>Support</option>
+                    <option>Report</option>
+                  </select>
+            </div>
+
+            <div class="form-group">
+                <label class="login-text">Additional information</label>
+                <textarea id="description" type="text" class="form-control" style="background-color: #F2F2F2; border: none; height: 200px;"></textarea>
+            </div>
+
+            <div class="col-md-6 mx-auto" style="padding: 40px;">
+                <button id="submit" style="width: 100%; border-radius: 30px; height: 50px;" class="btn btn-success">Submit</button>
+            </div>
+        </div>
     </div>
     </div>
 
@@ -219,3 +214,42 @@ i {
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            $('#submit').on('click' , function(){
+                submitEnquiry();
+            });
+
+        });
+
+        function submitEnquiry(){
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var category = $('#categoryDropdown').val();
+            var description = $('#description').val();
+
+            var postdata = {
+                "name" : name,
+                "email" : email,
+                "category" : category,
+                "description" : description
+            }
+
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/enquiry",
+                type: "POST",
+                data: postdata,
+            }).done(function(response){
+                console.log(response);
+            })
+        }
+    
+    </script>

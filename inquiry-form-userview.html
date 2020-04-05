@@ -2,6 +2,28 @@
 <html lang="zxx">
 <style>
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /*z-index: 1;*/
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
+
 .nav-item .nav-menu li a {
         color: black !important;
 }       
@@ -41,17 +63,6 @@
     color: #3A595D;
 }
 
-/* #submit{
-    width: 247px;
-    height: 54px;
-    border-radius: 30px;
-    align-content: center;
-    background-color: #27AE60;
-    color: white;
-    margin-left: auto; 
-    margin-right: auto;
-} */
-
 
 html * {
     font-family: 'Roboto' !important;
@@ -65,6 +76,30 @@ i {
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+    color: #27AE60 ;
 }
 
 </style>
@@ -116,7 +151,15 @@ i {
                         </div>
                         <div class="col-lg-10 text-right" style="padding: 40px;">
                             <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                            <a href="./login.html"><button class="btn">Login</button></a>
+                            <div class="dropdown">
+                                <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
+                                <h5 style="margin-top: 8px; color: black;">My Account</h5>
+                                </button>
+                                <div class="dropdown-content">
+                                  <a href="./myaccount-defaultview.html">My account</a>
+                                  <a href="./index.html">Logout</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -131,8 +174,8 @@ i {
                             <li><a href="./productlistings-viewall.html">Available</a></li>
                             <li><a href="./productwanted-viewall.html">Wanted</a></li>
                             <li><a href="./package-registered.html">Pricing</a></li>
-                            <li class="active"><a href="#">News</a></li>
-                            <li><a href="./enquiry-form-guestview.html">Contact Us</a></li>
+                            <li><a href="#">News</a></li>
+                            <li  class="active"><a href="#">Contact Us</a></li>
                         </ul>
                     </nav>
                     <div id="mobile-menu-wrap"></div>
@@ -141,48 +184,33 @@ i {
         </header>
         <!-- Header End -->
 
-        <div class="col-md-10 mx-auto" style="padding: 40px; margin-bottom: 50px;">
-            
-                <div class="row mx-auto">
-                    <div class="col-md-8">
-                        <a href="./news2-guestview.html" style="color: black;"><div style="font-size: 20px; font-weight: bold; padding-bottom: 10px;">The Hidden Power of Reward Systems In Design</div></a>
-                        <div style="font-size: 16px; color: #707070;">An interactive prototype and an illustrated description of the Breakpoints tool that could be implemented in Figma.</div>
-                        <div style="font-size: 16px; margin-top: 20px; font-style: italic;">12 April 2019</div>
-                    </div>
-                    <div class="col-md-4">
-                        <img style="width: 152px; height: 152px; object-fit: cover;" src="img/news.png">
-                    </div>
-                </div>
-            
-                <div style="padding: 40px;"></div>
-
-                <div class="row mx-auto">
-                    <div class="col-md-8">
-                        <a href="#" style="color: black;"><div style="font-size: 20px; font-weight: bold; padding-bottom: 10px;">The Hidden Power of Reward Systems In Design</div></a>
-                        <div style="font-size: 16px; color: #707070;">An interactive prototype and an illustrated description of the Breakpoints tool that could be implemented in Figma.</div>
-                        <div style="font-size: 16px; margin-top: 20px;  font-style: italic;">25 April 2019</div>
-                    </div>
-                    <div class="col-md-4">
-                        <img style="width: 152px; height: 152px; object-fit: cover;" src="img/news2.jpg">
-                    </div>
-                </div>
-           
-                <div style="padding: 40px;"></div>
-            
-                <div class="row mx-auto">
-                    <div class="col-md-8">
-                        <a href="#" style="color: black;"><div style="font-size: 20px; font-weight: bold; padding-bottom: 10px;">The Hidden Power of Reward Systems In Design</div></a>
-                        <div style="font-size: 16px; color: #707070;">An interactive prototype and an illustrated description of the Breakpoints tool that could be implemented in Figma.</div>
-                        <div style="font-size: 16px; margin-top: 20px; font-style: italic;">30 April 2019</div>
-                    </div>
-                    <div class="col-md-4">
-                        <img style="width: 152px; height: 152px; object-fit: cover;" src="img/news.png">
-                    </div>
-                </div>
-            
+        <div class="container" style="margin-right: auto; margin-left: auto; padding-bottom: 40px;">
+            <div>
+                <p class="text-center">Have any questions regarding our product?</p>
+                <p class="text-center">We will help you ;)</p>
+            </div>
         </div>
-       
-        
+
+        <div class="col-md-6 mx-auto" style="padding-bottom: 40px;">
+            <div class="form-group">
+                <label class="login-text" for="name">Name </label>
+                <input style="background-color: #F2F2F2; border: none;" type="text" class="form-control" id="name" required>
+            </div>
+
+            <div class="form-group">
+                <label class="login-text" for="email">Email </label>
+                <input style="background-color: #F2F2F2; border: none;" type="text" class="form-control" id="email" required>
+            </div>
+
+            <div class="form-group">
+                <label class="login-text">Additional information</label>
+                <textarea id="product_desc" type="text" class="form-control" style="background-color: #F2F2F2; border: none; height: 200px;"></textarea>
+            </div>
+
+            <div class="col-md-6 mx-auto" style="padding: 40px;">
+                <button id="submit" style="width: 100%; border-radius: 30px; height: 50px;" class="btn btn-success">Submit</button>
+            </div>
+        </div>
     </div>
     </div>
 

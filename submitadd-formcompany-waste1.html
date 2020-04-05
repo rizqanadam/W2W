@@ -38,7 +38,7 @@
         font-weight: bold;
         font-size: 20px !important;
         margin-bottom: 20px !important;
-        font-weight: bold !important
+        font-weight: bold !important;
     }
 
     .normal-text {
@@ -175,6 +175,17 @@
         visibility: visible;
     }
 
+    .shelflife {
+        visibility: hidden;
+        position: absolute;
+        z-index: 1;
+        border-radius: 5px;
+    }
+
+    .show-shelflife {
+        visibility: visible;
+    }
+
     .location-none{
         display: none;
     }
@@ -202,6 +213,7 @@
     .dropdown-content a:hover {
     color: #27AE60 ;
     }
+
 
 
 </style>
@@ -276,8 +288,8 @@
                         <div class="headtext-weight" style="margin-right: 20px;">Forms</div>
                         <ul style="list-style-type: none;">
                             <li><a href="./default-form-userview.html"><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
-                            <li><a href="./submitadd-form-waste1.html"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li>
-                            <li><a href="./submitadd-form-technology1.html" class="active"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
+                            <li><a href="./submitadd-form-waste1.html" class="active"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li>
+                            <li><a href="./submitadd-form-technology1.html"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
                             <li><a href="./submitadd-form-service1.html"><i class="fa fa-chevron-right icon-menu"></i>Service</a></li>
                         </ul>
                     </div>
@@ -306,7 +318,7 @@
                             <div class="line-bottom"></div>
 
                             <div style="padding: 70px">
-                                <div class="headtext-weight">Technology Information</div>
+                                <div class="headtext-weight">Material Information</div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
                                         <label class="login-text">Date of submission</label>
@@ -317,7 +329,7 @@
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Name of technology</label>
+                                        <label class="login-text">Name of material</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input id="product_name" type="text" class="form-control">
@@ -325,30 +337,57 @@
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Category</label>
+                                        <label class="login-text">State of material</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <select id="stateMaterialDropdown" class="form-control" style="cursor:pointer">
                                           <option disabled selected>Please choose</option>
-                                          <option>Recycling</option>
-                                          <option>Energy Saving</option>
-                                          <option>Value Addition</option>
-                                          <option>Waste Reduction/Pollution Control</option>
-                                          <option>Others</option>
+                                          <option>Solid</option>
+                                          <option>Liquid</option>
+                                          <option>Gaseous</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Target industry</label>
+                                        <label class="login-text">Category</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input id="product_target" type="text" class="form-control">
+                                        <select id="categoryDropdown" class="form-control" style="cursor:pointer">
+                                         
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Price range</label>
+                                        <label class="login-text">Product season</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <select id="productSeasonDropdown" class="form-control" style="cursor:pointer">
+                                          <option disabled selected>Please choose</option>
+                                          <option>Continuous</option>
+                                          <option>One-Time</option>
+                                          <option>Seasonal</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Quantity</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="product_quantity" type="text" class="form-control" placeholder="0">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="login-text float-right">Unit</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="product_quantity" type="text" class="form-control" placeholder="0">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Price</label>
                                     </div>
                                     <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
                                         <div>RM</div>
@@ -356,14 +395,23 @@
                                     <div class="col-md-2" style="padding-left: 0;">
                                         <input id="product_price" type="text" class="form-control" placeholder="0.00">
                                     </div>
-                                    <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
-                                        <div>-</div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Shelflife  <i class="fas fa-info-circle" id="shelflifepop" style="color: blue;"></i></label></label>
+                                        <div id="shelflife" class="shelflife" style="width: 300px;border: solid lightgray; background-color: #F2F2F2; padding: 10px; margin-left: 50px;">
+                                            <p>Degradation period</p>
+                                            <h5>The length of time for which an item remains usable, fit for consumption, or saleable</h5>
+                                        </div>
                                     </div>
-                                    <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
-                                        <div>RM</div>
-                                    </div>
-                                    <div class="col-md-2" style="padding-left: 0;">
-                                        <input id="product_price2" type="text" class="form-control" placeholder="0.00">
+                                    <div class="col-md-9">
+                                        <select id="productPeriodDropdown" class="form-control" style="cursor:pointer">
+                                          <option disabled selected>Please choose</option>
+                                          <option>Within 3 months</option>
+                                          <option>Within 6 months</option>
+                                          <option>Within 1 year</option>
+                                          <option>Never</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -417,19 +465,14 @@
                                         </div>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="packageDropdown" style="cursor:pointer" class="form-control">
-                                          <option disabled selected>Please choose</option>
-                                          <option>Package A</option>
-                                          <option>Package B</option>
-                                          <option>Package C</option>
-                                          <option>Premium Package A</option>
-                                          <option>Premium Package B</option>
+                                        <select id="packageDropdown" class="form-control" style="cursor:pointer">
+                                         
                                         </select>
                                     </div>
                                 </div>
                             <div style="margin-top: 30px; margin-bottom: 20px;">
                                 <div style="margin-bottom: 10px; font-weight: bold;">Location</div>
-                                <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your technology location</div>
+                                <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
                                 <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
                                     <select id="categoryDropdown" style="cursor:pointer" class="form-control">
@@ -610,6 +653,7 @@
                                     </div>
                                 </div> 
                                 <br>
+                                
                                 <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                 <div class="row">
                                 <div class="col-md-6">
@@ -621,7 +665,7 @@
                                 </div>
                                 <div  id="locationextra1" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
-                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your technology location</div>
+                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
                                     <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
                                     <select id="categoryDropdown" style="cursor:pointer" class="form-control">
@@ -814,7 +858,7 @@
                                 </div>
                                 <div  id="locationextra2" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
-                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your technology location</div>
+                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
                                     <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
                                     <select id="categoryDropdown" style="cursor:pointer" class="form-control">
@@ -1004,16 +1048,20 @@
                                         <input id="longitude3" type="text" class="form-control" placeholder="Longitude">
                                     </div>
                                     </div>
-                                </div> 
+                                </div>
                                 <br>
                                 <button id="addlocation" class="btn btn-location" style="margin-bottom: 20px;">+ Add another location</button>
                             </div>
                             <div class="row text-padding">
                                 <div class="col-md-3">
-                                    <label class="login-text">Website</label>
+                                    <label class="login-text">Transportation mode</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input id="website" type="text" class="form-control" placeholder="Please state">
+                                    <select id="transportationDropdown" class="form-control" style="cursor:pointer">
+                                      <option disabled selected>Please choose</option>
+                                      <option>Pick up by customer</option>
+                                      <option>Delivered by seller</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row text-padding">
@@ -1093,6 +1141,22 @@
                                     </div>
                                     <div class="col-md-9">
                                         <input id="company_contact" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Person In-charge (PIC)</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Telephone number (PIC)</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -1311,17 +1375,15 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            </div>
-                            
-                            </div>
+                            </div>    
+                        </div>
                         </div>
 
                         <div id="test1" style="display: none">
                             <div class="line-bottom"></div>
 
                             <div style="padding: 70px">
-                                <div class="headtext-weight">Technology Information</div>
+                                <div class="headtext-weight">Material Information</div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
                                         <label class="login-text">Date of submission</label>
@@ -1332,7 +1394,7 @@
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Name of technology</label>
+                                        <label class="login-text">Name of material</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input id="product_name2" type="text" class="form-control">
@@ -1340,45 +1402,38 @@
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Category</label>
+                                        <label class="login-text">State of material</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="categoryDropdown2" style="cursor:pointer" class="form-control">
+                                        <select id="stateMaterialDropdown2" class="form-control" style="cursor:pointer">
                                           <option disabled selected>Please choose</option>
-                                          <option>Recycling</option>
-                                          <option>Energy Saving</option>
-                                          <option>Value Addition</option>
-                                          <option>Waste Reduction/Pollution Control</option>
-                                          <option>Others</option>
+                                          <option>Solid</option>
+                                          <option>Liquid</option>
+                                          <option>Gaseous</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Target industry</label>
+                                        <label class="login-text">Category</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input id="product_target" type="text" class="form-control">
+                                        <select id="categoryDropdown2" class="form-control" style="cursor:pointer">
+                                          
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Price range</label>
+                                        <label class="login-text">Product season</label>
                                     </div>
-                                    <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
-                                        <div>RM</div>
-                                    </div>
-                                    <div class="col-md-2" style="padding-left: 0;">
-                                        <input id="product_price3" type="text" class="form-control" placeholder="0.00">
-                                    </div>
-                                    <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
-                                        <div>-</div>
-                                    </div>
-                                    <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
-                                        <div>RM</div>
-                                    </div>
-                                    <div class="col-md-2" style="padding-left: 0;">
-                                        <input id="product_price4" type="text" class="form-control" placeholder="0.00">
+                                    <div class="col-md-9">
+                                        <select id="productSeasonDropdown2" class="form-control" style="cursor:pointer">
+                                          <option disabled selected> Please choose</option>
+                                          <option>Continuous</option>
+                                          <option>One-Time</option>
+                                          <option>Seasonal</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -1432,19 +1487,14 @@
                                         </div>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="categoryDropdown2" style="cursor:pointer" class="form-control">
-                                          <option disabled selected>Please choose</option>
-                                          <option>Package A</option>
-                                          <option>Package B</option>
-                                          <option>Package C</option>
-                                          <option>Premium Package A</option>
-                                          <option>Premium Package B</option>
+                                        <select id="packageDropdown2" class="form-control" style="cursor:pointer">
+                                          
                                         </select>
                                     </div>
                                 </div>
                             <div style="margin-top: 30px; margin-bottom: 20px;">
                                 <div style="margin-bottom: 10px; font-weight: bold;">Location</div>
-                                <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your technology location</div>
+                                <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
                                 <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
                                     <select id="categoryDropdown" style="cursor:pointer" class="form-control">
@@ -1633,10 +1683,10 @@
                                 <div class="col-md-6">
                                     <input id="longitude4" type="text" class="form-control" placeholder="Longitude">
                                 </div>
-                                </div> 
+                                </div>
                                 <div  id="locationextra3" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
-                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your technology location</div>
+                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
                                     <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
                                     <select id="categoryDropdown" style="cursor:pointer" class="form-control">
@@ -1829,7 +1879,7 @@
                                 </div>
                                 <div  id="locationextra4" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
-                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your technology location</div>
+                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
                                     <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
                                     <br>
                                     <select id="categoryDropdown" style="cursor:pointer" class="form-control">
@@ -2025,10 +2075,14 @@
                             </div>
                             <div class="row text-padding">
                                 <div class="col-md-3">
-                                    <label class="login-text">Website</label>
+                                    <label class="login-text">Transportation mode</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input id="website2" type="text" class="form-control" placeholder="Please state">
+                                    <select id="transportationDropdown2" class="form-control">
+                                      <option disabled selected>Please choose</option>
+                                      <option>Pick up by customer</option>
+                                      <option>Delivered by seller</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row text-padding">
@@ -2110,6 +2164,22 @@
                                         <input id="company_contact2" type="text" class="form-control">
                                     </div>
                                 </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Person In-charge (PIC)</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row text-padding">
+                                    <div class="col-md-3">
+                                        <label class="login-text">Telephone number (PIC)</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
                             </div>
                             <div style="margin-top: 50px;">
                             <div class="col-md-10" style="margin-left: auto; margin-right: auto;">
@@ -2137,6 +2207,9 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            </div>
+                            
                             </div>
                         </div>
                         </div>
@@ -2161,6 +2234,33 @@
             </div>
         </div>
     </footer>
+
+    <div class="container">
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              
+              <!-- Modal body -->
+              <div class="modal-body">
+                Modal body..
+              </div>
+              
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
 
 
     <!-- Js Plugins -->
@@ -2239,6 +2339,14 @@
                 }
             });
 
+            $("#shelflifepop").on('click', function() {
+                if($('#shelflife').hasClass('show-shelflife')) {
+                    $('#shelflife').removeClass('show-shelflife');
+                } else {
+                    $('#shelflife').addClass('show-shelflife');
+                }
+            });
+
             $("#addlocation").on('click', function(){
                 if($('#locationextra1').hasClass('location-none')) {
                     $('#locationextra1').removeClass('location-none');
@@ -2310,6 +2418,7 @@
             $userid = localStorage.getItem("user_id");
             categoryDropdownList();
             packageDropdownList();
+            userDetails();
             
             $('#submitButton').on('click',function(){
                 submitAvailableProduct();
@@ -2318,11 +2427,11 @@
             $('#submitButton2').on('click',function(){
                 submitWantedProduct();
             })
-        })
+        });
 
         function categoryDropdownList(){
             $.ajax({
-                url: "http://codeviable.com/w2w2/public/category?idmaincategory=technology",
+                url: "http://codeviable.com/w2w2/public/category?idmaincategory=waste",
                 type: "GET",
             }).done(function(response){
                 var tr = '<option disabled selected>Please choose</option>';  
@@ -2354,12 +2463,13 @@
 
             var dateSubmission = $('#dateSubmission').val();
             var product_name = $('#product_name').val();
-            var product_category = $('#categoryDropdown').val();
-            var product_target = $('#product_target').val();
-            var product_price = $('#product_price').val();
-            var product_price2 = $('#product_price2').val();
-            var product_package = $('#packageDropdown').val();
             var stateMaterialDropdown = $('#stateMaterialDropdown').val();
+            var product_category = $('#categoryDropdown').val();
+            var product_continuity = $('#productSeasonDropdown').val();
+            var product_quantity = $('#product_quantity').val();
+            var product_price = $('#product_price').val();
+            var product_period = $('#productPeriodDropdown').val();
+            var product_package = $('#packageDropdown').val();
             var product_location = $('#product_location').val();
             var latitude = $('#latitude').val();
             var longitude = $('#longitude').val();
@@ -2369,7 +2479,7 @@
             var product_location3 = $('#product_location3').val();
             var latitude3 = $('#latitude3').val();
             var longitude3 = $('#longitude3').val();
-            var website = $('#website').val();
+            var product_transport = $('#transportationDropdown').val();
             var product_description = $('#product_desc').val();
             var image1 = $("#productPicture1").prop('files');
             var image2 = $("#productPicture2").prop('files');
@@ -2379,21 +2489,28 @@
             var company_name = $('#company_name').val();
             var company_email = $('#company_email').val();
             var company_contact = $('#company_contact').val();
-
+            
 
             var formData = new FormData();
             formData.append("product_date" , dateSubmission);
             formData.append("product_name" , product_name);
-            formData.append("product_category" , product_category);
-            formData.append("product_target" , product_target);
-            formData.append("product_price" , product_price);
-            formData.append("product_package" , product_package);
-            formData.append("product_pricemax" , product_price2);
             formData.append("product_material" , stateMaterialDropdown);
-            formData.append("product_location" , product_location);
-            formData.append("latitud" , latitude);
-            formData.append("longitud" , longitude);
-            formData.append("website" , website);
+            formData.append("product_category" , product_category);
+            formData.append("product_season" , product_continuity);
+            formData.append("product_quantity" , product_quantity);
+            formData.append("product_price" , product_price);
+            formData.append("product_period" , product_period);
+            formData.append("product_package" , product_package);
+            formData.append("product_location[]" , product_location);
+            formData.append("product_location[]" , product_location2);
+            formData.append("product_location[]" , product_location3);
+            formData.append("latitud[]" , latitude);
+            formData.append("latitud[]" , latitude2);
+            formData.append("latitud[]" , latitude3);
+            formData.append("longitud[]" , longitude);
+            formData.append("longitud[]" , longitude2);
+            formData.append("longitud[]" , longitude3);
+            formData.append("product_transport" , product_transport);
             formData.append("product_description" , product_description);
             formData.append("product_image[]" , image1[0]);
             formData.append("product_image[]" , image2[0]);
@@ -2404,8 +2521,9 @@
             formData.append("company_email" , company_email);
             formData.append("company_contact" , company_contact);
             formData.append("mainstatus" , "available");
+            formData.append("maincategory" , "waste");
             formData.append("user_id" , $userid);
-
+            
 
             $.ajax({
                 url: "http://codeviable.com/w2w2/public/product/add",
@@ -2420,15 +2538,13 @@
         }
 
         function submitWantedProduct(){
-
+            
             var dateSubmission = $('#dateSubmission2').val();
             var product_name = $('#product_name2').val();
-            var product_category = $('#categoryDropdown2').val();
-            var product_target = $('#product_target2').val();
-            var product_price = $('#product_price3').val();
-            var product_price2 = $('#product_price4').val();
-            var product_package = $('#packageDropdown2').val();
             var stateMaterialDropdown = $('#stateMaterialDropdown2').val();
+            var product_category = $('#categoryDropdown2').val();
+            var product_continuity = $('#productSeasonDropdown2').val();
+            var product_package = $('#packageDropdown2').val();
             var product_location = $('#product_location4').val();
             var latitude = $('#latitude4').val();
             var longitude = $('#longitude4').val();
@@ -2438,7 +2554,7 @@
             var product_location3 = $('#product_location6').val();
             var latitude3 = $('#latitude6').val();
             var longitude3 = $('#longitude6').val();
-            var website = $('#website2').val();
+            var product_transport = $('#transportationDropdown2').val();
             var product_description = $('#product_desc2').val();
             var image1 = $("#productPicture6").prop('files');
             var image2 = $("#productPicture7").prop('files');
@@ -2448,21 +2564,19 @@
             var company_name = $('#company_name2').val();
             var company_email = $('#company_email2').val();
             var company_contact = $('#company_contact2').val();
-
+            
 
             var formData = new FormData();
             formData.append("product_date" , dateSubmission);
             formData.append("product_name" , product_name);
-            formData.append("product_category" , product_category);
-            formData.append("product_target" , product_target);
-            formData.append("product_price" , product_price);
-            formData.append("product_pricemax" , product_price2);
-            formData.append("product_package" , product_package);
             formData.append("product_material" , stateMaterialDropdown);
+            formData.append("product_category" , product_category);
+            formData.append("product_season" , product_continuity);
+            formData.append("product_package" , product_package);
             formData.append("product_location" , product_location);
             formData.append("latitud" , latitude);
             formData.append("longitud" , longitude);
-            formData.append("website" , website);
+            formData.append("product_transport" , product_transport);
             formData.append("product_description" , product_description);
             formData.append("product_image[]" , image1[0]);
             formData.append("product_image[]" , image2[0]);
@@ -2474,7 +2588,7 @@
             formData.append("company_contact" , company_contact);
             formData.append("mainstatus" , "wanted");
             formData.append("user_id" , $userid);
-
+            
 
             $.ajax({
                 url: "http://codeviable.com/w2w2/public/product/add",
@@ -2488,6 +2602,17 @@
 
         }
 
+        function userDetails() {
+
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/user",
+                type: "GET",
+            }).done(function(response){
+                $("#company_name").html(response.companyname);
+                $("#company_email").html(response.user_email);
+                $("#company_contact").html(response.user_contact);
+            })
+        }
 
     </script>
 </body>

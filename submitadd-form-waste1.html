@@ -302,14 +302,14 @@
                                     <label style="cursor:pointer" class="login-text" for="save-pass1">
                                         <input style="cursor:pointer" type="radio" id="save-pass1" name="waste" onchange="checkRadio1()">
                                         <span class="checkmark"></span>
-                                        Available
+                                        Item to Sell
                                     </label>
                                 </div>
                                 <div class="gi-more">
                                     <label style="cursor:pointer" class="login-text" for="save-pass2">
                                         <input style="cursor:pointer" type="radio" id="save-pass2" name="waste" onchange="checkRadio2()">
                                         <span class="checkmark"></span>
-                                        Wanted
+                                        Item to Buy
                                     </label>
                                 </div>
                             </div>
@@ -374,6 +374,12 @@
                                 <div class="row text-padding">
                                     <div class="col-md-3">
                                         <label class="login-text">Quantity</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="product_quantity" type="text" class="form-control" placeholder="0">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="login-text float-right">Unit</label>
                                     </div>
                                     <div class="col-md-3">
                                         <input id="product_quantity" type="text" class="form-control" placeholder="0">
@@ -1071,38 +1077,39 @@
                                 <div class="row text-padding">
                                     <div class="col-md-3">
                                         <label class="login-text">Upload photos</label>
+                                        <div style="color: lightgray; font-size: 12px; font-style: italic;">(Max. size : 1MB for each photo uploaded)</div>
                                     </div>
                                     <div class="col-md-9">
-                                    <div class="row">
-                                    <div class="col-md-3">
+                                    <div>
                                         <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
-                                        <div id="openFile1" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                        <div id="openFile1" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="dependantImg choose-photo">
                                         <img id="previewProfile1" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
+                                    <div class="row">
                                     <div class="col-md-3">
                                         <input id="productPicture2" type="file" onchange="readURL(this, 'previewProfile2')" style="display: none">
-                                        <div id="openFile2" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                        <div id="openFile2" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="dependantImg choose-photo">
                                         <img id="previewProfile2" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <input id="productPicture3" type="file" onchange="readURL(this, 'previewProfile3')" style="display: none">
-                                        <div id="openFile3" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                        <div id="openFile3" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="dependantImg choose-photo">
                                         <img id="previewProfile3" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <input id="productPicture4" type="file" onchange="readURL(this, 'previewProfile4')" style="display: none">
                                         <div id="openFile4" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
-                                         class="mx-auto dependantImg choose-photo">
+                                         class="dependantImg choose-photo">
                                         <img id="previewProfile4" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <input id="productPicture5" type="file" onchange="readURL(this, 'previewProfile5')" style="display: none">
                                         <div id="openFile5" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
-                                         class="mx-auto dependantImg choose-photo">
+                                         class="dependantImg choose-photo">
                                         <img id="previewProfile5" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
@@ -1143,7 +1150,196 @@
                                 <label> I agree that I have read and accepted the <a href="#" style="color: #0099FF;">Terms and Conditions</a></label><br> 
                                 <div class="row" style="margin-top: 20px;">
                                     <div class="col-md-5" style="margin-left: auto;">
-                                        <button class="btn btn-cancell" style="width: 100%">Preview add</button>
+                                        <div class="container">
+                                            <button type="button" class="btn btn-cancell" data-toggle="modal" data-target="#myModal" style="width: 100%">Preview ad</button>
+                                            <div class="modal fade" id="myModal" role="dialog">
+                                              <div class="modal-dialog modal-xl">
+                                                <div class="modal-content">
+                                                  <div class="modal-body" style="padding: 30px;">
+                                                    <div class="container" style="margin-bottom: 30px; margin-left: 15px;">
+                                                        <div class="row">
+                                                        <div class="col-md-5">
+                                                            <img src="img/hensemboi.jpg">
+                                                        <div class="row" style="margin-top: 20px;">
+                                                            <div class="col-md-3">
+                                                                <img src="img/hensemboi.jpg">
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <img src="img/hensemboi.jpg">
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <img src="img/hensemboi.jpg">
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <img src="img/hensemboi.jpg">
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div>AK47MP5RPG</div>
+                                                            <div style="color: gray; margin-bottom: 10px;">PLASTIC PELLETS</div>
+                                                            <label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label>
+                                                            <div style="margin-top: 20px; font-size: 26px; font-weight: bold;">RM 200.00</div>
+                                                            <div style="color: gray;">100 mton</div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="container" style="padding: 30px;">
+                                                        <div class="card">
+                                                            <div style="background-color: #FAFAFA; padding: 10px; margin: 10px;">Material Information</div>
+                                                            <div style="padding: 20px;">
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Date of submission</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>20/12/2020</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Material Status</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Available</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Name of Material</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Plastic Pellets</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>State of Material</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Solid</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Category</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Plastics</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Product Season</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>One-time</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Transportation Mode</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Pick up by customer</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Details</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>We can supply minimal amount</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Quantity</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>80 mton</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Shelf Life/ Degradation period</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Never</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Suggested Customer</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Packaging plant</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Price of Material</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Free</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Waste (location 1)</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Pasir Gudang</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>State</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Johor</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Waste (location 2)</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Kulai</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>State</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Johor</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Supplier</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>Siti Fatimah Saad</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row detail-spacing">
+                                                                <div class="col-md-4">
+                                                                    <label>Company Name</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div>TIM ENTERPRISE</div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    </div>
                                     </div>
                                     <div class="col-md-5" style="margin-right: auto;">
                                         <div class="container">
@@ -1886,39 +2082,40 @@
                                 <div class="row text-padding">
                                     <div class="col-md-3">
                                         <label class="login-text">Upload photos</label>
+                                        <div style="color: lightgray; font-size: 12px; font-style: italic;">(Max. size : 1MB for each photo uploaded)</div>
                                     </div>
                                     <div class="col-md-9">
+                                    <div>
+                                        <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
+                                        <div id="openFile1" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="dependantImg choose-photo">
+                                        <img id="previewProfile1" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        </div>
+                                    </div>
                                     <div class="row">
                                     <div class="col-md-3">
-                                        <input id="productPicture6" type="file" onchange="readURL(this, 'previewProfile6')" style="display: none">
-                                        <div id="openFile6" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
-                                        <img id="previewProfile6" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <input id="productPicture2" type="file" onchange="readURL(this, 'previewProfile2')" style="display: none">
+                                        <div id="openFile2" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="dependantImg choose-photo">
+                                        <img id="previewProfile2" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="productPicture7" type="file" onchange="readURL(this, 'previewProfile7')" style="display: none">
-                                        <div id="openFile7" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
-                                        <img id="previewProfile7" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <input id="productPicture3" type="file" onchange="readURL(this, 'previewProfile3')" style="display: none">
+                                        <div id="openFile3" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="dependantImg choose-photo">
+                                        <img id="previewProfile3" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="productPicture8" type="file" onchange="readURL(this, 'previewProfile8')" style="display: none">
-                                        <div id="openFile8" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
-                                        <img id="previewProfile8" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <input id="productPicture4" type="file" onchange="readURL(this, 'previewProfile4')" style="display: none">
+                                        <div id="openFile4" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
+                                         class="dependantImg choose-photo">
+                                        <img id="previewProfile4" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="productPicture9" type="file" onchange="readURL(this, 'previewProfile9')" style="display: none">
-                                        <div id="openFile9" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
-                                         class="mx-auto dependantImg choose-photo">
-                                        <img id="previewProfile9" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input id="productPicture10" type="file" onchange="readURL(this, 'previewProfile10')" style="display: none">
-                                        <div id="openFile10" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
-                                         class="mx-auto dependantImg choose-photo">
-                                        <img id="previewProfile10" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <input id="productPicture5" type="file" onchange="readURL(this, 'previewProfile5')" style="display: none">
+                                        <div id="openFile5" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
+                                         class="dependantImg choose-photo">
+                                        <img id="previewProfile5" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     </div>

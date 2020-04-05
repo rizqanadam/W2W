@@ -88,6 +88,26 @@ ul a:hover {
         margin-top: 10px;
     }
 
+    #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    }
+
+    #myBtn:hover {
+    background-color: gray;
+    } 
+
 html * {
     font-family: 'Roboto' !important;
 }
@@ -159,51 +179,81 @@ i {
         </div>
         </div>
     </div>
+    <div style="border: 1px solid lightgrey; margin-bottom: 20px;"></div>
     </header>
     <!-- Header End -->
 
-    <div class="col-md-12" style="background-color: #F2F2F2;">
-        <div class="col-md-9" style="padding: 20px; margin-left: auto; margin-right: auto;">
-            <div class="row">
-            <div class="col-md-4" style="padding: 0;">
-                <div class="row ">
-                    <div class="col-md-5">
-                        <img src="img/organic-compose.jpg">
-                    </div>
-                    <div class="col-md-7">
-                        <div>water</div>
-                        <div style="font-size: 20px;">Plastic</div>
-                        <div style="font-size: 18px; color: #3A595D; position: absolute;bottom: 0;">Polystrene</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4" style="padding: 0;">
-                <div class="row ">
-                    <div class="col-md-5">
-                        <img src="img/organic-compose.jpg">
-                    </div>
-                    <div class="col-md-7">
-                        <p>Technology</p>
-                        <div style="font-size: 20px;">Energy Saving</div>
-                        <div style="font-size: 18px; color: #3A595D; position: absolute;bottom: 0;">Fuel-Fired</div>
-                    </div>
-                </div>
-            </div> 
-            <div class="col-md-4" style="padding: 0;">
-                <div class="row ">
-                    <div class="col-md-5">
-                        <img src="img/organic-compose.jpg">
-                    </div>
-                    <div class="col-md-7">
-                        <p>Waste</p>
-                        <div style="font-size: 20px;">Biomass</div>
-                        <div style="font-size: 18px; color: #3A595D; position: absolute;bottom: 0;">Sugarcane Bagasse</div>
-                    </div>
-                </div>
-            </div> 
-            </div>    
+
+    <div class="card col-md-10" style="background-color: #3A595D; margin-left: auto; margin-right: auto; padding: 20px;;">
+        <div class="row">
+        <div class="col-md-3">
+            <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+              <option disabled selected>Please choose</option>
+              <option>Transportation</option>
+              <option>Analysis</option>
+              <option>Packaging</option>
+              <option>Waste Treatment</option>
+              <option>Recycling</option>
+              <option>Others</option>
+            </select>
         </div> 
-    </div>
+        <div class="col-md-3">
+            <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+              <option disabled selected>Please choose</option>
+              <option>Transportation</option>
+              <option>Analysis</option>
+              <option>Packaging</option>
+              <option>Waste Treatment</option>
+              <option>Recycling</option>
+              <option>Others</option>
+            </select>
+        </div> 
+        <div class="col-md-3">
+            <input type="text" class="form-control">
+        </div> 
+        <div class="col-md-3">
+            <button class="btn btn-success"><i class="fa fa-search"></i> Search now</button>
+        </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-md-3">
+                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                  <option disabled selected>Please choose</option>
+                  <option>Transportation</option>
+                  <option>Analysis</option>
+                  <option>Packaging</option>
+                  <option>Waste Treatment</option>
+                  <option>Recycling</option>
+                  <option>Others</option>
+                </select>
+            </div> 
+            <div class="col-md-3">
+                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                  <option disabled selected>Please choose</option>
+                  <option>Transportation</option>
+                  <option>Analysis</option>
+                  <option>Packaging</option>
+                  <option>Waste Treatment</option>
+                  <option>Recycling</option>
+                  <option>Others</option>
+                </select>
+            </div> 
+            <div class="col-md-3">
+                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                  <option disabled selected>Please choose</option>
+                  <option>Transportation</option>
+                  <option>Analysis</option>
+                  <option>Packaging</option>
+                  <option>Waste Treatment</option>
+                  <option>Recycling</option>
+                  <option>Others</option>
+                </select>
+            </div> 
+            <div class="col-md-3">
+                <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  Save search</button>
+            </div>
+            </div>
+        </div>
         
         <div class="card col-md-8" style="padding: 40px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
             <h3>Product Wanted in Malaysia - Page 1 of 1</h3>
@@ -217,8 +267,6 @@ i {
                 <ul class="d-flex justify-content-between">
                     <div class="d-flex">
                     <a class="active-nav nav-style" href="#">All 1-10 of 43</a>
-                    <a class="nav-style" href="#">Individual 13</a>
-                    <a  href="#">Company 30</a>
                     </div>
 
                     <div class="d-flex" style="display: none !important;">
@@ -228,10 +276,62 @@ i {
                 </ul>
             </div>
             
-         <div id="product_display">
-            
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="img/energy.jpg"></div>
+                <div class="col-md-7">
+                    <div style="font-size: 18px; margin-bottom: 10px;">Organic Compose  <i class="fa fa-fire" style="color: red;"></i></div>
+                    <p>We need 80 moon of plastic pellets on monthly basis. Contact us if you have the requirement that we need.</p>
+                    <label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label>
+                    <div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div>
+                    <div style="color: blue;"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact deatails</div>
+                </div>
+                <div class="col-md-3 text-right">
+                    <p>Dec 16 2019</p>
+                    <p>Pasir Gudang, Johor</p>
+                </div>
+            </div>
+
+            <div class="line-bottom"></div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="img/energy.jpg"></div>
+                <div class="col-md-7">
+                    <div style="font-size: 18px; margin-bottom: 10px;">Organic Compose</div>
+                    <p>We need 80 moon of plastic pellets on monthly basis. Contact us if you have the requirement that we need.</p>
+                    <label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label>
+                    <div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div>
+                    <div style="color: blue;"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact deatails</div>
+                </div>
+                <div class="col-md-3 text-right">
+                    <p>Dec 16 2019</p>
+                    <p>Pasir Gudang, Johor</p>
+                </div>
+            </div>
+
+            <div class="line-bottom"></div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="img/energy.jpg"></div>
+                <div class="col-md-7">
+                    <div style="font-size: 18px; margin-bottom: 10px;">Organic Compose</div>
+                    <p>We need 80 moon of plastic pellets on monthly basis. Contact us if you have the requirement that we need.</p>
+                    <label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label>
+                    <div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div>
+                    <div style="color: blue;"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact deatails</div>
+                </div>
+                <div class="col-md-3 text-right">
+                    <p>Dec 16 2019</p>
+                    <p>Pasir Gudang, Johor</p>
+                </div>
+            </div>
+
+            <div class="line-bottom"></div>
           </div>
-          </div>
+
+          <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
 
           <div class="col-md-6" style="margin-left: auto; margin-right: auto; margin-bottom: 40px;">
               <div class="row">
@@ -259,7 +359,6 @@ i {
               </div>
           </div>
 
-          
 
           <footer class="footer-section" style="background-color: #3A595D;">
             <div class="container">
@@ -346,57 +445,77 @@ i {
 
     <script>
 
-        $(document).ready(function(){
-            displayListProduct();
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
 
-            $('#signin').on('click',function(){
-                    LoginUser();    
-            });
-        })
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
 
-        function displayListProduct (){
-            $.ajax({
-                url: "http://codeviable.com/w2w2/public/product/type?mainstatus=wanted",
-                type: "GET",
-            }).done(function(response){
-
-                var tr = "";
-                var dummyImg = 'img/organic-compose.jpg';
-
-                $.each(response, function(i, data){
-                    tr += '<div class="row"><div class="col-md-2"><img src="'+ dummyImg+'"></div><div class="col-md-7"><div style="font-size: 18px; text-transform:capitalize;">' + data.product_name + '</div><p style="text-transform:capitalize;">'+data.product_category+'</p><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px; text-transform:capitalize;">'+ data.product_description +'</div><div class="contact-text"><i class="fa fa-phone" style="color: gray;"></i><a href="#myModal2" class="texttrigger" data-toggle="modal" style="color:blue;"> Log in to view contact detail</a></div></div><div class="col-md-3 text-right"><p>Dec 16 2019</p><p style="text-transform:capitalize;">'+ data.product_location +'</p></div></div>';
-                    tr += '<div class="line-bottom"></div>';
-                })
-
-                $("#product_display").html(tr);
-            })
+        function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
         }
 
-        function LoginUser(){
-            var email = $('#email').val();
-            var password = $('#password').val();
-
-            if( email !== "" && password !== ""){
-                $.ajax({
-                    url: 'http://codeviable.com/w2w2/public/login?user_email=&password=',
-                    type: 'POST',
-                    data: { 'user_email' : email, 'password' : password },
-                    success: function (response){
-                        if(response.email === email && response.password === password){
-                            console.log(response);
-                            console.log("Logged in");
-                            localStorage.setItem("user_id", JSON.stringify(response.id));
-                            window.location.href = "./productwanted1-viewall.html"; 
-                        }
-                        else{
-                            console.log(response);
-                            console.log("Invalid email/password");}
-                    }
-                });
-            }
-            else
-                console.log("Please fill all fields.");   
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
         }
+
+        // $(document).ready(function(){
+        //     displayListProduct();
+
+        //     $('#signin').on('click',function(){
+        //             LoginUser();    
+        //     });
+        // })
+
+        // function displayListProduct (){
+        //     $.ajax({
+        //         url: "http://codeviable.com/w2w2/public/product/type?mainstatus=wanted",
+        //         type: "GET",
+        //     }).done(function(response){
+
+        //         var tr = "";
+        //         var dummyImg = 'img/organic-compose.jpg';
+
+        //         $.each(response, function(i, data){
+        //             tr += '<div class="row"><div class="col-md-2"><img src="'+ dummyImg+'"></div><div class="col-md-7"><div style="font-size: 18px; text-transform:capitalize;">' + data.product_name + '</div><p style="text-transform:capitalize;">'+data.product_category+'</p><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px; text-transform:capitalize;">'+ data.product_description +'</div><div class="contact-text"><i class="fa fa-phone" style="color: gray;"></i><a href="#myModal2" class="texttrigger" data-toggle="modal" style="color:blue;"> Log in to view contact detail</a></div></div><div class="col-md-3 text-right"><p>Dec 16 2019</p><p style="text-transform:capitalize;">'+ data.product_location +'</p></div></div>';
+        //             tr += '<div class="line-bottom"></div>';
+        //         })
+
+        //         $("#product_display").html(tr);
+        //     })
+        // }
+
+        // function LoginUser(){
+        //     var email = $('#email').val();
+        //     var password = $('#password').val();
+
+        //     if( email !== "" && password !== ""){
+        //         $.ajax({
+        //             url: 'http://codeviable.com/w2w2/public/login?user_email=&password=',
+        //             type: 'POST',
+        //             data: { 'user_email' : email, 'password' : password },
+        //             success: function (response){
+        //                 if(response.email === email && response.password === password){
+        //                     console.log(response);
+        //                     console.log("Logged in");
+        //                     localStorage.setItem("user_id", JSON.stringify(response.id));
+        //                     window.location.href = "./productwanted1-viewall.html"; 
+        //                 }
+        //                 else{
+        //                     console.log(response);
+        //                     console.log("Invalid email/password");}
+        //             }
+        //         });
+        //     }
+        //     else
+        //         console.log("Please fill all fields.");   
+        // }
     </script>
 </body>
 

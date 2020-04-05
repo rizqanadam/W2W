@@ -131,7 +131,7 @@ i {
     </div>
 
     <!-- Header Section Begin -->
-    <div class="col-md-10 offset-md-1" style="height: 1000px">
+    <div class="col-md-10 offset-md-1">
     <header class="header-section">
         <div class="header-top">
         <div class="container">
@@ -144,16 +144,7 @@ i {
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6" style="padding: 20px; padding-left: 60px;">
-                        <div class="advanced-search">
-                            <button type="button" class="category-btn">Category</button>
-                            <div class="input-group">
-                                <input type="text" placeholder="What are you looking for?">
-                                <button type="button"><i class="fa fa-search"></i>  Search  </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 text-right col-md-4" style="padding: 0; margin-top: 30px;">
+                    <div class="col-lg-10 text-right col-md-10" style="padding: 0; margin-top: 30px;">
                         <div class="dropdown">
                         <button class="btn"><a href="#"></a><img src="img/ukk.png"></button>
                         <div class="dropdown-content">
@@ -161,6 +152,7 @@ i {
                             <a href="#">Malay</a>
                         </div>
                         </div>
+                        <button class="btn" style="color: goldenrod;"><a href="#"></a><i class="fa fa-credit-card"></i>  Token</button>
                         <button onclick="window.location.href='./index.html';" class="btn">Home</button>
                         <a href="./login.html"><button class="btn">Login</button></a>
                         <a href="./default-form-guestview.html"><button class="btn btn-warning">Submit Ad</button></a>
@@ -194,40 +186,268 @@ i {
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
-        <div class="carousel-inner" style="height: 320px;">
+        <div class="carousel-inner" style="height: 350px;">
         <div class="carousel-item active">
-            <img class="d-block w-100" style="object-fit: cover; height: 320px" src="img/hero-3.jpg" alt="First slide">
-            <div class="carousel-caption d-none d-md-block">
+            <img class="d-block w-100" style="object-fit: cover; height: 330px" src="img/purple.svg" alt="First slide">
+            <div class="carousel-caption d-none d-lg-block">
                 <div class="row">
-                <div class="col-lg-8" style="text-align: left;">
-                    <h1>Black</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-                    <a href="#" class="primary-btn">Shop Now</a>
+                <div class="col-lg-6">
+                    <div class="card" style="background-color: #3A595D; padding: 20px;">
+                        <div class="row" style="margin-bottom: 15px;">
+                            <div class="col-md-6">
+                                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                    <option disabled selected>Entire Malaysia</option>
+                                    <option>Transportation</option>
+                                    <option>Analysis</option>
+                                    <option>Packaging</option>
+                                    <option>Waste Treatment</option>
+                                    <option>Recycling</option>
+                                    <option>Others</option>
+                                  </select>
+                            </div>
+                            <div class="col-md-6">
+                                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                    <option disabled selected>Category</option>
+                                    <option>Transportation</option>
+                                    <option>Analysis</option>
+                                    <option>Packaging</option>
+                                    <option>Waste Treatment</option>
+                                    <option>Recycling</option>
+                                    <option>Others</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 15px;">
+                            <div class="col-md-6">
+                                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                    <option disabled selected>Product status</option>
+                                    <option>Transportation</option>
+                                    <option>Analysis</option>
+                                    <option>Packaging</option>
+                                    <option>Waste Treatment</option>
+                                    <option>Recycling</option>
+                                    <option>Others</option>
+                                  </select>
+                            </div>
+                            <div class="col-md-6">
+                                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                    <option disabled selected>Rating</option>
+                                    <option>Transportation</option>
+                                    <option>Analysis</option>
+                                    <option>Packaging</option>
+                                    <option>Waste Treatment</option>
+                                    <option>Recycling</option>
+                                    <option>Others</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 15px;">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Enter tags">
+                            </div>
+                            <div class="col-md-6">
+                                    <button class="btn btn-success"><i class="fa fa-search"></i>  SEARCH NOW</button>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 15px;">
+                            <div class="col-md-6">
+                                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                    <option disabled selected>Price range</option>
+                                    <option>Transportation</option>
+                                    <option>Analysis</option>
+                                    <option>Packaging</option>
+                                    <option>Waste Treatment</option>
+                                    <option>Recycling</option>
+                                    <option>Others</option>
+                                  </select>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  SAVE SEARCH</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+                <div class="col-lg-6" style="text-align: left;">
+                    <div style="font-weight: bold; color: black;">The Prospect W2W is a service and waste exchange platform for advertising waste generated from the industries and organizations.</div>
+                    <div style="font-weight: bold; color: black;">In this website, the users can advertise and sell their waste. Users can advertise and list the detailsof the waste by type, quantity, location and frequency of availability. Users may also include photos of the materials.</div>
+                    <a href="#" class="btn btn-danger">Shop Now</a>
                 </div>
                 </div>
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" style="object-fit: cover; height: 320px" src="img/hero-1.jpg" alt="Second slide">
+            <img class="d-block w-100" style="object-fit: cover; height: 330px" src="img/pink.jpg" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
                 <div class="row">
-                <div class="col-lg-8" style="text-align: left;">
-                  <h1>Black</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-                  <a href="#" class="primary-btn">Shop Now</a>
-                </div>
+                    <div class="col-lg-6">
+                        <div class="card" style="background-color: #3A595D; padding: 20px;">
+                            <div class="row" style="margin-bottom: 15px;">
+                                <div class="col-md-6">
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <option disabled selected>Entire Malaysia</option>
+                                        <option>Transportation</option>
+                                        <option>Analysis</option>
+                                        <option>Packaging</option>
+                                        <option>Waste Treatment</option>
+                                        <option>Recycling</option>
+                                        <option>Others</option>
+                                      </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <option disabled selected>Category</option>
+                                        <option>Transportation</option>
+                                        <option>Analysis</option>
+                                        <option>Packaging</option>
+                                        <option>Waste Treatment</option>
+                                        <option>Recycling</option>
+                                        <option>Others</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 15px;">
+                                <div class="col-md-6">
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <option disabled selected>Product status</option>
+                                        <option>Transportation</option>
+                                        <option>Analysis</option>
+                                        <option>Packaging</option>
+                                        <option>Waste Treatment</option>
+                                        <option>Recycling</option>
+                                        <option>Others</option>
+                                      </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <option disabled selected>Rating</option>
+                                        <option>Transportation</option>
+                                        <option>Analysis</option>
+                                        <option>Packaging</option>
+                                        <option>Waste Treatment</option>
+                                        <option>Recycling</option>
+                                        <option>Others</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 15px;">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Enter tags">
+                                </div>
+                                <div class="col-md-6">
+                                        <button class="btn btn-success"><i class="fa fa-search"></i>  SEARCH NOW</button>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 15px;">
+                                <div class="col-md-6">
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <option disabled selected>Price range</option>
+                                        <option>Transportation</option>
+                                        <option>Analysis</option>
+                                        <option>Packaging</option>
+                                        <option>Waste Treatment</option>
+                                        <option>Recycling</option>
+                                        <option>Others</option>
+                                      </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  SAVE SEARCH</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="col-lg-6" style="text-align: left;">
+                        <div style="font-weight: bold; color: black;">The Prospect W2W is a service and waste exchange platform for advertising waste generated from the industries and organizations.</div>
+                        <div style="font-weight: bold; color: black;">In this website, the users can advertise and sell their waste. Users can advertise and list the detailsof the waste by type, quantity, location and frequency of availability. Users may also include photos of the materials.</div>
+                        <a href="#" class="btn btn-danger">Shop Now</a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" style="object-fit: cover; height: 320px" src="img/hero-2.jpg" alt="Third slide">
+            <img class="d-block w-100" style="object-fit: cover; height: 330px" src="img/blue.jpg" alt="Third slide">
             <div class="carousel-caption d-none d-md-block">
                 <div class="row">
-                <div class="col-lg-8" style="text-align: left;">
-                    <h1>Black</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-                    <a href="#" class="primary-btn">Shop Now</a>
-                </div>
+                    <div class="col-lg-6">
+                        <div class="card" style="background-color: #3A595D; padding: 20px;">
+                            <div class="row" style="margin-bottom: 15px;">
+                                <div class="col-md-6">
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <option disabled selected>Entire Malaysia</option>
+                                        <option>Transportation</option>
+                                        <option>Analysis</option>
+                                        <option>Packaging</option>
+                                        <option>Waste Treatment</option>
+                                        <option>Recycling</option>
+                                        <option>Others</option>
+                                      </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <option disabled selected>Category</option>
+                                        <option>Transportation</option>
+                                        <option>Analysis</option>
+                                        <option>Packaging</option>
+                                        <option>Waste Treatment</option>
+                                        <option>Recycling</option>
+                                        <option>Others</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 15px;">
+                                <div class="col-md-6">
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <option disabled selected>Product status</option>
+                                        <option>Transportation</option>
+                                        <option>Analysis</option>
+                                        <option>Packaging</option>
+                                        <option>Waste Treatment</option>
+                                        <option>Recycling</option>
+                                        <option>Others</option>
+                                      </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <option disabled selected>Rating</option>
+                                        <option>Transportation</option>
+                                        <option>Analysis</option>
+                                        <option>Packaging</option>
+                                        <option>Waste Treatment</option>
+                                        <option>Recycling</option>
+                                        <option>Others</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 15px;">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Enter tags">
+                                </div>
+                                <div class="col-md-6">
+                                        <button class="btn btn-success"><i class="fa fa-search"></i>  SEARCH NOW</button>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 15px;">
+                                <div class="col-md-6">
+                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
+                                        <option disabled selected>Price range</option>
+                                        <option>Transportation</option>
+                                        <option>Analysis</option>
+                                        <option>Packaging</option>
+                                        <option>Waste Treatment</option>
+                                        <option>Recycling</option>
+                                        <option>Others</option>
+                                      </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  SAVE SEARCH</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="col-lg-6" style="text-align: left;">
+                        <div style="font-weight: bold; color: black;">The Prospect W2W is a service and waste exchange platform for advertising waste generated from the industries and organizations.</div>
+                        <div style="font-weight: bold; color: black;">In this website, the users can advertise and sell their waste. Users can advertise and list the detailsof the waste by type, quantity, location and frequency of availability. Users may also include photos of the materials.</div>
+                        <a href="#" class="btn btn-danger">Shop Now</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -244,7 +464,92 @@ i {
     <!-- Hero Section End -->
 
     <!-- Banner Section Begin -->
-    <div class="col-lg-4" style="padding-top: 80px">
+
+    <div class="col-lg-6" style="margin-top: 50px; margin-bottom: 20px;">
+        <h4 style="font-weight: bold;">Premium Listings  <i class="fa fa-fire" style="color: red;"></i></h4>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row mx-auto">
+                <div class="col-md-5" style="background-color: lightgray;">
+                    <img src="img/insta-6.jpg">
+                </div>
+                <div class="col-md-5" style="padding: 5px; background-color: lightgray;">
+                    <div>Waste</div>
+                    <div style="font-size: 18px;">Petroleum</div>
+                    <div style="margin-top: 40px;">Oil property</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" >
+            <div class="row mx-auto">
+                <div class="col-md-5" style="background-color: lightgray;">
+                    <img src="img/insta-6.jpg">
+                </div>
+                <div class="col-md-5" style="padding: 5px; background-color: lightgray;" >
+                    <div>Waste</div>
+                    <div style="font-size: 18px;">Petroleum</div>
+                    <div style="margin-top: 40px;">Oil property</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" >
+            <div class="row mx-auto">
+                <div class="col-md-5" style="background-color: lightgray;">
+                    <img src="img/insta-6.jpg">
+                </div>
+                <div class="col-md-5" style="padding: 5px; background-color: lightgray;">
+                    <div>Waste</div>
+                    <div style="font-size: 18px;">Petroleum</div>
+                    <div style="margin-top: 40px;">Oil property</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6" style="margin-top: 50px; margin-bottom: 20px;">
+        <h4 style="font-weight: bold;">Latest Listings  <i class="fa fa-hourglass" style="color: darkorange;"></i></h4>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row mx-auto">
+                <div class="col-md-5" style="background-color: lightgray;">
+                    <img src="img/insta-6.jpg">
+                </div>
+                <div class="col-md-5" style="padding: 5px; background-color: lightgray;">
+                    <div>Waste</div>
+                    <div style="font-size: 18px;">Petroleum</div>
+                    <div style="margin-top: 40px;">Oil property</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" >
+            <div class="row mx-auto">
+                <div class="col-md-5" style="background-color: lightgray;">
+                    <img src="img/insta-6.jpg">
+                </div>
+                <div class="col-md-5" style="padding: 5px; background-color: lightgray;" >
+                    <div>Waste</div>
+                    <div style="font-size: 18px;">Petroleum</div>
+                    <div style="margin-top: 40px;">Oil property</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" >
+            <div class="row mx-auto">
+                <div class="col-md-5" style="background-color: lightgray;">
+                    <img src="img/insta-6.jpg">
+                </div>
+                <div class="col-md-5" style="padding: 5px; background-color: lightgray;">
+                    <div>Waste</div>
+                    <div style="font-size: 18px;">Petroleum</div>
+                    <div style="margin-top: 40px;">Oil property</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4" style="margin-top: 50px; margin-bottom: 10px;">
         <h4 style="font-weight: bold;">Browse by categories</h5>
     </div>
     <div class="banner-section spad">

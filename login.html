@@ -179,19 +179,19 @@ html * {
                     data: { 'user_email' : email, 'password' : password },
                 }).done(function(response){
                     console.log(response);
-                    if(response.user_email === email && response.password === password || response.email === email && response.password === password ){
+                    if(response[0].user_email === email && response[0].password === password || response[0].email === email && response[0].password === password ){
                             console.log(response);
                             console.log("Logged in");
-                            localStorage.setItem("user_id", JSON.stringify(response.user_id));
-                            localStorage.setItem("user_type", JSON.stringify(response.user_type));
-                            window.location.href = "./index1.html";
+                            localStorage.setItem("user_id", JSON.stringify(response[0].user_id));
+                            localStorage.setItem("user_type", JSON.stringify(response[0].user_type));
+                            if(response[0].user_role == "user")
+                                 window.location.href = "./index1.html";
+                            else if(response[0].user_role == "admin")
+                                window.location.href = "./index-admin.html";
                     }
-                    // else if( response.user_email !== email || response.password !== password || response.email !== email || response.password !== password){
-                    //     if(response.user_email !== email || response.email !== email){
-                    //         $('#error_email').html('');
-                    //         $('#error_email2').html('Invalid email address/password');
-                    //     }
-                    // }
+                    else if(response[0].user_email !== email && response[0].password !== password || response[0].email !== email && response[0].password !== password ){
+                        $('#error_email2').html('Invalid email/password');
+                    }
 
                 });
             }

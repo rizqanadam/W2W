@@ -2,31 +2,31 @@
 <html lang="zxx">
 <style>
 
-.header-margin {
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    /*z-index: 1;*/
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /*z-index: 1;*/
 }
 
 .dropdown-content a {
-    color: black;
-    padding: 6px;
-    text-align: left;
-    text-decoration: none;
-    display: block;
+  color: black;
+  padding: 6px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
+
+.header-margin {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .btn-oren {
@@ -34,11 +34,6 @@
     background-color: #FF5700 !important;
     width: 80% !important;
     /* border-radius: 10% !important; */
-}
-
-.btn-oren-cancell {
-    color: #FF5700 !important;
-    border-color: #FF5700 !important;
 }
 
 .detail-spacing {
@@ -61,6 +56,30 @@ i {
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #27AE60 ;
 }
 
 </style>
@@ -110,19 +129,19 @@ i {
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-10 text-right col-md-2 header-margin">
-                        <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                        <button class="btn">contact us</button>
+                    <div class="col-lg-10 text-right col-md-10" style="padding: 10px;">
+                        <button onclick="window.location.href='./index1.html';" class="btn">Home</button>
+                        <button class="btn">Contact Us</button>
                         <div class="dropdown">
-                            <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
-                            <h5 style="margin-top: 8px; color: black;">My Account</h5>
-                            </button>
-                            <div class="dropdown-content">
-                              <a href="./myaccount-defaultview.html">My account</a>
-                              <a href="./index.html">Logout</a>
-                            </div>
+                          <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
+                          <h5 style="margin-top: 8px; color: black;">My Account</h5>
+                          </button>
+                          <div class="dropdown-content">
+                            <a href="./myaccount-defaultview.html">My account</a>
+                            <a href="./index.html">Logout</a>
                           </div>
-                        <button onclick="window.location.href='./default-form-guestview.html';" class="btn btn-warning">Submit Ad</button>
+                        </div>
+                        <button onclick="window.location.href='./default-form-userview.html';" class="btn btn-warning">Submit Ad</button>
                     </div>
                 </div>
             </div>
@@ -132,23 +151,26 @@ i {
     <!-- Header End -->
 
 
-    <div class="row" style="padding-bottom: 30px;">
-        <a style="text-decoration: underline;">Home</a>
-        <div>>></div>
+    <div class="col-md-8 row" style="padding-bottom: 30px;">
+        <a href="./index.html" style="text-decoration: underline; color: black;">Home</a>
+        <div>&nbsp;>>&nbsp;</div>
+        <a href="./productlistings-viewall.html" style="text-decoration: underline; color: black;">Available</a>
+        <div>&nbsp;>>&nbsp;</div>
         <a style="text-decoration: underline;">Entire Malaysia</a>
-        <div>>></div>
-        <a style="text-decoration: underline;">Waste</a>
-        <div>>></div>
-        <a style="text-decoration: underline; color: #008D50;">Plastic Pellets</a>
+        <div>&nbsp;>>&nbsp;</div>
+        <a id="maincategory" style="text-decoration: underline;">Waste</a>
+        <div>&nbsp;>>&nbsp;</div>
+        <a id="name" style="font-weight: bold; color: #008D50;">Plastic Pellets</a>
     </div>
 
     <div class="container" style="margin-bottom: 30px; margin-left: 15px;">
         <div class="row">
         <div class="col-md-4">
-            <img src="img/hensemboi.jpg">
-        <div class="row" style="margin-top: 20px;">
-            <div class="col-md-3">
-                <img src="img/hensemboi.jpg">
+            <img id="main_image" src="img/hensemboi.jpg" style="width: 398px; height: 372px; object-fit: cover;">
+            <!-- width: 398px; height: 372px; -->
+        <div id="sub_image" class="row" style="margin-top: 20px;">
+            <!-- <div class="col-md-3">
+                <img src="img/hensemboi.jpg" >
             </div>
             <div class="col-md-3">
                 <img src="img/hensemboi.jpg">
@@ -158,64 +180,21 @@ i {
             </div>
             <div class="col-md-3">
                 <img src="img/hensemboi.jpg">
-            </div>
+            </div> -->
         </div>
         </div>
         <div class="col-md-4">
-            <div>AK47MP5RPG</div>
-            <div style="color: gray; margin-bottom: 10px;">PLASTIC PELLETS</div>
-            <label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label>
-            <div style="margin-top: 20px; font-size: 26px; font-weight: bold;">RM 200.00</div>
-            <div style="color: gray;">100 mton</div>
+            <div id="id">AK47MP5RPG</div>
+            <div id="product_name" style="color: gray; margin-bottom: 10px;">PLASTIC PELLETS</div>
+            <label id="availability" style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label>
+            <div id="product_price" style="margin-top: 20px; font-size: 26px; font-weight: bold;">RM 200.00</div>
+            <div id="quantity_unit" style="color: gray;">100 mton</div>
         </div>
         <div class="col-md-4">
-            <div style="margin-bottom: 20px;">For product pricing, customization or other inquiries :</div>
-            <div class="container">
-                <button type="button" class="btn btn-oren" data-toggle="modal" data-target="#myModal">Reserve</button>
-                <div class="modal fade" id="myModal" role="dialog">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-body" style="padding: 30px;">
-                        <div style="font-size: 28px; font-weight: bold; margin-bottom: 30px;">Make an offer</div>
-                        <div class="row text-padding" style="margin-bottom: 20px;">
-                            <div class="col-md-3" style="margin-top: auto; margin-bottom: auto;">
-                                <div>Price</div>
-                            </div>
-                            <div class="col-md-2" style="margin-top: auto; margin-bottom: auto;">
-                                <div>RM</div>
-                            </div>
-                            <div class="col-md-4" style="padding-left: 0;">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row text-padding" style="margin-bottom: 20px;">
-                            <div class="col-md-3" style="margin-top: auto; margin-bottom: auto;">
-                                <div>Quantity</div>
-                            </div>
-                            <div class="col-md-3" style="padding-left: 0;">
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-md-2 text-right" style="margin-top: auto; margin-bottom: auto;">
-                                <div>Unit</div>
-                            </div>
-                            <div class="col-md-3" style="padding-left: 0;">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row text-padding" style="margin-bottom: 20px;">
-                            <div class="col-md-12" style="margin-top: auto; margin-bottom: auto;">
-                                <textarea type="text" class="form-control" placeholder="Additional Information"></textarea>
-                            </div>
-                        </div>
-                        <button class="btn btn-oren" style="width: 100% !important; margin-bottom: 10px;">Make an offer</button>
-                        <button class="btn btn-oren-cancell" style="width: 100% !important;">Cancel</button>
-                    </div>
-                </div>
-              </div>
+            <div style="margin-bottom: 10px;">For product pricing, customization or other inquiries :</div>
+            <button id="reserve_btn" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#reservemodal" style="background-color: #FF5700; color: white; width: 300px; border-radius: 50px;">Reserve</button>
         </div>
         </div>
-        </div>
-    </div>
     </div>
     </div>
 
@@ -229,7 +208,7 @@ i {
                     <label>Date of submission</label>
                 </div>
                 <div class="col-md-8">
-                    <div>20/12/2020</div>
+                    <div id="date">20/12/2020</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -237,7 +216,7 @@ i {
                     <label>Material Status</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Available</div>
+                    <div id="mainstatus">Available</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -245,7 +224,7 @@ i {
                     <label>Name of Material</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Plastic Pellets</div>
+                    <div id="product_name2">Plastic Pellets</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -253,7 +232,7 @@ i {
                     <label>State of Material</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Solid</div>
+                    <div id="product_material">Solid</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -261,7 +240,7 @@ i {
                     <label>Category</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Plastics</div>
+                    <div id="product_category">Plastics</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -269,7 +248,7 @@ i {
                     <label>Product Season</label>
                 </div>
                 <div class="col-md-8">
-                    <div>One-time</div>
+                    <div id="product_continuity">One-time</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -277,7 +256,7 @@ i {
                     <label>Transportation Mode</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Pick up by customer</div>
+                    <div id="product_transportation">Pick up by customer</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -285,7 +264,7 @@ i {
                     <label>Details</label>
                 </div>
                 <div class="col-md-8">
-                    <div>We can supply minimal amount</div>
+                    <div id="product_desc">-</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -293,7 +272,7 @@ i {
                     <label>Quantity</label>
                 </div>
                 <div class="col-md-8">
-                    <div>80 mton</div>
+                    <div id="product_quantityunit">80 mton</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -301,7 +280,7 @@ i {
                     <label>Shelf Life/ Degradation period</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Never</div>
+                    <div id="product_period">Never</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -309,7 +288,7 @@ i {
                     <label>Suggested Customer</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Packaging plant</div>
+                    <div id="suggestedcustomer">Packaging plant</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -317,47 +296,49 @@ i {
                     <label>Price of Material</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Free</div>
+                    <div id="product_price2">Free</div>
                 </div>
             </div>
-            <div class="row detail-spacing">
-                <div class="col-md-4">
-                    <label>Waste (location 1)</label>
+            <div id="location_display">
+                <!-- <div class="row detail-spacing">
+                    <div class="col-md-4">
+                        <label>Waste (location 1)</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="product_location1">Pasir Gudang</div>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <div>Pasir Gudang</div>
+                <div class="row detail-spacing">
+                    <div class="col-md-4">
+                        <label>State</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="product_state1">Johor</div>
+                    </div>
                 </div>
-            </div>
-            <div class="row detail-spacing">
-                <div class="col-md-4">
-                    <label>State</label>
+                <div class="row detail-spacing">
+                    <div class="col-md-4">
+                        <label>Waste (location 2)</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="product_location2">Kulai</div>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <div>Johor</div>
-                </div>
-            </div>
-            <div class="row detail-spacing">
-                <div class="col-md-4">
-                    <label>Waste (location 2)</label>
-                </div>
-                <div class="col-md-8">
-                    <div>Kulai</div>
-                </div>
-            </div>
-            <div class="row detail-spacing">
-                <div class="col-md-4">
-                    <label>State</label>
-                </div>
-                <div class="col-md-8">
-                    <div>Johor</div>
-                </div>
+                <div class="row detail-spacing">
+                    <div class="col-md-4">
+                        <label>State</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="product_state2">Johor</div>
+                    </div>
+                </div> -->
             </div>
             <div class="row detail-spacing">
                 <div class="col-md-4">
                     <label>Supplier</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Siti Fatimah Saad</div>
+                    <div id="supplier">Siti Fatimah Saad</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -365,7 +346,7 @@ i {
                     <label>Company Name</label>
                 </div>
                 <div class="col-md-8">
-                    <div>TIM ENTERPRISE</div>
+                    <div id="companyname">-</div>
                 </div>
             </div>
             </div>
@@ -374,7 +355,7 @@ i {
     <div class="container" style="padding: 30px;">
         <div class="card" style="padding: 30px;">
             <div style="font-size: 24px; font-weight: bold;">Ratings and Review</div>
-            <div style="text-align: right;">View All</div>
+            <div style="text-align: right; color: #0099FF;">View All</div>
             <div style="border-bottom: 2px solid lightgray;"></div>
             <div style="padding: 20px;">
             <div class="row detail-spacing">
@@ -441,10 +422,13 @@ i {
             <div style="font-size: 24px; font-weight: bold;">Question about this product</div>
             <div style="text-align: right;">View All</div>
             <div style="border-bottom: 2px solid lightgray;"></div>
-            <div style="padding: 20px;">
-                <div class="text-center">There are no question yet.</div>
-                <div class="text-center">Ask the seller now and their answwer will be hear.</div>
-                <div class="text-center" style="color: orangered; margin-top: 10px; font-weight: bold;">Ask Question</div>
+            <div id="askquestion" style="margin-top: 30px;">
+                <div id="error" style="color: red; font-size: 12px; font-weight: lighter;"></div>
+                    <textarea id="question_area" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea>
+                    
+                    <br>    
+                    <div id="submit" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div>
+                
             </div>
         </div>
     </div>
@@ -497,6 +481,98 @@ i {
          </div>
      </footer>
 
+     <!-- reserve modal -->
+     <div class="modal fade" id="reservemodal" role="dialog"  style="top: 10%; left: 5%;">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body" style="padding: 30px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              <div style="font-size: 28px; font-weight: bold; margin-bottom: 30px;">Make an offer</div>
+              <form id="reserveform" onsubmit="return false">
+              <div class="row text-padding" style="margin-bottom: 20px;">
+                
+                  <div class="col-md-3" style="margin-top: auto; margin-bottom: auto;">
+                      <div>Price</div>
+                  </div>
+                  <div class="col-md-2" style="margin-top: auto; margin-bottom: auto;">
+                      <div>RM</div>
+                  </div>
+                  <div class="col-md-4" style="padding-left: 0;">
+                      <input id="offerprice" type="text" class="form-control" required>
+                  </div>
+              </div>
+              <div class="row text-padding" style="margin-bottom: 20px;">
+                  <div class="col-md-3" style="margin-top: auto; margin-bottom: auto;">
+                      <div>Quantity</div>
+                  </div>
+                  <div class="col-md-3" style="padding-left: 0;">
+                      <input id="quantity_reserve" type="text" class="form-control" required>
+                  </div>
+                  <div class="col-md-2 text-right" style="margin-top: auto; margin-bottom: auto;">
+                      <div>Unit</div>
+                  </div>
+                  <div class="col-md-3" style="padding-left: 0;">
+                      <input id="unit_reserve" type="text" class="form-control" required>
+                  </div>
+              </div>
+              <div class="row text-padding" style="margin-bottom: 20px;">
+                  <div class="col-md-12" style="margin-top: auto; margin-bottom: auto;">
+                      <textarea id="additional_reserve" type="text" class="form-control" placeholder="Additional Information" required></textarea>
+                  </div>
+              </div>
+              <button id="makeoffer_btn" class="btn btn-oren" style="width: 100% !important; margin-bottom: 10px;">Make an offer</button>
+              <button class="btn btn-oren-cancell" style="width: 100% !important;" data-dismiss="modal">Cancel</button>
+            </form>
+          </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- success reserve modal -->
+    <div class="modal fade" id="successmodal" role="dialog"  style="top: 10%; left: 4%;">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body" style="padding: 30px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              <div style="font-size: 28px; font-weight: bold; margin-bottom: 30px;"></div>
+             
+              <div class="" style="margin-top: 40px; text-align: center;"> 
+                <img src="./img/checked.svg">  
+              </div>
+              <div class="col-md-12" style="margin-top: 60px; text-align: center; font-weight: bold; font-size: 20px;" >
+                Your offer have been submitted and the seller will be notified.
+              </div>
+
+              <div class="col-md-12" style="margin-top: 30px; text-align: center;" >
+                You have to wait for their approval
+              </div>
+
+              <div class="col-md-12" style="margin-top: 30px; text-align: center;" >
+                <a href="./productdetails-defaultview1.html" style="text-decoration: underline; color: #0099FF;"><-- Back</a>
+              </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-sm mx-auto"  style="top: 20%; left: 10%;" id="ask_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        
+            <div class="modal-content" style="text-align: center; width: 50%; padding: 50px; border-radius: 10px;">
+                <div class="modal-body mx-auto">
+                <img src="./img/checkijau.svg">
+                </div>
+                <div class="mx-auto" style="margin: 10px; color: #27AE60; font-size: 28px;">Submitted!</div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -512,3 +588,183 @@ i {
 </body>
 
 </html> 
+
+<script>
+
+    $(document).ready(function(){
+        $product_id = localStorage.getItem('product_detail');
+        $userid = localStorage.getItem('user_id');
+
+        productDetails();
+        supplier_company();
+
+        $('#submit').on('click', function(){
+            askQuestion();
+            
+        });
+
+        //submit reserve product
+        var highlightForm = document.querySelector("form#reserveform");
+            highlightForm.addEventListener('submit',highlight , false);
+
+            function highlight(event)
+            {
+                event.preventDefault();
+                reserveProduct();
+                $('#reservemodal').modal('hide');
+                $('#successmodal').modal('toggle');
+                return false;
+
+            }
+
+    });
+
+    function productDetails() {
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/product/detail?product_id=",
+            type : "GET",
+            data : {"product_id" : $product_id}
+        }).done(function(response){
+            
+            $('#maincategory').html(response[0].maincategory).css('text-transform','capitalize');
+            $('#name').html(response[0].product_name).css('text-transform','capitalize');
+            $('#id').html(response[0].product_id).css('text-transform','capitalize');
+            $('#product_name').html(response[0].product_name).css('text-transform','capitalize');
+            $('#product_price').html('RM ' +response[0].product_price).css('text-transform','capitalize');
+            $('#quantity_unit').html(response[0].product_quantity+" "+response[0].unit);
+            $('#date').html(response[0].product_date).css('text-transform','capitalize');
+            $('#mainstatus').html(response[0].mainstatus).css('text-transform','capitalize');
+            $('#product_name2').html(response[0].product_name).css('text-transform','capitalize');
+            $('#product_material').html(response[0].product_material).css('text-transform','capitalize');
+            $('#product_category').html(response[0].product_category).css('text-transform','capitalize');
+            $('#product_continuity').html(response[0].product_continuity).css('text-transform','capitalize');
+            $('#product_transportation').html(response[0].product_transport);
+            
+            $('#main_image').attr('src',response[0].product_image[0].image);
+
+            var tr2 = "";
+            var no = 1;
+            $.each(response[0].product_image, function(i,data){
+                tr2 += '<div class="col-md-3"><img src='+response[0].product_image[i].image+' style="width: 70px; height: 50px; object-fit: cover;"></div>';
+                no++;
+            });
+            $('#sub_image').html(tr2);
+            
+
+            if(response[0].product_desc != ""){
+                $('#product_desc').html(response[0].product_desc).css('text-transform','capitalize');
+            }
+            
+            $('#product_quantityunit').html(response[0].product_quantity+" "+response[0].unit);
+            $('#product_period').html(response[0].product_period).css('text-transform','capitalize');
+            $('#suggestedcustomer').html(response[0].suggestedcustomer).css('text-transform','capitalize');
+            
+            if(response[0].product_price == "0.00"){
+                $('#product_price2').html('Free');
+            }
+            else{
+                $('#product_price2').html('RM ' +response[0].product_price).css('text-transform','capitalize');
+            }
+
+            var tr = "";
+            var bil = 1;
+            $.each(response[0].product_location, function(i,data){
+                if(response[0].product_location[i].location != "")
+                tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Waste (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
+                if(response[0].product_state[i].state !== "null")
+                tr += '<div class="row detail-spacing"><div class="col-md-4"><label>State</label></div> <div class="col-md-8"><div id="product_state1">'+response[0].product_state[i].state+'</div> </div></div>'
+                bil++;     
+            });
+            $('#location_display').html(tr);
+            var product_user = localStorage.setItem('product_user',response[0].user_id);
+        });
+    }
+
+    function supplier_company(){
+        var product_user = localStorage.getItem('product_user');
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/user/detail?user_id=",
+            data : {"user_id" : product_user}
+        }).done(function(response){
+            
+            $('#supplier').html(response.user_fname+" "+response.user_lname).css('text-transform','capitalize');
+            
+            if(response.companyname != null){
+            $('#companyname').html(response.companyname);
+            }
+        });
+    }
+
+    function LoginUser(){
+        var email = $('#email').val();
+        var password = $('#password').val();
+
+            $.ajax({
+                url: 'http://codeviable.com/w2w2/public/login?user_email=&password=',
+                type: 'POST',
+                data: { 'user_email' : email, 'password' : password },
+                success: function (response){
+                    if(response[0].user_email === email && response[0].password === password || response[0].email === email && response[0].password === password ){
+                        console.log(response[0]);
+                        console.log("Logged in");
+                        localStorage.setItem("user_id", JSON.stringify(response.id));
+                        window.location.href = "./productdetails-defaultview1.html"; 
+                    }
+                }
+            });
+    }   
+
+    function askQuestion() {
+        var question = $('#question_area').val();
+        
+        var data = {
+            "product_id" : $product_id,
+            "description" : question,
+            "user_id" : $userid
+        }
+
+        if($('#question_area').val() === " "){
+            $('#error').html('Please fill out this field.').delay(2000).fadeOut(300);
+            setTimeout(() => {
+            $('#error').html('').css('display', 'block');
+            }, 3000);
+        }
+
+        if($('#question_area').val() != " "){
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/comment?product_id=&title=&description=",
+                type : "POST",
+                data : data
+            }).done(function(response){
+                console.log(response)
+                $('#ask_modal').modal('toggle');
+            });
+        }
+    }
+
+    function reserveProduct() {
+        var offeredprice = $('#offerprice').val();
+        var quantity = $('#quantity_reserve').val();
+        var unit = $('#unit_reserve').val();
+        var additional = $('#additional_reserve').val();
+
+        var postdata = {
+            "offeredprice" : offeredprice,
+            "quantity" : quantity,
+            "unit" : unit,
+            "info" : additional,
+            "buyer_id" : $userid,
+            "product_id" : $product_id
+        }
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/reserve",
+            type : "POST",
+            data : postdata
+        }).done(function(response){
+            console.log(response)
+        })
+    }
+
+</script>

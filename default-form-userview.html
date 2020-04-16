@@ -199,14 +199,14 @@ color: #27AE60 ;
 
     <div class="container" style="padding-bottom: 50px;">
         <div class="row">
-            <div class="col-md-3 text-right">
-                <div class="headtext-weight" style="margin-right: 20px;">Forms</div>
-                <ul style="list-style-type: none;">
-                    <li><a href="./default-form-userview.html" class="active"><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
-                    <li><a href="./submitadd-form-waste1.html"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li> 
-                    <li><a href="./submitadd-form-technology1.html"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
-                    <li><a href="./submitadd-form-service1.html"><i class="fa fa-chevron-right icon-menu"></i>Service</a></li> 
-                </ul>
+            <div id="listform" class="col-md-3 text-right">
+                <!-- <div class="headtext-weight" style="margin-right: 20px;">Forms</div>
+                <ul id="list_form" style="list-style-type: none;"> -->
+                    <!-- <li><a href="./default-form-userview.html" class="active"><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
+                    <li><a href="./submitadd-formcompany-waste1.html"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li> 
+                    <li><a href="./submitadd-formcompany-technology1.html"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
+                    <li><a href="./submitadd-formcompany-service1.html"><i class="fa fa-chevron-right icon-menu"></i>Service</a></li>  -->
+                <!-- </ul> -->
             </div>
             <div class="card col-md-8" style="padding: 30px;">
                 <div>
@@ -270,5 +270,46 @@ color: #27AE60 ;
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 </body>
-
 </html>
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous">
+</script>
+
+<script>
+
+    $(document).ready(function(){
+            $user_id = localStorage.getItem('user_id');
+            
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/user/detail?user_id=",
+                type : "GET",
+                data : { "user_id" : $user_id},
+            }).done(function(response){
+                console.log(response);
+                console.log(response.user_type);
+                if( response.user_type == "individual"){
+                var tr = "";
+                tr += '<div class="headtext-weight" style="margin-right: 20px;">Forms</div>';
+                tr += '<ul style="list-style-type: none;">'
+                tr += '<li><a href="./default-form-userview.html" class="active"><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>';
+                tr += '<li><a href="./submitadd-form-waste1.html"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li> ';
+                tr += '<li><a href="./submitadd-form-technology1.html"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>';
+                tr += '<li><a href="./submitadd-form-service1.html"><i class="fa fa-chevron-right icon-menu"></i>Service</a></li>';
+                tr += '</ul>';
+                $("#listform").html(tr);
+                }
+                else if(response.user_type == "company"){
+                    var tr = "";
+                    tr += '<div class="headtext-weight" style="margin-right: 20px;">Forms</div>';
+                    tr += '<ul style="list-style-type: none;">'
+                    tr += '<li><a href="./default-form-userview.html" class="active"><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>';
+                    tr += '<li><a href="./submitadd-formcompany-waste1.html"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li> ';
+                    tr += '<li><a href="./submitadd-formcompany-technology1.html"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>';
+                    tr += '<li><a href="./submitadd-formcompany-service1.html"><i class="fa fa-chevron-right icon-menu"></i>Service</a></li>';
+                    tr += '</ul>';
+                    $("#listform").html(tr);
+                }
+            });
+    });
+</script>

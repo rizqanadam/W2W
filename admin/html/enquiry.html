@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /*z-index: 1;*/
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+    color: #27AE60 ;
+}
+p {
+    font-family: 'Roboto' !important;
+    font-weight: bold;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.table{
+    font-family: 'Roboto' !important;
+}
+
+.center-table{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+.paginate_button {
+    border: 10px;
+    padding: 10px;
+    background-color: white;
+    margin: 0;
+    color: #0099FF;
+    cursor: pointer;
+}
+div#approval_table_paginate.dataTables_paginate.paging_simple_numbers{
+    margin: 15px;
+}
+a.paginate_button.current{
+    background-color: #0099FF;
+    color: white;
+}
+a#approval_table_next.paginate_button.next.disabled,
+a#approval_table_previous.paginate_button.previous.disabled,
+#approval_table_previous{
+    color: #B5B5B5;
+}
+a#approval_table_previous.paginate_button.previous,
+#approval_table_next{
+    color: #0099FF;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd){
+    background-color: #F4F4F4 !important;
+}
+
+.dataTables_info,
+.dataTables_length {
+    float: left;
+}
+
+.verticalLine {
+  border-right: thin solid #707070 !important;
+  height: 40px;
+  display: inline-block;
+}
+.padding_side{
+    margin-top: 4px; 
+    padding: 15px 35px 15px 20px;
+}
+
+.padding_side_sub{
+    padding: 15px 35px 15px 20px;
+}
+
+.side_active{
+    background: rgba(0, 0, 0, 0.07);
+    color: #41b3f9;
+    border-left: 3px solid #41b3f9;
+    font-weight: 500;
+}
+
+/* #approval_table thead .sorting:after, 
+#approval_table thead .sorting_asc:after,
+#approval_table thead .sorting_desc:after, 
+#approval_table thead .sorting_asc_disabled:after, 
+#approval_table thead .sorting_desc_disabled:after,
+#approval_table thead .sorting:before, 
+#approval_table thead .sorting_asc:before,
+#approval_table thead .sorting_desc:before, 
+#approval_table thead .sorting_asc_disabled:before, 
+#approval_table thead .sorting_desc_disabled:before{
+    display: none;
+} */
+
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/website-logo.png">
+    <title>Admin - W2W</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet"> 
+    <!-- morris CSS -->
+    <link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="../plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- <link href=“https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css” rel="stylesheet"> -->
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/b-1.6.1/b-flash-1.6.1/r-2.2.3/sp-1.0.1/sl-1.3.1/datatables.min.css"/>  -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+              <a class="logo" href="dashboard.html">
+                <b>
+                <div class="top-left-header" style="margin-left:10px;">
+                  <img src="../plugins/images/website-logo.png" style="width:94px; height:50px;">
+                </div>
+              </b>
+              </a>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <a href="#" class="waves-effect"><i size="3x"class="fa fa-envelope fa-fw" style=" color: lightgray;"aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect"><i class="fa fa-bell fa-fw" style="color: lightgray;"aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                      <div class="v1" style="margin: 16px; border-left: 1px solid lightgray;height: 25px;"></div>
+                    </li>
+                    <li>
+                        <div class="dropdown" style="margin: 5px;">
+                        <button class="btn btn-light" style=" background-color: transparent; border:none;"><a href="#"></a>John Doe  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
+                        <img src="../plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle">
+                        </button>
+                          <div class="dropdown-content" style="margin-left: -70px;">
+                            <a href="#">Logout</a>
+                          </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 70px 0 0;">
+                        <a href="dashboard.html" class="waves-effect "><img src="../plugins/images/Icon_Home.svg">&nbsp;&nbsp;&nbsp;Home</a>
+                    </li>
+                    <li>
+                        <a href="inbox.html" class="waves-effect "><img src="../plugins/images/inbox.png">&nbsp;&nbsp;&nbsp;Inbox</a>
+                    </li>
+                    <li>
+                        <a href="user" class="waves-effect "><img src="../plugins/images/users.png">&nbsp;&nbsp;&nbsp;Users<i class="fa fa-angle-down fa-fw" style="padding-left: 114px; size: 4x;"></i></a>
+                        <ul>
+                            <a href="./user-listing-company.html" class="waves-effect padding_side "><img src="../plugins/images/company.png">&nbsp;&nbsp;&nbsp;Company</a>
+                            <a href="./user-listing-individual.html" class="waves-effect active padding_side "><img src="../plugins/images/user.png">&nbsp;&nbsp;&nbsp;Individual</a>
+                        </ul>
+                    </li>
+                    <li> 
+                        <a href="listing" class="waves-effect "><img src="../plugins/images/listing.png">&nbsp;&nbsp;&nbsp;Listing<i class="fa fa-angle-down fa-fw" style="padding-left: 108px; size: 4x;"></i></a>
+                        <ul>
+                            <a href="./listing-approval.html"class="waves-effect padding_side "><img src="../plugins/images/approval.png">&nbsp;&nbsp;&nbsp;Approval</a>
+                            <a href="./listing-available.html" class="waves-effect padding_side "><img src="../plugins/images/Icon_Available.svg">&nbsp;&nbsp;&nbsp;Available</a>
+                            <a href="./listing-wanted.html" class="waves-effect padding_side"><img src="../plugins/images/wanted.png">&nbsp;&nbsp;&nbsp;Wanted</a>
+                            <a href="./listing-comment.html" class="waves-effect padding_side"><img src="../plugins/images/comment_icon.png">&nbsp;&nbsp;&nbsp;Comment</a>
+                            <a href="./listing-formmanagement.html" class="waves-effect padding_side"><img src="../plugins/images/form_icon.png">&nbsp;&nbsp;&nbsp;Form Management</a>
+                            <a href="./listing-productcategory.html" class="waves-effect padding_side"><img src="../plugins/images/category_icon.png">&nbsp;&nbsp;&nbsp;Product Category</a>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="pricing" class="waves-effect "><img src="../plugins/images/box.svg">&nbsp;&nbsp;&nbsp;Pricing<i class="fa fa-angle-down fa-fw" style="padding-left: 105px; size: 4x;"></i></a>
+                        <ul>
+                            <a href="./pricing-package.html" class="waves-effect padding_side"><img src="../plugins/images/Pricing_Package.svg">&nbsp;&nbsp;&nbsp;Package</a>
+                            <a href="./pricing-token.html" class="waves-effect padding_side"><img src="../plugins/images/Pricing_Token.svg">&nbsp;&nbsp;&nbsp;Token</a>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="contentM" class="waves-effect "><img src="../plugins/images/content_management.svg">&nbsp;&nbsp;&nbsp;Content Management<i class="fa fa-angle-down fa-sm" style="padding-left: 14px;"></i></a>
+                        <ul>
+                            <a href="./contentmanagement-news.html" class="waves-effect active padding_side "><img src="../plugins/images/ConMngmt_News.svg">&nbsp;&nbsp;&nbsp;News</a>
+                            <a href="./contentmanagement-banner.html" class="waves-effect active padding_side"><img src="../plugins/images/banner.svg">&nbsp;&nbsp;&nbsp;Banner</a>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="./enquiry.html" class="waves-effect active"><img src="../plugins/images/exclusion.svg">&nbsp;&nbsp;&nbsp;Enquiry</a>
+                    </li>
+                    <li>
+                        <a href="userM" class="waves-effect"><img src="../plugins/images/folder-open-solid.svg">&nbsp;&nbsp;&nbsp;User Management<i class="fa fa-angle-down fa-sm" style="padding-left: 27px;"></i></a>
+                        <ul>
+                            <a href="./user-management.html" class="waves-effect active padding_side "><img src="../plugins/images/circle-regular.svg">&nbsp;&nbsp;&nbsp;Users</a>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper">
+            <br>
+            <div class="container-fluid">
+                <div class="row" style="background-color: transparent; margin-top: 20px;">
+                    <div class="col-md-4 ">
+                        <div style="font-size: 28px; font-weight: bold;">Enquiry &nbsp;&nbsp;</div>
+                    </div>
+                    <div class="col-md-8 text-right">
+                        <button class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button>
+                    </div>
+                </div>
+                
+                <br><br>
+
+           
+                <div class="white-box">
+                    <table id="enquiry_table" class="table table-striped" cellpadding="0">
+                        <thead  class="thead" style="text-align: center; font-size: 14px;">
+                           
+                        <tr>
+                            <td scope="" style="text-align: center; width: 5%;"><input id="check_all" type="checkbox"></td>
+                            <td scope="" style="text-align: left; width: 5%;">Bil</td>
+                            <td scope="" style="text-align: left; ">Name</td>
+                            <td scope="" style="text-align: left; ">Email</td>
+                            <td scope="" style="text-align: left; padding-right: 30%;">Subject</td>
+                            <td scope="" style="text-align: left;">Date</td>
+                            <td scope="" style="text-align: center;">Action</td>
+                        </tr>
+                        </thead>
+                        <tbody style="text-align: center; color: black; font-size: 14px;">
+                            
+                            
+                        
+                        </tbody>
+                    </table> 
+                </div>
+            
+            <!-- /.container-fluid -->
+        </div>
+
+        <!--myModal2-->
+        <div class="modal fade bd-example-modal-sm" style="padding: 20px; width: 350px; position: absolute; left: 50%; top: 40%; margin-left: -150px;margin-top: -150px;" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                <div class="modal-body">
+                  <div style="font-weight: bold;">Are you sure you want to delete this enquiry?</div>
+                    <br><br><br>
+                    <div style="text-align: right;">
+                        <a href="./pricing-token-edit.html" style="color: #0099FF; cursor: pointer;" data-dismiss="modal">CANCEL</a>
+                        <a id="btn_delete" style="color: #C10000; cursor: pointer; padding-left: 10px;" data-toggle="modal" data-target="#delete_status" data-dismiss="modal">DELETE</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+
+        <!--delete_status-->
+        <div class="modal fade bd-example-modal-sm mx-auto"  style=" margin: 100px; margin-right: 60px;" id="delete_status" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              
+                <div class="modal-content" style="text-align: center; width: 130%; padding: 40px; border-radius: 10px;">
+                    <div class="modal-body mx-auto">
+                      <img src="../plugins/images/Icon_Trash_Deleted_Red.svg">
+                    </div>
+                    <div class="mx-auto" style="margin: 10px; color: #F44336; font-size: 28px;">Enquiry deleted.</div>
+                    <script>
+
+                    </script>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Counter js -->
+    <script src="../plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="../plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!-- chartist chart -->
+    <!-- <script src="../plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
+    <script src="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script> -->
+    <!-- Sparkline chart JavaScript -->
+    <!-- <script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script> -->
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!-- <script src="js/dashboard1.js"></script> -->
+    <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+<script>
+    
+     $(document).ready(function() {    
+        customizeDatatable();
+        listingEnquiry();
+
+        $('#enquiry_table').delegate('#check', 'click', function() {
+            var id = $(this).parent().parent().data('id');
+            var delete_id = localStorage.setItem('deleteid', id);
+            console.log(id);
+        });
+
+        $('#btn_delete').on('click',function(){
+            deleteEnquiry();
+            $( "#enquiry_table" ).load( "enquiry.html #enquiry_table" );
+        })
+        
+     });
+
+     function customizeDatatable(){
+        $('#enquiry_table').DataTable( {
+             targets: 'no-sort',
+             bSort: false,
+             lengthChange: false,
+             bFilter: false,
+             modifier:{
+                 selected: true
+             }
+         });
+     }
+
+     function listingEnquiry(){
+
+         $dataTable = $('#enquiry_table').DataTable();
+         $.ajax({
+             url:"http://codeviable.com/w2w2/public/enquiry/list",
+             type:"GET"
+         }).done(function(response){
+             console.log(response)
+             var a = 1;
+                $.each(response, function(i, data){
+                    
+                    var date = response[i].created_at[0] + response[i].created_at[1] + " " + response[i].created_at[3] + response[i].created_at[4] + response[i].created_at[5] + " " + response[i].created_at[7] + response[i].created_at[8] + response[i].created_at[9] + response[i].created_at[10]
+                    console.log(date)
+
+                        $table_row='<tr id='+ data.id +'><td class="true" style="text-align: center; width:5%;"><input id="check" type="checkbox"></td><td scope="" style="text-align: left;">'+ a +'</td><td scope="" style="text-align: left;">'+ data.name +'</td><td scope="" style="text-align: left;">'+ data.email +'</td><td scope="" style="text-align: left;">'+ data.description +'</td><td scope="" style="text-align: left;">'+ date +'</td><td scope="" style="text-align: center;"><a id="searchbutton"><img src="../plugins/images/Btn_View.png"></a></td></tr>';
+                        a++;
+                        // add row to dataTable object
+                        $dataTable.rows.add( $( $table_row ) ).draw();
+                        $('#' + data.id).data('id', data.id);
+                });
+
+                $('#enquiry_table').delegate('#searchbutton', 'click', function() {
+                    var id = $(this).parent().parent().data('id');
+                    var enquiry_id = localStorage.setItem('enquiry_id', id);
+                    window.location.href = "./enquiry-edit.html";
+                    console.log(id);
+                });
+         });
+
+    }
+
+    function deleteEnquiry(){
+
+        var id = localStorage.getItem('deleteid');
+        var table = $('#enquiry_table').DataTable();
+        var $button = $('#btn_delete');
+        console.log(id);
+        
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/enquiry/delete?id=",
+                type: "DELETE",
+                data: { "id" : id},
+            }).done(function(response){
+                console.log(response);
+                window.location.reload();
+            });
+        
+    }
+    
+
+  </script>
+
+</body>
+
+</html>
+
+

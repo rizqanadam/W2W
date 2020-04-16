@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<style>
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /*z-index: 1;*/
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-item .nav-menu li a {
+        color: black !important;
+    }    
+
+.login-text {
+    font-size: 16px !important;
+}
+
+.login-form .group-input .gi-more label input:checked~span:after {
+    border-color: white !important;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    padding-top: 20px; 
+    padding-bottom: 20px;
+}
+
+.line-bottom {
+    height: 4px; 
+    background-color: #008D50; 
+    width: 70%; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.line-bottom-premium {
+    height: 4px; 
+    background-color: goldenrod; 
+    width: 50%; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.text-package {
+    padding-top: 40px; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.text-price {
+    font-weight: bolder; 
+    padding-bottom: 10px; 
+    font-size: 20px;
+}
+
+.text-type {
+    font-weight: bold; 
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+.footer-stay {
+     position: absolute;
+     bottom: 0; 
+     width: 100%;
+}
+
+.button-subscribe {
+    background-color: #008D50 !important; 
+    color: white !important; 
+    width: 100% !important; 
+    border-radius: 18px !important;
+}
+
+.button-subscribe-premium {
+    background-color: goldenrod !important; 
+    color: white !important; 
+    width: 100% !important; 
+    border-radius: 18px !important;
+}
+
+.footer-stay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+html * {
+    font-family: 'Roboto' !important;
+}
+
+i {
+    font-family: "FontAwesome" !important;
+
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+    color: #27AE60 ;
+}
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Fashi Template">
+    <meta name="keywords" content="Fashi, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Waste 2 Wealth</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/themify-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <div class="col-md-10 offset-md-1">
+    <header class="header-section" style="margin-bottom: 50px !important">
+        <div class="header-top">
+        <div class="container">
+            <div class="inner-header" style="padding: 0 !important; padding-top: 15px !important">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2" style="padding: 0;">
+                        <div class="logo">
+                            <a href="./index1.html">
+                                <img src="img/website-logo.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10 text-right" style="padding: 5px;">
+                        <button onclick="window.location.href='./index1.html';" class="btn">Home</button>
+                        <div class="dropdown">
+                            <button class="btn" type="button" data-toggle="dropdown" style="padding: 30px;"><img href="#" src="img/user.svg">
+                            <h5 style="margin-top: 8px; color: black;">My Account</h5>
+                            </button>
+                            <div class="dropdown-content">
+                              <a href="./myaccount-defaultview.html">My account</a>
+                              <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="nav-item">
+            <div class="container" style="display: flex;">
+                <nav class="nav-menu mobile-menu" style="margin-right: auto; margin-left: auto;">
+                    <ul style="margin-bottom: 0px; margin-top: 0px;">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./productlistings-viewall.html">Available</a></li>
+                        <li><a href="./productwanted-viewall.html">Wanted</a></li>
+                        <li class="active"><a href="./package-registered.html">Pricing</a></li>
+                        <li><a href="./news-guestview.html">News</a></li>
+                        <li><a href="./enquiry-form-guestview.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <div class="container" style="margin-bottom: 100px;">
+        <div>
+            <h2 class="text-center">Discover the package</h2>
+        </div>
+        <div class="row mx-auto" style="margin-top: 50px;">
+            <div class="col-md-4 mx-auto" style="padding: 10px;border:2px solid black; border-bottom: none;">
+                <a href="#"><h4 style="text-align: center; cursor: pointer;">Information</h4></a>
+            </div>
+            <div class="col-md-4 mx-auto" style="padding: 10px; border: 2px solid lightgray; border-bottom: 2px solid black;">
+                <a href="./package-registered.html"><h4 style="text-align: center; color: lightgray; cursor: pointer;">Ad Package</h4></a>
+            </div>
+            <div class="col-md-4 mx-auto" style="padding: 10px; border: 2px solid lightgray; border-bottom: 2px solid black;">
+                <a href="./packagetoken-registered.html"><h4 style="text-align: center; color: lightgray; cursor: pointer;">Token Package</h4></a>
+            </div>
+        </div>
+        <div class="mx-auto" style="padding: 50px;">
+            <div class="row">
+                <div class="col-md-1">
+                    <div style="font-size: 20px; padding: 10px; color: #3A595D;">1.</div>
+                </div>
+                <div class="col-md-11">
+                    <div style="font-size: 20px; padding: 10px; color: #3A595D;"> To enable to buy the Ad Package, you must have the sufficient amount of token.</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <div style="font-size: 20px; padding: 10px; color: #3A595D;">2.</div>
+                </div>
+                <div class="col-md-11">
+                    <div style="font-size: 20px; padding: 10px; color: #3A595D;"> Due to that, you must purchase the token package offered according to your needs through payment getaway provided.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer" class="footer-section" style="background-color: #3A595D;">
+    <div class="container">
+        <div class="row" style="padding-top: 5px;">
+            <div class="col-lg-2 text-right">
+                <a href="#" style="color: white;">Contact Us</a>
+            </div>
+            <div class="col-lg-4">
+                <a href="#" style="color: white;">Terms and Conditions</a>
+            </div>
+            <div class="col-lg-5 text-right">
+                <p style="color: white;"><i class="fa fa-copyright"></i>Prospect W2W. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        <!-- Js Plugins -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.countdown.min.js"></script>
+        <script src="js/jquery.nice-select.min.js"></script>
+        <script src="js/jquery.zoom.min.js"></script>
+        <script src="js/jquery.dd.min.js"></script>
+        <script src="js/jquery.slicknav.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/main.js"></script>
+
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+        //required to run jquery library
+        </script>
+
+        <script>
+            $(document).ready(function(){
+                $.ajax({
+                    url: "http://codeviable.com/w2w2/public/packages",
+                    type: "GET",
+                    success: function(response){
+                        if(response[0].package_id == 1){
+                            $('#package_nameA').html(response[0].package_name);
+                            $('#package_priceA').html(response[0].package_price);
+                            $('#package_durationA').html(response[0].package_duration);
+                        }
+
+                        if(response[1].package_id == 2){
+                            $('#package_nameB').html(response[1].package_name);
+                            $('#package_priceB').html(response[1].package_price);
+                            $('#package_durationB').html(response[1].package_duration);
+                        }
+
+                        if(response[2].package_id == 3){
+                            $('#package_nameC').html(response[2].package_name);
+                            $('#package_priceC').html(response[2].package_price);
+                            $('#package_durationC').html(response[2].package_duration);
+                        }
+
+                        if(response[3].package_id == 4){
+                            $('#package_namePA').html(response[3].package_name);
+                            $('#package_pricePA').html(response[3].package_price);
+                            $('#package_durationPA').html(response[3].package_duration);
+                        }
+
+                        if(response[4].package_id == 5){
+                            $('#package_namePB').html(response[4].package_name);
+                            $('#package_pricePB').html(response[4].package_price);
+                            $('#package_durationPB').html(response[4].package_duration);
+                        }
+                    }
+                })
+            });
+        </script>
+    </body>
+
+    </html>
+
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/jquery.dd.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

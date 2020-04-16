@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /*z-index: 1;*/
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+    color: #27AE60 ;
+}
+p {
+    font-family: 'Roboto' !important;
+    font-weight: bold;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.table{
+    font-family: 'Roboto' !important;
+}
+
+.center-table{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+.paginate_button {
+    border: 10px;
+    padding: 10px;
+    background-color: white;
+    margin: 0;
+    color: #0099FF;
+    cursor: pointer;
+}
+div#approval_table_paginate.dataTables_paginate.paging_simple_numbers{
+    margin: 15px;
+}
+a.paginate_button.current{
+    background-color: #0099FF;
+    color: white;
+}
+a#approval_table_next.paginate_button.next.disabled,
+a#approval_table_previous.paginate_button.previous.disabled,
+#approval_table_previous{
+    color: #B5B5B5;
+}
+a#approval_table_previous.paginate_button.previous,
+#approval_table_next{
+    color: #0099FF;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd){
+    background-color: #F4F4F4 !important;
+}
+
+.dataTables_info,
+.dataTables_length {
+    float: left;
+}
+
+
+.verticalLine {
+  border-right: thin solid #707070 !important;
+  height: 40px;
+  display: inline-block;
+}
+
+.padding_side{
+    margin-top: 4px; 
+    padding: 15px 35px 15px 20px;
+}
+
+.padding_side_sub{
+    padding: 15px 35px 15px 20px;
+}
+
+.side_active{
+    background: rgba(0, 0, 0, 0.07);
+    color: #41b3f9;
+    border-left: 3px solid #41b3f9;
+    font-weight: 500;
+}
+
+.show-pop {
+        visibility: visible;
+}
+
+.pop {
+        visibility: hidden;
+        position: absolute;
+        z-index: 1;
+        border-radius: 5px;
+}
+
+/* #approval_table thead .sorting:after, 
+#approval_table thead .sorting_asc:after,
+#approval_table thead .sorting_desc:after, 
+#approval_table thead .sorting_asc_disabled:after, 
+#approval_table thead .sorting_desc_disabled:after,
+#approval_table thead .sorting:before, 
+#approval_table thead .sorting_asc:before,
+#approval_table thead .sorting_desc:before, 
+#approval_table thead .sorting_asc_disabled:before, 
+#approval_table thead .sorting_desc_disabled:before{
+    display: none;
+} */
+
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/website-logo.png">
+    <title>Admin - W2W</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet"> 
+    <!-- morris CSS -->
+    <link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="../plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- <link href=“https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css” rel="stylesheet"> -->
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/b-1.6.1/b-flash-1.6.1/r-2.2.3/sp-1.0.1/sl-1.3.1/datatables.min.css"/>  -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+              <a class="logo" href="dashboard.html">
+                <b>
+                <div class="top-left-header" style="margin-left:10px;">
+                  <img src="../plugins/images/website-logo.png" style="width:94px; height:50px;">
+                </div>
+              </b>
+              </a>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <a href="#" class="waves-effect"><i size="3x"class="fa fa-envelope fa-fw" style=" color: lightgray;"aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect"><i class="fa fa-bell fa-fw" style="color: lightgray;"aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                      <div class="v1" style="margin: 16px; border-left: 1px solid lightgray;height: 25px;"></div>
+                    </li>
+                    <li>
+                        <div class="dropdown" style="margin: 5px;">
+                        <button class="btn btn-light" style=" background-color: transparent; border:none;"><a href="#"></a>John Doe  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
+                        <img src="../plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle">
+                        </button>
+                          <div class="dropdown-content">
+                            <a href="#">Logout</a>
+                          </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 70px 0 0;">
+                        <a href="dashboard.html" class="waves-effect "><img src="../plugins/images/Icon_Home.svg">&nbsp;&nbsp;&nbsp;Home</a>
+                    </li>
+                    <li>
+                        <a href="inbox.html" class="waves-effect "><img src="../plugins/images/inbox.png">&nbsp;&nbsp;&nbsp;Inbox</a>
+                    </li>
+                    <li>
+                        <a href="user" class="waves-effect "><img src="../plugins/images/users.png">&nbsp;&nbsp;&nbsp;Users<i class="fa fa-angle-down fa-fw" style="padding-left: 114px; size: 4x;"></i></a>
+                        <ul>
+                            <a href="./user-listing-company.html" class="waves-effect padding_side"><img src="../plugins/images/company.png">&nbsp;&nbsp;&nbsp;Company</a>
+                            <a href="./user-listing-individual.html" class="waves-effect  padding_side"><img src="../plugins/images/user.png">&nbsp;&nbsp;&nbsp;Individual</a>
+                        </ul>
+                    </li>
+                    <li> 
+                        <a href="listing" class="waves-effect"><img src="../plugins/images/listing.png">&nbsp;&nbsp;&nbsp;Listing<i class="fa fa-angle-down fa-fw" style="padding-left: 108px; size: 4x;"></i></a>
+                        <ul>
+                            <a href="./listing-approval.html"class="waves-effect padding_side"><img src="../plugins/images/approval.png">&nbsp;&nbsp;&nbsp;Approval</a>
+                            <a href="./listing-available.html" class="waves-effect padding_side"><img src="../plugins/images/Icon_Available.svg">&nbsp;&nbsp;&nbsp;Available</a>
+                            <a href="./listing-wanted.html" class="waves-effect padding_side"><img src="../plugins/images/wanted.png">&nbsp;&nbsp;&nbsp;Wanted</a>
+                            <a href="./listing-comment.html" class="waves-effect padding_side"><img src="../plugins/images/comment_icon.png">&nbsp;&nbsp;&nbsp;Comment</a>
+                            <a href="./listing-formmanagement.html" class="waves-effect padding_side"><img src="../plugins/images/form_icon.png">&nbsp;&nbsp;&nbsp;Form Management</a>
+                            <a href="./listing-productcategory.html" class="waves-effect padding_side"><img src="../plugins/images/category_icon.png">&nbsp;&nbsp;&nbsp;Product Category</a>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="pricing" class="waves-effect active"><img src="../plugins/images/box.svg">&nbsp;&nbsp;&nbsp;Pricing<i class="fa fa-angle-down fa-fw" style="padding-left: 100px; size: 4x;"></i></a>
+                        <ul style="display: block;">
+                            <a href="./pricing-package.html" class="waves-effect side_active padding_side"><img src="../plugins/images/Pricing_Package.svg">&nbsp;&nbsp;&nbsp;Package</a>
+                            <a href="./pricing-token.html" class="waves-effect padding_side"><img src="../plugins/images/Pricing_Token.svg">&nbsp;&nbsp;&nbsp;Token</a>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="contentM" class="waves-effect"><img src="../plugins/images/content_management.svg">&nbsp;&nbsp;&nbsp;Content Management<i class="fa fa-angle-down fa-sm" style="padding-left: 15px;"></i></a>
+                        <ul>
+                            <a href="./contentmanagement-news.html" class="waves-effect active padding_side "><img src="../plugins/images/ConMngmt_News.svg">&nbsp;&nbsp;&nbsp;News</a>
+                            <a href="./contentmanagement-banner.html" class="waves-effect active padding_side"><img src="../plugins/images/banner.svg">&nbsp;&nbsp;&nbsp;Banner</a>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="./enquiry.html" class="waves-effect"><img src="../plugins/images/exclusion.svg">&nbsp;&nbsp;&nbsp;Enquiry</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title" style="background-color: transparent; margin-top: 20px;">
+                    <div class="col-md-4 ">
+                        <div class="verticalLine"><div style="font-size: 28px; font-weight: bold;">Pricing &nbsp;&nbsp;</div></div>
+                        <i style="padding-left: 10px; color: #707070;" class="fa fa-home fa-lg" aria-hidden="true">&nbsp;&nbsp;<i class="fa fa-angle-right fa-lg"></i>&nbsp;&nbsp;<a style="font-family: 'Roboto'; font-size: 15px; color: #707070;">Package</a></i>
+                    </div>
+            </div>
+           
+           
+
+                <div class="row mx-auto">
+                    <div class="col-md-4">
+                        <a href="./pricing-package.html" style="color: #0099FF; font-weight: 500;">< back to package list</a>
+                    </div>
+                    <div class="col-md-8 text-right">
+                        <button id="delete_btn" class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button>
+                    </div>
+                </div>
+                <br>
+                <div class="white-box">
+                    <div class="card" style="border: 1px solid #E5E5E5; border-radius: 4px;">
+                        <div style="background-color:#E5E5E5; color:lightslategray; padding: 10px; margin-bottom: 10px;">Package Information</div>
+                        <div style="padding-left: 30px;">
+                            <div class="row" style="margin-top: 30px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Package Name</div>
+                                <div class="col-md-9">
+                                    <input id="package_name" type="text" class="form-control" style="width: 70%;">
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Duration (Month)</div>
+                                <div class="col-md-9">
+                                    <input id="package_duration" type="text" class="form-control" style="width: 19%;">
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Type</div>
+                                <div class="col-md-2">
+                                    <select id="typeDropdown" style="cursor:pointer " class="form-control">
+                                      <option disabled>Please choose</option>
+                                      <option>Regular</option>
+                                      <option>Premium</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Cost (Token)&nbsp;<i class="fa fa-info-circle" id="showinfocost" 
+                                    style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Cost to buy a package by using tokens" data-placement="bottom"></i>
+                                </div>
+                                <div class="col-md-9">
+                                    <input id="package_cost" type="text" class="form-control" style="width: 70%;">
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Description</div>
+                                <div class="col-md-9">
+                                    <textarea id="description" style="width: 70%; height: 70%;" id="package_desc" type="text" class="form-control"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px; padding-bottom: 10px; vertical-align: middle;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Count of Ad&nbsp;<i class="fa fa-info-circle" id="showinfocount" 
+                                    style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Set a maximum number of advertisment." data-placement="bottom"></i>
+                                </div>
+                                <div class="col-md-9">
+                                    <input id="package_ad" type="text" class="form-control" style="width: 19%;">
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px; padding-bottom: 30px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right; margin-left: 110px;">
+                                    <button id="save_btn" data-target="#savemodal" data-toggle="modal" data-dismiss="modal" class="btn" style="background-color: #0073BF; color: white;"><img src="../plugins/images/save-solid.svg">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade bd-example-modal-sm" style="padding: 20px; width: 350px; position: absolute; left: 50%; top: 40%; margin-left: -150px;margin-top: -150px;" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                        <div class="modal-body">
+                          <div style="font-weight: bold;">Are you sure you want to delete this package?</div>
+                            <br><br><br>
+                            <div style="text-align: right;">
+                                <a href="./pricing-package-edit.html" style="color: #0099FF; cursor: pointer;" data-dismiss="modal">CANCEL</a>
+                                <a id="btn_delete" style="color: #C10000; cursor: pointer; padding-left: 10px;">DELETE</a>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <!-- savemodal
+                <div class="modal fade bd-example-modal-sm"  style="top: 50%; left: 10%;" id="savemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <div class="modal-body">
+                        <div style="font-weight: 400; font-size: 20px;">Saved changes!</div>
+                            <br><br><br>
+                            <div style="text-align: right;">
+                                <a href="" style="color: #0099FF; cursor: pointer; font-weight: 500;" data-dismiss="modal">OKAY</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                </div> -->
+            <!-- /.container-fluid -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Counter js -->
+    <script src="../plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="../plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!-- <script src="js/dashboard1.js"></script> -->
+    <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+    
+     $(document).ready(function() {    
+        $package_id = localStorage.getItem('package_id');
+
+        customizeDatatable();
+        listPackage();
+
+        $('#save_btn').on('click', function(){
+            savePackage();
+        });
+
+        $("#btn_delete").on('click', function(){
+            deletePackage();
+        });
+
+        $('#showinfocount').popover({
+            trigger: 'hover'
+        });
+
+        $('#showinfocost').popover({
+            trigger: 'hover'
+        });
+
+     });
+
+     function customizeDatatable(){
+        $('#package_table').DataTable( {
+             "targets": 'no-sort',
+             "bSort": false,
+             "lengthChange": false,
+             "bFilter": false,
+            
+         });
+     }
+
+     function listPackage(){
+        $dataTable = $('#package_table').DataTable();
+        
+
+         $.ajax({
+             url: "http://codeviable.com/w2w2/public/packages/detail?package_id=",
+             type: "GET",
+             data: { "package_id" : $package_id },
+         }).done(function(response){
+             console.log(response)
+             $.each(response, function(i,data){
+                $('#package_name').val(response[i].package_name);
+                $('#package_duration').val(response[i].package_duration[0]);
+                $('#package_cost').val(response[i].package_price);
+                $('#package_ad').val(response[i].package_limit);
+                $('#description').val(response[i].description);
+                $('#typeDropdown').val(response[i].premiumlist);
+             });
+         });
+     }
+
+     function savePackage() {
+        var name = $('#package_name').val();
+        var duration = $('#package_duration').val();
+        var cost = $('#package_cost').val();
+        var count_ad = $('#package_ad').val();
+        var description = $('#description').val();
+        var type = $('#typeDropdown').val();
+
+        var postdata = {
+            "package_id" : $package_id,
+            "package_name" : name,
+            "package_duration" : duration,
+            "package_price" : cost,
+            "package_limit" : count_ad,
+            "description" : description,
+            "premiumlist" : type
+        }
+
+        $.ajax({
+            url: "http://codeviable.com/w2w2/public/packages/update?package_name&package_limit&package_duration&package_price&package_id&premiumlist&description",
+            type: "POST",
+            data: postdata
+        }).done(function(response){
+            console.log(response);
+        })
+     }
+
+     function deletePackage() {
+
+         $.ajax({
+             url: "http://codeviable.com/w2w2/public/packages/delete?package_id=",
+             type: "DELETE",
+             data: { 'package_id' : $package_id }
+         }).done(function(response){
+             console.log(response);
+         })
+     } 
+    </script>
+
+</body>
+
+</html>
+
+

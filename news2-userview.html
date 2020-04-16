@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /*z-index: 1;*/
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-item .nav-menu li a {
+        color: black !important;
+}       
+
+.line-bottom {
+    height: 4px; 
+    background-color: #008D50; 
+    width: 70%; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.line-bottom-premium {
+    height: 4px; 
+    background-color: goldenrod; 
+    width: 40%; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.login-text {
+    font-family: 'Roboto' !important;
+    font-size: 16px;
+    color: #272727;
+}
+
+.footer-stay {
+     position: absolute;
+     bottom: 0; 
+     width: 100%;
+}
+
+.text-center{
+    font-family: 'Roboto' !important;
+    font-size: 20px;
+    font-weight: bold;
+    color: #3A595D;
+}
+
+/* #submit{
+    width: 247px;
+    height: 54px;
+    border-radius: 30px;
+    align-content: center;
+    background-color: #27AE60;
+    color: white;
+    margin-left: auto; 
+    margin-right: auto;
+} */
+
+
+html * {
+    font-family: 'Roboto' !important;
+}
+
+i {
+    font-family: "FontAwesome" !important;
+
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+    color: #27AE60 ;
+}
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Fashi Template">
+    <meta name="keywords" content="Fashi, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Waste 2 Wealth</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/themify-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <div class="col-md-12">
+     <div class="col-md-10 offset-md-1">
+        <header class="header-section" style="margin-bottom: 50px !important">
+            <div class="header-top">
+            <div class="container">
+                <div class="inner-header" style="padding: 0 !important; padding-top: 15px !important">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2" style="padding: 0;">
+                            <div class="logo">
+                                <a href="./index.html">
+                                    <img src="img/website-logo.png">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 text-right" style="padding: 5px;">
+                            <button onclick="window.location.href='./index.html';" class="btn">Home</button>
+                            <div class="dropdown">
+                                <button class="btn" type="button" data-toggle="dropdown" style="padding: 30px;"><img href="#" src="img/user.svg">
+                                <h5 style="margin-top: 8px; color: black;">My Account</h5>
+                                </button>
+                                <div class="dropdown-content">
+                                  <a href="./myaccount-defaultview.html">My account</a>
+                                  <a href="./index.html">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    
+            <div class="nav-item">
+                <div class="container" style="display: flex;">
+                    <nav class="nav-menu mobile-menu" style="margin-right: auto; margin-left: auto;">
+                        <ul style="margin-bottom: 0px; margin-top: 0px;">
+                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="./productlistings-viewall.html">Available</a></li>
+                            <li><a href="./productwanted-viewall.html">Wanted</a></li>
+                            <li><a href="./package-registered.html">Pricing</a></li>
+                            <li class="active"><a href="#">News</a></li>
+                            <li><a href="./enquiry-form-userview.html">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                    <div id="mobile-menu-wrap"></div>
+                </div>
+            </div>
+        </header>
+        <!-- Header End -->
+
+        <div class="col-md-10 mx-auto">
+            <div class="col-md-10 mx-auto">
+                <div >
+                    <a href="./news-guestview.html" style="color: #0099FF; text-decoration: underline; margin-bottom: 10px;"><- Back to news list</a>
+                </div>
+                <div id="published" style="font-size: 14px; color: #C4C4C4; margin-bottom: 10px;"></div>
+                <div id="content">
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+    
+    <div style="padding-bottom: 40px;"></div>
+    <div class="col-md-12" style="background-color: #F2F2F2; width: 1920px; height: 390px;">
+        <div class="col-md-9" style="padding: 20px; margin-left: auto; margin-right: auto;">
+            <div  style="font-size: 20px; font-weight: bold;">More News</div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4" style="padding: 0;">
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <img style="width: 360px; height: 230px; object-fit: cover; padding: 15px;" src="img/news2.jpg">
+                            <div class="col-lg-10 text" style="font-size: 14px; margin: 2px;">Adding a scheduling feature to Instagram.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="padding: 0;">
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <img style="width: 360px; height: 230px; object-fit: cover; padding: 15px;" src="img/news.png">
+                            <div class="col-lg-10 text" style="font-size: 14px; margin: 2px;">How did my scrum team fall in love with online energizers</div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-md-4" style="padding: 0;">
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <img style="width: 360px; height: 230px; object-fit: cover; padding: 15px;" src="img/news2.jpg">
+                            <div class="col-lg-10 text" style="font-size: 14px; margin: 2px;">Spotify Stories</div>
+                        </div>
+                    </div>
+                </div> 
+            </div>    
+        </div> 
+    </div>
+
+        <footer id="footer" class="footer-section" style="background-color: #3A595D;">
+            <div class="container">
+                <div class="row" style="padding-top: 5px;">
+                    <div class="col-lg-2 text-right">
+                        <a href="#" style="color: white;">Contact Us</a>
+                    </div>
+                    <div class="col-lg-4">
+                        <a href="#" style="color: white;">Terms and Conditions</a>
+                    </div>
+                    <div class="col-lg-5 text-right">
+                        <p style="color: white;"><i class="fa fa-copyright"></i>Prospect W2W. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer end -->
+        
+</body>
+</html>
+
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/jquery.dd.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $newsdisplay = localStorage.getItem('news_display')
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/news/detail?news_id=",
+                type : "GET",
+                data : { "news_id" : $newsdisplay }
+            }).done(function(response){
+                console.log(response)
+                //display publish date in formatted
+                var date = response.updated_at[0] + response.updated_at[1] + " " + response.updated_at[3] + response.updated_at[4] + response.updated_at[5] + " " + response.updated_at[7] + response.updated_at[8] + response.updated_at[9] + response.updated_at[10];
+
+                $('#published').html('Published on, '+ date);
+                $('#content').html(response.news_desc);
+            });
+        })
+    </script>

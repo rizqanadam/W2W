@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<style type="text/css">
+
+.nav-item .nav-menu li a {
+    color: black !important;
+}
+
+.footer-p{
+    font-size: 12px;
+}
+
+.page-color {
+    background-color: #FAFAFA;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /*z-index: 1;*/
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
+
+.text-padding {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.line-bottom {
+    height: 2px;
+    background-color: lightgray;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.line-side {
+  height: 75%;
+  background-color: lightgray;
+  width: 2px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit-text{
+  font-size: 14px;
+  color: #707070;
+}
+
+.button-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+html * {
+    font-family: 'Roboto' !important;
+}
+
+i {
+    font-family: "FontAwesome" !important;
+
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+ul li a{
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 2.5;
+}
+
+.icon-menu {
+    color: white;
+}
+
+ul li a:hover{
+    color: #27AE60;
+}
+
+ul li a.active{
+    font-weight: bolder;
+    color: #27AE60!important;
+}
+
+#user_fname::-webkit-input-placeholder,
+#user_lname::-webkit-input-placeholder
+{
+  color:    #DCDCDC;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #27AE60 ;
+}
+
+.footer-stay {
+     position: absolute;
+     bottom: 0; 
+     width: 100%;
+    }
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Fashi Template">
+    <meta name="keywords" content="Fashi, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Waste 2 Wealth</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/themify-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+  <div class="col-md-12 page-color">
+    <div class="col-md-10 offset-md-1">
+          <div class="header-top">
+          <div class="container" style="padding: 0;">
+              <div class="inner-header">
+                  <div class="row">
+                      <div class="col-lg-2 col-md-2" style="padding: 0;">
+                          <div class="logo">
+                              <a href="./index1.html">
+                                <img src="img/website-logo.png">
+                              </a>
+                          </div>
+                      </div>
+                      <div class="col-lg-10 text-right col-md-10" style="padding: 10px;">
+                          <div class="dropdown">
+                          <button class="btn"><a href="#"></a><img src="img/ukk.png"></button>
+                            <div class="dropdown-content">
+                              <a href="#">English</a>
+                              <a href="#">Malay</a>
+                            </div>
+                          </div>
+
+                          <div class="dropdown">
+                            <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
+                            <h5 style="margin-top: 8px; color: black;">My Account</h5>
+                            </button>
+                            <div class="dropdown-content">
+                              <a href="./myaccount-defaultview.html">My account</a>
+                              <a href="./index.html">Logout</a>
+                            </div>
+                          </div>
+                          <button onclick="window.location.href='./default-form-userview.html';" class="btn btn-warning">Submit Ad</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+    <div class="container" style="padding-top: 50px;">
+      <div class="row">
+          <div class="col-md-3" style="margin-top: 40px;">
+            <div class="row">
+            <div class="col-md-4">
+              <img id="profilepicture" src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
+            </div>
+            <div class="col-md-8">
+              <div id="user_name" style="font-weight: bold; text-transform:capitalize;"> </div>
+              <a href="./myaccount-defaultview.html"><p style="color: #8B8B8B;">&#9998; Edit profile</p></a>
+            </div>
+          </div>
+            <div class="line-bottom"></div>
+              <ul style="list-style-type: none;">
+                  <li><a href="./myaccount-defaultview.html" class="active">My Account</a>
+                  <ul style="margin-top: 0;">
+                    <a href="myaccount-defaultview.html">My Profile</a><br>
+                    <a href="#" class="active" >Token Wallet</a>
+                  </ul>
+                </li>
+                  <li><a href="./myaccount-myproduct-adsubmitted.html">My Products</a></li>
+                  <li><a href="./myaccount-mypurchase-purchasehistory.html">My Purchases</a></li>
+                  <li><a href="./myaccount-notification.html">Notifications</a></li>
+                  <li><a href="./myaccount-reviewrating-product.html">Review & Ratings</a></li>
+              </ul>
+          </div>
+
+          <div class="card col-md-8" style="padding: 40px; margin-bottom: 50px;">
+            <div style="color:lightgray">My Wallet (Token)</div>
+            <h2 id="balancetoken" style="margin-top: 10px;">50</h2>
+            <button class="btn" style="color: white; background-color: #FF7600; margin-top: 30px; width: 20%;">Topup</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  <footer class="footer-section" style="background-color: #3A595D;">
+     <div class="container">
+          <div class="row" style="padding-top: 5px;">
+          <div class="col-lg-2 ">
+              <a href="#" style="color: white;">Contact Us</a>
+          </div>
+          <div class="col-lg-6">
+              <a href="#" style="color: white;">Terms and Conditions</a>
+          </div>
+          <div class="col-lg-4 text-right">
+              <p style="color: white;"><i class="fa fa-copyright"></i> Prospect W2W. All rights reserved.</p>
+          </div>
+          </div>
+      </div>
+  </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+
+        $(document).ready(function(){
+            $userid = localStorage.getItem("user_id");
+
+            $('#openFile').on('click',function(){
+                $('#imageUpload').trigger('click');
+            });
+
+            userData();
+
+            $('#save_update').on('click',function(){
+                updateUser();
+            });
+
+            $('#btn_logout').on('click', function(){
+                localStorage.clear();
+            });
+
+        });
+
+        //display user data
+        function userData(){
+
+          $.ajax({
+            url: 'http://codeviable.com/w2w2/public/user/detail?user_id=',
+            type: 'GET',
+            data: { "user_id" : $userid },
+            success: function(response){
+                $("#profilepicture").attr('src' , response.profilepicture);
+                $("#user_name").html(response.user_fname+" "+response.user_lname);
+                $("#balancetoken").html(response.balancetoken);
+            }
+          });
+        }
+
+        //update user information
+        function updateUser(){
+
+          var user_fname = $("#user_fname").val();
+          var user_lname = $("#user_lname").val();
+          var user_email = $("#user_email").val();
+          var user_contact = $("#contactnumber").val();
+          var profile_picture = $("#imageUpload").prop('files');
+
+          var formData = new FormData();
+          formData.append("user_id", $userid);
+          formData.append("user_fname" , user_fname);
+          formData.append("user_lname" , user_lname);
+          formData.append("user_email" , user_email);
+          formData.append("user_contact" , user_contact);
+          formData.append("profilepicture" , profile_picture[0]);
+
+          $.ajax({
+            url: "http://codeviable.com/w2w2/public/user/update?user_id=&user_fname&user_lname&user_email&user_contact&profilepicture",
+            dataType: "JSON",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+          }).done(function(response) {
+            getUserProfile();
+          });
+        }
+
+        function getUserProfile(){
+          $.ajax({
+            url: 'http://codeviable.com/w2w2/public/user/detail?user_id=',
+            type: 'GET',
+            data: { "user_id" : $userid },
+            }).done(function(response){
+              $("#user_name").html(response.user_fname+" "+response.user_lname);
+              $("#update_status").html("Successfully updated!").delay(2000).fadeOut(300);
+              setTimeout(() => {
+                $('#update_status').html('').css('display', 'block');
+              }, 3000);
+          });
+        }
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#previewProfile')
+                        .attr('src', e.target.result)
+                        .css('object-fit', 'cover')
+                        .width(120)
+                        .height(120);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+    </script>
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/jquery.dd.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -288,9 +288,9 @@
                         <div class="headtext-weight" style="margin-right: 20px;">Forms</div>
                         <ul style="list-style-type: none;">
                             <li><a href="./default-form-userview.html"><i class="fa fa-chevron-right icon-menu"></i> How to choose form</a></li>
-                            <li><a href="./submitadd-form-waste1.html" class="active"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li>
-                            <li><a href="./submitadd-form-technology1.html"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
-                            <li><a href="./submitadd-form-service1.html"><i class="fa fa-chevron-right icon-menu"></i>Service</a></li>
+                            <li><a href="./submitadd-formcompany-waste1.html" class="active"><i class="fa fa-chevron-right icon-menu"></i>Waste</a></li>
+                            <li><a href="./submitadd-formcompany-technology1.html"><i class="fa fa-chevron-right icon-menu"></i>Technology</a></li>
+                            <li><a href="./submitadd-formcompany-service1.html"><i class="fa fa-chevron-right icon-menu"></i>Service</a></li>
                         </ul>
                     </div>
 
@@ -314,6 +314,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        <form id="availableform" onsubmit="return false">
                         <div id="test" style="display: none">
                             <div class="line-bottom"></div>
 
@@ -324,7 +326,7 @@
                                         <label class="login-text">Date of submission</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="dateSubmission" type="text" class="form-control" placeholder="dd/mm/yyyy">
+                                        <input id="date" type="text" class="form-control" placeholder="dd/mm/yyyy" required>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -332,7 +334,7 @@
                                         <label class="login-text">Name of material</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input id="product_name" type="text" class="form-control">
+                                        <input id="material_name" type="text" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -340,8 +342,8 @@
                                         <label class="login-text">State of material</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="stateMaterialDropdown" class="form-control" style="cursor:pointer">
-                                          <option disabled selected>Please choose</option>
+                                        <select id="material_state" class="form-control" style="cursor:pointer" required>
+                                          <option disabled selected value="">Please choose</option>
                                           <option>Solid</option>
                                           <option>Liquid</option>
                                           <option>Gaseous</option>
@@ -353,7 +355,7 @@
                                         <label class="login-text">Category</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="categoryDropdown" class="form-control" style="cursor:pointer">
+                                        <select id="category" class="form-control" style="cursor:pointer" required>
                                          
                                         </select>
                                     </div>
@@ -363,7 +365,7 @@
                                         <label class="login-text">Product season</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="productSeasonDropdown" class="form-control" style="cursor:pointer">
+                                        <select id="season" class="form-control" style="cursor:pointer" required>
                                           <option disabled selected>Please choose</option>
                                           <option>Continuous</option>
                                           <option>One-Time</option>
@@ -376,13 +378,13 @@
                                         <label class="login-text">Quantity</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="product_quantity" type="text" class="form-control" placeholder="0">
+                                        <input id="product_quantity" type="text" class="form-control" placeholder="0" required>
                                     </div>
                                     <div class="col-md-1">
                                         <label class="login-text float-right">Unit</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="product_quantity" type="text" class="form-control" placeholder="0">
+                                        <input id="unit" type="text" class="form-control" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -393,7 +395,7 @@
                                         <div>RM</div>
                                     </div>
                                     <div class="col-md-2" style="padding-left: 0;">
-                                        <input id="product_price" type="text" class="form-control" placeholder="0.00">
+                                        <input id="product_price" type="text" class="form-control" placeholder="0.00" required>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -405,8 +407,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="productPeriodDropdown" class="form-control" style="cursor:pointer">
-                                          <option disabled selected>Please choose</option>
+                                        <select id="product_period" class="form-control" style="cursor:pointer" required>
+                                          <option disabled selected value="">Please choose</option>
                                           <option>Within 3 months</option>
                                           <option>Within 6 months</option>
                                           <option>Within 1 year</option>
@@ -465,7 +467,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="packageDropdown" class="form-control" style="cursor:pointer">
+                                        <select id="package" class="form-control" style="cursor:pointer" required>
                                          
                                         </select>
                                     </div>
@@ -473,10 +475,10 @@
                             <div style="margin-top: 30px; margin-bottom: 20px;">
                                 <div style="margin-bottom: 10px; font-weight: bold;">Location</div>
                                 <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
+                                <input id="product_location1" type="text" class="form-control" placeholder="Enter your waste Address, City, Postcode and State" required>
                                     <br>
-                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                                      <option disabled selected>City</option>
+                                    <select id="city1" style="cursor:pointer" class="form-control" required>
+                                      <option disabled selected value="">City</option>
                                       <option>Johor Bahru</option>
                                       <option>Batu Pahat</option>
                                       <option>Kluang</option>
@@ -630,8 +632,8 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                                            <option disabled selected>State</option>
+                                        <select id="state1" style="cursor:pointer" class="form-control" required>
+                                            <option disabled selected value="">State</option>
                                             <option>Johor</option>
                                             <option>Kedah</option>
                                             <option>Kelantan</option>
@@ -649,7 +651,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Postal Code">
+                                        <input id="postalcode1" type="text" class="form-control" placeholder="Postal Code" required>
                                     </div>
                                 </div> 
                                 <br>
@@ -657,19 +659,19 @@
                                 <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                 <div class="row">
                                 <div class="col-md-6">
-                                    <input id="latitude" type="text" class="form-control" placeholder="Latitude">
+                                    <input id="latitude1" type="text" class="form-control" placeholder="Latitude" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input id="longitude" type="text" class="form-control" placeholder="Longitude">
+                                    <input id="longitude1" type="text" class="form-control" placeholder="Longitude" required>
                                 </div>
                                 </div>
                                 <div  id="locationextra1" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
                                     <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                    <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
+                                    <input id="product_location2" type="text" class="form-control" placeholder="Enter your waste Address, City, Postcode and State">
                                     <br>
-                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                                      <option disabled selected>City</option>
+                                    <select id="city2" style="cursor:pointer" class="form-control">
+                                      <option disabled selected value="">City</option>
                                       <option>Johor Bahru</option>
                                       <option>Batu Pahat</option>
                                       <option>Kluang</option>
@@ -823,8 +825,8 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                                            <option disabled selected>State</option>
+                                        <select id="state2" style="cursor:pointer" class="form-control">
+                                            <option disabled selected value="">State</option>
                                             <option>Johor</option>
                                             <option>Kedah</option>
                                             <option>Kelantan</option>
@@ -842,7 +844,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Postal Code">
+                                        <input id="postalcode2" type="text" class="form-control" placeholder="Postal Code">
                                     </div>
                                 </div> 
                                 <br>
@@ -859,10 +861,10 @@
                                 <div  id="locationextra2" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
                                     <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                    <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
+                                    <input id="product_location3" type="text" class="form-control" placeholder="Enter your waste Address, City, Postcode and State">
                                     <br>
-                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                                      <option disabled selected>City</option>
+                                    <select id="city3" style="cursor:pointer" class="form-control">
+                                      <option disabled selected value="">City</option>
                                       <option>Johor Bahru</option>
                                       <option>Batu Pahat</option>
                                       <option>Kluang</option>
@@ -1016,8 +1018,8 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                                            <option disabled selected>State</option>
+                                        <select id="state3" style="cursor:pointer" class="form-control">
+                                            <option disabled selected value="">State</option>
                                             <option>Johor</option>
                                             <option>Kedah</option>
                                             <option>Kelantan</option>
@@ -1035,7 +1037,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Postal Code">
+                                        <input id="postalcode3" type="text" class="form-control" placeholder="Postal Code">
                                     </div>
                                 </div> 
                                 <br>
@@ -1057,8 +1059,8 @@
                                     <label class="login-text">Transportation mode</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <select id="transportationDropdown" class="form-control" style="cursor:pointer">
-                                      <option disabled selected>Please choose</option>
+                                    <select id="transportation" class="form-control" style="cursor:pointer" required>
+                                      <option disabled selected value="">Please choose</option>
                                       <option>Pick up by customer</option>
                                       <option>Delivered by seller</option>
                                     </select>
@@ -1124,7 +1126,7 @@
                                         <label class="login-text">Company name</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input id="company_name" type="text" class="form-control">
+                                        <input id="company_name" type="text" class="form-control" disabled>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -1132,7 +1134,7 @@
                                         <label class="login-text">Email address</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input id="company_email" type="text" class="form-control">
+                                        <input id="company_email" type="text" class="form-control" disabled>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -1140,7 +1142,7 @@
                                         <label class="login-text">Telephone number</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input id="company_contact" type="text" class="form-control">
+                                        <input id="company_contact" type="text" class="form-control" disabled>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -1148,7 +1150,7 @@
                                         <label class="login-text">Person In-charge (PIC)</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="pic" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -1156,229 +1158,33 @@
                                         <label class="login-text">Telephone number (PIC)</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="pic_contact" type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div style="margin-top: 50px;">
                             <div class="col-md-10" style="margin-left: auto; margin-right: auto;">
-                                <input type="checkbox">
+                                <input id="agree_cb" type="checkbox">
                                 <label> I agree that I have read and accepted the <a href="#" style="color: #0099FF;">Terms and Conditions</a></label><br> 
                                 <div class="row" style="margin-top: 20px;">
                                     <div class="col-md-5" style="margin-left: auto;">
                                         <div class="container">
-                                            <button type="button" class="btn btn-cancell" data-toggle="modal" data-target="#myModal" style="width: 100%">Preview ad</button>
-                                            <div class="modal fade" id="myModal" role="dialog">
-                                              <div class="modal-dialog modal-xl">
-                                                <div class="modal-content">
-                                                  <div class="modal-body" style="padding: 30px;">
-                                                    <div class="container" style="margin-bottom: 30px; margin-left: 15px;">
-                                                        <div class="row">
-                                                        <div class="col-md-5">
-                                                            <img src="img/hensemboi.jpg">
-                                                        <div class="row" style="margin-top: 20px;">
-                                                            <div class="col-md-3">
-                                                                <img src="img/hensemboi.jpg">
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <img src="img/hensemboi.jpg">
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <img src="img/hensemboi.jpg">
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <img src="img/hensemboi.jpg">
-                                                            </div>
-                                                        </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div>AK47MP5RPG</div>
-                                                            <div style="color: gray; margin-bottom: 10px;">PLASTIC PELLETS</div>
-                                                            <label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label>
-                                                            <div style="margin-top: 20px; font-size: 26px; font-weight: bold;">RM 200.00</div>
-                                                            <div style="color: gray;">100 mton</div>
-                                                        </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="container" style="padding: 30px;">
-                                                        <div class="card">
-                                                            <div style="background-color: #FAFAFA; padding: 10px; margin: 10px;">Material Information</div>
-                                                            <div style="padding: 20px;">
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Date of submission</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>20/12/2020</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Material Status</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Available</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Name of Material</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Plastic Pellets</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>State of Material</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Solid</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Category</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Plastics</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Product Season</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>One-time</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Transportation Mode</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Pick up by customer</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Details</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>We can supply minimal amount</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Quantity</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>80 mton</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Shelf Life/ Degradation period</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Never</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Suggested Customer</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Packaging plant</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Price of Material</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Free</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Waste (location 1)</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Pasir Gudang</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>State</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Johor</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Waste (location 2)</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Kulai</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>State</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Johor</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Supplier</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>Siti Fatimah Saad</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row detail-spacing">
-                                                                <div class="col-md-4">
-                                                                    <label>Company Name</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div>TIM ENTERPRISE</div>
-                                                                </div>
-                                                            </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                          </div>
-                                    </div>
-                                    </div>
+                                            <button id="previewbtn" type="button" class="btn btn-cancell" data-toggle="modal" data-target="#previewad" style="width: 100%">Preview ad</button>
+                                        </div>
                                     </div>
                                     <div class="col-md-5" style="margin-right: auto;">
                                         <div class="container">
-                                            <button id="submitButton" class="btn btn-success" data-toggle="modal" data-target="#myModal" style="width: 100%">Submit</button>
-                                            <div class="modal fade" id="myModal">
-                                              <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                  <div class="modal-body mx-auto">
-                                                    <img src="img/checkijau.svg">
-                                                  </div>
-                                                  <div class="mx-auto" style="margin: 10px;">Your ad has been submitted</div>
-                                                    <button onclick="window.location.href='./index1.html';" type="button" class="btn btn-success" data-dismiss="modal">Go to homepage</button>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
+                                            <button id="submitButton" class="btn btn-success" style="width: 100%">Submit</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             </div>    
                         </div>
                         </div>
+                        </form>
 
+                        <form id="wantedform" onsubmit="return false">
                         <div id="test1" style="display: none">
                             <div class="line-bottom"></div>
 
@@ -1389,7 +1195,7 @@
                                         <label class="login-text">Date of submission</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="dateSubmission2" type="text" class="form-control" placeholder="dd/mm/yyyy">
+                                        <input id="date2" type="text" class="form-control" placeholder="dd/mm/yyyy" required>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -1397,7 +1203,7 @@
                                         <label class="login-text">Name of material</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input id="product_name2" type="text" class="form-control">
+                                        <input id="material_name2" type="text" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -1405,8 +1211,8 @@
                                         <label class="login-text">State of material</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="stateMaterialDropdown2" class="form-control" style="cursor:pointer">
-                                          <option disabled selected>Please choose</option>
+                                        <select id="material_state2" class="form-control" style="cursor:pointer" required>
+                                          <option disabled selected value="">Please choose</option>
                                           <option>Solid</option>
                                           <option>Liquid</option>
                                           <option>Gaseous</option>
@@ -1418,7 +1224,7 @@
                                         <label class="login-text">Category</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="categoryDropdown2" class="form-control" style="cursor:pointer">
+                                        <select id="category2" class="form-control" style="cursor:pointer" required>
                                           
                                         </select>
                                     </div>
@@ -1428,8 +1234,8 @@
                                         <label class="login-text">Product season</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="productSeasonDropdown2" class="form-control" style="cursor:pointer">
-                                          <option disabled selected> Please choose</option>
+                                        <select id="season2" class="form-control" style="cursor:pointer" required>
+                                          <option disabled selected value=""> Please choose</option>
                                           <option>Continuous</option>
                                           <option>One-Time</option>
                                           <option>Seasonal</option>
@@ -1487,7 +1293,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="packageDropdown2" class="form-control" style="cursor:pointer">
+                                        <select id="package2" class="form-control" style="cursor:pointer" required>
                                           
                                         </select>
                                     </div>
@@ -1495,10 +1301,10 @@
                             <div style="margin-top: 30px; margin-bottom: 20px;">
                                 <div style="margin-bottom: 10px; font-weight: bold;">Location</div>
                                 <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
+                                <input id="product_location4" type="text" class="form-control" placeholder="Enter your waste Address, City, Postcode and State" required>
                                     <br>
-                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                                      <option disabled selected>City</option>
+                                    <select id="city4" style="cursor:pointer" class="form-control" required>
+                                      <option disabled selected value="">City</option>
                                       <option>Johor Bahru</option>
                                       <option>Batu Pahat</option>
                                       <option>Kluang</option>
@@ -1652,8 +1458,8 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                                            <option disabled selected>State</option>
+                                        <select id="state4" style="cursor:pointer" class="form-control" required>
+                                            <option disabled selected value="">State</option>
                                             <option>Johor</option>
                                             <option>Kedah</option>
                                             <option>Kelantan</option>
@@ -1671,26 +1477,26 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Postal Code">
+                                        <input id="postalcode4" type="text" class="form-control" placeholder="Postal Code" required>
                                     </div>
                                 </div> 
                                 <br>
                                 <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
                                 <div class="row">
                                 <div class="col-md-6">
-                                    <input id="latitude4" type="text" class="form-control" placeholder="Latitude">
+                                    <input id="latitude4" type="text" class="form-control" placeholder="Latitude" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input id="longitude4" type="text" class="form-control" placeholder="Longitude">
+                                    <input id="longitude4" type="text" class="form-control" placeholder="Longitude" required>
                                 </div>
                                 </div>
                                 <div  id="locationextra3" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
                                     <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                    <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
+                                    <input id="product_location5" type="text" class="form-control" placeholder="Enter your waste Address, City, Postcode and State">
                                     <br>
-                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                                      <option disabled selected>City</option>
+                                    <select id="city5" style="cursor:pointer" class="form-control">
+                                      <option disabled selected value="">City</option>
                                       <option>Johor Bahru</option>
                                       <option>Batu Pahat</option>
                                       <option>Kluang</option>
@@ -1844,8 +1650,8 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                                            <option disabled selected>State</option>
+                                        <select id="state5" style="cursor:pointer" class="form-control">
+                                            <option disabled selected value="">State</option>
                                             <option>Johor</option>
                                             <option>Kedah</option>
                                             <option>Kelantan</option>
@@ -1863,7 +1669,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Postal Code">
+                                        <input id="postalcode5" type="text" class="form-control" placeholder="Postal Code">
                                     </div>
                                 </div> 
                                 <br>
@@ -1880,10 +1686,10 @@
                                 <div  id="locationextra4" class="location-none" style="margin-top: 30px;">
                                     <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
                                     <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                    <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
+                                    <input id="product_location6" type="text" class="form-control" placeholder="Enter your waste Address, City, Postcode and State">
                                     <br>
-                                    <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                                      <option disabled selected>City</option>
+                                    <select id="city6" style="cursor:pointer" class="form-control">
+                                      <option disabled selected value="">City</option>
                                       <option>Johor Bahru</option>
                                       <option>Batu Pahat</option>
                                       <option>Kluang</option>
@@ -2037,8 +1843,8 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                                            <option disabled selected>State</option>
+                                        <select id="state6" style="cursor:pointer" class="form-control">
+                                            <option disabled selected value="">State</option>
                                             <option>Johor</option>
                                             <option>Kedah</option>
                                             <option>Kelantan</option>
@@ -2056,7 +1862,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Postal Code">
+                                        <input id="postalcode6" type="text" class="form-control" placeholder="Postal Code">
                                     </div>
                                 </div> 
                                 <br>
@@ -2078,8 +1884,8 @@
                                     <label class="login-text">Transportation mode</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <select id="transportationDropdown2" class="form-control">
-                                      <option disabled selected>Please choose</option>
+                                    <select id="transportation2" class="form-control" required>
+                                      <option disabled selected value="">Please choose</option>
                                       <option>Pick up by customer</option>
                                       <option>Delivered by seller</option>
                                     </select>
@@ -2145,7 +1951,7 @@
                                         <label class="login-text">Company name</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input id="company_name2" type="text" class="form-control">
+                                        <input id="company_name2" type="text" class="form-control" disabled>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -2153,7 +1959,7 @@
                                         <label class="login-text">Email address</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input id="company_email2" type="text" class="form-control">
+                                        <input id="company_email2" type="text" class="form-control" disabled>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -2161,7 +1967,7 @@
                                         <label class="login-text">Telephone number</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input id="company_contact2" type="text" class="form-control">
+                                        <input id="company_contact2" type="text" class="form-control" disabled>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -2169,7 +1975,7 @@
                                         <label class="login-text">Person In-charge (PIC)</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="pic2" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -2177,33 +1983,22 @@
                                         <label class="login-text">Telephone number (PIC)</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="pic_contact2" type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div style="margin-top: 50px;">
                             <div class="col-md-10" style="margin-left: auto; margin-right: auto;">
-                                <input type="checkbox">
+                                <input id="agree_cb2" type="checkbox">
                                 <label> I agree that I have read and accepted the <a href="#" style="color: #0099FF;">Terms and Conditions</a></label><br> 
                                 <div class="row" style="margin-top: 20px;">
                                     <div class="col-md-5" style="margin-left: auto;">
-                                        <button class="btn btn-cancell" style="width: 100%">Preview add</button>
+                                        <button id="previewbtn2" class="btn btn-cancell" style="width: 100%">Preview add</button>
                                     </div>
                                     <div class="col-md-5" style="margin-right: auto;">
                                         <div class="container">
-                                            <button id="submitButton2" class="btn btn-success" data-toggle="modal" data-target="#myModal2" style="width: 100%">Submit</button>
-                                            <div class="modal fade" id="myModal2">
-                                              <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                  <div class="modal-body mx-auto">
-                                                    <img src="img/checkijau.svg">
-                                                  </div>
-                                                  <div class="mx-auto" style="margin: 10px;">Your ad has been submitted</div>
-                                                    <button onclick="window.location.href='./index1.html';" type="button" class="btn btn-success" data-dismiss="modal">Go to homepage</button>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
+                                            <button id="submitButton2" class="btn btn-success" style="width: 100%">Submit</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2212,6 +2007,7 @@
                             
                             </div>
                         </div>
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -2235,31 +2031,207 @@
         </div>
     </footer>
 
-    <div class="container">
-        <div class="modal fade" id="myModal">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-            
-              <!-- Modal Header -->
-              <div class="modal-header">
-                <h4 class="modal-title">Modal Heading</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              
-              <!-- Modal body -->
-              <div class="modal-body">
-                Modal body..
-              </div>
-              
-              <!-- Modal footer -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-              
+    <!--submitted modal-->
+    <div class="modal fade" id="submitmodal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body mx-auto">
+              <img src="img/checkijau.svg">
             </div>
+            <div class="mx-auto" style="margin: 10px;">Your ad has been submitted</div>
+              <button onclick="window.location.href='./index1.html';" type="button" class="btn btn-success" data-dismiss="modal">Go to homepage</button>
           </div>
         </div>
       </div>
+
+      <!--preview ad modal-->
+      <div class="modal fade" id="previewad" role="dialog">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-body" style="padding: 30px;">
+              <div class="container" style="margin-bottom: 30px; margin-left: 15px;">
+                  <div class="row">
+                      <div class="col-md-5">
+                          <img src="img/hensemboi.jpg">
+                      <div class="row" style="margin-top: 20px;">
+                          <div class="col-md-3">
+                              <img src="img/hensemboi.jpg">
+                          </div>
+                          <div class="col-md-3">
+                              <img src="img/hensemboi.jpg">
+                          </div>
+                          <div class="col-md-3">
+                              <img src="img/hensemboi.jpg">
+                          </div>
+                          <div class="col-md-3">
+                              <img src="img/hensemboi.jpg">
+                          </div>
+                      </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div id="material_nameM" style="color: gray; margin-bottom: 10px;">Plastic Pellets</div>
+                          <label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label>
+                          <div id="priceM" style="margin-top: 20px; font-size: 26px; font-weight: bold;">RM 200.00</div>
+                          <div style="color: gray;">100 unit</div>
+                      </div>
+                      <div class="col-md-3">
+                          <div style="font-size: 12px;">For product pricing, customization or other inquiries:</div>
+                          <br>
+                          <button class="btn" style="background-color: #FF5700; color: white; width: 240px; border-radius: 50px;">Reserve</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="container" style="padding: 30px;">
+                  <div class="card">
+                      <div style="background-color: #FAFAFA; padding: 10px; margin: 10px;">Material Information</div>
+                      <div style="padding: 20px;">
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Date of submission</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="dateM">20/12/2020</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Material Status</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div>Available</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Name of Material</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="nameM">Plastic Pellets</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>State of Material</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="material_stateM">Solid</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Category</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="categoryM">Plastics</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Product Season</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="seasonM">One-time</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Transportation Mode</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="transportM">Pick up by customer</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Details</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="descriptionM">We can supply minimal amount</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Quantity</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="quantityunitM">80 mton</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Shelf Life/ Degradation period</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="shelflifeM">Never</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Price of Material</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="priceM2">Free</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Waste (location 1)</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="locationM">Pasir Gudang</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>State</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="stateM">Johor</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Waste (location 2)</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="locationM2">Kulai</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>State</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="stateM2">Johor</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Supplier</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="nameM2">Siti Fatimah Saad</div>
+                          </div>
+                      </div>
+                      <div class="row detail-spacing">
+                          <div class="col-md-4">
+                              <label>Company Name</label>
+                          </div>
+                          <div class="col-md-8">
+                              <div id="company_nameM">-</div>
+                          </div>
+                      </div>
+                      </div>
+                  </div>
+              </div>
+              <div style="text-align: center;">
+                  <button class="btn" style="background-color: white; border: 1px solid #27AE60; color: #27AE60; border-radius: 10px; padding-left: 30px; padding-right: 30px;" data-dismiss="modal">Edit</button>
+                  <button class="btn" style="background-color: #27AE60; color: white; border-radius: 10px; padding-left: 20px; padding-right: 20px;" data-toggle="modal" data-dismiss="modal" data-target="#myModal8">Submit</button>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
       
 
 
@@ -2419,14 +2391,61 @@
             categoryDropdownList();
             packageDropdownList();
             userDetails();
-            
-            $('#submitButton').on('click',function(){
-                submitAvailableProduct();
-            })
 
-            $('#submitButton2').on('click',function(){
+            $('#submitButton').prop('disabled', true);
+            $('#submitButton2').prop('disabled', true);
+            $('#previewbtn').prop('disabled', true);
+            $('#previewbtn2').prop('disabled', true);
+
+            $('#agree_cb').on('click',function(){
+                var checked = this.checked;
+                if(checked == true) {
+                $('#submitButton').prop('disabled', false);
+                $('#previewbtn').prop('disabled', false);
+                }
+                else{
+                    $('#submitButton').prop('disabled', true);
+                    $('#previewbtn').prop('disabled', true);
+                }
+            });
+
+            $('#agree_cb2').on('click',function(){
+                var checked = this.checked;
+                if(checked == true) {
+                $('#submitButton2').prop('disabled', false);
+                $('#previewbtn2').prop('disabled', false);
+                }
+                else{
+                    $('#submitButton2').prop('disabled', true);
+                    $('#previewbtn2').prop('disabled', true);
+                }
+            });
+
+            //submit available product
+            var highlightForm = document.querySelector("form#availableform");
+            highlightForm.addEventListener('submit',highlight , false);
+
+            function highlight(event)
+            {
+                event.preventDefault();
+                submitAvailableProduct();
+                $('#submitmodal')
+                return false;
+
+            }
+            
+            //submit wanted product
+            var highlightForm2 = document.querySelector("form#wantedform");
+            highlightForm2.addEventListener('submit',highlight2 , false);
+
+            function highlight2(event)
+            {
+                event.preventDefault();
                 submitWantedProduct();
-            })
+                $('#submitmodal')
+                return false;
+
+            }
         });
 
         function categoryDropdownList(){
@@ -2434,13 +2453,13 @@
                 url: "http://codeviable.com/w2w2/public/category?idmaincategory=waste",
                 type: "GET",
             }).done(function(response){
-                var tr = '<option disabled selected>Please choose</option>';  
+                var tr = '<option disabled selected value="">Please choose</option>';  
 
                 $.each(response, function(i, data){
                     tr += '<option style="text-transform:capitalize;">'+ data.name + '</option>';
                 })
-                $('#categoryDropdown').html(tr);
-                $('#categoryDropdown2').html(tr);
+                $('#category').html(tr);
+                $('#category2').html(tr);
             })
         }
 
@@ -2449,146 +2468,179 @@
                 url: "http://codeviable.com/w2w2/public/packages",
                 type: "GET",
             }).done(function(response){
-                var tr = '<option disabled selected>Please choose</option>';  
+                var tr = '<option disabled selected value="">Please choose</option>';  
 
                 $.each(response, function(i, data){
                     tr += '<option style="text-transform:capitalize;">'+ data.package_name + '</option>';
                 })
-                $('#packageDropdown').html(tr);
-                $('#packageDropdown2').html(tr);
+                $('#package').html(tr);
+                $('#package2').html(tr);
             })
         }
 
         function submitAvailableProduct(){
 
-            var dateSubmission = $('#dateSubmission').val();
-            var product_name = $('#product_name').val();
-            var stateMaterialDropdown = $('#stateMaterialDropdown').val();
-            var product_category = $('#categoryDropdown').val();
-            var product_continuity = $('#productSeasonDropdown').val();
-            var product_quantity = $('#product_quantity').val();
-            var product_price = $('#product_price').val();
-            var product_period = $('#productPeriodDropdown').val();
-            var product_package = $('#packageDropdown').val();
-            var product_location = $('#product_location').val();
-            var latitude = $('#latitude').val();
-            var longitude = $('#longitude').val();
-            var product_location2 = $('#product_location2').val();
+            var date = $('#date').val();
+            var material_name = $('#material_name').val();
+            var material_state = $('#material_state').val();
+            var category = $('#category').val();
+            var season = $('#season').val();
+            var quantity = $('#quantity').val();
+            var unit = $('#unit').val();
+            var price = $('#product_price').val();
+            var product_period = $('#product_period').val();
+            var package = $('#package').val();
+            var location1 = $('#product_location1').val();
+            var location2 = $('#product_location2').val();
+            var location3 = $('#product_location3').val();
+            var city1 = $('#city1').val();
+            var city2 = $('#city2').val();
+            var city3 = $('#city3').val();
+            var state1 = $('#state1').val();
+            var state2 = $('#state2').val();
+            var state3 = $('#state3').val();
+            var postalcode1 = $('#postalcode1').val();
+            var postalcode2 = $('#postalcode2').val();
+            var postalcode3 = $('#postalcode3').val();
+            var latitude1 = $('#latitude1').val();
             var latitude2 = $('#latitude2').val();
-            var longitude2 = $('#longitude2').val();
-            var product_location3 = $('#product_location3').val();
             var latitude3 = $('#latitude3').val();
+            var longitude1 = $('#longitude1').val();
+            var longitude2 = $('#longitude2').val();
             var longitude3 = $('#longitude3').val();
-            var product_transport = $('#transportationDropdown').val();
-            var product_description = $('#product_desc').val();
+            var transportation = $('#transportation').val();
+            var product_desc = $('#product_desc').val();
             var image1 = $("#productPicture1").prop('files');
             var image2 = $("#productPicture2").prop('files');
             var image3 = $("#productPicture3").prop('files');
             var image4 = $("#productPicture4").prop('files');
             var image5 = $("#productPicture5").prop('files');
-            var company_name = $('#company_name').val();
-            var company_email = $('#company_email').val();
-            var company_contact = $('#company_contact').val();
-            
+            var tagging = null ;
 
             var formData = new FormData();
-            formData.append("product_date" , dateSubmission);
-            formData.append("product_name" , product_name);
-            formData.append("product_material" , stateMaterialDropdown);
-            formData.append("product_category" , product_category);
-            formData.append("product_season" , product_continuity);
-            formData.append("product_quantity" , product_quantity);
-            formData.append("product_price" , product_price);
+            formData.append("product_date" , date);
+            formData.append("product_name" , material_name);
+            formData.append("product_material" , material_state);
+            formData.append("product_category" , category);
+            formData.append("product_season" , season);
+            formData.append("product_quantity" , quantity);
+            formData.append("unit" , unit);
+            formData.append("product_price" , price);
             formData.append("product_period" , product_period);
-            formData.append("product_package" , product_package);
-            formData.append("product_location[]" , product_location);
-            formData.append("product_location[]" , product_location2);
-            formData.append("product_location[]" , product_location3);
-            formData.append("latitud[]" , latitude);
+            formData.append("product_package" , package);
+            formData.append("product_location[]" , location1);
+            formData.append("product_location[]" , location2);
+            formData.append("product_location[]" , location3);
+            formData.append("city[]" , city1);
+            formData.append("city[]" , city2);
+            formData.append("city[]" , city3);
+            formData.append("product_state[]" , state1);
+            formData.append("product_state[]" , state2);
+            formData.append("product_state[]" , state3);
+            formData.append("latitud[]" , latitude1);
             formData.append("latitud[]" , latitude2);
             formData.append("latitud[]" , latitude3);
-            formData.append("longitud[]" , longitude);
+            formData.append("longitud[]" , longitude1);
             formData.append("longitud[]" , longitude2);
             formData.append("longitud[]" , longitude3);
-            formData.append("product_transport" , product_transport);
-            formData.append("product_description" , product_description);
+            formData.append("postalcode[]" , postalcode1);
+            formData.append("postalcode[]" , postalcode2);
+            formData.append("postalcode[]" , postalcode3);
+            formData.append("product_transport" , transportation);
+            formData.append("product_description" , product_desc);
             formData.append("product_image[]" , image1[0]);
             formData.append("product_image[]" , image2[0]);
             formData.append("product_image[]" , image3[0]);
             formData.append("product_image[]" , image4[0]);
             formData.append("product_image[]" , image5[0]);
-            formData.append("company_name" , company_name);
-            formData.append("company_email" , company_email);
-            formData.append("company_contact" , company_contact);
             formData.append("mainstatus" , "available");
             formData.append("maincategory" , "waste");
             formData.append("user_id" , $userid);
-            
+            formData.append("tagging[]" , tagging);
 
-            $.ajax({
-                url: "http://codeviable.com/w2w2/public/product/add",
-                type: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-            }).done(function(response){
-                console.log(response);
-            })
-
+                $.ajax({
+                    url: "http://codeviable.com/w2w2/public/product/add",
+                    type: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                }).done(function(response){
+                    console.log(response);             
+                    $('#submitmodal').modal();
+                });
         }
 
         function submitWantedProduct(){
-            
-            var dateSubmission = $('#dateSubmission2').val();
-            var product_name = $('#product_name2').val();
-            var stateMaterialDropdown = $('#stateMaterialDropdown2').val();
-            var product_category = $('#categoryDropdown2').val();
-            var product_continuity = $('#productSeasonDropdown2').val();
-            var product_package = $('#packageDropdown2').val();
-            var product_location = $('#product_location4').val();
-            var latitude = $('#latitude4').val();
-            var longitude = $('#longitude4').val();
-            var product_location2 = $('#product_location5').val();
+
+            var date = $('#date2').val();
+            var material_name = $('#material_name2').val();
+            var material_state = $('#material_state2').val();
+            var category = $('#category2').val();
+            var season = $('#season2').val();
+            var package = $('#package2').val();
+            var location1 = $('#product_location4').val();
+            var location2 = $('#product_location5').val();
+            var location3 = $('#product_location6').val();
+            var city1 = $('#city4').val();
+            var city2 = $('#city5').val();
+            var city3 = $('#city6').val();
+            var state1 = $('#state4').val();
+            var state2 = $('#state5').val();
+            var state3 = $('#state6').val();
+            var postalcode1 = $('#postalcode4').val();
+            var postalcode2 = $('#postalcode5').val();
+            var postalcode3 = $('#postalcode6').val();
+            var latitude1 = $('#latitude4').val();
             var latitude2 = $('#latitude5').val();
-            var longitude2 = $('#longitude5').val();
-            var product_location3 = $('#product_location6').val();
             var latitude3 = $('#latitude6').val();
+            var longitude1 = $('#longitude4').val();
+            var longitude2 = $('#longitude5').val();
             var longitude3 = $('#longitude6').val();
-            var product_transport = $('#transportationDropdown2').val();
-            var product_description = $('#product_desc2').val();
+            var transportation = $('#transportation2').val();
+            var product_desc = $('#product_desc2').val();
             var image1 = $("#productPicture6").prop('files');
             var image2 = $("#productPicture7").prop('files');
             var image3 = $("#productPicture8").prop('files');
             var image4 = $("#productPicture9").prop('files');
             var image5 = $("#productPicture10").prop('files');
-            var company_name = $('#company_name2').val();
-            var company_email = $('#company_email2').val();
-            var company_contact = $('#company_contact2').val();
-            
 
             var formData = new FormData();
-            formData.append("product_date" , dateSubmission);
-            formData.append("product_name" , product_name);
-            formData.append("product_material" , stateMaterialDropdown);
-            formData.append("product_category" , product_category);
-            formData.append("product_season" , product_continuity);
-            formData.append("product_package" , product_package);
-            formData.append("product_location" , product_location);
-            formData.append("latitud" , latitude);
-            formData.append("longitud" , longitude);
-            formData.append("product_transport" , product_transport);
-            formData.append("product_description" , product_description);
+            formData.append("product_date" , date);
+            formData.append("product_name" , material_name);
+            formData.append("product_material" , material_state);
+            formData.append("product_category" , category);
+            formData.append("product_season" , season);
+            formData.append("product_package" , package);
+            formData.append("product_location[]" , location1);
+            formData.append("product_location[]" , location2);
+            formData.append("product_location[]" , location3);
+            formData.append("city[]" , city1);
+            formData.append("city[]" , city2);
+            formData.append("city[]" , city3);
+            formData.append("product_state[]" , state1);
+            formData.append("product_state[]" , state2);
+            formData.append("product_state[]" , state3);
+            formData.append("latitud[]" , latitude1);
+            formData.append("latitud[]" , latitude2);
+            formData.append("latitud[]" , latitude3);
+            formData.append("longitud[]" , longitude1);
+            formData.append("longitud[]" , longitude2);
+            formData.append("longitud[]" , longitude3);
+            formData.append("postalcode[]" , postalcode1);
+            formData.append("postalcode[]" , postalcode2);
+            formData.append("postalcode[]" , postalcode3);
+            formData.append("product_transport" , transportation);
+            formData.append("product_description" , product_desc);
             formData.append("product_image[]" , image1[0]);
             formData.append("product_image[]" , image2[0]);
             formData.append("product_image[]" , image3[0]);
             formData.append("product_image[]" , image4[0]);
             formData.append("product_image[]" , image5[0]);
-            formData.append("company_name" , company_name);
-            formData.append("company_email" , company_email);
-            formData.append("company_contact" , company_contact);
             formData.append("mainstatus" , "wanted");
+            formData.append("maincategory" , "waste");
             formData.append("user_id" , $userid);
-            
+            formData.append("tagging[]" , " ");
+
 
             $.ajax({
                 url: "http://codeviable.com/w2w2/public/product/add",
@@ -2602,15 +2654,21 @@
 
         }
 
+
         function userDetails() {
 
             $.ajax({
-                url: "http://codeviable.com/w2w2/public/user",
+                url: "http://codeviable.com/w2w2/public/user/detail?user_id=",
                 type: "GET",
+                data : {"user_id" : $userid}
             }).done(function(response){
-                $("#company_name").html(response.companyname);
-                $("#company_email").html(response.user_email);
-                $("#company_contact").html(response.user_contact);
+                $("#company_name").val(response.companyname).css('text-transform','capitalize');
+                $("#company_email").val(response.user_email);
+                $("#company_contact").val(response.user_contact);
+
+                $("#company_name2").val(response.companyname).css('text-transform','capitalize');
+                $("#company_email2").val(response.user_email);
+                $("#company_contact2").val(response.user_contact);
             })
         }
 

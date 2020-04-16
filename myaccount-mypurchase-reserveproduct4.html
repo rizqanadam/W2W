@@ -113,7 +113,7 @@
         text-align: center;
         padding: 2px 15px;
         text-decoration: none;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: normal;
     }
 
@@ -246,7 +246,7 @@
                     <div class="col-md-3" style="margin-top: 40px;">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
+                                <img id="profilepicture" src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
                             </div>
                             <div class="col-md-8">
                                 <div id="user_name" style="font-weight: bold; text-transform: capitalize;"></div>
@@ -265,6 +265,7 @@
                                 </ul>
                             </li>
                             <li><a href="./myaccount-notification.html">Notifications</a></li>
+                            <li><a href="#">Review & Ratings</a></li>
                         </ul>
                     </div>
 
@@ -283,8 +284,8 @@
                         </div>
 
                         <div>
-                            <div class="card" style="padding: 20px; margin-bottom: 50px;">
-                                <div class="row">
+                            <div id="list" class="card" style="padding: 20px; margin-bottom: 50px;">
+                                <!-- <div class="row">
                                     <div class="col-md-2">
                                         <img src="img/organic-compose.jpg">
                                     </div>
@@ -295,7 +296,7 @@
                                         <p style="font-size: 14px;"><i class="fa fa-envelope"></i>  prospect@gmail.com</p>
                                     </div>
                                 </div>
-                                <div class="line-bottom"></div>
+                                <div class="line-bottom"></div> -->
                             </div>
                         </div>
                     </div>
@@ -344,22 +345,99 @@
 
     $(document).ready(function(){
 
-      $userid = localStorage.getItem("user_id");
+        $userid = localStorage.getItem("user_id");
+        $newList = [];
+        $tempArr = [];
+        $newList2 = [];
+        $tempArr2 = [];
+        userData();
+        confirmedlist();
+        
 
-      userData();
-    
     });
 
     function userData(){
       $.ajax({
-        url: 'http://codeviable.com/w2w2/public/user/detail?user_id=',
+        url: 'http://codeviable.com/w2w2/public/user/detail',
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-                $("#image1").html(response.profilepicture);
+                $("#profilepicture").attr('src' , response.profilepicture);
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
       });
+    }
+
+    function confirmedlist(){
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/reserve/buyer?status=confirmed&buyer_id=",
+            type : "GET",
+            data : {"buyer_id" : $userid}
+        }).done(function(response){
+
+            var currentIndex = 0;
+
+            $.each(response, function(i,data){
+                $tempArr.push(response[i].product_id);
+                $newList[currentIndex] = parseInt($tempArr);
+            }) 
+            console.log($newList);
+            contactinformation();
+        });
+    }
+
+    function contactinformation(){
+        $.each($newList, function(i,data){
+            console.log($newList);
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/product/detail?product_id=",
+                type : "GET",
+                data : {"product_id" : $newList[i]}
+            }).done(function(response){
+                console.log(response);
+                var tr = "";
+
+                $.each(response, function(i,data){
+                    if(response[i].user_type == "individual")
+                        tr += '<div class="row"><div class="col-md-2"><img src='+response[i].product_image[0].image+' style="width: 70px; height: 70px; object-fit: cover;"></div><div class="col-md-6"><div class="notification-text">Thank you for your confirmation!</div><p style="font-size: 14px; color: #434343;">Here is your seller’s contact details:</p><div id="user_contact"></div></div></div><div class="line-bottom"></div>';
+                    if(response[i].user_type == "company")
+                        tr += '<div class="row"><div class="col-md-2"><img src='+response[i].product_image[0].image+' style="width: 70px; height: 70px; object-fit: cover;"></div><div class="col-md-6"><div class="notification-text">Thank you for your confirmation!</div><p style="font-size: 14px; color: #434343;">Here is your seller’s contact details:</p><p style=" margin-top: 10px; font-size: 14px;"><i class="fa fa-phone"></i>  '+response[i].contact+'</p><p style="font-size: 14px;"><i class="fa fa-envelope"></i>  '+response[i].user_email+'</p></div></div><div class="line-bottom"></div>';
+                });
+
+                var currentIndex2 = 0;
+
+                $.each(response, function(i,data){
+                    $tempArr2.push(response[i].user_id);
+                    $newList2[currentIndex2] = parseInt($tempArr2);
+                }) 
+                console.log($newList2);
+                
+                $('#list').html(tr);
+                usercontact();
+            });
+        });   
+    }
+
+    function usercontact(){
+        $.each($newList2, function(i,data){
+            $.ajax({
+            url: 'http://codeviable.com/w2w2/public/user/detail?user_id=',
+            type: 'GET',
+            data: { "user_id" : $newList2[i] },
+            success: function(response){
+                console.log(response)
+                var tr = "";
+                $.each($newList2, function(i,data){
+                    if(response.user_type == "individual")
+                        tr += '<p style=" margin-top: 10px; font-size: 14px;"><i class="fa fa-phone"></i>  '+response.user_contact+'</p><p style="font-size: 14px;"><i class="fa fa-envelope"></i>  '+response.user_email+'</p>';
+                    else if(response.user_type == "company")
+                        tr += '<p style=" margin-top: 10px; font-size: 14px;"><i class="fa fa-phone"></i>  '+response.user_contact+'</p><p style="font-size: 14px;"><i class="fa fa-envelope"></i>  '+response.user_email+'</p>';
+                });
+
+                $('#user_contact').html(tr)
+            }
+            });
+        })
     }
 
     </script>

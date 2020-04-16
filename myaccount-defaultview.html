@@ -180,16 +180,7 @@ ul li a.active{
                               </a>
                           </div>
                       </div>
-                      <div class="col-lg-6 col-md-6" style="padding: 20px; padding-left: 60px;">
-                        <div class="advanced-search">
-                            <button type="button" class="category-btn">Category</button>
-                            <div class="input-group">
-                                <input type="text" placeholder="What are you looking for?">
-                                <button type="button"><i class="fa fa-search"></i>  Search  </button>
-                            </div>
-                        </div>
-                    </div>
-                      <div class="col-lg-4 text-right col-md-4" style="padding: 10px;">
+                      <div class="col-lg-10 text-right col-md-10" style="padding: 10px;">
                           <div class="dropdown">
                           <button class="btn"><a href="#"></a><img src="img/ukk.png"></button>
                             <div class="dropdown-content">
@@ -229,10 +220,17 @@ ul li a.active{
           </div>
             <div class="line-bottom"></div>
               <ul style="list-style-type: none;">
-                  <li><a href="./myaccount-defaultview.html" class="active">My Account</a></li>
+                  <li><a href="./myaccount-defaultview.html" class="active">My Account</a>
+                  <ul style="margin-top: 0;">
+                    <a href="#" class="active" >My Profile</a><br>
+                    <a href="myaccount-tokenwallet.html">Token Wallet</a>
+                  </ul>
+                </li>
                   <li><a href="./myaccount-myproduct-adsubmitted.html">My Products</a></li>
                   <li><a href="./myaccount-mypurchase-purchasehistory.html">My Purchases</a></li>
                   <li><a href="./myaccount-notification.html">Notifications</a></li>
+                  <li><a href="#">Review & Ratings</a></li>
+
               </ul>
           </div>
 
@@ -243,6 +241,7 @@ ul li a.active{
             <div id="update_status" style="color: orangered; font-weight: bold; font-size: 16px;"></div>
             <div class="line-bottom"></div>
           </div>
+          <form>
           <div class="row">
           <div class="col-md-8">
             <div class="row text-padding">
@@ -252,44 +251,46 @@ ul li a.active{
                   <div class="col-md-8">
                     <div class="row">
                     <div class="col-md-6">
-                      <input id="user_fname" type="text" class="form-control" placeholder="First name">
+                      <input id="user_fname" type="text" style="text-transform:capitalize;" class="form-control" placeholder="First name" required oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}">
                     </div>
                     <div class="col-md-6">
-                      <input id="user_lname" type="text" class="form-control" placeholder="Last name">
+                      <input id="user_lname" type="text" style="text-transform:capitalize;" class="form-control" placeholder="Last name" required oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}">
                     </div>
                   </div>
                 </div>
             </div>
-            <div class="row text-padding">
+            
+            <div class="form-group row text-padding">
                 <div class="col-md-4 text-right">
                     <label class="edit-text">Email</label>
                 </div>
                 <div class="col-md-8 text-left">
-                    <input id="user_email" type="text" class="form-control">
+                    <input id="user_email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$+" class="form-control" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}">
                 </div>
             </div>
-            <div class="row text-padding">
+            <div class="form-group row text-padding">
                 <div class="col-md-4 text-right">
                     <label class="edit-text">Company</label>
                 </div>
                 <div class="col-md-8">
-                    <input style="text-transform:capitalize;" type="text" class="form-control">
+                    <input id="company" style="text-transform:capitalize;" type="text" class="form-control">
                 </div>
             </div>
-            <div class="row text-padding">
+            <div class="form-group row text-padding">
                 <div class="col-md-4 text-right">
                     <label class="edit-text">Contact number</label>
                 </div>
                 <div class="col-md-8 text-left">
-                  <input id="contactnumber" type="text" class="form-control">
+                  <input id="contactnumber" type="tel" pattern="^[0-9-+\s()[0-9]*$" maxlength="12" class="form-control" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}" >
                 </div>
             </div>
-            <div class="row text-padding" style="margin-top: 40px;">
+            <div class="form-group row text-padding" style="margin-top: 40px;">
                 <div class="col-md-4 text-right"></div>
                 <div class="col-md-8 text-left">
-                    <button id="save_update" class="btn btn-success" style="width: 40%;">Save</button>
+                    <button id="save_update" type="button" class="btn btn-success" style="width: 40%;">Save</button>
                 </div>
             </div>
+          
           </div>
           <div class="col-md-1">
             <div class="line-side"></div>
@@ -310,6 +311,7 @@ ul li a.active{
             </div>
           </div>
           </div>
+        </form>
         </div>
       </div>
     </div>
@@ -367,8 +369,16 @@ ul li a.active{
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-                $("#image1").html(response.profilepicture);
+              if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
+              $("#image1").attr('src' , response.profilepicture);
+              $("#previewProfile").attr('src' , response.profilepicture);
+              }
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
+                $('#user_fname').val(response.user_fname);
+                $('#user_lname').val(response.user_lname);
+                $('#user_email').val(response.user_email);
+                $('#contactnumber').val(response.user_contact);
+                $('#company').val(response.companyname);
             }
           });
         }
@@ -409,6 +419,8 @@ ul li a.active{
             data: { "user_id" : $userid },
             }).done(function(response){
               $("#user_name").html(response.user_fname+" "+response.user_lname);
+              $("#image1").attr('src' , response.profilepicture);
+              console.log(response.profilepicture)
               $("#update_status").html("Successfully updated!").delay(2000).fadeOut(300);
               setTimeout(() => {
                 $('#update_status').html('').css('display', 'block');

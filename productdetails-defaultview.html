@@ -85,8 +85,8 @@ i {
                     </div>
                     <div class="col-lg-10 text-right col-md-2 header-margin">
                         <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                        <button class="btn">contact us</button>
-                        <button class="btn" style="margin-right: 12px;">login</button>
+                        <button class="btn">Contact Us</button>
+                        <button class="btn" style="margin-right: 12px;">Login</button>
                         <button onclick="window.location.href='./default-form-guestview.html';" class="btn btn-warning">Submit Ad</button>
                     </div>
                 </div>
@@ -97,23 +97,26 @@ i {
     <!-- Header End -->
 
 
-    <div class="col-md-4 row" style="padding-bottom: 30px;">
-        <a style="text-decoration: underline;">Home</a>
-        <div>>></div>
+    <div class="col-md-8 row" style="padding-bottom: 30px;">
+        <a href="./index.html" style="text-decoration: underline; color: black;">Home</a>
+        <div>&nbsp;>>&nbsp;</div>
+        <a href="./productlistings-viewall.html" style="text-decoration: underline; color: black;">Available</a>
+        <div>&nbsp;>>&nbsp;</div>
         <a style="text-decoration: underline;">Entire Malaysia</a>
-        <div>>></div>
-        <a style="text-decoration: underline;">Waste</a>
-        <div>>></div>
-        <a style="text-decoration: underline; color: #008D50;">Plastic Pellets</a>
+        <div>&nbsp;>>&nbsp;</div>
+        <a id="maincategory" style="text-decoration: underline;">Waste</a>
+        <div>&nbsp;>>&nbsp;</div>
+        <a id="name" style="font-weight: bold; color: #008D50;">Plastic Pellets</a>
     </div>
 
     <div class="container" style="margin-bottom: 30px; margin-left: 15px;">
         <div class="row">
         <div class="col-md-4">
-            <img src="img/hensemboi.jpg">
-        <div class="row" style="margin-top: 20px;">
-            <div class="col-md-3">
-                <img src="img/hensemboi.jpg">
+            <img id="main_image" src="img/hensemboi.jpg" style="width: 398px; height: 372px; object-fit: cover;">
+            <!-- width: 398px; height: 372px; -->
+        <div id="sub_image" class="row" style="margin-top: 20px;">
+            <!-- <div class="col-md-3">
+                <img src="img/hensemboi.jpg" >
             </div>
             <div class="col-md-3">
                 <img src="img/hensemboi.jpg">
@@ -123,19 +126,19 @@ i {
             </div>
             <div class="col-md-3">
                 <img src="img/hensemboi.jpg">
-            </div>
+            </div> -->
         </div>
         </div>
         <div class="col-md-4">
-            <div>AK47MP5RPG</div>
-            <div style="color: gray; margin-bottom: 10px;">PLASTIC PELLETS</div>
-            <label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label>
-            <div style="margin-top: 20px; font-size: 26px; font-weight: bold;">RM 200.00</div>
-            <div style="color: gray;">100 mton</div>
+            <div id="id">AK47MP5RPG</div>
+            <div id="product_name" style="color: gray; margin-bottom: 10px;">PLASTIC PELLETS</div>
+            <label id="availability" style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label>
+            <div id="product_price" style="margin-top: 20px; font-size: 26px; font-weight: bold;">RM 200.00</div>
+            <div id="quantity_unit" style="color: gray;">100 mton</div>
         </div>
         <div class="col-md-4">
-            <div>For product pricing, customization or other inquiries :</div>
-            <button class="btn btn-oren">Reserve</button>
+            <div style="margin-bottom: 10px;">For product pricing, customization or other inquiries :</div>
+            <button id="reserve_btn" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#signin" style="background-color: #FF5700; color: white; width: 300px; border-radius: 50px;">Reserve</button>
         </div>
         </div>
     </div>
@@ -151,7 +154,7 @@ i {
                     <label>Date of submission</label>
                 </div>
                 <div class="col-md-8">
-                    <div>20/12/2020</div>
+                    <div id="date">20/12/2020</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -159,7 +162,7 @@ i {
                     <label>Material Status</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Available</div>
+                    <div id="mainstatus">Available</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -167,7 +170,7 @@ i {
                     <label>Name of Material</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Plastic Pellets</div>
+                    <div id="product_name2">Plastic Pellets</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -175,7 +178,7 @@ i {
                     <label>State of Material</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Solid</div>
+                    <div id="product_material">Solid</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -183,7 +186,7 @@ i {
                     <label>Category</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Plastics</div>
+                    <div id="product_category">Plastics</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -191,7 +194,7 @@ i {
                     <label>Product Season</label>
                 </div>
                 <div class="col-md-8">
-                    <div>One-time</div>
+                    <div id="product_continuity">One-time</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -199,7 +202,7 @@ i {
                     <label>Transportation Mode</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Pick up by customer</div>
+                    <div id="product_transportation">Pick up by customer</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -207,7 +210,7 @@ i {
                     <label>Details</label>
                 </div>
                 <div class="col-md-8">
-                    <div>We can supply minimal amount</div>
+                    <div id="product_desc">-</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -215,7 +218,7 @@ i {
                     <label>Quantity</label>
                 </div>
                 <div class="col-md-8">
-                    <div>80 mton</div>
+                    <div id="product_quantityunit">80 mton</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -223,7 +226,7 @@ i {
                     <label>Shelf Life/ Degradation period</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Never</div>
+                    <div id="product_period">Never</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -231,7 +234,7 @@ i {
                     <label>Suggested Customer</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Packaging plant</div>
+                    <div id="suggestedcustomer">Packaging plant</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -239,47 +242,49 @@ i {
                     <label>Price of Material</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Free</div>
+                    <div id="product_price2">Free</div>
                 </div>
             </div>
-            <div class="row detail-spacing">
-                <div class="col-md-4">
-                    <label>Waste (location 1)</label>
+            <div id="location_display">
+                <!-- <div class="row detail-spacing">
+                    <div class="col-md-4">
+                        <label>Waste (location 1)</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="product_location1">Pasir Gudang</div>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <div>Pasir Gudang</div>
+                <div class="row detail-spacing">
+                    <div class="col-md-4">
+                        <label>State</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="product_state1">Johor</div>
+                    </div>
                 </div>
-            </div>
-            <div class="row detail-spacing">
-                <div class="col-md-4">
-                    <label>State</label>
+                <div class="row detail-spacing">
+                    <div class="col-md-4">
+                        <label>Waste (location 2)</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="product_location2">Kulai</div>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <div>Johor</div>
-                </div>
-            </div>
-            <div class="row detail-spacing">
-                <div class="col-md-4">
-                    <label>Waste (location 2)</label>
-                </div>
-                <div class="col-md-8">
-                    <div>Kulai</div>
-                </div>
-            </div>
-            <div class="row detail-spacing">
-                <div class="col-md-4">
-                    <label>State</label>
-                </div>
-                <div class="col-md-8">
-                    <div>Johor</div>
-                </div>
+                <div class="row detail-spacing">
+                    <div class="col-md-4">
+                        <label>State</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="product_state2">Johor</div>
+                    </div>
+                </div> -->
             </div>
             <div class="row detail-spacing">
                 <div class="col-md-4">
                     <label>Supplier</label>
                 </div>
                 <div class="col-md-8">
-                    <div>Siti Fatimah Saad</div>
+                    <div id="supplier">Siti Fatimah Saad</div>
                 </div>
             </div>
             <div class="row detail-spacing">
@@ -287,7 +292,7 @@ i {
                     <label>Company Name</label>
                 </div>
                 <div class="col-md-8">
-                    <div>TIM ENTERPRISE</div>
+                    <div id="companyname">-</div>
                 </div>
             </div>
             </div>
@@ -296,7 +301,7 @@ i {
     <div class="container" style="padding: 30px;">
         <div class="card" style="padding: 30px;">
             <div style="font-size: 24px; font-weight: bold;">Ratings and Review</div>
-            <div style="text-align: right;">View All</div>
+            <div style="text-align: right; color: #0099FF;">View All</div>
             <div style="border-bottom: 2px solid lightgray;"></div>
             <div style="padding: 20px;">
             <div class="row detail-spacing">
@@ -363,10 +368,16 @@ i {
             <div style="font-size: 24px; font-weight: bold;">Question about this product</div>
             <div style="text-align: right;">View All</div>
             <div style="border-bottom: 2px solid lightgray;"></div>
-            <div style="padding: 20px;">
+            <div id="beforeask" style="padding: 20px;">
                 <div class="text-center">There are no question yet.</div>
-                <div class="text-center">Ask the seller now and their answwer will be hear.</div>
-                <div class="text-center" style="color: orangered; margin-top: 10px; font-weight: bold;">Ask Question</div>
+                <div class="text-center">Ask the seller now and their answer will be hear.</div>
+                <div id="ask_btn" class="text-center" style="color: #FF7600; margin-top: 10px; font-weight: bold; cursor: pointer;">Ask Question</div>
+            </div>
+
+            <div id="askquestion" style="margin-top: 30px; display: none;">
+                <textarea id="" cols="128" rows="2" placeholder="Ask your question..." class="form-control"></textarea>
+                <br>
+                <div id="submit" data-toggle="modal" data-dismiss="modal" data-target="#signin" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div>
             </div>
         </div>
     </div>
@@ -419,6 +430,53 @@ i {
          </div>
      </footer>
 
+     <!-- Sign in modal -->
+     <div class="modal fade" id="signin">
+        <div class="modal-dialog modal-dialog-centered">
+          
+              <div class="row" style="padding: 20px; width: 350px; position: absolute; left: 50%; top: 30%; margin-left: -150px;margin-top: -150px;">
+                  <div class="modal-content">
+                      <div class="card" style="padding: 20px; width: 350px;">
+                      <div class="login-form">
+                          <h2 style="text-align: left; margin-bottom: 10px;">Sign in</h2>
+                              <div class="login-text" style="text-align: left; padding-bottom: 20px">
+                                  <p>New User?
+                                      <a href="./choose-register.html" class="or-login" style="color: #0099FF;">Create an account</a>
+                                  </p>
+                              </div>
+                              <form id="signinform" onsubmit="return false">
+                                <div class="form-group">
+                                    <label class="login-text" for="username">Email </label>
+                                    <input type="text" class="form-control" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="login-text" for="pass">Password </label>
+                                    <input type="password" class="form-control" id="password" required>
+                                </div>
+                                <div class="group-input">
+                                    <div class="gi-more">
+                                        <label class="login-text" for="save-pass">
+                                            Keep me signed in.
+                                            <input type="checkbox" id="save-pass">
+                                            <span id="keepme_signedin" class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button  id="signin" value="submit" class="site-btn btn login-btn" style="color: white; text-transform: initial; width: 100%">Sign In</button>
+                                </div>
+                              </form>
+                              <div>
+                                  <a href="#" class="forget-pass float-right login-text" style="color: #D91F1F; padding-top: 20px;">Forgot pasword?</a>
+                              </div>
+                      </div>
+                      </div>
+                  
+                  </div>
+              </div>
+        </div>
+      </div>
+
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -434,3 +492,133 @@ i {
 </body>
 
 </html> 
+
+<script>
+
+    $(document).ready(function(){
+        $product_id = localStorage.getItem('product_detail');
+
+        productDetails();
+        supplier_company();
+
+        $('#ask_btn').on('click',function(){
+            $('#beforeask').css('display','none');
+            $('#askquestion').css('display','block');
+        });
+
+        //signin
+        var highlightForm = document.querySelector("form#signinform");
+            highlightForm.addEventListener('submit',highlight , false);
+
+            function highlight(event)
+            {
+                event.preventDefault();
+                return false;
+
+            }
+
+            $('#signin').on('click',function(){
+                    LoginUser();    
+            });
+
+    });
+
+    function productDetails() {
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/product/detail?product_id=",
+            type : "GET",
+            data : {"product_id" : $product_id}
+        }).done(function(response){
+            
+            $('#maincategory').html(response[0].maincategory).css('text-transform','capitalize');
+            $('#name').html(response[0].product_name).css('text-transform','capitalize');
+            $('#id').html(response[0].product_id).css('text-transform','capitalize');
+            $('#product_name').html(response[0].product_name).css('text-transform','capitalize');
+            $('#product_price').html('RM ' +response[0].product_price).css('text-transform','capitalize');
+            $('#quantity_unit').html(response[0].product_quantity+" "+response[0].unit);
+            $('#date').html(response[0].product_date).css('text-transform','capitalize');
+            $('#mainstatus').html(response[0].mainstatus).css('text-transform','capitalize');
+            $('#product_name2').html(response[0].product_name).css('text-transform','capitalize');
+            $('#product_material').html(response[0].product_material).css('text-transform','capitalize');
+            $('#product_category').html(response[0].product_category).css('text-transform','capitalize');
+            $('#product_continuity').html(response[0].product_continuity).css('text-transform','capitalize');
+            $('#product_transportation').html(response[0].product_transport);
+            
+            $('#main_image').attr('src',response[0].product_image[0].image);
+
+            var tr2 = "";
+            var no = 1;
+            $.each(response[0].product_image, function(i,data){
+                console.log(response[0].product_image[no])
+                tr2 += '<div class="col-md-3"><img src='+response[0].product_image[i].image+' style="width: 70px; height: 50px; object-fit: cover;"></div>';
+                no++;
+            });
+            $('#sub_image').html(tr2);
+            
+
+            if(response[0].product_desc != ""){
+                $('#product_desc').html(response[0].product_desc).css('text-transform','capitalize');
+            }
+            
+            $('#product_quantityunit').html(response[0].product_quantity+" "+response[0].unit);
+            $('#product_period').html(response[0].product_period).css('text-transform','capitalize');
+            $('#suggestedcustomer').html(response[0].suggestedcustomer).css('text-transform','capitalize');
+            
+            if(response[0].product_price == "0.00"){
+                $('#product_price2').html('Free');
+            }
+            else{
+                $('#product_price2').html('RM ' +response[0].product_price).css('text-transform','capitalize');
+            }
+
+            var tr = "";
+            var bil = 1;
+            $.each(response[0].product_location, function(i,data){
+                if(response[0].product_location[i].location != "")
+                tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Waste (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
+                if(response[0].product_state[i].state !== "null")
+                tr += '<div class="row detail-spacing"><div class="col-md-4"><label>State</label></div> <div class="col-md-8"><div id="product_state1">'+response[0].product_state[i].state+'</div> </div></div>'
+                bil++;     
+            });
+            $('#location_display').html(tr);
+            var product_user = localStorage.setItem('product_user',response[0].user_id);
+        });
+    }
+
+    function supplier_company(){
+        var product_user = localStorage.getItem('product_user');
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/user/detail?user_id=",
+            data : {"user_id" : product_user}
+        }).done(function(response){
+            
+            $('#supplier').html(response.user_fname+" "+response.user_lname).css('text-transform','capitalize');
+            
+            if(response.companyname != null){
+            $('#companyname').html(response.companyname);
+            }
+        });
+    }
+
+    function LoginUser(){
+        var email = $('#email').val();
+        var password = $('#password').val();
+
+            $.ajax({
+                url: 'http://codeviable.com/w2w2/public/login?user_email=&password=',
+                type: 'POST',
+                data: { 'user_email' : email, 'password' : password },
+                success: function (response){
+                    if(response[0].user_email === email && response[0].password === password || response[0].email === email && response[0].password === password ){
+                        console.log(response[0]);
+                        console.log("Logged in");
+                        localStorage.setItem("user_id", JSON.stringify(response[0].user_id));
+                        localStorage.setItem("user_type", JSON.stringify(response[0].user_type));
+                        window.location.href = "./productdetails-defaultview1.html"; 
+                    }
+                }
+            });
+    }   
+
+</script>

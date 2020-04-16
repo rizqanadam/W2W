@@ -190,43 +190,44 @@ i {
                 <p class="text-center">We will help you ;)</p>
             </div>
         </div>
+        <form id="enquiryform" onsubmit="return false">
+            <div class="col-md-6 mx-auto" style="padding-bottom: 40px;">
+                <div class="form-group">
+                    <label class="login-text" for="name">Name </label>
+                    <input style="background-color: #F2F2F2; border: none;" type="text" class="form-control" id="name" required>
+                </div>
 
-        <div class="col-md-6 mx-auto" style="padding-bottom: 40px;">
-            <div class="form-group">
-                <label class="login-text" for="name">Name </label>
-                <input style="background-color: #F2F2F2; border: none;" type="text" class="form-control" id="name" required>
-            </div>
+                <div class="form-group">
+                    <label class="login-text" for="email">Email </label>
+                    <input style="background-color: #F2F2F2; border: none;" type="text" class="form-control" id="email" required>
+                </div>
 
-            <div class="form-group">
-                <label class="login-text" for="email">Email </label>
-                <input style="background-color: #F2F2F2; border: none;" type="text" class="form-control" id="email" required>
-            </div>
+                <div class="form-group">
+                    <label class="login-text" for="name">Category</label>
+                    <select id="categoryDropdown" style="background-color: #F2F2F2; border: none;" class="form-control" required>
+                        <option disabled selected value="">Please choose</option>
+                        <option>Support</option>
+                        <option>Report</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label class="login-text" for="name">Category</label>
-                <select id="categoryDropdown" style="background-color: #F2F2F2; border: none;" class="form-control">
-                    <option disabled selected>Please choose</option>
-                    <option>Support</option>
-                    <option>Report</option>
-                  </select>
-            </div>
+                <div class="form-group">
+                    <label class="login-text">Additional information</label>
+                    <textarea id="description" type="text" class="form-control" style="background-color: #F2F2F2; border: none; height: 200px;" required></textarea>
+                </div>
 
-            <div class="form-group">
-                <label class="login-text">Additional information</label>
-                <textarea id="description" type="text" class="form-control" style="background-color: #F2F2F2; border: none; height: 200px;"></textarea>
+                <div class="col-md-6 mx-auto" style="padding: 40px;">
+                    <button id="submit" style="width: 100%; border-radius: 30px; height: 50px;" class="btn btn-success">Submit</button>
+                </div>
             </div>
-
-            <div class="col-md-6 mx-auto" style="padding: 40px;">
-                <button id="submit" style="width: 100%; border-radius: 30px; height: 50px;" class="btn btn-success">Submit</button>
-            </div>
-        </div>
+        </form>
     </div>
     </div>
 
         <!-- Footer begin -->
         <footer id="footer" class="footer-section" style="background-color: #3A595D;">
             <div class="container">
-                <div class="row" style="padding-top: 5px;">
+                <div class="row" style="padding-top: 10px;">
                     <div class="col-lg-2 text-right">
                         <a href="#" style="color: white;">Contact Us</a>
                     </div>
@@ -241,6 +242,17 @@ i {
         </footer>
         <!-- Footer end -->
         
+        <!-- submitted enquiry modal -->
+        <div class="modal fade" id="enquirymodal">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body mx-auto">
+                <img src="img/checkijau.svg">
+                </div>
+                <div class="mx-auto" style="margin: 10px;">Your enquiry has been submitted</div>
+            </div>
+            </div>
+        </div>
 </body>
 </html>
 
@@ -257,18 +269,21 @@ i {
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous">
-    </script>
-
     <script>
 
         $(document).ready(function(){
 
-            $('#submit').on('click' , function(){
+            //submit enquiry
+            var highlightForm = document.querySelector("form#enquiryform");
+            highlightForm.addEventListener('submit',highlight , false);
+
+            function highlight(event)
+            {
+                event.preventDefault();
                 submitEnquiry();
-            });
+                $('#enquirymodal').modal('toggle');
+                return false;
+            }
 
         });
 

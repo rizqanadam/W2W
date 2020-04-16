@@ -112,7 +112,7 @@ i {
                         <h2 style="text-align: left; margin-bottom: 10px;">Create an account</h2>
                             <div class="login-text" style="text-align: left; padding-bottom: 10px;">
                                 <p>Already have an account?
-                                    <a href="./register.html" class="or-login" style="color: #0099FF;">Sign in</a>
+                                    <a href="./login.html" class="or-login" style="color: #0099FF;">Sign in</a>
                                 </p>
                             </div>
                         <div class="container" style="margin-bottom: 40px; padding: inherit;">
@@ -122,31 +122,32 @@ i {
                             </div>
                           </div>
                         </div>
+                        <form action="./register2.html">
                             <div class="form-group">
                                 <p>Contact address</p>
                                 <label class="login-text" for="username">Address</label>
-                                <input type="text" placeholder="Line 1" class="form-control" id="address">
+                                <input type="text" placeholder="Line 1" class="form-control" id="address" required>
                                 <label class="login-text" for="username"></label>
-                                <input type="text" placeholder="Line 2" class="form-control" id="address2">
+                                <input type="text" placeholder="Line 2" class="form-control" id="address2" required>
                                 <label class="login-text" for="username"></label>
-                                <input type="text" placeholder="City" class="form-control" id="city">
+                                <input type="text" placeholder="City" class="form-control" id="city" required>
                                 <div class="row">
                             <div class="form-group col-md-6">
                                 <label class="login-text" for="username"></label>
-                                <input type="text" placeholder="State" class="form-control" id="state">
+                                <input type="text" placeholder="State" class="form-control" id="state" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="login-text" for="username"></label>
-                                <input type="text" placeholder="Postal code" class="form-control" id="postalcode">
+                                <input type="text" placeholder="Postal code" class="form-control" id="postalcode" required>
                             </div>
                             </div>
                             <div class="form-group" style="padding-bottom: 20px;">
-                                <label class="login-text" for="pass" style="padding-top: 10px;">Phone number</label>
-                                <input type="text" class="form-control" id="phonenumber">
+                                <label class="login-text" for="phonenumber" style="padding-top: 10px;">Phone number</label>
+                                <input type="tel" pattern="^[0-9-+\s()]*$"  maxlength="12" class="form-control" id="phonenumber" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}" required>
                             </div>
                             
-                            <button id="next" value="submit" class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
-                            
+                            <button id="next" type="submit" class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                        </form>   
                     </div>
                     </div>
                 </div>
@@ -167,14 +168,13 @@ i {
         $(document).on('click', function(){
             $('#next').on('click',function(){
                 AddUser();
-                window.location.href = "./register2.html";
             });
         });
 
         function AddUser(){
 
             //get the existing data
-            var existing = localStorage.getItem('user');
+            var existing = localStorage.getItem('register');
 
             // If no existing data, create an array
             // Otherwise, convert the localStorage string to an array
@@ -187,8 +187,15 @@ i {
             existing['user_contact'] = document.getElementById("phonenumber").value;
           
             //set new data to localStorage
-            localStorage.setItem('user', JSON.stringify(existing));
+            localStorage.setItem('register', JSON.stringify(existing));
     
+        }
+
+        function isNumberKey(evt){
+            var charCode = (evt.which) ? evt.which : evt.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
         }
     </script>
 

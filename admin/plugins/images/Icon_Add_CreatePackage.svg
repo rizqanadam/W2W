@@ -1,0 +1,15 @@
+<svg id="Add_Icon" xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 16 16">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #0073bf;
+      }
+    </style>
+  </defs>
+  <rect id="Rectangle_607" data-name="Rectangle 607" class="cls-1" width="16" height="16" rx="2"/>
+  <path id="Icon_material-add" data-name="Icon material-add" class="cls-2" d="M19.5,14.357H14.357V19.5H12.643V14.357H7.5V12.643h5.143V7.5h1.714v5.143H19.5Z" transform="translate(-5.185 -5.471)"/>
+</svg>

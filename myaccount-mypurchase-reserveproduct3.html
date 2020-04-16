@@ -113,7 +113,7 @@
         text-align: center;
         padding: 2px 15px;
         text-decoration: none;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: normal;
     }
 
@@ -253,7 +253,7 @@
                     <div class="col-md-3" style="margin-top: 40px;">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
+                                <img id="profilepicture" src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
                             </div>
                             <div class="col-md-8">
                                 <div id="user_name" style="font-weight: bold; text-transform: capitalize;"></div>
@@ -272,6 +272,7 @@
                                 </ul>
                             </li>
                             <li><a href="./myaccount-notification.html">Notification</a></li>
+                            <li><a href="#">Review & Ratings</a></li>
                         </ul>
                     </div>
 
@@ -290,21 +291,23 @@
                         </div>
 
                         <div>
-                            <div class="card" style="padding: 20px; margin-bottom: 50px;">
-                                <div class="row">
+                            <div id="display_product" class="card" style="padding: 20px; margin-bottom: 50px;">
+                                <!-- <div class="row">
                                     <div class="col-md-2">
                                         <img src="img/organic-compose.jpg">
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="notification-text">We need your confirmation on the reservation you made.</div>
-                                        <p style="font-size: 14px;">Please confirm your purchase to view seller’s contact details:</p>
+                                        <div id="reject_status" style="color: #FF5700; font-size: 16px; font-weight: bold;"></div>
+                                        <div id="reject_status2" style="color: #FF5700; font-size: 16px; font-weight: bold;"></div>
+                                        <div id="notify" class="notification-text">We need your confirmation on the reservation you made.</div>
+                                        <p id="details" style="font-size: 14px;">Please confirm your purchase to view seller’s contact details:</p>
                                     </div>
                                     <div class="col-md-4" style="margin-top: auto;">
                                         <button class="btn btn-success">Confirm</button>
                                         <button class="btn btn-cancell">Cancel</button>
                                     </div>
                                 </div>
-                                <div class="line-bottom"></div>
+                                <div class="line-bottom"></div> -->
                             </div>
                         </div>
                     </div>
@@ -316,7 +319,7 @@
     </div>
 
 
-    <footer class="footer-section footer-stay" style="background-color: #3A595D; margin-top: 15px;">
+    <footer class="footer-section" style="background-color: #3A595D;">
         <div class="container">
             <div class="row" style="padding-top: 5px;">
                 <div class="col-lg-2 ">
@@ -356,7 +359,30 @@
       $userid = localStorage.getItem("user_id");
 
       userData();
-    
+      confirmationlist();
+      
+      $('#display_product').delegate('.accept', 'click', function() {
+            var id = $(this).parent().parent().data('id');
+            console.log(id);
+            var confirmreserve = localStorage.setItem('confirmreserve' , id);
+            confirmproduct();
+            
+      });
+
+      $('#display_product').delegate('.cancel', 'click', function() {
+                var id = $(this).parent().parent().data('id');
+                console.log(id);
+                var cancelreserve = localStorage.setItem('cancelreserve' , id);
+                cancelproduct();
+                $('#notify').html("").css('display', 'none');
+                $('#details').html("").css('display', 'none');
+                $('#cancel_btn').css('display', 'none');
+                $('#confirm_btn').css('display', 'none');
+
+                $('#reject_status').html("You have cancelled the offer you made.");
+                $('#reject_status2').html("Thank you for your business. The seller will be notified upon your cancellation.");
+            });
+
     });
 
     function userData(){
@@ -365,10 +391,50 @@
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-                $("#image1").html(response.profilepicture);
+                $("#profilepicture").attr('src' , response.profilepicture);
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
       });
+    }
+
+    function confirmationlist() {
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/reserve/buyer?status=approved&buyer_id=",
+            data : {"buyer_id" : $userid}
+        }).done(function(response){
+            console.log(response);
+
+            var tr = "";
+
+            $.each(response, function(i,data){
+                tr += '<div data-id='+response[i].id+' class="row"><div class="col-md-2"><img src='+response[i].image[0].image+'  style="width: 70px; height: 70px; object-fit: cover;"></div><div class="col-md-6"><div id="reject_status" style="color: #FF5700; font-size: 16px; font-weight: bold;"></div><div id="reject_status2" style="color: #434343; font-size: 14px;"></div><div id="notify" class="notification-text">We need your confirmation on the reservation you made.</div><p id="details" style="font-size: 14px;">Please confirm your purchase to view seller’s contact details:</p></div><div class="col-md-4" style="margin-top: auto;"><button id="confirm_btn" class="accept btn btn-success">Confirm</button><button id="cancel_btn" class="cancel btn btn-cancell">Cancel</button></div></div><div class="line-bottom"></div>';
+            });
+
+            $('#display_product').html(tr);
+        });
+    }
+
+    function confirmproduct(){
+        var confirmreserve = localStorage.getItem('confirmreserve');
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/reserve/confirm?id=",
+            type : "POST",
+            data : {"id" : confirmreserve}
+        }).done(function(response){
+            console.log(response);
+            window.location.href="./myaccount-mypurchase-reserveproduct4.html";
+        });
+    }
+
+    function cancelproduct(){
+        var cancelreserve = localStorage.getItem('cancelreserve');
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/reserve/cancel?id=",
+            type : "POST",
+            data : { "id" : cancelreserve }
+        }).done(function(response){
+            console.log(response)
+        })
     }
 
     </script>

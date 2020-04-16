@@ -258,7 +258,7 @@ ul ul a {
           <div class="col-md-3" style="margin-top: 40px;">
             <div class="row">
             <div class="col-md-4">
-              <img src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
+              <img id="profilepicture" src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
             </div>
             <div class="col-md-8">
               <div id="user_name" style="font-weight: bold; text-transform:capitalize;"> </div>
@@ -277,22 +277,24 @@ ul ul a {
                 </li>
                   <li><a href="./myaccount-mypurchase-purchasehistory.html">My Purchases</a></li>
                   <li><a href="">Notifications</a></li> 
+                  <li><a href="#">Review & Ratings</a></li>
               </ul>
           </div>
 
           <div class="col-md-8">
             <div class="card" style="margin-bottom: 20px; border: none;">
               <ul class="nav-reserveproduct">
-                <li class="col-md-3"><a class="nav-style" href="./myaccount-myproduct-approveoffer.html">All</a></li>
-                <li class="col-md-3"><a class="active-nav  nav-style" href="./myaccount-myproduct-approveoffer-progress.html">Progress</a></li>
-                <li class="col-md-3"><a class="nav-style" href="./myaccount-myproduct-approveoffer-complete.html">Complete</a></li>
-                <li class="col-md-3"><a class="nav-style" href="./myaccount-myproduct-approveoffer-cancelled.html">Cancelled</a></li>
+                <li style="width: 20%;"><a class="nav-style" href="./myaccount-myproduct-approveoffer.html">All</a></li>
+                <li style="width: 20%;"><a class="active-nav  nav-style" href="./myaccount-myproduct-approveoffer-progress.html">Progress</a></li>
+                <li style="width: 20%;"><a class="nav-style" href="./myaccount-myproduct-approveoffer-complete.html">Complete</a></li>
+                <li style="width: 20%;"><a class="nav-style" href="./myaccount-myproduct-approveoffer-cancelled.html">Cancelled</a></li>
+                <li style="width: 20%;"><a class="nav-style" href="./myaccount-myproduct-approveoffer-sold.html">Sold</a></li>
               </ul>
             </div>
              
             <div class="card" style="padding: 20px; margin-bottom: 50px;">
               <div id="display_product">
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-md-2">
                     <img src="img/organic-compose.jpg">
                   </div>
@@ -304,7 +306,7 @@ ul ul a {
                     </div>
                   </div>
                 </div>
-                <div class="line-bottom"></div>
+                <div class="line-bottom"></div> -->
                 
               </div>
               </div>
@@ -344,6 +346,7 @@ ul ul a {
             $usertype = localStorage.getItem("user_type");
           
             userData();
+            listapprove();
 
             $('#btn_logout').on('click', function(){
                 localStorage.clear();
@@ -359,7 +362,7 @@ ul ul a {
             data: { "user_id" : $userid },
             success: function(response){
               console.log(response);
-                $("#image1").html(response.profilepicture);
+                $("#profilepicture").attr('src' , response.profilepicture);
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
           });
@@ -377,6 +380,24 @@ ul ul a {
                 };
                 reader.readAsDataURL(input.files[0]);
             }
+        }
+
+        function listapprove() {
+          $.ajax({
+            url : "http://codeviable.com/w2w2/public/reserve/seller?status=approved&user_id=",
+            type : "GET",
+            data : {"user_id" : $userid}
+          }).done(function(response){
+            console.log(response);
+
+            var tr = "";
+
+            $.each(response,function(i,data){
+              tr += '<div class="row"><div class="col-md-2"><img src='+response[i].image[0].image+' style="width: 70px; height: 70px; object-fit: cover;"></div><div class="col-md-6"><p style="font-weight: bold; color: #FF5700;">Compose</p><div style="margin-top: 20px;"><div style="font-size: 12px;">You have accepted the offer.</div><div style="font-size: 12px;">Waiting for the buyer to confirm the purchase.</div></div></div></div><div class="line-bottom"></div>';
+            });
+
+            $('#display_product').html(tr);
+          })
         }
     </script>
 

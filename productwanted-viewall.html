@@ -276,7 +276,8 @@ i {
                 </ul>
             </div>
             
-            <div class="row">
+            <div id="product_display">
+            <!-- <div class="row">
                 <div class="col-md-2">
                     <img src="img/energy.jpg"></div>
                 <div class="col-md-7">
@@ -326,9 +327,10 @@ i {
                     <p>Dec 16 2019</p>
                     <p>Pasir Gudang, Johor</p>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="line-bottom"></div>
+            <!-- <div class="line-bottom"></div> -->
+            </div>
           </div>
 
           <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
@@ -379,52 +381,52 @@ i {
         <!-- Text to trigger modal -->
     
      
-    <div class="col-md-5" style="margin-right: auto;"></div>
-            <div class="modal fade" id="myModal2">
-              <div class="modal-dialog modal-dialog-centered">
-                
-                    <div class="row" style="padding: 20px; width: 350px; position: absolute; left: 50%; top: 40%; margin-left: -150px;margin-top: -150px;">
-                        <div class="modal-content">
-                            <div class="card" style="padding: 20px; width: 350px;">
-                            <div class="login-form">
-                                <h2 style="text-align: left; margin-bottom: 10px;">Sign in</h2>
-                                    <div class="login-text" style="text-align: left; padding-bottom: 20px">
-                                        <p>New User?
-                                            <a href="./choose-register.html" class="or-login" style="color: #0099FF;">Create an account</a>
-                                        </p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="login-text" for="username">Email </label>
-                                        <input type="text" class="form-control" id="email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="login-text" for="pass">Password </label>
-                                        <input type="password" class="form-control" id="password" required>
-                                    </div>
-                                    <div class="group-input">
-                                        <div class="gi-more">
-                                            <label class="login-text" for="save-pass">
-                                                Keep me signed in.
-                                                <input type="checkbox" id="save-pass">
-                                                <span id="keepme_signedin" class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <button  id="signin" value="submit" class="site-btn btn login-btn" style="color: white; text-transform: initial; width: 100%">Sign In</button>
-                                    </div>
-                                    <div>
-                                        <a href="#" class="forget-pass float-right login-text" style="color: #D91F1F; padding-top: 20px;">Forgot pasword?</a>
-                                    </div>
+<!-- Sign in modal -->
+<div class="modal fade" id="signinmodal">
+    <div class="modal-dialog modal-dialog-centered">
+      
+          <div class="row" style="padding: 20px; width: 350px; position: absolute; left: 50%; top: 30%; margin-left: -150px;margin-top: -150px;">
+              <div class="modal-content">
+                  <div class="card" style="padding: 20px; width: 350px;">
+                  <div class="login-form">
+                      <h2 style="text-align: left; margin-bottom: 10px;">Sign in</h2>
+                          <div class="login-text" style="text-align: left; padding-bottom: 20px">
+                              <p>New User?
+                                  <a href="./choose-register.html" class="or-login" style="color: #0099FF;">Create an account</a>
+                              </p>
+                          </div>
+                          <form id="signinform" onsubmit="return false">
+                            <div class="form-group">
+                                <label class="login-text" for="username">Email </label>
+                                <input type="text" class="form-control" id="email" required>
                             </div>
+                            <div class="form-group">
+                                <label class="login-text" for="pass">Password </label>
+                                <input type="password" class="form-control" id="password" required>
                             </div>
-                        
-                        </div>
-                    </div>
+                            <div class="group-input">
+                                <div class="gi-more">
+                                    <label class="login-text" for="save-pass">
+                                        Keep me signed in.
+                                        <input type="checkbox" id="save-pass">
+                                        <span id="keepme_signedin" class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <button  id="signin" value="submit" class="site-btn btn login-btn" style="color: white; text-transform: initial; width: 100%">Sign In</button>
+                            </div>
+                          </form>
+                          <div>
+                              <a href="#" class="forget-pass float-right login-text" style="color: #D91F1F; padding-top: 20px;">Forgot pasword?</a>
+                          </div>
+                  </div>
+                  </div>
+              
               </div>
-            </div>
-         
+          </div>
     </div>
+  </div>
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -465,57 +467,50 @@ i {
         document.documentElement.scrollTop = 0;
         }
 
-        // $(document).ready(function(){
-        //     displayListProduct();
+        $(document).ready(function(){
+            displayListProduct();
 
-        //     $('#signin').on('click',function(){
-        //             LoginUser();    
-        //     });
-        // })
+            $('#signin').on('click',function(){
+                    LoginUser();    
+            });
+        })
 
-        // function displayListProduct (){
-        //     $.ajax({
-        //         url: "http://codeviable.com/w2w2/public/product/type?mainstatus=wanted",
-        //         type: "GET",
-        //     }).done(function(response){
+        function displayListProduct (){
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/product/type?mainstatus=wanted",
+                type: "GET",
+            }).done(function(response){
+                console.log(response)
+                var tr = "";
 
-        //         var tr = "";
-        //         var dummyImg = 'img/organic-compose.jpg';
+                $.each(response, function(i, data){
+                    tr += '<div class="row"><div class="col-md-2"><img src='+response[i].product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;" ></div><div class="col-md-7"><div style="font-size: 18px; margin-bottom: 10px;">'+response[i].product_name+'<i class="fa fa-fire" style="color: red;"></i></div><p>'+response[i].product_desc+'</p><label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><a id="signin"><div style="color: blue; cursor: pointer;" data-toggle="modal" data-dismiss="modal" data-target="#signinmodal"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact details</div></a></div><div class="col-md-3 text-right"><p>'+response[i].updated_at+'</p><p>'+response[i].product_location[0].location+", "+response[i].product_state[0].state+'</p></div></div>';
+                    tr += '<div class="line-bottom"></div>';
+                })
 
-        //         $.each(response, function(i, data){
-        //             tr += '<div class="row"><div class="col-md-2"><img src="'+ dummyImg+'"></div><div class="col-md-7"><div style="font-size: 18px; text-transform:capitalize;">' + data.product_name + '</div><p style="text-transform:capitalize;">'+data.product_category+'</p><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px; text-transform:capitalize;">'+ data.product_description +'</div><div class="contact-text"><i class="fa fa-phone" style="color: gray;"></i><a href="#myModal2" class="texttrigger" data-toggle="modal" style="color:blue;"> Log in to view contact detail</a></div></div><div class="col-md-3 text-right"><p>Dec 16 2019</p><p style="text-transform:capitalize;">'+ data.product_location +'</p></div></div>';
-        //             tr += '<div class="line-bottom"></div>';
-        //         })
+                $("#product_display").html(tr);
+            })
+        }
 
-        //         $("#product_display").html(tr);
-        //     })
-        // }
+        function LoginUser(){
+        var email = $('#email').val();
+        var password = $('#password').val();
 
-        // function LoginUser(){
-        //     var email = $('#email').val();
-        //     var password = $('#password').val();
-
-        //     if( email !== "" && password !== ""){
-        //         $.ajax({
-        //             url: 'http://codeviable.com/w2w2/public/login?user_email=&password=',
-        //             type: 'POST',
-        //             data: { 'user_email' : email, 'password' : password },
-        //             success: function (response){
-        //                 if(response.email === email && response.password === password){
-        //                     console.log(response);
-        //                     console.log("Logged in");
-        //                     localStorage.setItem("user_id", JSON.stringify(response.id));
-        //                     window.location.href = "./productwanted1-viewall.html"; 
-        //                 }
-        //                 else{
-        //                     console.log(response);
-        //                     console.log("Invalid email/password");}
-        //             }
-        //         });
-        //     }
-        //     else
-        //         console.log("Please fill all fields.");   
-        // }
+            $.ajax({
+                url: 'http://codeviable.com/w2w2/public/login?user_email=&password=',
+                type: 'POST',
+                data: { 'user_email' : email, 'password' : password },
+                success: function (response){
+                    if(response[0].user_email === email && response[0].password === password || response[0].email === email && response[0].password === password ){
+                        console.log(response[0]);
+                        console.log("Logged in");
+                        localStorage.setItem("user_id", JSON.stringify(response[0].user_id));
+                        localStorage.setItem("user_type", JSON.stringify(response[0].user_type));
+                        window.location.href = "./productwanted1-viewall.html"; 
+                    }
+                }
+            });
+    } 
     </script>
 </body>
 

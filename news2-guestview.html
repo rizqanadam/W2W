@@ -148,46 +148,19 @@ i {
         <div class="col-md-10 mx-auto">
             <div class="col-md-10 mx-auto">
                 <div >
-                    <a href="./news-guestview.html" style="color: #0099FF; text-decoration: underline;"><- Back to news list</a>
+                    <a href="./news-guestview.html" style="color: #0099FF; text-decoration: underline; margin-bottom: 10px;"><- Back to news list</a>
                 </div>
-                <div style="margin-top: 20px;" >
-                    <div  style="font-size: 24px; font-weight: bold;">The Hidden Power of Reward Systems In Design</div>
-                    <div  style="font-size: 16px; color: #707070;">How to design effective and responsible rewards</div>
-                    <div style="font-size: 16px; margin-top: 10px; font-style: italic;"> Published on 30 April 2019</div>
-                </div>
-                <div style="padding-bottom: 20px;"> 
-                    <img style="margin: 15px;  object-fit: cover;" src="img/news.png">
-                </div>
-
-                <div  style="padding-bottom: 40px;">
-                    <div  style="font-size: 24px; font-weight: bold;">Rewards are powerful</div>
-                    <div  class="text" style="margin-top: 15px; font-size: 18px; color: #707070; text-align: justify; ">You’ve most likely downloaded a new app for your phone, only to delete it a few days later or never open it again. You may have also caught yourself scrolling through your Instagram feed for hours at a time, with no real reason. It’s clear that certain digital products know how to ingrain themselves in our daily routines while others cannot seem to get more than one or two uses. The most popular apps use reward systems to increase retention, engagement and organic sharing amongst its users. Reward systems are a powerful tool for designers to ensure that users get the most value out of their products.</div>
-                </div>
-
-                <div  style="padding-bottom: 40px;">
-                    <div  style="font-size: 24px; font-weight: bold;">Different Delivery Methods</div>
-                    <div  class="text" style="margin-top: 15px; font-size: 18px; color: #707070; text-align: justify; ">Every day we’re rewarded for using digital products even if we’re not aware of it. These rewards are not always as obvious and the most subtle ones are usually the most effective. Even if a product uses all these delivery methods, the reward should always resonate on an emotional level with the user in order for it to be effective. The more powerful the emotion, the more successful the reward tends to be.</div>
-                </div>
-
-                <div  style="padding-bottom: 40px;">
-                    <div  style="font-size: 24px; font-weight: bold;">Slot Machine Mechanics</div>
-                    <div  class="text" style="margin-top: 15px; font-size: 18px; color: #707070; text-align: justify; ">In 2008, software developer Loren Brichter founded Tweetie, an app client for Twitter. Not long after, Twitter acquired Tweetie and turned the 3rd party app into its official iPhone app. As a result, Twitter was able to solidify its space in the app store and also brought the“pull-to-refresh” feature to the masses.</div>
-                </div>
-
-                <div style="padding-bottom: 20px;"> 
-                    <img style="margin: 15px;  object-fit: cover;" src="img/news.png">
-                </div>
-
-                <div  style="padding-bottom: 40px;">
-                    <div  style="font-size: 24px; font-weight: bold;">Conclusion</div>
-                    <div  class="text" style="margin-top: 15px; font-size: 18px; color: #707070; text-align: justify; ">Digital products are not limited to using only one reward, as you’ll likely see that your favorite apps use many delivery methods. When used responsibly, rewards can be a great way for users to see the value in your product, adding a deeper level of engagement to your product as a result.</div>
+                <div id="published" style="font-size: 14px; color: #C4C4C4; margin-bottom: 10px;"></div>
+                <div id="content">
+                    
                 </div>
             </div>
-    </div>
+        </div>
         
     </div>
     </div>
-
+    
+    <div style="padding-bottom: 40px;"></div>
     <div class="col-md-12" style="background-color: #F2F2F2; width: 1920px; height: 390px;">
         <div class="col-md-9" style="padding: 20px; margin-left: auto; margin-right: auto;">
             <div  style="font-size: 20px; font-weight: bold;">More News</div>
@@ -253,3 +226,22 @@ i {
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+        $newsdisplay = localStorage.getItem('news_display')
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/news/detail?news_id=",
+            type : "GET",
+            data : { "news_id" : $newsdisplay }
+        }).done(function(response){
+            console.log(response)
+            //display publish date in formatted
+            var date = response.updated_at[0] + response.updated_at[1] + " " + response.updated_at[3] + response.updated_at[4] + response.updated_at[5] + " " + response.updated_at[7] + response.updated_at[8] + response.updated_at[9] + response.updated_at[10];
+
+            $('#published').html('Published on, '+ date);
+            $('#content').html(response.news_desc);
+        });
+        })
+    </script>

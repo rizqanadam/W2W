@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.118" height="17.115" viewBox="0 0 30 25.5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path id="Icon_material-home" data-name="Icon material-home" class="cls-1" d="M15,30V21h6v9h7.5V18H33L18,4.5,3,18H7.5V30Z" transform="translate(-3 -4.5)"/>
+</svg>

@@ -107,6 +107,7 @@ i {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -154,9 +155,9 @@ i {
                         </div>
                         <div class="dropdown">
                             <button class="btn" style="color: goldenrod;"><a href="#"></a><i class="fa fa-credit-card"></i>  Token</button>
-                            <div class="dropdown-content">
-                                <div style="font-size: 14px; font-weight: bold; margin-bottom: 10px;">Balance : 50 Tokens</div>
-                                <a href="#">Buy Token</a>
+                            <div id="token_bal" class="dropdown-content">
+                                <!-- <div style="font-size: 14px; font-weight: bold; margin-bottom: 10px;">Balance : 50 Tokens</div>
+                                <a href="#">Buy Token</a> -->
                             </div>
                         </div>
                         <button onclick="window.location.href='./index1.html';" class="btn">Home</button>
@@ -178,14 +179,13 @@ i {
     </div>
         <div class="nav-item">
             <div class="container" style="display: flex;">
-                <button class="btn btn-primary" style="margin: 10px;">ADMINISTRATOR</button>
                 <nav class="nav-menu mobile-menu" style="margin-right: auto; margin-left: auto;">
                     <ul style="margin-bottom: 0px; margin-top: 0px;">
                         <li class="active"><a href="./index.html">Home</a></li>
                         <li><a href="./productlistings1-viewall.html">Available</a></li>
                         <li><a href="./productwanted1-viewall.html">Wanted</a></li>
                         <li><a href="./package-registered.html">Pricing</a></li>
-                        <li><a href="#">News</a></li>
+                        <li><a href="./news-userview.html">News</a></li>
                         <li><a href="./enquiry-form-userview.html">Contact Us</a></li>
                     </ul>
                 </nav>
@@ -673,5 +673,27 @@ i {
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 </body>
-
 </html>
+
+<script>
+
+    $(document).ready(function(){
+        $userid = localStorage.getItem('user_id');
+        balanceToken();
+    });
+
+    function balanceToken() {
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/user/detail?user_id=",
+            type : "GET",
+            data : { "user_id" : $userid },
+        }).done(function(response){
+            var tr = "";
+            tr += '<div style="font-size: 14px; margin-bottom: 5px; color: #8B8B8B; text-align: left;">Balance:'+response.balancetoken+' Tokens</div>',
+            tr += '<hr>'
+            tr += '<a href="./packagetoken-registered.html" style="font-size: 14px;">Buy Token</a>',
+            $('#token_bal').html(tr);                      
+        });
+    }
+
+</script>

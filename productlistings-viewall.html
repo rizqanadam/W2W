@@ -272,9 +272,9 @@ i {
                 </ul>
             </div>
             
-            <!-- <div id="product_display"></div> -->
-            <div>
-                <div class="row">
+
+            <div id="product_display">
+                <!-- <div class="row">
                   <div class="col-md-2">
                     <img src="img/organic-compose.jpg">
                   </div>
@@ -333,7 +333,7 @@ i {
 
                   <div class="row">
                     <div class="col-md-2">
-                      <img src="img/organic-compose.jpg">
+                      <a href="./productdetails-defaultview.html"></a><img src="img/organic-compose.jpg">
                     </div>
                     <div class="col-md-7">
                       <div style="font-size: 18px;">Plastic pellets</div>
@@ -348,7 +348,7 @@ i {
                     </div>
                   </div>
       
-                  <div class="line-bottom"></div>
+                  <div class="line-bottom"></div> -->
 
               </div>
               </div>           
@@ -357,27 +357,13 @@ i {
             <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
         
           <div class="col-md-6" style="margin-left: auto; margin-right: auto; margin-bottom: 40px;">
-              <div class="row">
-                    <div class="col-md 1">
-                        <button class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-left"></i></button>
+              <div class="row" style="justify-content: center;">
+                    <div class="col-md-1">
+                        <button onclick="previousPage();" class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-left"></i></button>
                     </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-primary" style="width: 100%;">1</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-number" style="width: 100%;">2</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-number" style="width: 100%;">3</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-number" style="width: 100%;">4</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-number" style="width: 100%;">5</button>
-                    </div>
-                    <div class="col-md 1">
-                        <button class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-right"></i></button>
+                    <div id="pagination" style="display: contents;"></div>
+                    <div class="col-md-1">
+                        <button onclick="nextPage();"  class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-right"></i></button>
                     </div>
               </div>
           </div>
@@ -440,35 +426,83 @@ i {
         document.documentElement.scrollTop = 0;
         }
 
-        // When the user clicks on the button, scroll to the top of the document
-        // function topFunction() {
-        // document.body.scrollTop = 0;
-        // document.documentElement.scrollTop = 0;
-        // }
+        $(document).ready(function(){
+            $newList = [];
+            $tempArr = [];
+            getRequest();
+            // loadData();
+            // nextPage();
+            // previousPage();
+            
 
-        // $(document).ready(function(){
-        //     displayListProduct();
-        // })
+            $('#pagination').delegate('button', 'click', function() {
+                var id = $(this).data('id');
+                console.log($newList[id]);
+                var tr = "";
+                $.each($newList[id], function (i, data) {
+                    console.log(data);
+                    //display date in formatted
+                    var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
 
-        // function displayListProduct (){
-        //     $.ajax({
-        //         url: "http://codeviable.com/w2w2/public/product/type?mainstatus=available",
-        //         type: "GET",
-        //     }).done(function(response){
+                    tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: contain;" ></div><div class="title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px; cursor: pointer;"><a  style="color: black;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                    tr += '<div class="line-bottom"></div>';
+                });
+                    
+                $('#product_display').html(tr);    
+            });
 
-        //         var tr = "";
-        //         var dummyImg = 'img/organic-compose.jpg';
+            $('#product_display').delegate('.title', 'click', function() {
+                var id = $(this).parent().data('index');
+                console.log(id);
+                var product_detail = localStorage.setItem('product_detail' , id);
+                window.location.href="./productdetails-defaultview.html"
+            });
+                
+        })
 
-        //         $.each(response, function(i, data){
-        //             tr += '<div class="row"><div class="col-md-2"><img src="'+ dummyImg +'"></div><div class="col-md-7"><div style="font-size: 18px; text-transform:capitalize;">'+ data.product_name +'</div><div class="price-tag" style="text-transform:capitalize;">RM'+data.product_price+'</div><div style="font-size: 18px;color: #8B8B8B; position: absolute;bottom: 0; text-transform:capitalize;">'+ data.mainstatus+'</div></div><div class="col-md-3 text-right"><p>Dec 16 2019</p><p style="text-transform:capitalize;">'+ data.product_location+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
-        //             tr += '<div class="line-bottom"></div>';
-        //         })
+        function getRequest() {
+            $.ajax({
+                url: 'http://codeviable.com/w2w2/public/product/type?mainstatus=available',
+                type: "GET"
+            }).done(function (response) {
+                var data = response;
+                var currentIndex = 0;
+                var length = response.length;
+                console.log(length)
 
-        //         $("#product_display").html(tr);
-        //     })
-        // }
+                $.each(response, function (i, data) {
+                    var index = i + 1;
+                    $tempArr.push(data);
+                    $newList[currentIndex] = $tempArr;
+                    if (index % 10 == 0) {
+                        currentIndex++;
+                        $tempArr = [];
+                    }
+                });
+
+                console.log($newList);
+                var pageBtn = $('#pagination');
+                pageBtn.html('');
+                for(var i=0; i<$newList.length; i++) {
+                    pageBtn.append('<div class="col-md-2"><button data-id=' + i + ' class="btn btn-number" style="width: 100%;">'+(i+1)+'</button></div>');
+                }
+
+                var tr = "";
+                $.each($newList[0], function (i, data) {                 
+                    //display date in formatted
+                    var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
+
+                    tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: contain;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                    tr += '<div class="line-bottom"></div>';
+                });
+                $('#product_display').html(tr); 
+
+                
+            });
+        }
 
     </script>
+
 </body>
 
 </html>

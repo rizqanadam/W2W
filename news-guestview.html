@@ -141,9 +141,9 @@ i {
         </header>
         <!-- Header End -->
 
-        <div class="col-md-10 mx-auto" style="padding: 40px; margin-bottom: 50px;">
+        <div id="news_list" class="col-md-10 mx-auto" style="padding: 40px; margin-bottom: 50px;">
             
-                <div class="row mx-auto">
+                <!-- <div class="row mx-auto">
                     <div class="col-md-8">
                         <a href="./news2-guestview.html" style="color: black;"><div style="font-size: 20px; font-weight: bold; padding-bottom: 10px;">The Hidden Power of Reward Systems In Design</div></a>
                         <div style="font-size: 16px; color: #707070;">An interactive prototype and an illustrated description of the Breakpoints tool that could be implemented in Figma.</div>
@@ -178,7 +178,7 @@ i {
                     <div class="col-md-4">
                         <img style="width: 152px; height: 152px; object-fit: cover;" src="img/news.png">
                     </div>
-                </div>
+                </div> -->
             
         </div>
        
@@ -219,3 +219,36 @@ i {
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/news",
+                type : "GET",
+            }).done(function(response){
+                console.log(response)
+               
+                var tr = "";
+
+                $.each(response, function(i,data){
+                     //display publish date in formatted
+                    var date = response[i].updated_at[0] + response[i].updated_at[1] + " " + response[i].updated_at[3] + response[i].updated_at[4] + response[i].updated_at[5] + " " + response[i].updated_at[7] + response[i].updated_at[8] + response[i].updated_at[9] + response[i].updated_at[10];
+
+                    tr += '<div data-id='+response[i].news_id+' class="row mx-auto"><div class="title col-md-8"><a id="title" style="color: black; cursor: pointer;"><div  style="font-size: 20px; font-weight: bold; padding-bottom: 10px;">'+response[i].news_title+'</div></a><div style="font-size: 16px; color: #707070;">'+response[i].shortdesc+'</div><div style="font-size: 16px; margin-top: 20px; font-style: italic;">'+date+'</div></div><div class="col-md-4"><img style="width: 152px; height: 152px; object-fit: cover;" src="img/news.png"></div></div>';
+                    tr += '<div style="padding: 40px;"></div>';
+
+                    $('#' + response[i].news_id).data('id', response[i].news_id);
+
+                });
+
+                $("#news_list").html(tr);
+
+                $('#news_list').delegate('.title', 'click', function() {
+                    var id = $(this).parent().data('id');
+                    var news_display = localStorage.setItem('news_display', id);
+                    window.location.href = "./news2-userview.html";
+                    console.log(id);
+                });
+            });
+        })
+    </script>

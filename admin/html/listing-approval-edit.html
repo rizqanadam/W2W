@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /*z-index: 1;*/
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+    color: #27AE60 ;
+}
+p {
+    font-family: 'Roboto' !important;
+    font-weight: bold;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.table{
+    font-family: 'Roboto' !important;
+}
+
+.center-table{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+.paginate_button {
+    border: 10px;
+    padding: 10px;
+    background-color: white;
+    margin: 0;
+    color: #0099FF;
+    cursor: pointer;
+}
+div#approval_table_paginate.dataTables_paginate.paging_simple_numbers{
+    margin: 15px;
+}
+a.paginate_button.current{
+    background-color: #0099FF;
+    color: white;
+}
+a#approval_table_next.paginate_button.next.disabled,
+a#approval_table_previous.paginate_button.previous.disabled,
+#approval_table_previous{
+    color: #B5B5B5;
+}
+a#approval_table_previous.paginate_button.previous,
+#approval_table_next{
+    color: #0099FF;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd){
+    background-color: #F4F4F4 !important;
+}
+
+.dataTables_info,
+.dataTables_length {
+    float: left;
+}
+
+
+.verticalLine {
+  border-right: thin solid #707070 !important;
+  height: 40px;
+  display: inline-block;
+}
+
+.box-text{
+    font-family: 'Roboto' !important;
+}
+
+.popover{
+    width: 60%;
+}
+
+.icon-center {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: auto;
+        margin-left: auto;
+}
+
+.padding_side{
+    margin-top: 4px; 
+    padding: 15px 35px 15px 20px;
+}
+
+.padding_side_sub{
+    padding: 15px 35px 15px 20px;
+}
+
+.side_active{
+    background: rgba(0, 0, 0, 0.07);
+    color: #41b3f9;
+    border-left: 3px solid #41b3f9;
+    font-weight: 500;
+}
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+span.checkmark {
+    border-radius: 5px;
+}
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/website-logo.png">
+    <title>Admin - W2W</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet"> 
+    <!-- morris CSS -->
+    <link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="../plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- <link href=“https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css” rel="stylesheet"> -->
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/b-1.6.1/b-flash-1.6.1/r-2.2.3/sp-1.0.1/sl-1.3.1/datatables.min.css"/>  -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+              <a class="logo" href="dashboard.html">
+                <b>
+                <div class="top-left-header" style="margin-left:10px;">
+                  <img src="../plugins/images/website-logo.png" style="width:94px; height:50px;">
+                </div>
+              </b>
+              </a>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <a href="#" class="waves-effect"><i size="3x"class="fa fa-envelope fa-fw" style=" color: lightgray;"aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect"><i class="fa fa-bell fa-fw" style="color: lightgray;"aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                      <div class="v1" style="margin: 16px; border-left: 1px solid lightgray;height: 25px;"></div>
+                    </li>
+                    <li>
+                        <div class="dropdown" style="margin: 5px;">
+                        <button class="btn btn-light" style=" background-color: transparent; border:none;"><a href="#"></a>John Doe  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
+                        <img src="../plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle">
+                        </button>
+                          <div class="dropdown-content" style="margin-left: -70px;">
+                            <a href="#">Logout</a>
+                          </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 70px 0 0;">
+                        <a href="dashboard.html" class="waves-effect "><img src="../plugins/images/Icon_Home.svg">&nbsp;&nbsp;&nbsp;Home</a>
+                    </li>
+                    <li>
+                        <a href="inbox.html" class="waves-effect "><img src="../plugins/images/inbox.png">&nbsp;&nbsp;&nbsp;Inbox</a>
+                    </li>
+                    <li>
+                        <a href="user" class="waves-effect "><img src="../plugins/images/users.png">&nbsp;&nbsp;&nbsp;Users<i class="fa fa-angle-down fa-fw" style="padding-left: 108px; size: 4x;"></i></a>
+                        <ul>
+                            <a href="./user-listing-company.html" class="waves-effect padding_side "><img src="../plugins/images/company.png">&nbsp;&nbsp;&nbsp;Company</a>
+                            <a href="./user-listing-individual.html" class="waves-effect active padding_side "><img src="../plugins/images/user.png">&nbsp;&nbsp;&nbsp;Individual</a>
+                        </ul>
+                    </li>
+                    <li> 
+                        <a href="listing" class="waves-effect active"><img src="../plugins/images/listing.png">&nbsp;&nbsp;&nbsp;Listing<i class="fa fa-angle-down fa-fw" style="padding-left: 100px; size: 4x;"></i></a>
+                        <ul style="display: block;">
+                            <a href="./listing-approval.html"class="waves-effect padding_side side_active"><img src="../plugins/images/approval.png">&nbsp;&nbsp;&nbsp;Approval</a>
+                            <a href="./listing-available.html" class="waves-effect padding_side"><img src="../plugins/images/Icon_Available.svg">&nbsp;&nbsp;&nbsp;Available</a>
+                            <a href="./listing-wanted.html" class="waves-effect padding_side"><img src="../plugins/images/wanted.png">&nbsp;&nbsp;&nbsp;Wanted</a>
+                            <a href="./listing-comment.html" class="waves-effect padding_side"><img src="../plugins/images/comment_icon.png">&nbsp;&nbsp;&nbsp;Comment</a>
+                            <a href="./listing-formmanagement.html" class="waves-effect padding_side"><img src="../plugins/images/form_icon.png">&nbsp;&nbsp;&nbsp;Form Management</a>
+                            <a href="./listing-productcategory.html" class="waves-effect padding_side"><img src="../plugins/images/category_icon.png">&nbsp;&nbsp;&nbsp;Product Category</a>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="pricing" class="waves-effect "><img src="../plugins/images/box.svg">&nbsp;&nbsp;&nbsp;Pricing<i class="fa fa-angle-down fa-fw" style="padding-left: 105px; size: 4x;"></i></a>
+                        <ul>
+                            <a href="./pricing-package.html" class="waves-effect padding_side"><img src="../plugins/images/Pricing_Package.svg">&nbsp;&nbsp;&nbsp;Package</a>
+                            <a href="./pricing-token.html" class="waves-effect padding_side"><img src="../plugins/images/Pricing_Token.svg">&nbsp;&nbsp;&nbsp;Token</a>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="contentM" class="waves-effect"><img src="../plugins/images/content_management.svg">&nbsp;&nbsp;&nbsp;Content Management<i class="fa fa-angle-down fa-sm" style="padding-left: 16px;"></i></a>
+                        <ul>
+                            <a href="./contentmanagement-news.html" class="waves-effect  padding_side "><img src="../plugins/images/ConMngmt_News.svg">&nbsp;&nbsp;&nbsp;News</a>
+                            <a href="./contentmanagement-banner.html" class="waves-effect  padding_side "><img src="../plugins/images/banner.svg">&nbsp;&nbsp;&nbsp;Banner</a>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="./enquiry.html" class="waves-effect"><img src="../plugins/images/exclusion.svg">&nbsp;&nbsp;&nbsp;Enquiry</a>
+                    </li>
+                    <li>
+                        <a href="userM" class="waves-effect"><img src="../plugins/images/folder-open-solid.svg">&nbsp;&nbsp;&nbsp;User Management<i class="fa fa-angle-down fa-sm" style="padding-left: 27px;"></i></a>
+                        <ul>
+                            <a href="#" class="waves-effect active padding_side "><img src="../plugins/images/circle-regular.svg">&nbsp;&nbsp;&nbsp;Users</a>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title" style="background-color: transparent; margin-top: 20px;">
+                    <div class="col-md-4">
+                        <div class="verticalLine"><div style="font-size: 28px; font-weight: bold;">Listing &nbsp;&nbsp;</div></div>
+                        <i style="padding-left: 10px; color: #707070;" class="fa fa-home fa-lg" aria-hidden="true">&nbsp;&nbsp;<i class="fa fa-angle-right fa-lg"></i>&nbsp;&nbsp;<a style="font-family: 'Roboto'; font-size: 15px; color: #707070;">Approval</a></i>
+                    </div>
+                   
+                </div>
+           
+                <div class="row mx-auto">
+                    <div class="col-md-4">
+                        <a id="back" href="./listing-approval.html" style="color: #0099FF; font-weight: 500;">< back to list approval</a>
+                    </div>
+                    <div class="col-md-8 text-right">
+                        <button id="exportbutton" type="button" class="btn" style="background-color: #27AE60; color: white;"><img src="../plugins/images/export.svg">&nbsp;&nbsp;Export</button>
+                        <button class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button>
+                    </div>
+                </div><br>
+                
+                <div class="white-box box-text" id="allInformation">
+                    <div class="card" style="border: 1px solid #E5E5E5; border-radius: 4px;">
+                        <div style="background-color:#E5E5E5; color:lightslategray; padding: 10px; margin-bottom: 10px;">Material Information</div>
+                        <div style="padding-left: 30px;">
+                            <div class="row" style="margin-top: 30px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">ID</div>
+                                <div id="product_id" class="col-md-9"style="color: black;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Date</div>
+                                <div id="product_date" class="col-md-9" style="color: black;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Name of Material</div>
+                                <div id="product_name" class="col-md-9" style="color: black; text-transform: capitalize;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Type of Ad&nbsp;<i class="fa fa-info-circle" id="showinfoad" 
+                                    style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Available ('I want to sell...'),
+                                    Wanted ('I want to buy')." data-placement="bottom"></i></div> 
+                                <div id="type_ad" class="col-md-9" style="color: black; text-transform: capitalize;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">State of Material</div>
+                                <div id="product_material" class="col-md-9" style="color: black; text-transform: capitalize;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Category</div>
+                                <div id="product_category" class="col-md-9" style="color: black; text-transform: capitalize;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Product Season&nbsp;<i class="fa fa-info-circle" id="showinfoseason" 
+                                    style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Period of products availability throughout the year" data-placement="bottom"></i></div> 
+                                <div id="product_continuity" class="col-md-9" style="color: black; text-transform: capitalize;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Quantity & Unit</div>
+                                <div id="quantity_unit" class="col-md-9" style="color: black;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Price</div>
+                                <div id="product_price" class="col-md-9" style="color: black;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Shelflife&nbsp;<i class="fa fa-info-circle" id="showinfoshelflife" 
+                                    style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="The length of time for which an item remains usable, fit for consumption, or saleable." data-placement="bottom"></i></div> 
+                                <div id="product_period" class="col-md-9" style="color: black; text-transform: capitalize;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Advertisment Period</div>
+                                <div id="ad_period" class="col-md-9" style="color: black;">6 Months</div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Location</div>
+                                <div id="product_location" class="col-md-9" style="color: black; text-transform: capitalize;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">State</div>
+                                <div id="product_state" class="col-md-9" style="color: black; text-transform: capitalize;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Transportation Mode</div>
+                                <div id="product_transport" class="col-md-9" style="color: black;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Additional Information</div>
+                                <div id="product_desc" class="col-md-9" style="color: black; text-transform: capitalize;">We can supply 80 mton on monthly basis.</div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Suggested Customer&nbsp;<i class="fa fa-info-circle" id="showinfosuggested" 
+                                    style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Recommended type of buyer for this product" data-placement="bottom"></i></div> 
+                                <div class="col-md-9" style="color: black;"><textarea id="product_target" style="width: 90%;" id="product_desc" type="text" class="form-control"></textarea></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px; padding-left: 265px; padding-bottom: 30px;">                           
+                                    <button id="savebutton" class="btn" style="background-color:#0099FF; color:white;">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card" style="border: 1px solid #E5E5E5; border-radius: 4px;">
+                        <div style="background-color:#E5E5E5; color:lightslategray; padding: 10px; margin-bottom: 10px;">Contact Information</div>
+                        <div style="padding-left: 30px;">
+                            <div class="row" style="margin-top: 30px;">
+                                <div id="id_name" class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Company Name</div>
+                                <div id="companyname" class="col-md-9"style="color: black; text-transform: capitalize;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Email Address</div>
+                                <div id="companyemail" class="col-md-9" style="color: black;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Telephone Number</div>
+                                <div id="companycontact" class="col-md-9" style="color: black;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Person-in-charge</div>
+                                <div id="pic" class="col-md-9" style="color: black; text-transform: capitalize;"></div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px; padding-bottom: 30px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Phone</div>
+                                <div id="contact_pic" class="col-md-9" style="color: black;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card" style="border: 1px solid #E5E5E5; border-radius: 4px;">
+                        <div style="background-color:#E5E5E5; color:lightslategray; padding: 10px; margin-bottom: 10px;">Photos Attachment</div>
+                        <div style="padding-left: 30px;">
+                            <div class="row" style="margin-top: 30px;">
+                                <div class="col-md-2">
+                                    <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
+                                    <div id="openFile1" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                    <img id="previewProfile1" class="icon-center" style="width: 100px; height: 100px; border-radius: 5px;" src="../plugins/images/addphoto.svg">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
+                                    <div id="openFile1" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                    <img id="previewProfile2" class="icon-center" style="width: 100px; height: 100px; border-radius: 5px;" src="../plugins/images/addphoto.svg">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
+                                    <div id="openFile1" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                    <img id="previewProfile3" class="icon-center" style="width: 100px; height: 100px; border-radius: 5px;" src="../plugins/images/addphoto.svg">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
+                                    <div id="openFile1" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                    <img id="previewProfile4" class="icon-center" style="width: 100px; height: 100px; border-radius: 5px;" src="../plugins/images/addphoto.svg">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
+                                    <div id="openFile1" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                    <img id="previewProfile5" class="icon-center" style="width: 100px; height: 100px; border-radius: 5px;" src="../plugins/images/addphoto.svg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card" style="border: 1px solid #E5E5E5; border-radius: 4px;">
+                        <div style="background-color:#E5E5E5; color:lightslategray; padding: 10px; margin-bottom: 10px;">Package Information</div>
+                        <div style="padding-left: 30px;">
+                            <div class="row" style="margin-top: 30px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Package Type</div>
+                                <div id="package_name" class="col-md-9"style="color: black;">Package A</div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Package Description</div>
+                                <div id="package_description" class="col-md-9"style="color: black;">Three months without premium list</div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px; padding-bottom: 30px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Remaining Token</div>
+                                <div id="balancetoken" class="col-md-9"style="color: black;">50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="endinformation"></div>
+                    <br>
+                    <div class="card" style="border: 1px solid #E5E5E5; border-radius: 4px;">
+                        <div style="background-color:#E5E5E5; color:lightslategray; padding: 10px; margin-bottom: 10px;">Tag</div>
+                        <div style="padding-left: 30px;">
+                            <div class="row" style="margin-top: 30px; padding-bottom: 30px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Product Tag</div>
+                                <div class="col-md-9" style="color: black;"><textarea id="product_tag" style="width: 90%;" id="product_desc" type="text" class="form-control"></textarea></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card" style="border: 1px solid #E5E5E5; border-radius: 4px;">
+                        <div style="background-color:#E5E5E5; color:lightslategray; padding: 10px; margin-bottom: 10px;">Admin Approval</div>
+                        <div style="padding-left: 30px;">
+                            <div class="row mx-auto" style="margin-top: 30px; padding-bottom: 30px; text-align: center;">
+                                <button id="approvebtn" class="btn" style="background-color: #00830F; color: white;" data-toggle="modal" data-target="#approval_modal">APPROVE</button>
+                                
+                                <button id="rejectbtn" val="rejected" class="btn" style="background-color: #C10000; color: white;" data-toggle="modal" data-target="#reject_modal">REJECT</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="card approve" style="border: 1px solid #E5E5E5; border-radius: 4px; display: none;">
+                     
+                        <div style="background-color:#E5E5E5; color:lightslategray; padding: 10px; margin-bottom: 10px;">Publish Subscription</div>
+                        <div style="padding-left: 30px;">
+                            <div class="row" style="margin-top: 30px; padding-bottom: 30px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Publish Advertisment&nbsp;<i class="fa fa-info-circle" id="showinfopublish" 
+                                    style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Auto-check published after approved
+                                    &#10;(ad visible in website).
+                                    &#10;Uncheck published will hide the ad
+                                    &#10;(ad not found in website)." data-placement="bottom"></i></div> 
+                                <div class="col-md-9 " style="color: black;">
+                                    <label class="container">
+                                        <input id="status" type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="card reject" style="border: 1px solid #E5E5E5; border-radius: 4px; display: none;">
+                     
+                        <div style="background-color:#E5E5E5; color:lightslategray; padding: 10px; margin-bottom: 10px;">Rejection Remarks</div>
+                        <div style="padding-left: 30px;">
+                            <div class="row" style="margin-top: 30px; padding-bottom: 30px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Remarks</div>
+                                <div class="col-md-9" style="color: black;"><textarea style="width: 90%;" id="rejection_remark2" type="text" class="form-control"></textarea></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+                
+            </div>
+            
+            <!-- /.container-fluid -->
+        </div>
+
+
+
+        <!--myModal2-->
+        <div class="modal fade bd-example-modal-sm" style="top: 30%; left: 10%;" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                <div class="modal-body">
+                  <div style="font-weight: bold;">Are you sure you want to delete this ad?</div>
+                    <br><br><br>
+                    <div style="text-align: right;">
+                        <a href="./pricing-token-edit.html" style="color: #0099FF; cursor: pointer;" data-dismiss="modal">CANCEL</a>
+                        <a id="btn_delete" style="color: #C10000; cursor: pointer; padding-left: 10px;" data-toggle="modal" data-target="#delete_status" data-dismiss="modal">DELETE</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+
+        <!--delete_status-->
+        <div class="modal fade bd-example-modal-sm mx-auto"  style="top: 30%; left: 10%;" id="delete_status" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              
+                <div class="modal-content" style="text-align: center; width: 130%; padding: 40px; border-radius: 10px;">
+                    <div class="modal-body mx-auto">
+                      <img src="../plugins/images/Icon_Trash_Deleted_Red.svg">
+                    </div>
+                    <div class="mx-auto" style="margin: 10px; color: #F44336; font-size: 28px;">Ad deleted.</div>
+                    <script>
+
+                    </script>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!--approval_modal-->
+        <div class="modal fade bd-example-modal-sm mx-auto"  style=" margin: 100px; margin-right: -300px;" id="approval_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              
+                <div class="modal-content" style="text-align: center; width: 50%; padding: 50px; border-radius: 10px;">
+                    <div class="modal-body mx-auto">
+                      <img src="../plugins/images/checkijau.svg">
+                    </div>
+                    <div class="mx-auto" style="margin: 10px; color: #27AE60; font-size: 28px;">Approved!</div>
+                  </div>
+            </div>
+            </div>
+        </div>
+
+        <!--reject_modal-->
+        <div class="modal fade bd-example-modal-sm modal-dialog-centered" style=" margin: 100px; margin-right: 60px;" id="reject_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content" style="width: 150%; border-radius: 5px;">
+                <div class="modal-header" style="color: #4E4E4E;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div>Rejection Remarks</div>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="padding: 15px;">
+                        <textarea id="rejection_remark" rows="4" cols="1" id="rejection_remark" type="text" class="form-control"></textarea>   
+                    </div>
+                    <div style="text-align: center;">
+                        <button id="rejected_button" class="btn" style="background-color: #00A313; color: white;" data-toggle="modal" data-target="#reject_status" data-dismiss="modal">OKAY</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!--reject_status-->
+        <div class="modal fade bd-example-modal-sm mx-auto"  style=" margin: 100px; margin-right: 60px;" id="reject_status" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              
+                <div class="modal-content" style="text-align: center; width: 130%; padding: 40px; border-radius: 10px;">
+                    <div class="modal-body mx-auto">
+                      <img src="../plugins/images/rejected.svg">
+                    </div>
+                    <div class="mx-auto" style="margin: 10px; color: #F44336; font-size: 28px;">Ad Rejected.</div>
+                  </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Counter js -->
+    <script src="../plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="../plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!-- <script src="js/dashboard1.js"></script> -->
+    <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script>
+
+    
+    
+     $(document).ready(function() {   
+        $product_id = localStorage.getItem('product_id');
+        $user_id = localStorage.getItem('userid'); 
+       
+        materialInformation();
+        typeAd();
+        packageInformation();
+        
+        $tag1 = localStorage.getItem('tag1');
+            $tag2 = localStorage.getItem('tag2');
+            $tag3 = localStorage.getItem('tag3');
+            $('#product_tag').val($tag1 +" , "+$tag2+" , "+$tag3 );
+        
+
+        $('#rejected_button').on('click', function(){
+            rejectProduct();
+        })
+
+
+        $('#showinfoad').popover({
+            trigger: 'hover'
+        });
+
+        $('#showinfoseason').popover({
+            trigger: 'hover'
+        });
+
+        $('#showinfoshelflife').popover({
+            trigger: 'hover'
+        });
+
+        $('#showinfosuggested').popover({
+            trigger: 'hover'
+        });
+
+        $('#showinfopublish').popover({
+            trigger: 'hover'
+        });
+
+        $("#reject_status").on('hide.bs.modal', function(){
+            $('.reject').css('display', 'block');
+            $('#approvebtn').prop('disabled', true);
+            $('#approvebtn').css('background-color', 'gray');
+            $('#rejectbtn').prop('disabled', true);
+        });
+
+        $("#approval_modal").on('hide.bs.modal', function(){
+            $('.approve').css('display', 'block');
+            $('#approvebtn').prop('disabled', true);
+            $('#rejectbtn').css('background-color', 'gray');
+            $('#rejectbtn').prop('disabled', true); 
+        });
+
+        $("#savebutton").on('click', function(){
+            var target = $('#product_target').val();
+            var target2 = localStorage.setItem('suggested',target);
+        });
+
+        $("#approvebtn").on('click', function(){
+            approveProduct();
+        });
+
+        
+
+        $('#exportbutton').on('click',function(){
+            exportPDF();
+        });
+
+        statusActive();
+
+     });
+
+     function materialInformation(){
+        $.ajax({
+            url: "http://codeviable.com/w2w2/public/product/detail?product_id=",
+            type: "GET",
+            data: { "product_id" : $product_id }
+        }).done(function(response){
+            var userid = localStorage.setItem('userid', response[0].user_id);
+            var tag1 = localStorage.setItem('tag1',response[0].product_name);
+            var tag2 = localStorage.setItem('tag2',response[0].product_material);
+            var tag3 = localStorage.setItem('tag3',response[0].product_category);
+            console.log(response)
+            $('#product_id').html(response[0].product_id);
+            $('#product_date').html(response[0].product_date);
+            $('#product_name').html(response[0].product_name);
+            $('#product_material').html(response[0].product_material);
+            $('#product_category').html(response[0].product_category);
+            $('#product_continuity').html(response[0].product_continuity);
+            $('#quantity_unit').html(response[0].product_quantity+ ' ' + response[0].unit);
+            $('#product_price').html('RM'+response[0].product_price);
+            $('#product_period').html(response[0].product_period);
+            $('#product_location').html(response[0].product_location[0].location);
+            $('#product_state').html(response[0].product_state[0].state);
+            $('#product_transport').html(response[0].product_transport);
+            $('#product_desc').html(response[0].product_desc);
+            $('#type_ad').html(response[0].user_type);
+            $('#pic').html(response[0].name);
+            $('#contact_pic').html(response[0].contact)
+
+            if(response[0].product_image[0] !== "https://codeviable.com/w2w2/public/image/"){
+                $('#previewProfile1').attr('src' , response[0].product_image[0].image)
+            }
+            if(response[0].product_image[1] !== "https://codeviable.com/w2w2/public/image/"){
+                $('#previewProfile2').attr('src' , response[0].product_image[1].image)
+            }
+            if(response[0].product_image[2] !== "https://codeviable.com/w2w2/public/image/"){
+                $('#previewProfile3').attr('src' , response[0].product_image[2].image)
+            }
+            if(response[0].product_image[3] !== "https://codeviable.com/w2w2/public/image/"){
+                $('#previewProfile4').attr('src' , response[0].product_image[3].image)
+            }
+            if(response[0].product_image[4] !== "https://codeviable.com/w2w2/public/image/"){
+                $('#previewProfile5').attr('src' , response[0].product_image[4].image)
+            }
+
+            
+
+            if(response[0].publishstatus == "active"){
+            $('#status').prop('checked', true);
+            console.log(response[0].publishstatus)
+            }
+            else{
+                $('#status').prop('checked', false);
+                console.log(response[0].publishstatus)
+            }
+        });
+     }
+
+     function typeAd() {
+        $.ajax({
+            url: "http://codeviable.com/w2w2/public/user/detail?user_id=",
+            type: "GET",
+            data: { "user_id" : $user_id },
+        }).done(function(response){  
+            console.log(response);
+            if(response.user_type === "individual"){
+                $('#id_name').html('Name');
+
+                $('#companyname').html(response.user_fname + ' ' + response.user_lname);
+                $('#companyemail').html(response.user_email);
+                $('#companycontact').html(response.user_contact);
+                $('#balancetoken').html(response.balancetoken);
+            }
+
+            else if(response.user_type === "company"){
+                $('#type_ad').html(response.user_type);
+                $('#companyname').html(response.companyname);
+                $('#companyemail').html(response.user_email);
+                $('#companycontact').html(response.user_contact);
+                $('#balancetoken').html(response.balancetoken);
+            }
+        });
+     }
+
+     function packageInformation() {
+
+         $.ajax({
+             url: "http://codeviable.com/w2w2/public/packages/detail?package_id=",
+             type : "GET",
+         }).done(function(response){
+             console.log(response)
+             $('#package_name').html(response.package_name);
+             $('#package_description').html(response.description);
+         });
+     }
+
+     function rejectProduct() {
+        var remarks = $('#rejection_remark').val();
+        var re = localStorage.setItem('remarks' , remarks);
+
+        var postdata = {
+            "rejectremark" : remarks,
+            "product_id" : $product_id
+        } 
+            $('#reject_status').modal('hide');
+
+                $.ajax({
+                    url: "http://codeviable.com/w2w2/public/admin/reject?id=",
+                    type: "POST",
+                    data: postdata,
+                }).done(function(response){
+                    console.log(response);
+                    var remark = localStorage.getItem('remarks')
+                    $('#rejection_remark2').val(remark);
+                });
+  
+     }
+
+     function approveProduct() {
+
+        var status = 'success';
+        var product_target = localStorage.getItem('suggested');
+
+        var formData = new FormData();
+        formData.append('product_id', $product_id);
+        formData.append('product_status', status);
+        formData.append('suggestcustomer', product_target);
+        formData.append('tagging[]', $tag1);
+        formData.append('tagging[]', $tag2);
+        formData.append('tagging[]', $tag3);
+
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/admin/approve",
+                type: "POST",
+                data: formData,
+                processData: false,
+            contentType: false,
+            }).done(function(response){
+                console.log(response);
+            });
+      
+     }
+
+     function statusActive(){
+        $('#status').click(function(){
+            if ($(this).is(":checked")) {
+                $('#status').prop('checked', true);
+                $status = "yes";
+                console.log("yes")
+            }
+            else{
+                $('#status').prop('checked', false);
+                $status = "no";
+                console.log("no")
+            }
+ 
+
+            var formData = new FormData();
+            formData.append('product_id' , $product_id);
+            formData.append('publishstatus' , $status);
+
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/product/publish?publishstatus=&product_id=",
+                type : "POST",
+                data : formData,
+                processData: false,
+                contentType: false,
+            }).done(function(response){
+                console.log(response)
+            })
+        });
+    }
+
+     
+
+     function exportPDF() {
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        // source can be HTML-formatted string, or a reference
+        // to an actual DOM element from which the text will be scraped.
+        source = $('#allInformation')[0];
+
+        // we support special element handlers. Register them with jQuery-style 
+        // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+        // There is no support for any other type of selectors 
+        // (class, of compound) at this time.
+        specialElementHandlers = {
+            // element with id of "bypass" - jQuery style selector
+            '#endinformation': function (element, renderer) {
+                // true = "handled elsewhere, bypass text extraction"
+                return true
+            }
+        };
+        margins = {
+            top: 40,
+            bottom: 60,
+            left: 40,
+            width: 522
+        };
+        // all coords and widths are in jsPDF instance's declared units
+        // 'inches' in this case
+        pdf.fromHTML(
+            source, // HTML string or DOM elem ref.
+            margins.left, // x coord
+            margins.top, { // y coord
+                'width': margins.width, // max width of content on PDF
+                'elementHandlers': specialElementHandlers
+            },
+
+            function (dispose) {
+                // dispose: object with X, Y of the last line add to the PDF 
+                //          this allow the insertion of new lines after html
+                pdf.save('Test.pdf');
+            }, margins
+        );
+    }
+     
+  </script>
+
+</body>
+
+</html>
+
+

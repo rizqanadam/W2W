@@ -469,27 +469,42 @@ i {
         document.documentElement.scrollTop = 0;
         }
 
-        // $(document).ready(function(){
-        //     displayListProduct();
-        // })
+        $(document).ready(function(){
+            displayListProduct();
+        })
 
-        // function displayListProduct (){
-        //     $.ajax({
-        //         url: "http://codeviable.com/w2w2/public/product/type?mainstatus=wanted",
-        //         type: "GET",
-        //     }).done(function(response){
+        function displayListProduct (){
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/product/type?mainstatus=wanted",
+                type: "GET",
+            }).done(function(response){
 
-        //         var tr = "";
-        //         var dummyImg = 'img/organic-compose.jpg';
+                var tr = "";
+                var dummyImg = 'img/organic-compose.jpg';
 
-        //         $.each(response, function(i, data){
-        //             tr += '<div class="row"><div class="col-md-2"><img src="'+ dummyImg +'"></div><div class="col-md-7"><div style="font-size: 18px; text-transform:capitalize;">'+ data.product_name+'</div><p style="text-transform:capitalize;">'+ data.product_category+'</p><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px; text-transform:initial;">'+ data.product_description +'</div><div class="contact-text1"><i class="fa fa-phone"></i>  ' + data.company_contact + '</div><div class="contact-text1"><i class="fa fa-envelope"></i> '+ data.company_email +'</div></div><div class="col-md-3 text-right"><p>Dec 16 2019</p><p style="text-transform:capitalize;">'+ data.product_location+'</p></div></div>';
-        //             tr += '<div class="line-bottom"></div>';
-        //         })
+                $.each(response, function(i, data){
+                    tr += '<div class="row">
+                <div class="col-md-2">
+                    <img src="img/energy.jpg"></div>
+                <div class="col-md-7">
+                    <div style="font-size: 18px; margin-bottom: 10px;">Organic Compose  <i class="fa fa-fire" style="color: red;"></i></div>
+                    <p>We need 80 moon of plastic pellets on monthly basis. Contact us if you have the requirement that we need.</p>
+                    <label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label>
+                    <div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div>
+                    <div style="color: #008D50;"><i class="fa fa-phone"></i>014567892</div>
+                    <div style="color: #008D50;"><i class="fa fa-envelope"></i>ismail@gmail.com</div>
+                </div>
+                <div class="col-md-3 text-right">
+                    <p>Dec 16 2019</p>
+                    <p>Pasir Gudang, Johor</p>
+                </div>
+            </div>';
+                    tr += '<div class="line-bottom"></div>';
+                })
 
-        //         $("#product_display").html(tr);
-        //     })
-        // }
+                $("#product_display").html(tr);
+            })
+        }
         
     </script>
 </body>

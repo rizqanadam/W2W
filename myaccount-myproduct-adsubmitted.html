@@ -192,16 +192,7 @@ ul ul a {
                               </a>
                           </div>
                       </div>
-                      <div class="col-lg-6 col-md-6" style="padding: 20px;padding-left: 60px;">
-                          <div class="advanced-search">
-                              <button type="button" class="category-btn">Category</button>
-                              <div class="input-group">
-                                  <input type="text" placeholder="What are you looking for?">
-                                  <button type="button"><i class="fa fa-search"></i>  Search  </button>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-4 text-right col-md-4" style="padding: 10px;">
+                      <div class="col-lg-10 text-right col-md-10" style="padding: 10px;">
                           <div class="dropdown">
                           <button class="btn"><a href="#"></a><img src="img/ukk.png"></button>
                             <div class="dropdown-content">
@@ -234,10 +225,10 @@ ul ul a {
           <div class="col-md-3" style="margin-top: 40px;">
             <div class="row">
             <div class="col-md-4">
-              <img src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
+              <img id="profilepicture" src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
             </div>
             <div class="col-md-8">
-              <div id="user_name" style="font-weight: bold; text-transform:capitalize;"> </div>
+              <div id="user_name" style="font-weight: bold; text-transform:capitalize;"></div>
               <!-- <span style='font-size:100px;'>&#9998;</span> -->
               <a href="./myaccount-defaultview.html"><p style="color: #8B8B8B;">&#9998; Edit profile</p></a>
             </div>
@@ -252,56 +243,23 @@ ul ul a {
                   </ul>
                 </li>
                   <li><a href="./myaccount-mypurchase-purchasehistory.html">My Purchases</a></li>
-                  <li><a href="./myaccount-notification.html">Notifications</a></li> 
+                  <li><a href="./myaccount-notification.html">Notifications</a></li>
+                  <li><a href="#">Review & Ratings</a></li> 
               </ul>
           </div>
 
-          <div class="card col-md-8" style="padding: 20px; margin-bottom: 50px;">
+          <div class="col-md-9" style="padding: 20px; margin-bottom: 50px;">
+            <div style="padding-left: 400px;">
+              <input type="text" placeholder="Search" style="margin-bottom: 20px; width: 100%; direction: ltr;" class="form-control">
+            </div>
+            <div class="card" style="padding: 20px;">
             <div id="product_display">
-              <div class="row">
-                  <div class="col-md-2"><img src="img/organic-compose.jpg"></div>
 
-                  <div>
-                    <p style="font-size:16px; text-transform:capitalize; color: #008D50; font-weight: 500;">Organic Compose</p>
-                    <div style="margin-top: 12px;">
-                      <div class="text-product">Available/Wanted: Available</div>
-                      <div class="text-product">Type of Material: Solid</div>
-                      <div class="text-product">Category: Plastic & Rubber</div>
-                      <div class="text-product">Season: One-Time</div>
-                    </div>  
-                  </div>
-
-                  <div style="margin-top: auto; margin-left: 30px;">
-                    <div class="text-product">Quantity: 80 mton</div>
-                    <div class="text-product">Price: RM100</div>
-                    <div class="text-product">Expires: Never</div>
-                    <div class="text-product">Ad Period: 6 months</div>
-                  </div>
-                  
-                  <div class="col-md-3" style="margin-top: auto; margin-left: 15px;">
-                    <select id="categoryDropdown" style="font-size: 12px; border-color: #F2F2F2;" class="form-control">
-                      <option disabled selected>Availability Status</option>
-                      <option>On-going</option>
-                      <option>Sold Out</option>
-                      <option>Available</option>
-                    </select>
-                  </div>
-
-                  <div style="margin-top: auto;  margin-left: 20px;">
-                    <div class="text-product">July 17, 2020</div>
-                    <br>
-                    <div class="text-product">Pasir Gudang</div>
-                    <div class="text-product">Johor</div>
-                  </div>
-              </div>
-
-              <div class="line-bottom"></div>
-
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-md-2"><img src="img/organic-compose.jpg"></div>
 
                 <div>
-                  <p style="font-size:16px; text-transform:capitalize; color: #008D50; font-weight: 500;">Organic Compose</p>
+                  <p data-toggle="modal" data-target="#myModal"  style="cursor: pointer; font-size:16px; text-transform:capitalize; color: #008D50; font-weight: 500;">Organic Compose</p>
                   <div style="margin-top: 12px;">
                     <div class="text-product">Available/Wanted: Available</div>
                     <div class="text-product">Type of Material: Solid</div>
@@ -317,7 +275,8 @@ ul ul a {
                   <div class="text-product">Ad Period: 6 months</div>
                 </div>
                 
-                <div class="col-md-3" style="margin-top: auto; margin-left: 15px;">
+                <div class="col-md-2" style="margin-top: auto; margin-left: 15px;">
+                  <button onclick="window.location.href='./package-registered.html';" class="btn" style="color: white; background-color: #FF7600; margin-bottom: 10px;">RENEW</button>
                   <select id="categoryDropdown" style="font-size: 12px; border-color: #F2F2F2;" class="form-control">
                     <option disabled selected>Availability Status</option>
                     <option>On-going</option>
@@ -356,7 +315,7 @@ ul ul a {
                 <div class="text-product">Ad Period: 6 months</div>
               </div>
               
-              <div class="col-md-3" style="margin-top: auto; margin-left: 15px;">
+              <div class="col-md-2" style="margin-top: auto; margin-left: 15px;">
                 <select id="categoryDropdown" style="font-size: 12px; border-color: #F2F2F2;" class="form-control">
                   <option disabled selected>Availability Status</option>
                   <option>On-going</option>
@@ -373,17 +332,209 @@ ul ul a {
               </div>
           </div>
 
-          <div class="line-bottom"></div>
+          <div class="line-bottom"></div> -->
 
             </div>
+          </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-body" style="padding: 30px;">
+          <div class="container" style="margin-bottom: 30px; margin-left: 15px;">
+              <div class="row">
+              <div class="col-md-5">
+                  <img src="img/hensemboi.jpg">
+              <div class="row" style="margin-top: 20px;">
+                  <div class="col-md-3">
+                      <img src="img/hensemboi.jpg">
+                  </div>
+                  <div class="col-md-3">
+                      <img src="img/hensemboi.jpg">
+                  </div>
+                  <div class="col-md-3">
+                      <img src="img/hensemboi.jpg">
+                  </div>
+                  <div class="col-md-3">
+                      <img src="img/hensemboi.jpg">
+                  </div>
+              </div>
+              </div>
+              <div class="col-md-4">
+                  <div>AK47MP5RPG</div>
+                  <div style="color: gray; margin-bottom: 10px;">PLASTIC PELLETS</div>
+                  <label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label>
+                  <div style="margin-top: 20px; font-size: 26px; font-weight: bold;">RM 200.00</div>
+                  <div style="color: gray; margin-bottom: 10px;">100 mton</div>
+                  <div class="row">
+                    <button class="btn" style="color: white;margin: 10px; width: 40%; background-color: #FF7600;">Renew</button>
+                    <button class="btn" style="color: white;margin: 10px; width: 40%; background-color: #0082D8;">Edit</button>
+                  </div>
+              </div>
+              </div>
+          </div>
+          <div class="container" style="padding: 30px;">
+              <div class="card">
+                  <div style="background-color: #FAFAFA; padding: 10px; margin: 10px;">Material Information</div>
+                  <div style="padding: 20px;">
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Date of submission</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>20/12/2020</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Material Status</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Available</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Name of Material</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Plastic Pellets</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>State of Material</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Solid</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Category</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Plastics</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Product Season</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>One-time</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Transportation Mode</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Pick up by customer</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Details</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>We can supply minimal amount</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Quantity</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>80 mton</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Shelf Life/ Degradation period</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Never</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Suggested Customer</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Packaging plant</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Price of Material</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Free</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Waste (location 1)</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Pasir Gudang</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>State</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Johor</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Waste (location 2)</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Kulai</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>State</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Johor</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Supplier</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>Siti Fatimah Saad</div>
+                      </div>
+                  </div>
+                  <div class="row detail-spacing">
+                      <div class="col-md-4">
+                          <label>Company Name</label>
+                      </div>
+                      <div class="col-md-8">
+                          <div>TIM ENTERPRISE</div>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
 
-  <footer class="footer-section" style="background-color: #3A595D; margin-top: 15px;">
+  <footer class="footer-section" style="background-color: #3A595D;">
     <div class="container">
          <div class="row" style="padding-top: 5px;">
          <div class="col-lg-2 ">
@@ -411,6 +562,7 @@ ul ul a {
             $usertype = localStorage.getItem("user_type");
           
             userData();
+            alluserproduct();
 
             $('#btn_logout').on('click', function(){
                 localStorage.clear();
@@ -426,7 +578,7 @@ ul ul a {
             data: { "user_id" : $userid },
             success: function(response){
               console.log(response);
-                $("#image1").html(response.profilepicture);
+                $("#profilepicture").attr('src' , response.profilepicture);
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
           });
@@ -444,6 +596,63 @@ ul ul a {
                 };
                 reader.readAsDataURL(input.files[0]);
             }
+        }
+
+        function alluserproduct(){
+          $.ajax({
+            url : "http://codeviable.com/w2w2/public/product/listuserproduct?user_id=",
+            type : "GET",
+            data : { "user_id" : $userid }
+          }).done(function(response){
+            console.log(response);
+
+            var tr = "";
+
+            $.each(response, function(i,data){
+              var date = response[i].updated_at[0] + response[i].updated_at[1] + " " + response[i].updated_at[3] + response[i].updated_at[4] + response[i].updated_at[5] + " " + response[i].updated_at[7] + response[i].updated_at[8] + response[i].updated_at[9] + response[i].updated_at[10]
+              if(data.product_status == "success"){
+                tr += '<div data-id='+response[i].product_id+' class="row"><div class="col-md-2"><img src='+response[i].product_image[0].image+' style="width: 70px; height: 70px; object-fit: fill;"></div><div><p class="productname" data-toggle="modal" data-target="#myModal"  style="cursor: pointer; font-size:16px; text-transform:capitalize; color: #008D50; font-weight: 500;">'+response[i].product_name+'</p><div style="margin-top: 12px;"><div class="text-product">Available/Wanted: '+data.mainstatus+'</div><div class="text-product">Type of Material: '+data.product_material+'</div><div class="text-product">Category: '+data.product_category+'</div><div class="text-product">Season: '+data.product_continuity+'</div></div></div><div style="margin-top: auto; margin-left: 30px;"><div class="text-product">Quantity: '+data.product_quantity+" "+data.unit+'</div><div class="text-product">Price: RM'+data.product_price+'</div><div class="text-product">Expires: '+data.product_period+'</div></div><div class="col-md-2 availability" style="margin-top: auto; margin-left: 15px;"><select id="availabilitydropdown" style="font-size: 12px; border-color: #F2F2F2;" class="form-control"><option disabled selected value="">Availability Status</option><option>On-going</option><option>Sold Out</option><option>Available</option></select></div><div style="margin-top: auto;  margin-left: 20px;"><div class="text-product">'+date+'</div><br><div class="text-product">'+data.product_location[0].location+'</div><div class="text-product">'+data.product_state[0].state+'</div></div></div><div class="line-bottom"></div>';
+              }
+              else if(data.expired_at != null){
+                tr += '<div data-id='+response[i].product_id+' class="row"><div class="col-md-2"><img src='+response[i].product_image[0].image+' style="width: 70px; height: 70px; object-fit: fill;"></div><div><p class="productname" data-toggle="modal" data-target="#myModal"  style="cursor: pointer; font-size:16px; text-transform:capitalize; color: #008D50; font-weight: 500;">'+response[i].product_name+'</p><div style="margin-top: 12px;"><div class="text-product">Available/Wanted: '+data.mainstatus+'</div><div class="text-product">Type of Material: '+data.product_material+'</div><div class="text-product">Category: '+data.product_category+'</div><div class="text-product">Season: '+data.product_continuity+'</div></div></div><div style="margin-top: auto; margin-left: 30px;"><div class="text-product">Quantity: '+data.product_quantity+" "+data.unit+'</div><div class="text-product">Price: RM'+data.product_price+'</div><div class="text-product">Expires: '+data.product_period+'</div></div><div class="col-md-2 availability" style="margin-top: auto; margin-left: 15px;"><button class="btn" style="color: white; background-color: #FF7600; margin-bottom: 10px;">RENEW</button><select id="availabilitydropdown" style="font-size: 12px; border-color: #F2F2F2;" class="form-control"><option disabled selected value="">Availability Status</option><option>On-going</option><option>Sold Out</option><option>Available</option></select></div><div style="margin-top: auto;  margin-left: 20px;"><div class="text-product">'+date+'</div><br><div class="text-product">'+data.product_location[0].location+'</div><div class="text-product">'+data.product_state[0].state+'</div></div></div><div class="line-bottom"></div>';
+              }
+              
+            });
+
+            $('#product_display').html(tr);
+
+            $('#product_display').delegate('.productname', 'click', function() {
+                var id = $(this).parent().parent().data('id');
+                console.log(id);
+                localStorage.setItem('previewad1' , id);
+            });
+
+            $('#product_display').delegate('.availability', 'click', function() {
+                var id = $(this).parent().data('id');
+                console.log(id);
+                localStorage.setItem('availability' , id);
+                availabilitystatus();
+            });
+
+          })
+        }
+
+        function availabilitystatus(){
+          var status = $('#availabilitydropdown').val();
+          var id = localStorage.getItem('availability');
+
+          var post = {
+            "product_id" : id,
+            "availability" : status
+          }
+
+          $.ajax({
+            url : "http://codeviable.com/w2w2/public/product/availability?product_id=&availability=",
+            type : "POST",
+            data : post
+          }).done(function(response){
+            console.log(response)
+          })
         }
     </script>
 

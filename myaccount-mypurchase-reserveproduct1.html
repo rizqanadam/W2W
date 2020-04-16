@@ -113,7 +113,7 @@
         text-align: center;
         padding: 2px 15px;
         text-decoration: none;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: normal;
     }
 
@@ -238,7 +238,7 @@
                     <div class="col-md-3" style="margin-top: 40px;">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
+                                <img id="profilepicture" src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
                             </div>
                             <div class="col-md-8">
                                 <div id="user_name" style="font-weight: bold; text-transform: capitalize;"></div>
@@ -257,6 +257,7 @@
                                 </ul>
                             </li>
                             <li><a href="./myaccount-notification.html">Notifications</a></li>
+                            <li><a href="#">Review & Ratings</a></li>
                         </ul>
                     </div>
 
@@ -275,8 +276,8 @@
                         </div>
 
                         <div>
-                            <div class="card" style="padding: 20px; margin-bottom: 50px;">
-                                <div class="row">
+                            <div id="list" class="card" style="padding: 20px; margin-bottom: 50px;">
+                                <!-- <div class="row">
                                     <div class="col-md-2">
                                         <img src="img/organic-compose.jpg">
                                     </div>
@@ -285,7 +286,7 @@
                                         <p style="font-size: 14px;">Your reserve item is being process. The seller is currently reviewing your offer. They will keep in touch with you soon ;)</p>
                                     </div>
                                 </div>
-                                <div class="line-bottom"></div>
+                                <div class="line-bottom"></div> -->
                             </div>
                         </div>
                     </div>
@@ -335,9 +336,10 @@
     $(document).ready(function(){
 
       $userid = localStorage.getItem("user_id");
+      $reserveid = localStorage.getItem("reserve1");
 
       userData();
-    
+      listreserved();
     });
 
     function userData(){
@@ -346,9 +348,29 @@
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-                $("#image1").html(response.profilepicture);
+                $("#profilepicture").attr('src' , response.profilepicture);
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
+      });
+    }
+
+    function listreserved(){
+      $.ajax({
+        url : "http://codeviable.com/w2w2/public/reserve/list?user_id=",
+        type : "GET",
+        data : {"user_id" : $userid}
+      }).done(function(response){
+
+        var tr = "";
+
+        $.each(response, function(i,data){
+          console.log(response)
+          if(response[i].status == "reserved")
+          tr += '<div class="row"><div class="col-md-2"><img src='+response[i].image[0].image+' style="width: 70px; height: 70px; object-fit: cover;"></div><div class="col-md-8"><div class="notification-text">Reserve: Compose</div><p style="font-size: 14px;">Your reserve item is being process. The seller is currently reviewing your offer. They will keep in touch with you soon ;)</p></div></div><div class="line-bottom"></div>';
+        });
+
+        $('#list').html(tr);
+
       });
     }
 

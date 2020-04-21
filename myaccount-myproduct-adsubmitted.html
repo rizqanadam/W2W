@@ -155,7 +155,7 @@ ul ul a {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -550,6 +550,20 @@ ul ul a {
      </div>
   </footer>
 
+  <!-- update modal -->
+  <div class="modal fade bd-example-modal-sm mx-auto"  style="top: 30%; left: 10%;" id="statusmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      
+        <div class="modal-content" style="text-align: center; width: 50%; padding: 50px; border-radius: 10px;">
+            <div class="modal-body mx-auto">
+              <img src="img/checkijau.svg">
+            </div>
+            <div class="mx-auto" style="margin: 10px; color: #27AE60; font-size: 26px;">Updated!</div>
+          </div>
+    </div>
+    </div>
+  </div>
+
     <script src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous">
@@ -611,10 +625,10 @@ ul ul a {
             $.each(response, function(i,data){
               var date = response[i].updated_at[0] + response[i].updated_at[1] + " " + response[i].updated_at[3] + response[i].updated_at[4] + response[i].updated_at[5] + " " + response[i].updated_at[7] + response[i].updated_at[8] + response[i].updated_at[9] + response[i].updated_at[10]
               if(data.product_status == "success"){
-                tr += '<div data-id='+response[i].product_id+' class="row"><div class="col-md-2"><img src='+response[i].product_image[0].image+' style="width: 70px; height: 70px; object-fit: fill;"></div><div><p class="productname" data-toggle="modal" data-target="#myModal"  style="cursor: pointer; font-size:16px; text-transform:capitalize; color: #008D50; font-weight: 500;">'+response[i].product_name+'</p><div style="margin-top: 12px;"><div class="text-product">Available/Wanted: '+data.mainstatus+'</div><div class="text-product">Type of Material: '+data.product_material+'</div><div class="text-product">Category: '+data.product_category+'</div><div class="text-product">Season: '+data.product_continuity+'</div></div></div><div style="margin-top: auto; margin-left: 30px;"><div class="text-product">Quantity: '+data.product_quantity+" "+data.unit+'</div><div class="text-product">Price: RM'+data.product_price+'</div><div class="text-product">Expires: '+data.product_period+'</div></div><div class="col-md-2 availability" style="margin-top: auto; margin-left: 15px;"><select id="availabilitydropdown" style="font-size: 12px; border-color: #F2F2F2;" class="form-control"><option disabled selected value="">Availability Status</option><option>On-going</option><option>Sold Out</option><option>Available</option></select></div><div style="margin-top: auto;  margin-left: 20px;"><div class="text-product">'+date+'</div><br><div class="text-product">'+data.product_location[0].location+'</div><div class="text-product">'+data.product_state[0].state+'</div></div></div><div class="line-bottom"></div>';
+                tr += '<div data-id='+response[i].product_id+' class="row"><div class="col-md-2"><img src='+response[i].product_image[0].image+' style="width: 70px; height: 70px; object-fit: fill;"></div><div><p class="productname" data-toggle="modal" data-target="#myModal"  style="cursor: pointer; font-size:16px; text-transform:capitalize; color: #008D50; font-weight: 500;">'+response[i].product_name+'</p><div style="margin-top: 12px;"><div class="text-product">Available/Wanted: '+data.mainstatus+'</div><div class="text-product">Type of Material: '+data.product_material+'</div><div class="text-product">Category: '+data.product_category+'</div><div class="text-product">Season: '+data.product_continuity+'</div></div></div><div style="margin-top: auto; margin-left: 30px;"><div class="text-product">Quantity: '+data.product_quantity+" "+data.unit+'</div><div class="text-product">Price: RM'+data.product_price+'</div><div class="text-product">Expires: '+data.product_period+'</div></div><div class="col-md-2 availability" style="margin-top: auto; margin-left: 15px;"><select id="availabilitydropdown" style="font-size: 12px; border-color: #F2F2F2;" class="form-control"><option disabled selected value="">Availability Status</option><option class="availability">On-going</option><option class="availability">Sold Out</option><option class="availability">Available</option></select></div><div style="margin-top: auto;  margin-left: 20px;"><div class="text-product">'+date+'</div><br><div class="text-product">'+data.product_location[0].location+'</div><div class="text-product">'+data.product_state[0].state+'</div></div></div><div class="line-bottom"></div>';
               }
               else if(data.expired_at != null){
-                tr += '<div data-id='+response[i].product_id+' class="row"><div class="col-md-2"><img src='+response[i].product_image[0].image+' style="width: 70px; height: 70px; object-fit: fill;"></div><div><p class="productname" data-toggle="modal" data-target="#myModal"  style="cursor: pointer; font-size:16px; text-transform:capitalize; color: #008D50; font-weight: 500;">'+response[i].product_name+'</p><div style="margin-top: 12px;"><div class="text-product">Available/Wanted: '+data.mainstatus+'</div><div class="text-product">Type of Material: '+data.product_material+'</div><div class="text-product">Category: '+data.product_category+'</div><div class="text-product">Season: '+data.product_continuity+'</div></div></div><div style="margin-top: auto; margin-left: 30px;"><div class="text-product">Quantity: '+data.product_quantity+" "+data.unit+'</div><div class="text-product">Price: RM'+data.product_price+'</div><div class="text-product">Expires: '+data.product_period+'</div></div><div class="col-md-2 availability" style="margin-top: auto; margin-left: 15px;"><button class="btn" style="color: white; background-color: #FF7600; margin-bottom: 10px;">RENEW</button><select id="availabilitydropdown" style="font-size: 12px; border-color: #F2F2F2;" class="form-control"><option disabled selected value="">Availability Status</option><option>On-going</option><option>Sold Out</option><option>Available</option></select></div><div style="margin-top: auto;  margin-left: 20px;"><div class="text-product">'+date+'</div><br><div class="text-product">'+data.product_location[0].location+'</div><div class="text-product">'+data.product_state[0].state+'</div></div></div><div class="line-bottom"></div>';
+                tr += '<div data-id='+response[i].product_id+' class="row"><div class="col-md-2"><img src='+response[i].product_image[0].image+' style="width: 70px; height: 70px; object-fit: fill;"></div><div><p class="productname" data-toggle="modal" data-target="#myModal"  style="cursor: pointer; font-size:16px; text-transform:capitalize; color: #008D50; font-weight: 500;">'+response[i].product_name+'</p><div style="margin-top: 12px;"><div class="text-product">Available/Wanted: '+data.mainstatus+'</div><div class="text-product">Type of Material: '+data.product_material+'</div><div class="text-product">Category: '+data.product_category+'</div><div class="text-product">Season: '+data.product_continuity+'</div></div></div><div style="margin-top: auto; margin-left: 30px;"><div class="text-product">Quantity: '+data.product_quantity+" "+data.unit+'</div><div class="text-product">Price: RM'+data.product_price+'</div><div class="text-product">Expires: '+data.product_period+'</div></div><div class="col-md-2 availability" style="margin-top: auto; margin-left: 15px;"><button class="btn" style="color: white; background-color: #FF7600; margin-bottom: 10px;">RENEW</button><select id="availabilitydropdown" style="font-size: 12px; border-color: #F2F2F2;" class="form-control"><option disabled selected value="">Availability Status</option><option class="availability">On-going</option><option class="availability">Sold Out</option><option class="availability">Available</option></select></div><div style="margin-top: auto;  margin-left: 20px;"><div class="text-product">'+date+'</div><br><div class="text-product">'+data.product_location[0].location+'</div><div class="text-product">'+data.product_state[0].state+'</div></div></div><div class="line-bottom"></div>';
               }
               
             });
@@ -627,11 +641,12 @@ ul ul a {
                 localStorage.setItem('previewad1' , id);
             });
 
-            $('#product_display').delegate('.availability', 'click', function() {
-                var id = $(this).parent().data('id');
+            $("#availabilitydropdown").on('change', function () {
+                var id = $(this).parent().parent().data('id');
                 console.log(id);
-                localStorage.setItem('availability' , id);
                 availabilitystatus();
+                $('#statusmodal').modal('toggle');
+                localStorage.setItem('availability' , id);
             });
 
           })
@@ -652,6 +667,7 @@ ul ul a {
             data : post
           }).done(function(response){
             console.log(response)
+            
           })
         }
     </script>

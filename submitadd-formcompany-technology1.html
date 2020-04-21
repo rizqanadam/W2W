@@ -213,7 +213,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -1921,7 +1921,7 @@
                                         <label class="login-text">Person In-charge (PIC)</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="pic2" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -1929,7 +1929,7 @@
                                         <label class="login-text">Telephone number (PIC)</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="pic_contact2" type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -2462,6 +2462,11 @@
             var image4 = $("#productPicture4").prop('files');
             var image5 = $("#productPicture5").prop('files');
             var tagging = null ;
+            var company_name = $('#company_name').val();
+            var company_email = $('#company_email').val();
+            var company_contact = $('#company_contact').val();
+            var pic = $('#pic').val();
+            var pic_contact = $('#pic_contact').val();
 
             var formData = new FormData();
             formData.append("product_date" , date);
@@ -2500,7 +2505,11 @@
             formData.append("maincategory" , "technology");
             formData.append("user_id" , $userid);
             formData.append("tagging[]" , tagging);
-
+            formData.append("company_name" , company_name);
+            formData.append("company_email" , company_email);
+            formData.append("company_contact" , company_contact);
+            formData.append("name" , pic);
+            formData.append("contact" , pic_contact);
 
             $.ajax({
                 url: "http://codeviable.com/w2w2/public/product/add",
@@ -2549,6 +2558,11 @@
             var image4 = $("#productPicture9").prop('files');
             var image5 = $("#productPicture10").prop('files');
             var tagging = null ;
+            var company_name = $('#company_name2').val();
+            var company_email = $('#company_email2').val();
+            var company_contact = $('#company_contact2').val();
+            var pic = $('#pic2').val();
+            var pic_contact = $('#pic_contact2').val();
 
             var formData = new FormData();
             formData.append("product_date" , date);
@@ -2587,6 +2601,11 @@
             formData.append("maincategory" , "technology");
             formData.append("user_id" , $userid);
             formData.append("tagging[]" , tagging);
+            formData.append("company_name" , company_name);
+            formData.append("company_email" , company_email);
+            formData.append("company_contact" , company_contact);
+            formData.append("name" , pic);
+            formData.append("contact" , pic_contact);
 
 
             $.ajax({

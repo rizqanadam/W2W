@@ -327,7 +327,7 @@ a#approval_table_previous.paginate_button.previous,
                             </table>    
                             
                             <!--myModal2-->
-                            <div class="modal fade bd-example-modal-sm" style="padding: 20px; width: 350px; position: absolute; left: 50%; top: 60%; margin-left: -150px;margin-top: -150px;" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal fade bd-example-modal-sm" style="top: 30%; left: 10%;" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-sm" role="document">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -345,7 +345,7 @@ a#approval_table_previous.paginate_button.previous,
                             </div>
 
                             <!--delete_status-->
-                            <div class="modal fade bd-example-modal-sm"  style="padding: 20px; width: 120%; position: absolute; top: 60%; margin-left: -150px;margin-top: -150px;" id="delete_status" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal fade bd-example-modal-sm"  style="top: 30%; left: 10%;" id="delete_status" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-sm" role="document">
                                 
                                     <div class="modal-content" style="text-align: center; width: 120%; padding: 60px; border-radius: 10px;">
@@ -402,6 +402,11 @@ a#approval_table_previous.paginate_button.previous,
         $("#btn_delete").on('click', function(){
             deletePackage();
         });
+
+        $("#delete_status").on('hide.bs.modal', function() { 
+            location.reload();
+        });
+
 
      });
 

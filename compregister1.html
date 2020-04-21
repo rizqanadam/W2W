@@ -51,7 +51,7 @@ i {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -90,7 +90,7 @@ i {
                     </div>
                     <div class="col-lg-10 text-right col-md-2 header-margin">
                         <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                        <button class="btn">Submit Enquiry</button>
+                        <button onclick="window.location.href='./enquiry-form-guestview.html';" class="btn">Submit Enquiry</button>
                         <button class="btn" style="margin-right: 12px;">Submit Demand</button>
                         <button onclick="window.location.href='./default-form-guestview.html';" class="btn btn-warning">Submit Ad</button>
                     </div>
@@ -122,35 +122,36 @@ i {
                             </div>
                           </div>
                         </div>
+                        <form id="registerform" action="./compregister2.html">
                             <div class="form-group">
                                 <p>Contact address</p>
-                                <label class="login-text" for="username">user address</label>
-                                <input type="text" placeholder="Line 1" class="form-control" id="address">
+                                <label class="login-text" for="username">Company address</label>
+                                <input type="text" placeholder="Line 1" class="form-control" id="address" required>
                                 <label class="login-text" for="username"></label>
-                                <input type="text" placeholder="Line 2" class="form-control" id="address2">
+                                <input type="text" placeholder="Line 2" class="form-control" id="address2" required>
                                 <label class="login-text" for="username"></label>
-                                <input type="text" placeholder="City" class="form-control" id="city">
+                                <input type="text" placeholder="City" class="form-control" id="city" required>
                                 <div class="row">
                             <div class="form-group col-md-6">
                                 <label class="login-text" for="username"></label>
-                                <input type="text" placeholder="State" class="form-control" id="state">
+                                <input type="text" placeholder="State" class="form-control" id="state" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="login-text" for="username"></label>
-                                <input type="text" placeholder="Postal code" class="form-control" id="postalcode">
+                                <input type="text" placeholder="Postal code" class="form-control" id="postalcode" required>
                             </div>
                             </div>
                             <div class="form-group">
-                                <label class="login-text" for="pass" style="padding-top: 10px;">user contact number</label>
-                                <input type="text" class="form-control" id="contactnumber">
+                                <label class="login-text" for="pass" style="padding-top: 10px;">Company contact number</label>
+                                <input type="text" class="form-control" id="contactnumber" pattern="^[0-9-+\s()]*$"  maxlength="12" required>
                             </div>
                              <div class="form-group" style="padding-bottom: 20px;">
                                 <label class="login-text" for="pass" style="padding-top: 10px;">Job title</label>
-                                <input type="text" class="form-control" id="jobtitle">
+                                <input type="text" class="form-control" id="jobtitle" required>
                             </div>
                             
-                            <button id="next" value="submit" class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
-                            
+                            <button id="next" type="submit" class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                        </form>  
                     </div>
                     </div>
                 </div>
@@ -171,7 +172,6 @@ i {
         $(document).on('click', function(){
             $('#next').on('click',function(){
                 AddUser();
-                window.location.href = "./compregister2.html";
             });
         });
 

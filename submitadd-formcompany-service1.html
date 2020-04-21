@@ -214,7 +214,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -1090,7 +1090,7 @@
                                         <label class="login-text">Person In-charge (PIC)</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="pic" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -1098,7 +1098,7 @@
                                         <label class="login-text">Telephone number (PIC)</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="pic_contact2" type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -2110,7 +2110,7 @@
                                         <label class="login-text">Person In-charge (PIC)</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="pic2" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -2118,7 +2118,7 @@
                                         <label class="login-text">Telephone number (PIC)</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input id="pic_contact2" type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -2391,19 +2391,32 @@ crossorigin="anonymous">
     }
 
     function packageDropdownList(){
-        $.ajax({
-            url: "http://codeviable.com/w2w2/public/packages",
-            type: "GET",
-        }).done(function(response){
-            var tr = '<option disabled selected>Please choose</option>';  
+            $.ajax({
+                url: "http://codeviable.com/w2w2/public/paidpackage/user?user_id=",
+                type: "GET",
+                data: { "user_id" : $userid }
+            }).done(function(response){
+                var tr = '<option disabled selected value="">Please choose</option>';  
 
-            $.each(response, function(i, data){
-                tr += '<option style="text-transform:capitalize;">'+ data.package_name + '</option>';
+                $.each(response, function(i, data){
+                    tr += '<option id='+ data.id +' style="text-transform:capitalize;">'+ data.package_name + '</option>';
+                })
+                $('#package').html(tr);
+                $('#package2').html(tr);
+
+                $("#package").on('change', function () {
+                    var id = $(this).find('option:selected').attr('id');
+                    localStorage.setItem('paid_package', id);
+                    console.log(id);
+                });
+
+                $("#package2").on('change', function () {
+                    var id = $(this).find('option:selected').attr('id');
+                    localStorage.setItem('paid_package', id);
+                    console.log(id);
+                });
             })
-            $('#packageDropdown').html(tr);
-            $('#packageDropdown2').html(tr);
-        })
-    }
+        }
 
     function submitAvailableProduct(){
 
@@ -2434,6 +2447,8 @@ crossorigin="anonymous">
         var company_name = $('#company_name').val();
         var company_email = $('#company_email').val();
         var company_contact = $('#company_contact').val();
+        var pic = $('#pic').val();
+        var pic_contact = $('#pic_contact').val();
 
 
         var formData = new FormData();
@@ -2467,6 +2482,12 @@ crossorigin="anonymous">
         formData.append("company_contact" , company_contact);
         formData.append("mainstatus" , "available");
         formData.append("user_id" , $userid);
+        formData.append("tagging[]" , null);
+        formData.append("company_name" , company_name);
+        formData.append("company_email" , company_email);
+        formData.append("company_contact" , company_contact);
+        formData.append("name" , pic);
+        formData.append("contact" , pic_contact);
 
 
         $.ajax({
@@ -2510,6 +2531,8 @@ crossorigin="anonymous">
         var company_name = $('#company_name2').val();
         var company_email = $('#company_email2').val();
         var company_contact = $('#company_contact2').val();
+        var pic = $('#pic2').val();
+        var pic_contact = $('#pic_contact2').val();
 
 
         var formData = new FormData();
@@ -2536,6 +2559,12 @@ crossorigin="anonymous">
         formData.append("company_contact" , company_contact);
         formData.append("mainstatus" , "wanted");
         formData.append("user_id" , $userid);
+        formData.append("tagging[]" , null);
+        formData.append("company_name" , company_name);
+        formData.append("company_email" , company_email);
+        formData.append("company_contact" , company_contact);
+        formData.append("name" , pic);
+        formData.append("contact" , pic_contact);
 
 
         $.ajax({

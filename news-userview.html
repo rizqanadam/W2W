@@ -121,7 +121,7 @@ i {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -276,7 +276,7 @@ i {
     <script>
         $(document).ready(function(){
             $.ajax({
-                url : "http://codeviable.com/w2w2/public/news",
+                url : "http://codeviable.com/w2w2/public/news/status?publishstatus=publishstatus",
                 type : "GET",
             }).done(function(response){
                 console.log(response)

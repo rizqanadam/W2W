@@ -72,7 +72,7 @@ i {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -111,8 +111,8 @@ i {
                         </div>
                     </div>
                     <div class="col-lg-10 text-right col-md-2 header-margin">
-                        <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                        <button class="btn">contact us</button>
+                        <button onclick="window.location.href='./index1.html';" class="btn">Home</button>
+                        <button onclick="window.location.href='./enquiry-form-userview.html';" class="btn">Contact Us</button>
                         <div class="dropdown">
                             <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
                             <h5 style="margin-top: 8px; color: black;">My Account</h5>
@@ -122,7 +122,7 @@ i {
                               <a href="./index.html">Logout</a>
                             </div>
                           </div>
-                        <button onclick="window.location.href='./default-form-guestview.html';" class="btn btn-warning">Submit Ad</button>
+                        <button onclick="window.location.href='./default-form-userview.html';" class="btn btn-warning">Submit Ad</button>
                     </div>
                 </div>
             </div>
@@ -132,40 +132,43 @@ i {
     <!-- Header End -->
 
 
-    <div class="row" style="padding-bottom: 30px;">
-        <a style="text-decoration: underline;">Home</a>
-        <div>>></div>
+    <div class="col-md-8 row" style="padding-bottom: 30px;">
+        <a href="./index.html" style="text-decoration: underline; color: black;">Home</a>
+        <div>&nbsp;>>&nbsp;</div>
+        <a href="./productwanted1-viewall.html" style="text-decoration: underline; color: black;">Wanted</a>
+        <div>&nbsp;>>&nbsp;</div>
         <a style="text-decoration: underline;">Entire Malaysia</a>
-        <div>>></div>
-        <a style="text-decoration: underline;">Waste</a>
-        <div>>></div>
-        <a style="text-decoration: underline; color: #008D50;">Plastic Pellets</a>
+        <div>&nbsp;>>&nbsp;</div>
+        <a id="maincategory" style="text-decoration: underline;">Waste</a>
+        <div>&nbsp;>>&nbsp;</div>
+        <a id="name" style="font-weight: bold; color: #008D50;">Plastic Pellets</a>
     </div>
 
     <div class="container" style="margin-bottom: 30px; margin-left: 15px;">
         <div class="row">
+            <div class="col-md-4">
+                <img id="main_image" src="../W2W/admin/plugins/images/bg.jpg" style="width: 398px; height: 372px; object-fit: cover;">
+                <!-- width: 398px; height: 372px; -->
+            <div id="sub_image" class="row" style="margin-top: 20px;">
+                <div class="col-md-3">
+                    <img src="../W2W/admin/plugins/images/bg.jpg" >
+                </div>
+                <div class="col-md-3">
+                    <img src="../W2W/admin/plugins/images/bg.jpg">
+                </div>
+                <div class="col-md-3">
+                    <img src="../W2W/admin/plugins/images/bg.jpg">
+                </div>
+                <div class="col-md-3">
+                    <img src="../W2W/admin/plugins/images/bg.jpg">
+                </div>
+            </div>
+            </div>
         <div class="col-md-4">
-            <img src="img/hensemboi.jpg">
-        <div class="row" style="margin-top: 20px;">
-            <div class="col-md-3">
-                <img src="img/hensemboi.jpg">
-            </div>
-            <div class="col-md-3">
-                <img src="img/hensemboi.jpg">
-            </div>
-            <div class="col-md-3">
-                <img src="img/hensemboi.jpg">
-            </div>
-            <div class="col-md-3">
-                <img src="img/hensemboi.jpg">
-            </div>
-        </div>
-        </div>
-        <div class="col-md-4">
-            <div>AK47MP5RPG</div>
-            <div style="color: gray; margin-bottom: 10px;">PLASTIC PELLETS</div>
-            <label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">WANTED</label>
-            <div style="margin-top: 10px; font-size: 26px; font-weight: bold;">Quantity Wanted : 1000 mton</div>
+            <div id="ID">AK47MP5RPG</div>
+            <div id="product_name" style="color: gray; margin-bottom: 10px;">PLASTIC PELLETS</div>
+            <label style="color: white; background-color: #FF7600; border-radius: 4px; padding: 5px; font-style: italic;">WANTED!</label>
+            <div id="quantity_unit" style="margin-top: 10px; font-size: 24px; font-weight: bold;">Quantity Wanted : 1000 mton</div>
         </div>
         </div>
     </div>
@@ -181,7 +184,7 @@ i {
                         <label>Date Listed</label>
                     </div>
                     <div class="col-md-8">
-                        <div>20/12/2020</div>
+                        <div id="date">20/12/2020</div>
                     </div>
                 </div>
                 <div class="row detail-spacing">
@@ -189,7 +192,7 @@ i {
                         <label>Material Status</label>
                     </div>
                     <div class="col-md-8">
-                        <div>Wanted</div>
+                        <div id="mainstatus">Wanted</div>
                     </div>
                 </div>
                 <div class="row detail-spacing">
@@ -197,7 +200,7 @@ i {
                         <label>Name of Material</label>
                     </div>
                     <div class="col-md-8">
-                        <div>Plastic Pellets</div>
+                        <div id="product_name2">Plastic Pellets</div>
                     </div>
                 </div>
                 <div class="row detail-spacing">
@@ -205,7 +208,7 @@ i {
                         <label>State of Material</label>
                     </div>
                     <div class="col-md-8">
-                        <div>Solid</div>
+                        <div id="product_material">Solid</div>
                     </div>
                 </div>
                 <div class="row detail-spacing">
@@ -213,7 +216,7 @@ i {
                         <label>Category</label>
                     </div>
                     <div class="col-md-8">
-                        <div>Plastics</div>
+                        <div id="product_category">Plastics</div>
                     </div>
                 </div>
                 <div class="row detail-spacing">
@@ -221,7 +224,7 @@ i {
                         <label>Product Season</label>
                     </div>
                     <div class="col-md-8">
-                        <div>One-time</div>
+                        <div id="product_continuity">One-time</div>
                     </div>
                 </div>
                 <div class="row detail-spacing">
@@ -229,7 +232,7 @@ i {
                         <label>Transportation Mode</label>
                     </div>
                     <div class="col-md-8">
-                        <div>Pick up by customer</div>
+                        <div id="transport">Pick up by customer</div>
                     </div>
                 </div>
                 <div class="row detail-spacing">
@@ -237,103 +240,98 @@ i {
                         <label>Details</label>
                     </div>
                     <div class="col-md-8">
-                        <div>we need 80 mton of this product</div>
+                        <div id="product_desc">-</div>
                     </div>
                 </div>
-                <div class="row detail-spacing">
-                    <div class="col-md-4">
-                        <label>Quantity</label>
+                <div id="location_display">
+                    <!-- <div class="row detail-spacing">
+                        <div class="col-md-4">
+                            <label>Waste (location 1)</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="product_location">Pasir Gudang</div>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <div>80 mton</div>
-                    </div>
+                    <div class="row detail-spacing">
+                        <div class="col-md-4">
+                            <label>State</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="product_state">Johor</div>
+                        </div>
+                    </div> -->
                 </div>
-                <div class="row detail-spacing">
-                    <div class="col-md-4">
-                        <label>Waste (location 1)</label>
+                <div id="googleMap" style="width:60%;height:400px; margin-left: 365px;"></div>
+                <br>
+                <div id="contact_information">
+                    <!-- <div class="row detail-spacing">
+                        <div class="col-md-4">
+                            <label>Company Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="companyname">-</div>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <div>Pasir Gudang</div>
+                    <div class="row detail-spacing">
+                        <div class="col-md-4">
+                            <label>Email address</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="email">fatimah@yahoo.com</div>
+                        </div>
                     </div>
-                </div>
-                <div class="row detail-spacing">
-                    <div class="col-md-4">
-                        <label>State</label>
+                    <div class="row detail-spacing">
+                        <div class="col-md-4">
+                            <label>Telephone number</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="contact">045366577</div>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <div>Johor</div>
+                    <div class="row detail-spacing">
+                        <div class="col-md-4">
+                            <label>Person in-charge</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="pic">Siti Fatimah Saad</div>
+                        </div>
                     </div>
-                </div>
-                <div class="row detail-spacing">
-                    <div class="col-md-4">
-                        <label>Waste (location 2)</label>
-                    </div>
-                    <div class="col-md-8">
-                        <div>Kulai</div>
-                    </div>
-                </div>
-                <div class="row detail-spacing">
-                    <div class="col-md-4">
-                        <label>State</label>
-                    </div>
-                    <div class="col-md-8">
-                        <div>Johor</div>
-                    </div>
-                </div>
-                <div class="row detail-spacing">
-                    <div class="col-md-4">
-                        <label>Company Name</label>
-                    </div>
-                    <div class="col-md-8">
-                        <div>TIM Enterprise</div>
-                    </div>
-                </div>
-                <div class="row detail-spacing">
-                    <div class="col-md-4">
-                        <label>Email address</label>
-                    </div>
-                    <div class="col-md-8">
-                        <div>fatimah@yahoo.com</div>
-                    </div>
-                </div>
-                <div class="row detail-spacing">
-                    <div class="col-md-4">
-                        <label>Telephone number</label>
-                    </div>
-                    <div class="col-md-8">
-                        <div>045366577</div>
-                    </div>
-                </div>
-                <div class="row detail-spacing">
-                    <div class="col-md-4">
-                        <label>Person in-charge</label>
-                    </div>
-                    <div class="col-md-8">
-                        <div>Siti Fatimah Saad</div>
-                    </div>
-                </div>
-                <div class="row detail-spacing">
-                    <div class="col-md-4">
-                        <label>Telephone number</label>
-                    </div>
-                    <div class="col-md-8">
-                        <div>0189234512</div>
-                    </div>
-                </div>
+                    <div class="row detail-spacing">
+                        <div class="col-md-4">
+                            <label>Telephone number</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="pic_contact">0189234512</div>
+                        </div>
+                    </div> -->
+            </div>
                 </div>
             </div>
         </div>
     
         <div class="container" style="padding: 30px;">
             <div class="card" style="padding: 30px;">
+                
                 <div style="font-size: 24px; font-weight: bold;">Question about this product</div>
                 <div style="text-align: right;">View All</div>
                 <div style="border-bottom: 2px solid lightgray;"></div>
-                <div style="padding: 20px;">
+                <div id="listcomment" style="padding: 20px;">
+                <div id="beforeask" style="padding: 20px;">
                     <div class="text-center">There are no question yet.</div>
-                    <div class="text-center">Ask the seller now and their answwer will be hear.</div>
-                    <div class="text-center" style="color: orangered; margin-top: 10px; font-weight: bold;">Ask Question</div>
+                    <div class="text-center">Ask the seller now and their answer will be hear.</div>
+                    <div id="ask_btn" class="text-center" style="color: #FF7600; margin-top: 10px; font-weight: bold; cursor: pointer;">Ask Question</div>
                 </div>
+                
+
+                </div>
+                <form id="askform" onsubmit="return false">
+                    <div id="askquestion" style="margin-top: 30px; display: none;">
+                        <textarea id="askquestion2" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea>
+                        <div id="error" style="color: red; font-size: 14px;"></div>
+                        <br>
+                        <div id="submit" type="button" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="container" style="padding: 30px; margin-bottom: 50px;">
@@ -385,6 +383,19 @@ i {
          </div>
      </footer>
 
+     <!-- submitted enquiry modal -->
+     <div class="modal fade bd-example-modal-sm mx-auto"  style=" margin: 100px; margin-right: -300px;" id="questionmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          
+            <div class="modal-content" style="text-align: center; width: 90%; padding: 50px; border-radius: 10px;">
+                <div class="modal-body mx-auto">
+                  <img src="img/checkijau.svg">
+                </div>
+                <div class="mx-auto" style="margin: 10px; color: #27AE60; font-size: 28px;">Your comment has been submitted!</div>
+              </div>
+        </div>
+        </div>
+
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -397,6 +408,188 @@ i {
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-</body>
 
+    <script>
+
+        $(document).ready(function(){
+            $id = localStorage.getItem('wanted_detail');
+            $userid = localStorage.getItem('user_id')
+
+            materialinformation();
+            
+            displaycomment();
+
+            $('#listcomment').delegate('#ask_btn', 'click', function() {
+                $('#beforeask').css('display','none');
+                $('#askquestion').css('display','block');
+            });
+
+            $('#listcomment').delegate('#submit', 'click', function() {
+                if($('#askquestion2').val() == ""){
+                    $('#error').html('Please fill this field');
+                }
+                else{
+                    comment();
+                }
+            });
+            myMap();
+        });
+
+        function check_val(){
+            var bad_words=new Array("babi","kill","bodoh","gila","teruk","ass","fck","f*ck");
+            var check_text=document.getElementById("askquestion2").value;
+            var error=0;
+            for(var i=0;i<bad_words.length;i++)
+            {
+                var val=bad_words[i];
+            if((check_text.toLowerCase()).indexOf(val.toString())>-1)
+            {
+                error=error+1;
+            }
+            }
+                
+            if(error>0)
+            {
+                document.getElementById("submit").style.visibility = "hidden";
+                document.getElementById("error").innerHTML="Some bad words in your comment.";
+            }
+            else
+            {
+                document.getElementById("submit").style.visibility = "visible";
+                document.getElementById("error").innerHTML="";
+            }   
+        }
+
+        function materialinformation() {
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/product/detail?product_id=",
+                type : "GET",
+                data : { "product_id" : $id }
+            }).done(function(response){
+                console.log(response);
+
+                $('#maincategory').html(response[0].maincategory).css('text-transform','capitalize');
+                $('#name').html(response[0].product_name).css('text-transform','capitalize');
+                
+                //product image
+                $('#main_image').attr('src',response[0].product_image[0].image);
+                var tr2 = "";
+                var no = 1;
+                $.each(response[0].product_image, function(i,data){
+                    if( i != 0){
+                    tr2 += '<div class="col-md-3"><img src='+response[0].product_image[i].image+' style="width: 70px; height: 50px; object-fit: cover;"></div>';
+                    }
+                    no++;
+                });
+                $('#sub_image').html(tr2);
+
+                $('#ID').html(response[0].product_id);
+                $('#product_name').html(response[0].product_name).css('text-transform','capitalize');
+                $('#date').html(response[0].product_date);
+                $('#mainstatus').html(response[0].mainstatus).css('text-transform','capitalize');
+                $('#product_name2').html(response[0].product_name).css('text-transform','capitalize');
+                $('#product_material').html(response[0].product_material).css('text-transform','capitalize');
+                $('#product_category').html(response[0].product_category).css('text-transform','capitalize');
+                $('#product_continuity').html(response[0].product_continuity).css('text-transform','capitalize');
+                $('#transport').html(response[0].product_transport).css('text-transform','capitalize');
+                //product details
+                if(response[0].product_description != ""){
+                    $('#product_desc').html(response[0].product_description).css('text-transform','capitalize');
+                }            
+
+                //product location
+                var tr = "";
+                var bil = 1;
+                $.each(response[0].product_location, function(i,data){
+                    if(response[0].maincategory == "waste" && response[0].product_location[i].location != "")
+                        tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Waste (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
+                    
+                    else if(response[0].maincategory == "technology" && response[0].product_location[i].location != "")
+                        tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Technology (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
+                    
+                    else if(response[0].maincategory == "service" && response[0].product_location[i].location != "")
+                        tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Service (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
+                    
+                    if(response[0].product_state[i].state !== "null" && response[0].product_state[i].state !== "undefined")
+                        tr += '<div class="row detail-spacing"><div class="col-md-4"><label>State</label></div> <div class="col-md-8"><div id="product_state1">'+response[0].product_state[i].state+'</div></div></div>'
+                        bil++;     
+                });
+                $('#location_display').html(tr);
+
+                //contact information by user_type
+                var tr3 = "";
+                if(response[0].user_type == "individual"){
+                    tr3 += '<div class="row detail-spacing"><div class="col-md-4"><label>Name</label></div><div class="col-md-8"><div id="name" style="text-transform: capitalize;">'+response[0].name+'</div></div></div><div class="row detail-spacing"><div class="col-md-4"><label>Email address</label></div><div class="col-md-8"><div id="email">'+response[0].company_email+'</div></div></div><div class="row detail-spacing"><div class="col-md-4"><label>Telephone number</label></div><div class="col-md-8"><div id="contact">'+response[0].contact+'</div></div></div>';
+                }
+                else if(response[0].user_type == "company"){
+                    tr3 += '<div class="row detail-spacing"><div class="col-md-4"><label>Company Name</label></div><div class="col-md-8"><div id="companyname" style="text-transform: capitalize;">'+response[0].company_name+'</div></div></div><div class="row detail-spacing"><div class="col-md-4"><label>Email address</label></div><div class="col-md-8"><div id="email">'+response[0].company_email+'</div></div></div><div class="row detail-spacing"><div class="col-md-4"><label>Telephone number</label></div><div class="col-md-8"><div id="contact">'+response[0].company_contact+'</div></div></div><div class="row detail-spacing"><div class="col-md-4"><label>Person in-charge</label></div><div class="col-md-8"><div id="pic" style="text-transform: capitalize;">'+response[0].name+'</div></div></div><div class="row detail-spacing"><div class="col-md-4"><label>Telephone number</label></div><div class="col-md-8"><div id="pic_contact">'+response[0].contact+'</div></div></div>';
+                }
+                $('#contact_information').html(tr3);
+
+                localStorage.setItem('latitude', response[0].latitud[0].latitud);
+                localStorage.setItem('longitude', response[0].longitud[0].longitud);
+            });
+        }
+
+        var lat = localStorage.getItem('latitude');
+        var lng = localStorage.getItem('longitude');
+        function myMap() {
+        var mapProp = {
+            center: new google.maps.LatLng(lat, lng),
+            zoom: 15,
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        var marker = new google.maps.Marker({ position: new google.maps.LatLng(lat, lng), map: map });
+        }   
+        $(document).ready(myMap);
+
+        function comment() {
+            var comment = $('#askquestion2').val();
+            var postdata = {
+                "product_id" : $id,
+                "description" : comment
+            }
+
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/comment?product_id=&title=&description=",
+                type : "POST",
+                data : postdata
+            }).done(function(response){
+                console.log(response);
+                $('#questionmodal').modal('toggle');
+                $("#questionmodal").on('hide.bs.modal', function() { 
+                    location.reload();
+                });
+            });
+        }
+        
+
+        function displaycomment(){
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/comment/listing?product_id=",
+                type : "GET",
+                data : { "product_id" : $id }
+            }).done(function(response){
+                console.log(response);
+                var tr = "";
+                if(response == 0){
+                        tr += '<div id="beforeask" style="padding: 20px;"><div class="text-center">There are no question yet.</div><div class="text-center">Ask the seller now and their answer will be hear.</div><div id="ask_btn" class="text-center ask_btn" style="color: #FF7600; margin-top: 10px; font-weight: bold; cursor: pointer;">Ask Question</div></div>'
+                        tr += '<form id="askform" onsubmit="return false"><div id="askquestion" style="margin-top: 30px; display: none;"><textarea onKeyUp="check_val()" id="askquestion2" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea><div id="error" style="margin-top: 10px; color: red; font-size: 14px;"></div><br><div id="submit" type="button" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div></div></form>';
+                } 
+
+                else if(response != 0){  
+                 $.each(response, function(i,data){
+                    var date = data.created_at[8]+''+data.created_at[9]+'/'+data.created_at[5]+''+data.created_at[6]+'/'+data.created_at[0]+''+data.created_at[1]+''+data.created_at[2]+''+data.created_at[3];
+                    console.log(date)
+                    tr += '<div class="row detail-spacing"><div class="col-md-4"><div style="color: #0099FF; margin-top: 5px; font-size: 16px;">Ronnie Hussein</div><div style="margin-top: 5px; font-size: 12px;">'+date+'</div></div><div class="col-md-8"><div>'+data.description+'</div></div></div>';
+                 });
+                 tr += '<form id="askform" onsubmit="return false"><div id="askquestion" style="margin-top: 30px;"><textarea onKeyUp="check_val()" id="askquestion2" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea><div id="error" style="color: red; font-size: 14px; margin-top: 10px;"></div><br><div id="submit" type="button" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div></div></form>';   
+                }
+                 $('#listcomment').html(tr)
+            })
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFV9i4F6pI4UF94WD-7k-TZ0ZzW6Hz3AA&callback=myMap"></script>
+</body>
 </html> 

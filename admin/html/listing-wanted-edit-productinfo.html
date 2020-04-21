@@ -130,18 +130,77 @@ a#approval_table_previous.paginate_button.previous,
     font-weight: 500;
 }
 
-/* #approval_table thead .sorting:after, 
-#approval_table thead .sorting_asc:after,
-#approval_table thead .sorting_desc:after, 
-#approval_table thead .sorting_asc_disabled:after, 
-#approval_table thead .sorting_desc_disabled:after,
-#approval_table thead .sorting:before, 
-#approval_table thead .sorting_asc:before,
-#approval_table thead .sorting_desc:before, 
-#approval_table thead .sorting_asc_disabled:before, 
-#approval_table thead .sorting_desc_disabled:before{
-    display: none;
-} */
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+span.checkmark {
+    border-radius: 5px;
+}
 
 </style>
 
@@ -308,7 +367,7 @@ a#approval_table_previous.paginate_button.previous,
            
                 <div class="row mx-auto">
                     <div class="col-md-4">
-                        <a href="./listing-available.html" style="color: #0099FF; font-weight: 500;">< back to list of Wanted</a>
+                        <a href="./listing-wanted.html" style="color: #0099FF; font-weight: 500;">< back to list of Wanted</a>
                     </div>
                     <div class="col-md-8 text-right">
                         <button class="btn" data-toggle="modal" data-target="#savemodal" style="background-color: #0073BF; color: white;"><img src="../plugins/images/save-solid.svg">Save</button>
@@ -496,38 +555,38 @@ a#approval_table_previous.paginate_button.previous,
                                 <div style="background-color:#E5E5E5; color:lightslategray; padding: 10px; margin-bottom: 10px;">Photos Attachment</div>
                                 <div style="padding-left: 30px;">
                                     <div class="row" style="margin-top: 30px;">
-                                        <div class="col-md-1">
+                                        <div class="col-md-2">
                                             <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
                                             <div id="openFile1" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
-                                            <img id="previewProfile1" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="../plugins/images/addphoto.svg">
+                                            <img id="previewProfile1" class="icon-center" style="width: 100px; height: 100px; border-radius: 5px;" src="../plugins/images/addphoto.svg">
                                             </div>
                                         </div>
         
-                                        <div class="col-md-1">
-                                            <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
-                                            <div id="openFile1" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
-                                            <img id="previewProfile1" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="../plugins/images/addphoto.svg">
+                                        <div class="col-md-2">
+                                            <input id="productPicture2" type="file" onchange="readURL(this, 'previewProfile2')" style="display: none">
+                                            <div id="openFile2" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                            <img id="previewProfile2" class="icon-center" style="width: 100px; height: 100px; border-radius: 5px;" src="../plugins/images/addphoto.svg">
                                             </div>
                                         </div>
         
-                                        <div class="col-md-1">
-                                            <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
-                                            <div id="openFile1" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
-                                            <img id="previewProfile1" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="../plugins/images/addphoto.svg">
+                                        <div class="col-md-2">
+                                            <input id="productPicture3" type="file" onchange="readURL(this, 'previewProfile3')" style="display: none">
+                                            <div id="openFile3" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                            <img id="previewProfile3" class="icon-center" style="width: 100px; height: 100px; border-radius: 5px;" src="../plugins/images/addphoto.svg">
                                             </div>
                                         </div>
         
-                                        <div class="col-md-1">
-                                            <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
-                                            <div id="openFile1" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
-                                            <img id="previewProfile1" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="../plugins/images/addphoto.svg">
+                                        <div class="col-md-2">
+                                            <input id="productPicture4" type="file" onchange="readURL(this, 'previewProfile4')" style="display: none">
+                                            <div id="openFile4" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                            <img id="previewProfile4" class="icon-center" style="width: 100px; height: 100px; border-radius: 5px;" src="../plugins/images/addphoto.svg">
                                             </div>
                                         </div>
         
-                                        <div class="col-md-1">
-                                            <input id="productPicture1" type="file" onchange="readURL(this, 'previewProfile1')" style="display: none">
-                                            <div id="openFile1" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
-                                            <img id="previewProfile1" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="../plugins/images/addphoto.svg">
+                                        <div class="col-md-2">
+                                            <input id="productPicture5" type="file" onchange="readURL(this, 'previewProfile5')" style="display: none">
+                                            <div id="openFile5" style="width: 100px; height: 100px; border: 1px solid #E5E5E5; border-radius: 4px; margin-bottom: 20px; display: flex; border-radius: 5%" class="mx-auto dependantImg choose-photo">
+                                            <img id="previewProfile5" class="icon-center" style="width: 100px; height: 100px; border-radius: 5px;" src="../plugins/images/addphoto.svg">
                                             </div>
                                         </div>
                                     </div>
@@ -574,7 +633,12 @@ a#approval_table_previous.paginate_button.previous,
                                             &#10;(ad visible in website).
                                             &#10;Uncheck published will hide the ad
                                             &#10;(ad not found in website)." data-placement="bottom"></i></div> 
-                                        <div class="col-md-9 " style="color: black;"><input type="checkbox" class="checked"></div>
+                                        <div class="col-md-9 " style="color: black;">
+                                            <label class="container">
+                                                <input id="status" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -666,6 +730,7 @@ a#approval_table_previous.paginate_button.previous,
 <script>
     
      $(document).ready(function() {    
+         $product_id = localStorage.getItem('wanted_id')
         $('#showinfopublish').popover({
             trigger: 'hover'
         });
@@ -712,7 +777,38 @@ a#approval_table_previous.paginate_button.previous,
             $("#textbox2").datepicker("show");
         });
 
+        statusActive();
      });
+
+     function statusActive(){
+        $('#status').click(function(){
+            if ($(this).is(":checked")) {
+                $('#status').prop('checked', true);
+                $status = "yes";
+                console.log("yes")
+            }
+            else{
+                $('#status').prop('checked', false);
+                $status = "no";
+                console.log("no")
+            }
+ 
+
+            var formData = new FormData();
+            formData.append('product_id' , $product_id);
+            formData.append('publishstatus' , $status);
+
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/product/publish?publishstatus=&product_id=",
+                type : "POST",
+                data : formData,
+                processData: false,
+                contentType: false,
+            }).done(function(response){
+                console.log(response)
+            })
+        });
+    }
      
   </script>
 

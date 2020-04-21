@@ -98,7 +98,7 @@ i {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -229,18 +229,52 @@ i {
     </div>
 </footer>
 
-<!-- submitted enquiry modal -->
-<div class="modal fade" id="tokenmodal">
+<!-- Sign in modal -->
+<div class="modal fade" id="signinmodal">
     <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-        <div class="modal-body mx-auto">
-        <img src="img/checkijau.svg">
-        </div>
-        <div class="mx-auto" style="margin: 10px;">Your enquiry has been submitted</div>
+      
+          <div class="row" style="padding: 20px; width: 350px; position: absolute; left: 50%; top: 30%; margin-left: -150px;margin-top: -150px;">
+              <div class="modal-content">
+                  <div class="card" style="padding: 20px; width: 350px;">
+                  <div class="login-form">
+                      <h2 style="text-align: left; margin-bottom: 10px;">Sign in</h2>
+                          <div class="login-text" style="text-align: left; padding-bottom: 20px">
+                              <p>New User?
+                                  <a href="./choose-register.html" class="or-login" style="color: #0099FF;">Create an account</a>
+                              </p>
+                          </div>
+                          <form id="signinform" onsubmit="return false">
+                            <div class="form-group">
+                                <label class="login-text" for="username">Email </label>
+                                <input type="text" class="form-control" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="login-text" for="pass">Password </label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <div class="group-input">
+                                <div class="gi-more">
+                                    <label class="login-text" for="save-pass">
+                                        Keep me signed in.
+                                        <input type="checkbox" id="save-pass">
+                                        <span id="keepme_signedin" class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <button  id="signin" value="submit" class="site-btn btn login-btn" style="color: white; text-transform: initial; width: 100%">Sign In</button>
+                            </div>
+                          </form>
+                          <div>
+                              <a href="#" class="forget-pass float-right login-text" style="color: #D91F1F; padding-top: 20px;">Forgot pasword?</a>
+                          </div>
+                  </div>
+                  </div>
+              
+              </div>
+          </div>
     </div>
-    </div>
-</div>
-
+  </div>
 
         <!-- Js Plugins -->
         <script src="js/jquery-3.3.1.min.js"></script>
@@ -263,6 +297,10 @@ i {
 
         <script>
             $(document).ready(function(){
+                $('#signin').on('click',function(){
+                    LoginUser();    
+                });
+
                 $.ajax({
                     url: "http://codeviable.com/w2w2/public/token",
                     type: "GET",
@@ -273,12 +311,12 @@ i {
                         $.each(response, function(i,data){
                             if(response[i].discount == "0%"){
                                 console.log(response)
-                            tr += '<div class="card  mx-auto" style="background-color: #FAFAFA; width: 250px;"><div style="margin-left: auto; margin-right: auto;"><div id="type1" class="text-center" style="font-weight: bold;">' + response[i].type + '</div><h3 id="price1" class="text-center" style="margin-top: 30px; font-weight: bold;">RM ' + response[i].price + '</h3><div class="line-bottom"></div><div id="description1" class="text-center" style="margin-top: 30px;"><i class="fas fa-check" style="color: #008D50;"></i>' + response[i].description + '</div><button class="btn" style="width: 100%; margin-top: 90px; font-size: 14px; border-radius: 30px; background-color: #008D50; color: white;">CATCH THE DEAL</button></div></div>';
+                            tr += '<div class="card  mx-auto" style="background-color: #FAFAFA; width: 250px;"><div style="margin-left: auto; margin-right: auto;"><div id="type1" class="text-center" style="font-weight: bold;">' + response[i].type + '</div><h3 id="price1" class="text-center" style="margin-top: 30px; font-weight: bold;">RM ' + response[i].price + '</h3><div class="line-bottom"></div><div id="description1" class="text-center" style="margin-top: 30px;"><i class="fas fa-check" style="color: #008D50;"></i>' + response[i].description + '</div><button class="btn" style="width: 100%; margin-top: 90px; font-size: 14px; border-radius: 30px; background-color: #008D50; color: white;" data-toggle="modal" data-dismiss="modal" data-target="#signinmodal">CATCH THE DEAL</button></div></div>';
                             tr += ''
                             }
                             else if(response[i].discount != "0%"){
                                 console.log(response)
-                            tr += '<div class="card mx-auto" style="background-color: #FAFAFA; width: 250px;"><div style="margin-left: auto; margin-right: auto;"><div id="type2" class="text-center" style="font-weight: bold;">'+ response[i].type +'</div><h3 id="price2" class="text-center" style="margin-top: 30px; font-weight: bold;">RM '+ response[i].price +'</h3><div class="line-bottom"></div><div id="description2" class="text-center" style="margin-top: 30px;"><i class="fas fa-check" style="color: #008D50;"></i>'+ response[i].description +'!</div><div id="discount2" class="text-center" style="margin-top: 10px;"><i class="fas fa-check" style="color: #008D50;"></i>Get '+ response[i].discount +' discount</div><div id="netprice2" class="text-center" style="color: orange; font-style: italic;">(Net price : RM50)</div><button class="btn" style="width: 100%; margin-top: 30px; font-size: 14px; border-radius: 30px; background-color: #008D50; color: white;">CATCH THE DEAL</button></div></div>';
+                            tr += '<div class="card mx-auto" style="background-color: #FAFAFA; width: 250px;"><div style="margin-left: auto; margin-right: auto;"><div id="type2" class="text-center" style="font-weight: bold;">'+ response[i].type +'</div><h3 id="price2" class="text-center" style="margin-top: 30px; font-weight: bold;">RM '+ response[i].price +'</h3><div class="line-bottom"></div><div id="description2" class="text-center" style="margin-top: 30px;"><i class="fas fa-check" style="color: #008D50;"></i>'+ response[i].description +'!</div><div id="discount2" class="text-center" style="margin-top: 10px;"><i class="fas fa-check" style="color: #008D50;"></i>Get '+ response[i].discount +' discount</div><div id="netprice2" class="text-center" style="color: orange; font-style: italic;">(Net price : RM50)</div><button class="btn" style="width: 100%; margin-top: 30px; font-size: 14px; border-radius: 30px; background-color: #008D50; color: white;"  data-toggle="modal" data-dismiss="modal" data-target="#signinmodal">CATCH THE DEAL</button></div></div>';
                             }
                         });
                         $("#tokenrow").html(tr);
@@ -286,6 +324,26 @@ i {
                     }
                 })
             });
+
+            function LoginUser(){
+                var email = $('#email').val();
+                var password = $('#password').val();
+
+                $.ajax({
+                    url: 'http://codeviable.com/w2w2/public/login?user_email=&password=',
+                    type: 'POST',
+                    data: { 'user_email' : email, 'password' : password },
+                    success: function (response){
+                        if(response[0].user_email === email && response[0].password === password || response[0].email === email && response[0].password === password ){
+                            console.log(response[0]);
+                            console.log("Logged in");
+                            localStorage.setItem("user_id", JSON.stringify(response[0].user_id));
+                            localStorage.setItem("user_type", JSON.stringify(response[0].user_type));
+                            window.location.href = "./packagetoken-registered.html"; 
+                        }
+                    }
+                });
+            } 
         </script>
     </body>
 

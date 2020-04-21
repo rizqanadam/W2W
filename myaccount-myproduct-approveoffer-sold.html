@@ -179,7 +179,7 @@ ul ul a {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -425,7 +425,7 @@ ul ul a {
             var tr = "";
 
             $.each(response, function(i,data){
-              tr += '<div data-id='+response[i].id+' class="row"><div class="col-md-2"><img src='+response[i].image[0].image+' style="width: 70px; height: 70px; object-fit: cover;"></div><div class="col-md-8"><div id="reject_status" style="color: #FF5700; font-size: 16px; font-weight: bold;"></div><div id="reject_status2" style="color: #FF5700; font-size: 16px; font-weight: bold;"></div><p id= "product_name" style="font-weight: bold;">Compose</p><div id="offered_price" style="color: red; font-weight: bold;">Offered Price: RM'+response[i].offeredprice+'</div><div id="buyer_email" style="font-size: 12px; color: #8B8B8B; margin-top: 40px;">From: John doe</div></div><div class="col-md-2" style="margin-top: auto;"><button id="sold_btn" class="sold btn" style="color: white; background-color: #FF7600; width: 100%;">Sold</button></div></div><div class="line-bottom"></div>';
+              tr += '<div data-id='+response[i].id+' class="row"><div class="col-md-2"><img src='+response[i].image[0].image+' style="width: 70px; height: 70px; object-fit: cover;"></div><div class="col-md-8"><div id="reject_status" style="color: #FF5700; font-size: 16px; font-weight: bold;"></div><div id="reject_status2" style="color: #FF5700; font-size: 16px; font-weight: bold;"></div><p id= "product_name" style="font-weight: bold;">'+response[i].product_name+'</p><div id="offered_price" style="color: red; font-weight: bold;">Offered Price: RM'+response[i].offeredprice+'</div><div id="buyer_email" style="font-size: 12px; color: #8B8B8B; margin-top: 40px; text-transform: capitalize;">From: '+response[i].user_fname+" "+response[i].user_lname+'</div></div><div class="col-md-2" style="margin-top: auto;"><button id="sold_btn" class="sold btn" style="color: white; background-color: #FF7600; width: 100%;">Sold</button></div></div><div class="line-bottom"></div>';
             });
             $('#display_product').html(tr);
 

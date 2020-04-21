@@ -342,8 +342,8 @@ a#approval_table_previous.paginate_button.previous,
                                 <div class="col-md-2">
                                     <select id="typeDropdown" style="cursor:pointer " class="form-control">
                                       <option disabled>Please choose</option>
-                                      <option>Regular</option>
-                                      <option>Premium</option>
+                                      <option value="regular">Regular</option>
+                                      <option value="premium">Premium</option>
                                     </select>
                                 </div>
                             </div>
@@ -382,7 +382,7 @@ a#approval_table_previous.paginate_button.previous,
                     </div>
                 </div>
 
-                <div class="modal fade bd-example-modal-sm" style="padding: 20px; width: 350px; position: absolute; left: 50%; top: 40%; margin-left: -150px;margin-top: -150px;" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade bd-example-modal-sm" style="top: 30%; left: 10%;" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-sm" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -391,10 +391,24 @@ a#approval_table_previous.paginate_button.previous,
                             <br><br><br>
                             <div style="text-align: right;">
                                 <a href="./pricing-package-edit.html" style="color: #0099FF; cursor: pointer;" data-dismiss="modal">CANCEL</a>
-                                <a id="btn_delete" style="color: #C10000; cursor: pointer; padding-left: 10px;">DELETE</a>
+                                <a id="btn_delete" style="color: #C10000; cursor: pointer; padding-left: 10px;" data-toggle="modal" data-target="#delete_status" data-dismiss="modal">DELETE</a>
                             </div>
                         </div>
                       </div>
+                    </div>
+                </div>
+
+                <!--delete_status-->
+                <div class="modal fade bd-example-modal-sm"  style="top: 30%; left: 10%;" id="delete_status" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                    
+                        <div class="modal-content" style="text-align: center; width: 120%; padding: 60px; border-radius: 10px;">
+                            <div class="modal-body">
+                            <img src="../plugins/images/Icon_Trash_Deleted_Red.svg">
+                            </div>
+                            <div class="mx-auto" style="margin: 10px; color: #F44336; font-size: 28px;">Package Deleted</div>
+                        </div>
+                    </div>
                     </div>
                 </div>
 

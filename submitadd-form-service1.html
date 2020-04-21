@@ -214,7 +214,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -2344,16 +2344,29 @@
 
         function packageDropdownList(){
             $.ajax({
-                url: "http://codeviable.com/w2w2/public/packages",
+                url: "http://codeviable.com/w2w2/public/paidpackage/user?user_id=",
                 type: "GET",
+                data: { "user_id" : $userid }
             }).done(function(response){
-                var tr = '<option disabled selected value="">Please choose</option>';
+                var tr = '<option disabled selected value="">Please choose</option>';  
 
                 $.each(response, function(i, data){
-                    tr += '<option style="text-transform:capitalize;">'+ data.package_name + '</option>';
+                    tr += '<option id='+ data.id +' style="text-transform:capitalize;">'+ data.package_name + '</option>';
                 })
                 $('#package').html(tr);
                 $('#package2').html(tr);
+
+                $("#package").on('change', function () {
+                    var id = $(this).find('option:selected').attr('id');
+                    localStorage.setItem('paid_package', id);
+                    console.log(id);
+                });
+
+                $("#package2").on('change', function () {
+                    var id = $(this).find('option:selected').attr('id');
+                    localStorage.setItem('paid_package', id);
+                    console.log(id);
+                });
             })
         }
 
@@ -2383,6 +2396,7 @@
             var price = $('#product_price').val();
             var price2 = $('#product_price2').val();
             var package = $('#package').val();
+            var package_id = localStorage.getItem('paid_package');
             var location1 = $('#product_location1').val();
             var location2 = $('#product_location2').val();
             var location3 = $('#product_location3').val();
@@ -2409,6 +2423,9 @@
             var image4 = $("#productPicture4").prop('files');
             var image5 = $("#productPicture5").prop('files');
             var tagging = null ;
+            var name = $('#name').val();
+            var contact = $('#contact').val();
+            var email = $('#email').val();
 
             var formData = new FormData();
             formData.append("product_date" , date);
@@ -2418,6 +2435,7 @@
             formData.append("product_price" , price);
             formData.append("product_pricemax" , price2);
             formData.append("product_package" , package);
+            formData.append("package_id" , package_id);
             formData.append("product_location[]" , location1);
             formData.append("product_location[]" , location2);
             formData.append("product_location[]" , location3);
@@ -2447,6 +2465,9 @@
             formData.append("maincategory" , "service");
             formData.append("user_id" , $userid);
             formData.append("tagging[]" , tagging);
+            formData.append("name" , name);
+            formData.append("contact" , contact);
+            formData.append("company_email" , email);
 
 
             $.ajax({
@@ -2470,6 +2491,7 @@
             var price = $('#product_price3').val();
             var price2 = $('#product_price4').val();
             var package = $('#package2').val();
+            var package_id = localStorage.getItem('paid_package');
             var location1 = $('#product_location4').val();
             var location2 = $('#product_location5').val();
             var location3 = $('#product_location6').val();
@@ -2496,6 +2518,9 @@
             var image4 = $("#productPicture9").prop('files');
             var image5 = $("#productPicture10").prop('files');
             var tagging = null ;
+            var name = $('#name2').val();
+            var contact = $('#contact2').val();
+            var email = $('#email2').val();
 
             var formData = new FormData();
             formData.append("product_date" , date);
@@ -2505,6 +2530,7 @@
             formData.append("product_price" , price);
             formData.append("product_pricemax" , price2);
             formData.append("product_package" , package);
+            formData.append("package_id" , package_id);
             formData.append("product_location[]" , location1);
             formData.append("product_location[]" , location2);
             formData.append("product_location[]" , location3);
@@ -2534,6 +2560,9 @@
             formData.append("maincategory" , "service");
             formData.append("user_id" , $userid);
             formData.append("tagging[]" , tagging);
+            formData.append("name" , name);
+            formData.append("contact" , contact);
+            formData.append("company_email" , email);
 
 
             $.ajax({

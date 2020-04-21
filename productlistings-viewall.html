@@ -125,7 +125,7 @@ i {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -164,7 +164,7 @@ i {
                     </div>
                     <div class="col-lg-10 text-right col-md-2 header-margin">
                         <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                        <button class="btn">Contact Us</button>
+                        <button onclick="window.location.href='./enquiry-form-guestview.html';" class="btn">Contact Us</button>
                         <button onclick="window.location.href='./login.html';" class="btn" style="margin-right: 12px;">Login</button>
                         <button onclick="window.location.href='./default-form-guestview.html';" class="btn btn-warning">Submit Ad</button>
                     </div>
@@ -173,7 +173,7 @@ i {
         </div>
         </div>
     </div>
-    <div style="border: 1px solid lightgrey; margin-bottom: 20px;"></div>
+    <div style="margin-bottom: 20px;"></div>
     </header>
     <!-- Header End -->
 
@@ -182,28 +182,33 @@ i {
         <div class="row">
         <div class="col-md-3">
             <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-              <option disabled selected>Please choose</option>
-              <option>Transportation</option>
-              <option>Analysis</option>
-              <option>Packaging</option>
-              <option>Waste Treatment</option>
-              <option>Recycling</option>
-              <option>Others</option>
+              <option disabled selected>Entire Malaysia</option>
+              <option>Johor</option>
+              <option>Kedah</option>
+              <option>Kelantan</option>
+              <option>Melaka</option>
+              <option>Negeri Sembilan</option>
+              <option>Pahang</option>
+              <option>Perak</option>
+              <option>Perlis</option>
+              <option>Pulau Pinang</option>
+              <option>Sabah</option>
+              <option>Sarawak</option>
+              <option>Selangor</option>
+              <option>Terengganu</option>
+              <option>Wilayah Persekutuan Malaysia</option>  
             </select>
         </div> 
         <div class="col-md-3">
             <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-              <option disabled selected>Please choose</option>
-              <option>Transportation</option>
-              <option>Analysis</option>
-              <option>Packaging</option>
-              <option>Waste Treatment</option>
-              <option>Recycling</option>
-              <option>Others</option>
+              <option disabled selected>Category</option>
+              <option>Waste</option>
+              <option>Technology</option>
+              <option>Service</option>
             </select>
         </div> 
         <div class="col-md-3">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" placeholder="Enter tag or keyword">
         </div> 
         <div class="col-md-3">
             <button class="btn btn-success"><i class="fa fa-search"></i> Search now</button>
@@ -212,35 +217,27 @@ i {
         <div class="row" style="margin-top: 10px;">
             <div class="col-md-3">
                 <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                  <option disabled selected>Please choose</option>
-                  <option>Transportation</option>
-                  <option>Analysis</option>
-                  <option>Packaging</option>
-                  <option>Waste Treatment</option>
-                  <option>Recycling</option>
-                  <option>Others</option>
+                  <option disabled selected>Product status</option>
+                  <option>Available</option>
+                  <option>Sold-out</option>
+                  <option>On-going</option>
                 </select>
             </div> 
             <div class="col-md-3">
                 <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                  <option disabled selected>Please choose</option>
-                  <option>Transportation</option>
-                  <option>Analysis</option>
-                  <option>Packaging</option>
-                  <option>Waste Treatment</option>
-                  <option>Recycling</option>
-                  <option>Others</option>
+                  <option disabled selected>Rating</option>
+                  <option>1 star</option>
+                  <option>2 star</option>
+                  <option>3 star</option>
+                  <option>4 star</option>
+                  <option>5 star</option>
                 </select>
             </div> 
             <div class="col-md-3">
                 <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                  <option disabled selected>Please choose</option>
-                  <option>Transportation</option>
-                  <option>Analysis</option>
-                  <option>Packaging</option>
-                  <option>Waste Treatment</option>
-                  <option>Recycling</option>
-                  <option>Others</option>
+                  <option disabled selected>Price range</option>
+                  <option>RM0 - RM100</option>
+                  <option>RM101 - 200</option>
                 </select>
             </div> 
             <div class="col-md-3">
@@ -253,16 +250,16 @@ i {
             <h3>Product Available for sale in Malaysia - Page 1 of 1</h3>
             <div class="col-md-4 row" style="padding-bottom: 20px;;">
                 <a style="text-decoration: underline;">Home</a>
-                <div>>></div>
-                <a style="text-decoration: underline; color: #008D50;">Entire Malaysia</a>
+                <div>&nbsp;>>&nbsp;</div>
+                <a style="text-decoration: underline; color: #008D50; font-weight: bold;">Entire Malaysia</a>
             </div>
 
             <div class="card" style="margin-bottom: 20px; border: none;">
                 <ul class="d-flex justify-content-between">
                     <div class="d-flex">
                     <a class="active-nav nav-style" href="#">All 1-10 of 43</a>
-                    <a class="nav-style" href="#">Individual 13</a>
-                    <a class="nav-style" href="#">Company 30</a>
+                    <a class="nav-style" href="./productlistings-individual-viewall.html">Individual 13</a>
+                    <a class="nav-style" href="./productlistings-company-viewall.html">Company 30</a>
                     </div>
 
                     <div class="d-flex" style="display: none !important;">
@@ -430,9 +427,6 @@ i {
             $newList = [];
             $tempArr = [];
             getRequest();
-            // loadData();
-            // nextPage();
-            // previousPage();
             
 
             $('#pagination').delegate('button', 'click', function() {
@@ -443,9 +437,22 @@ i {
                     console.log(data);
                     //display date in formatted
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
-
-                    tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: contain;" ></div><div class="title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px; cursor: pointer;"><a  style="color: black;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
-                    tr += '<div class="line-bottom"></div>';
+                    if(data.premiumlist == "premium" && data.user_type == "individual"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "regular" && data.user_type == "individual"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "premium" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "regular" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
                 });
                     
                 $('#product_display').html(tr);    
@@ -462,21 +469,44 @@ i {
 
         function getRequest() {
             $.ajax({
-                url: 'http://codeviable.com/w2w2/public/product/type?mainstatus=available',
+                url: 'http://codeviable.com/w2w2/public/product/premium?premiumlist=premium',
                 type: "GET"
             }).done(function (response) {
                 var data = response;
                 var currentIndex = 0;
-                var length = response.length;
-                console.log(length)
-
+                
                 $.each(response, function (i, data) {
-                    var index = i + 1;
-                    $tempArr.push(data);
-                    $newList[currentIndex] = $tempArr;
-                    if (index % 10 == 0) {
-                        currentIndex++;
-                        $tempArr = [];
+                    if(response[i].mainstatus == "available" && response[i].publishstatus == "yes"){
+                        var index = i + 1;
+                        $tempArr.push(data);
+                        $newList[currentIndex] = $tempArr;
+                        if (index % 10 == 0) {
+                            currentIndex++;
+                            $tempArr = [];
+                        }
+                    }
+                });
+                getRequest2();               
+            });
+        }
+
+        function getRequest2() {
+            $.ajax({
+                url: 'http://codeviable.com/w2w2/public/product/premium?premiumlist=regular',
+                type: "GET"
+            }).done(function (response) {
+                var data = response;
+                var currentIndex = 0;
+                
+                $.each(response, function (i, data) {
+                    if(response[i].mainstatus == "available" && response[i].publishstatus == "yes"){
+                        var index = i + 1;
+                        $tempArr.push(data);
+                        $newList[currentIndex] = $tempArr;
+                        if (index % 10 == 0) {
+                            currentIndex++;
+                            $tempArr = [];
+                        }
                     }
                 });
 
@@ -487,18 +517,33 @@ i {
                     pageBtn.append('<div class="col-md-2"><button data-id=' + i + ' class="btn btn-number" style="width: 100%;">'+(i+1)+'</button></div>');
                 }
 
-                var tr = "";
+                displayproduct();       
+            });
+        }
+
+        function displayproduct() {
+            var tr = "";
                 $.each($newList[0], function (i, data) {                 
                     //display date in formatted
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
-
-                    tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: contain;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
-                    tr += '<div class="line-bottom"></div>';
+                    if(data.premiumlist == "premium" && data.user_type == "individual"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "regular" && data.user_type == "individual"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "premium" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "regular" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
                 });
                 $('#product_display').html(tr); 
-
-                
-            });
         }
 
     </script>

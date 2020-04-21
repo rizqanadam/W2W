@@ -431,13 +431,13 @@ a#approval_table_previous.paginate_button.previous,
                     console.log(createdate)
 
                     if(data.publishstatus == "publishstatus"){
-                        $table_row='<tr id=' + data.id +' ><td style="text-align: center; width: 35px;"><input class="select" id="check" type="checkbox"></td> <td style="text-align: left; width: 40%;"><img src='+data.image+'></td><td style="text-align: center;">' + createdate + '</td><td style="text-align: center;"><img src="../plugins/images/Check.svg"></td><td style="text-align: center;"><a id="editbutton" style="color: #0099FF; text-decoration: underline; cursor:pointer;">Edit</a></td></tr>';
+                        $table_row='<tr id=' + data.id +' ><td style="text-align: center; width: 35px;"><input class="select" id="check" type="checkbox"></td><td style="text-align: left; width: 40%; height: 20%;"><img src='+data.image+' style="width: 100%; height: 180px;"></td><td style="text-align: center;">' + createdate + '</td><td style="text-align: center;"><img src="../plugins/images/Check.svg"></td><td style="text-align: center;"><a id="editbutton" style="color: #0099FF; text-decoration: underline; cursor:pointer;">Edit</a></td></tr>';
                         // add row to dataTable object
                         $dataTable.rows.add( $( $table_row ) ).draw();
                         $('#' + data.id).data('id', data.id);
                     }
                     else {
-                        $table_row='<tr id=' + data.id +' ><td style="text-align: center; width: 35px;"><input class="select" id="check" type="checkbox"></td> <td style="text-align: left; width: 40%;"><img src='+data.image+'></td><td style="text-align: center;">' + createdate + '</td><td style="text-align: center;"><img src="../plugins/images/icon_cross.svg"></td><td style="text-align: center;"><a id="editbutton" style="color: #0099FF; text-decoration: underline; cursor:pointer;">Edit</a></td></tr>';
+                        $table_row='<tr id=' + data.id +' ><td style="text-align: center; width: 35px;"><input class="select" id="check" type="checkbox"></td><td style="text-align: left; width: 40%;"><img src='+data.image+' style="width: 100%; height: 180px;"></td><td style="text-align: center;">' + createdate + '</td><td style="text-align: center;"><img src="../plugins/images/icon_cross.svg"></td><td style="text-align: center;"><a id="editbutton" style="color: #0099FF; text-decoration: underline; cursor:pointer;">Edit</a></td></tr>';
                         // add row to dataTable object
                         $dataTable.rows.add( $( $table_row ) ).draw();
                         $('#' + data.id).data('id', data.id);

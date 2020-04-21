@@ -171,7 +171,7 @@ i {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -210,7 +210,7 @@ i {
                     </div>
                     <div class="col-lg-10 text-right col-md-2 header-margin">
                         <button onclick="window.location.href='./index1.html';" class="btn">Home</button>
-                        <button class="btn">Contact Us</button>
+                        <button onclick="window.location.href='./enquiry-form-userview.html';" class="btn">Contact Us</button>
                         <div class="dropdown">
                             <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
                             <h5 style="margin-top: 8px; color: black;">My Account</h5>
@@ -227,7 +227,7 @@ i {
         </div>
         </div>
     </div>
-    <div style="border: 1px solid lightgrey; margin-bottom: 20px;"></div>
+    <div style="margin-bottom: 20px;"></div>
     </header>
     <!-- Header End -->
 
@@ -236,28 +236,33 @@ i {
         <div class="row">
         <div class="col-md-3">
             <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-              <option disabled selected>Please choose</option>
-              <option>Transportation</option>
-              <option>Analysis</option>
-              <option>Packaging</option>
-              <option>Waste Treatment</option>
-              <option>Recycling</option>
-              <option>Others</option>
+                <option disabled selected>Entire Malaysia</option>
+                <option>Johor</option>
+                <option>Kedah</option>
+                <option>Kelantan</option>
+                <option>Melaka</option>
+                <option>Negeri Sembilan</option>
+                <option>Pahang</option>
+                <option>Perak</option>
+                <option>Perlis</option>
+                <option>Pulau Pinang</option>
+                <option>Sabah</option>
+                <option>Sarawak</option>
+                <option>Selangor</option>
+                <option>Terengganu</option>
+                <option>Wilayah Persekutuan Malaysia</option>  
             </select>
         </div> 
         <div class="col-md-3">
             <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-              <option disabled selected>Please choose</option>
-              <option>Transportation</option>
-              <option>Analysis</option>
-              <option>Packaging</option>
-              <option>Waste Treatment</option>
-              <option>Recycling</option>
-              <option>Others</option>
+                <option disabled selected>Category</option>
+                <option>Waste</option>
+                <option>Technology</option>
+                <option>Service</option>
             </select>
         </div> 
         <div class="col-md-3">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" placeholder="Enter tag or keyword">
         </div> 
         <div class="col-md-3">
             <button class="btn btn-success"><i class="fa fa-search"></i> Search now</button>
@@ -266,35 +271,27 @@ i {
         <div class="row" style="margin-top: 10px;">
             <div class="col-md-3">
                 <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                  <option disabled selected>Please choose</option>
-                  <option>Transportation</option>
-                  <option>Analysis</option>
-                  <option>Packaging</option>
-                  <option>Waste Treatment</option>
-                  <option>Recycling</option>
-                  <option>Others</option>
+                    <option disabled selected>Product status</option>
+                    <option>Available</option>
+                    <option>Sold-out</option>
+                    <option>On-going</option>
                 </select>
             </div> 
             <div class="col-md-3">
                 <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                  <option disabled selected>Please choose</option>
-                  <option>Transportation</option>
-                  <option>Analysis</option>
-                  <option>Packaging</option>
-                  <option>Waste Treatment</option>
-                  <option>Recycling</option>
-                  <option>Others</option>
+                    <option disabled selected>Rating</option>
+                    <option>1 star</option>
+                    <option>2 star</option>
+                    <option>3 star</option>
+                    <option>4 star</option>
+                    <option>5 star</option>
                 </select>
             </div> 
             <div class="col-md-3">
                 <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                  <option disabled selected>Please choose</option>
-                  <option>Transportation</option>
-                  <option>Analysis</option>
-                  <option>Packaging</option>
-                  <option>Waste Treatment</option>
-                  <option>Recycling</option>
-                  <option>Others</option>
+                    <option disabled selected>Price range</option>
+                    <option>RM0 - RM100</option>
+                    <option>RM101 - 200</option>
                 </select>
             </div> 
             <div class="col-md-3">
@@ -310,7 +307,8 @@ i {
                 <div>>></div>
                 <a style="text-decoration: underline; color: #008D50;">Wanted</a>
             </div>
-
+            
+        
             <div class="card" style="margin-bottom: 20px; border: none;">
                 <ul class="d-flex justify-content-between">
                     <div class="d-flex">
@@ -323,7 +321,7 @@ i {
                     </div>
                 </ul>
             </div>
-            
+            <div id="product_display"> 
             <div class="row">
                 <div class="col-md-2">
                     <img src="img/energy.jpg"></div>
@@ -380,35 +378,22 @@ i {
             </div>
 
             <div class="line-bottom"></div>
+        </div> 
           </div>
-
+        </div>
           <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
 
           <div class="col-md-6" style="margin-left: auto; margin-right: auto; margin-bottom: 40px;">
-              <div class="row">
-                    <div class="col-md 1">
-                        <button class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-left"></i></button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-primary" style="width: 100%;">1</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-number" style="width: 100%;">2</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-number" style="width: 100%;">3</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-number" style="width: 100%;">4</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-number" style="width: 100%;">5</button>
-                    </div>
-                    <div class="col-md 1">
-                        <button class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-right"></i></button>
-                    </div>
-              </div>
-          </div>
+            <div class="row" style="justify-content: center;">
+                  <div class="col-md-1">
+                      <button onclick="previousPage();" class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-left"></i></button>
+                  </div>
+                  <div id="pagination" style="display: contents;"></div>
+                  <div class="col-md-1">
+                      <button onclick="nextPage();"  class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-right"></i></button>
+                  </div>
+            </div>
+        </div>
 
 
           <footer class="footer-section" style="background-color: #3A595D;">
@@ -470,40 +455,110 @@ i {
         }
 
         $(document).ready(function(){
-            displayListProduct();
-        })
+            $newList = [];
+            $tempArr = [];
 
-        function displayListProduct (){
-            $.ajax({
-                url: "http://codeviable.com/w2w2/public/product/type?mainstatus=wanted",
-                type: "GET",
-            }).done(function(response){
+            getRequest();
 
+            $('#pagination').delegate('button', 'click', function() {
+                var id = $(this).data('id');
+                console.log($newList[id]);
                 var tr = "";
-                var dummyImg = 'img/organic-compose.jpg';
+                $.each($newList[id], function (i, data) {
+                    console.log(data);
+                    //display date in formatted
+                    var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
+                    if(data.premiumlist == "premium"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "regular"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                });
+                    
+                $('#product_display').html(tr);    
+            });
 
-                $.each(response, function(i, data){
-                    tr += '<div class="row">
-                <div class="col-md-2">
-                    <img src="img/energy.jpg"></div>
-                <div class="col-md-7">
-                    <div style="font-size: 18px; margin-bottom: 10px;">Organic Compose  <i class="fa fa-fire" style="color: red;"></i></div>
-                    <p>We need 80 moon of plastic pellets on monthly basis. Contact us if you have the requirement that we need.</p>
-                    <label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label>
-                    <div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div>
-                    <div style="color: #008D50;"><i class="fa fa-phone"></i>014567892</div>
-                    <div style="color: #008D50;"><i class="fa fa-envelope"></i>ismail@gmail.com</div>
-                </div>
-                <div class="col-md-3 text-right">
-                    <p>Dec 16 2019</p>
-                    <p>Pasir Gudang, Johor</p>
-                </div>
-            </div>';
-                    tr += '<div class="line-bottom"></div>';
-                })
+            $('#product_display').delegate('.title', 'click', function() {
+                var id = $(this).parent().data('index');
+                console.log(id);
+                localStorage.setItem('wanted_detail' , id);
+                window.location.href="./productdetails-wanted1.html";
+            });
+        });
+
+        function getRequest() {
+            $.ajax({
+                url: 'http://codeviable.com/w2w2/public/product/premium?premiumlist=premium',
+                type: "GET"
+            }).done(function (response) {
+                var data = response;
+                var currentIndex = 0;
+                
+                $.each(response, function (i, data) {
+                    if(response[i].mainstatus == "wanted" && response[i].publishstatus == "yes"){
+                        var index = i + 1;
+                        $tempArr.push(data);
+                        $newList[currentIndex] = $tempArr;
+                        if (index % 10 == 0) {
+                            currentIndex++;
+                            $tempArr = [];
+                        }
+                    }
+                });
+                getRequest2();               
+            });
+        }
+
+        function getRequest2() {
+            $.ajax({
+                url: 'http://codeviable.com/w2w2/public/product/premium?premiumlist=regular',
+                type: "GET"
+            }).done(function (response) {
+                var data = response;
+                var currentIndex = 0;
+                
+                $.each(response, function (i, data) {
+                    if(response[i].mainstatus == "wanted" && response[i].publishstatus == "yes"){
+                        var index = i + 1;
+                        $tempArr.push(data);
+                        $newList[currentIndex] = $tempArr;
+                        if (index % 10 == 0) {
+                            currentIndex++;
+                            $tempArr = [];
+                        }
+                    }
+                });
+
+                console.log($newList);
+                var pageBtn = $('#pagination');
+                pageBtn.html('');
+                for(var i=0; i<$newList.length; i++) {
+                    pageBtn.append('<div class="col-md-2"><button data-id=' + i + ' class="btn btn-number" style="width: 100%;">'+(i+1)+'</button></div>');
+                }
+
+                displayproduct();       
+            });
+        }
+
+        function displayproduct(){
+            var tr = "";
+
+                $.each($newList[0], function (i, data) {   
+                    var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
+                    if(data.premiumlist == "premium"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "regular"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                });
 
                 $("#product_display").html(tr);
-            })
         }
         
     </script>

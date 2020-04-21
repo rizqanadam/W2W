@@ -150,7 +150,7 @@ i {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -337,8 +337,8 @@ i {
             You have purchased the package!
           </div>
 
-          <div class="col-md-12" style="margin-top: 30px; text-align: center; color: #707070;" >
-            Your remaining token is: 95
+          <div id="balance" class="col-md-12" style="margin-top: 30px; text-align: center; color: #707070;" >
+            
           </div>
 
           <div class="col-md-12" style="margin-top: 30px; text-align: center;" >
@@ -385,12 +385,11 @@ i {
                         
                         var tr = "";
                         $.each(response,function(i,data){
-                            console.log(response)
-                            if(response[i].premiumlist == "Regular"){
-                                tr += '<div data-id='+response[i].package_id+' class="card col-md-2 mx-auto" style="background-color: #FAFAFA;"><div id=' + response[i].package_name +' style="margin-left: auto; margin-right: auto;"><div class="text-center" style="font-weight: bold; text-transform: capitalize;">'+ response[i].package_name +'</div><div class="text-center" style="color: lightgray; font-style: italic;">(Regular)</div><h3 class="text-center" style="margin-top: 30px; font-weight: bold;">'+ response[i].package_price +' Token</h3><div class="line-bottom"></div><div class="text-center" style="margin-top: 30px;">'+ response[i].package_duration +'</div><button id="buy_btn" class="btn" style="width: 100%; margin-top: 30px; font-size: 14px; border-radius: 30px; background-color: #008D50; color: white;" data-toggle="modal" data-dismiss="modal" data-target="#myModal2">BUY NOW</button></div></div>';
+                            if(response[i].premiumlist == "regular"){
+                                tr += '<div data-id='+response[i].package_id+' class="card col-md-2 mx-auto" style="background-color: #FAFAFA;"><div id=' + response[i].package_name +' style="margin-left: auto; margin-right: auto;"><div class="text-center" style="font-weight: bold; text-transform: capitalize;">'+ response[i].package_name +'</div><div class="text-center" style="color: lightgray; font-style: italic;">(Regular)</div><h3 class="text-center" style="margin-top: 30px; font-weight: bold;">'+ response[i].package_price +' Token</h3><div class="line-bottom"></div><div class="text-center" style="margin-top: 30px;">'+ response[i].package_duration +' months</div><button id="buy_btn" class="btn" style="width: 100%; margin-top: 30px; font-size: 14px; border-radius: 30px; background-color: #008D50; color: white;" data-toggle="modal" data-dismiss="modal" data-target="#myModal2">BUY NOW</button></div></div>';
                             }
-                            else if(response[i].premiumlist == "Premium"){
-                                tr += '<div data-id='+response[i].package_id+' class="card col-md-2 mx-auto" style="background-color: #FAFAFA;"><div id=' + response[i].package_name +' style="margin-left: auto; margin-right: auto;"><div class="text-center" style="font-weight: bold; text-transform: capitalize;">'+ response[i].package_name +'</div><div class="text-center" style="color: #FF7600; font-style: italic;">(Premium)</div><h3 class="text-center" style="margin-top: 30px; font-weight: bold;">'+ response[i].package_price +' Token</h3><div class="line-bottom"></div><div class="text-center" style="margin-top: 30px;">'+ response[i].package_duration +'</div><button id="buy_btn" class="btn" style="width: 100%; margin-top: 30px; font-size: 14px; border-radius: 30px; background-color: #008D50; color: white;" data-toggle="modal" data-dismiss="modal" data-target="#myModal2">BUY NOW</button></div></div>';
+                            else if(response[i].premiumlist == "premium"){
+                                tr += '<div data-id='+response[i].package_id+' class="card col-md-2 mx-auto" style="background-color: #FAFAFA;"><div id=' + response[i].package_name +' style="margin-left: auto; margin-right: auto;"><div class="text-center" style="font-weight: bold; text-transform: capitalize;">'+ response[i].package_name +'</div><div class="text-center" style="color: #FF7600; font-style: italic;">(Premium)</div><h3 class="text-center" style="margin-top: 30px; font-weight: bold;">'+ response[i].package_price +' Token</h3><div class="line-bottom"></div><div class="text-center" style="margin-top: 30px;">'+ response[i].package_duration +' months</div><button id="buy_btn" class="btn" style="width: 100%; margin-top: 30px; font-size: 14px; border-radius: 30px; background-color: #008D50; color: white;" data-toggle="modal" data-dismiss="modal" data-target="#myModal2">BUY NOW</button></div></div>';
                             }
                         });
                         $("#packagerow").html(tr);
@@ -407,7 +406,8 @@ i {
                 $('#buy').on('click',function(){
                     buypackage();
                     $('#packagemodal').modal('toggle');
-                })
+                });
+                
             });
 
             function buypackage() {
@@ -419,7 +419,20 @@ i {
                     data : {"user_id":$userid , "package_id":packageid}
                 }).done(function(response){
                     console.log(response);
+                    userData();
                 })
+            }
+
+            function userData(){
+
+                $.ajax({
+                url: 'http://codeviable.com/w2w2/public/user/detail?user_id=',
+                type: 'GET',
+                data: { "user_id" : $userid },
+                success: function(response){
+                $('#balance').html("Your remaining token is: "+response.balancetoken)
+                }
+                });
             }
         </script>
 

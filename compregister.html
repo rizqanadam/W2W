@@ -51,7 +51,7 @@ i {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -90,7 +90,7 @@ i {
                     </div>
                     <div class="col-lg-10 text-right col-md-2 header-margin">
                         <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                        <button class="btn">Submit Enquiry</button>
+                        <button onclick="window.location.href='./enquiry-form-guestview.html';" class="btn">Submit Enquiry</button>
                         <button class="btn" style="margin-right: 12px;">Submit Demand</button>
                         <button onclick="window.location.href='./default-form-guestview.html';" class="btn btn-warning">Submit Ad</button>
                     </div>
@@ -122,22 +122,23 @@ i {
                             </div>
                           </div>
                         </div>
+                        <form id="registerform" action="./compregister1.html">
                             <div class="form-group">
                                 <p>Company basic information</p>
                                 <label class="login-text" for="username">Company name</label>
-                                <input type="text" class="form-control" id="compname">
+                                <input type="text" class="form-control" id="compname" required>
                             </div>
                             <div class="form-group">
                                 <label class="login-text" for="pass">Company registration number</label>
-                                <input type="text" class="form-control" id="compregistrationnumber">
+                                <input type="text" class="form-control" id="compregistrationnumber" required>
                             </div>
                             <div class="form-group" style="padding-bottom: 20px;">
                                 <label class="login-text" for="pass">Company description</label>
-                                <textarea type="text" class="form-control" id="compdescription"></textarea>
+                                <textarea type="text" class="form-control" id="compdescription" required></textarea>
                             </div>
                             
-                            <button id="next" value="submit" class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
-                        
+                            <button id="next" type="submit" value="submit" class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                        </form>
                     </div>
                     </div>
                 </div>
@@ -158,7 +159,6 @@ i {
         $(document).on('click', function(){
             $('#next').on('click',function(){
                 AddUser();
-                window.location.href = "./compregister1.html";
             });
         });
 

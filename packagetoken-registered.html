@@ -151,7 +151,7 @@ i {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -328,8 +328,8 @@ i {
             You have purchased the token!
           </div>
 
-          <div class="col-md-12" style="margin-top: 30px; text-align: center; color: #707070;" >
-            Your remaining token is: 95
+          <div id="balance" class="col-md-12" style="margin-top: 30px; text-align: center; color: #707070;" >
+            
           </div>
 
           <div class="col-md-12" style="margin-top: 30px; text-align: center;" >
@@ -393,7 +393,9 @@ i {
                 $('#buy').on('click', function(){
                     buyToken();
                     $('#tokenmodal').modal('toggle');
-                })
+                    
+                });
+                
 
             });
 
@@ -406,7 +408,19 @@ i {
                     data : {"id" : id , "user_id" : $userid},
                 }).done(function(response){
                     console.log(response);
+                    userData();
                 })
+            }
+
+            function userData(){
+                $.ajax({
+                url: 'http://codeviable.com/w2w2/public/user/detail?user_id=',
+                type: 'GET',
+                data: { "user_id" : $userid },
+                success: function(response){
+                $('#balance').html("Your remaining token is: "+response.balancetoken)
+                }
+                });
             }
         </script>
     </body>

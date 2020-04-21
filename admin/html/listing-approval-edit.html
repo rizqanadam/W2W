@@ -698,14 +698,16 @@ span.checkmark {
                     </button>
                     <div>Rejection Remarks</div>
                 </div>
+                <form id="rejectform">
                 <div class="modal-body">
                     <div class="row" style="padding: 15px;">
-                        <textarea id="rejection_remark" rows="4" cols="1" id="rejection_remark" type="text" class="form-control"></textarea>   
+                        <textarea id="rejection_remark" rows="4" cols="1" id="rejection_remark" type="text" class="form-control" required></textarea>   
                     </div>
                     <div style="text-align: center;">
-                        <button id="rejected_button" class="btn" style="background-color: #00A313; color: white;" data-toggle="modal" data-target="#reject_status" data-dismiss="modal">OKAY</button>
+                        <button id="rejected_button" class="btn" style="background-color: #00A313; color: white;">OKAY</button>
                     </div>
                 </div>
+                </form>
               </div>
             </div>
         </div>
@@ -757,23 +759,16 @@ span.checkmark {
     
     
      $(document).ready(function() {   
-        $product_id = localStorage.getItem('product_id');
-        $user_id = localStorage.getItem('userid'); 
+        $product_id = localStorage.getItem('product_id'); 
        
         materialInformation();
         typeAd();
         packageInformation();
         
         $tag1 = localStorage.getItem('tag1');
-            $tag2 = localStorage.getItem('tag2');
-            $tag3 = localStorage.getItem('tag3');
-            $('#product_tag').val($tag1 +" , "+$tag2+" , "+$tag3 );
-        
-
-        $('#rejected_button').on('click', function(){
-            rejectProduct();
-        })
-
+        $tag2 = localStorage.getItem('tag2');
+        $tag3 = localStorage.getItem('tag3');
+        $('#product_tag').val($tag1 +" , "+$tag2+" , "+$tag3 );
 
         $('#showinfoad').popover({
             trigger: 'hover'
@@ -826,6 +821,19 @@ span.checkmark {
 
         statusActive();
 
+        //submit available product
+        var highlightForm = document.querySelector("form#rejectform");
+            highlightForm.addEventListener('submit',highlight , false);
+
+            function highlight(event)
+            {
+                event.preventDefault();
+                rejectProduct();
+                $('#reject_modal').modal('hide');
+                $('#reject_status').modal('toggle');
+                return false;
+
+            }
      });
 
      function materialInformation(){
@@ -834,7 +842,7 @@ span.checkmark {
             type: "GET",
             data: { "product_id" : $product_id }
         }).done(function(response){
-            var userid = localStorage.setItem('userid', response[0].user_id);
+            localStorage.setItem('product_userid', response[0].user_id);
             var tag1 = localStorage.setItem('tag1',response[0].product_name);
             var tag2 = localStorage.setItem('tag2',response[0].product_material);
             var tag3 = localStorage.setItem('tag3',response[0].product_category);
@@ -859,24 +867,24 @@ span.checkmark {
             if(response[0].product_image[0] !== "https://codeviable.com/w2w2/public/image/"){
                 $('#previewProfile1').attr('src' , response[0].product_image[0].image)
             }
-            if(response[0].product_image[1] !== "https://codeviable.com/w2w2/public/image/"){
+            else if(response[0].product_image[1] !== "https://codeviable.com/w2w2/public/image/"){
                 $('#previewProfile2').attr('src' , response[0].product_image[1].image)
             }
-            if(response[0].product_image[2] !== "https://codeviable.com/w2w2/public/image/"){
+            else if(response[0].product_image[2] !== "https://codeviable.com/w2w2/public/image/"){
                 $('#previewProfile3').attr('src' , response[0].product_image[2].image)
             }
-            if(response[0].product_image[3] !== "https://codeviable.com/w2w2/public/image/"){
+            else if(response[0].product_image[3] !== "https://codeviable.com/w2w2/public/image/"){
                 $('#previewProfile4').attr('src' , response[0].product_image[3].image)
             }
-            if(response[0].product_image[4] !== "https://codeviable.com/w2w2/public/image/"){
+            else if(response[0].product_image[4] !== "https://codeviable.com/w2w2/public/image/"){
                 $('#previewProfile5').attr('src' , response[0].product_image[4].image)
             }
 
             
 
             if(response[0].publishstatus == "active"){
-            $('#status').prop('checked', true);
-            console.log(response[0].publishstatus)
+                $('#status').prop('checked', true);
+                console.log(response[0].publishstatus)
             }
             else{
                 $('#status').prop('checked', false);
@@ -886,6 +894,7 @@ span.checkmark {
      }
 
      function typeAd() {
+        $user_id = localStorage.getItem('product_userid')
         $.ajax({
             url: "http://codeviable.com/w2w2/public/user/detail?user_id=",
             type: "GET",
@@ -925,7 +934,7 @@ span.checkmark {
 
      function rejectProduct() {
         var remarks = $('#rejection_remark').val();
-        var re = localStorage.setItem('remarks' , remarks);
+        localStorage.setItem('remarks' , remarks);
 
         var postdata = {
             "rejectremark" : remarks,

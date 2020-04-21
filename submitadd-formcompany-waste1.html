@@ -225,7 +225,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -2429,7 +2429,7 @@
             {
                 event.preventDefault();
                 submitAvailableProduct();
-                $('#submitmodal')
+                $('#submitmodal').modal('toggle');
                 return false;
 
             }
@@ -2442,7 +2442,7 @@
             {
                 event.preventDefault();
                 submitWantedProduct();
-                $('#submitmodal')
+                $('#submitmodal').modal('toggle');
                 return false;
 
             }
@@ -2465,16 +2465,29 @@
 
         function packageDropdownList(){
             $.ajax({
-                url: "http://codeviable.com/w2w2/public/packages",
+                url: "http://codeviable.com/w2w2/public/paidpackage/user?user_id=",
                 type: "GET",
+                data: { "user_id" : $userid }
             }).done(function(response){
                 var tr = '<option disabled selected value="">Please choose</option>';  
 
                 $.each(response, function(i, data){
-                    tr += '<option style="text-transform:capitalize;">'+ data.package_name + '</option>';
+                    tr += '<option id='+ data.id +' style="text-transform:capitalize;">'+ data.package_name + '</option>';
                 })
                 $('#package').html(tr);
                 $('#package2').html(tr);
+
+                $("#package").on('change', function () {
+                    var id = $(this).find('option:selected').attr('id');
+                    localStorage.setItem('paid_package', id);
+                    console.log(id);
+                });
+
+                $("#package2").on('change', function () {
+                    var id = $(this).find('option:selected').attr('id');
+                    localStorage.setItem('paid_package', id);
+                    console.log(id);
+                });
             })
         }
 
@@ -2490,6 +2503,7 @@
             var price = $('#product_price').val();
             var product_period = $('#product_period').val();
             var package = $('#package').val();
+            var package_id = localStorage.getItem('paid_package');
             var location1 = $('#product_location1').val();
             var location2 = $('#product_location2').val();
             var location3 = $('#product_location3').val();
@@ -2516,6 +2530,11 @@
             var image4 = $("#productPicture4").prop('files');
             var image5 = $("#productPicture5").prop('files');
             var tagging = null ;
+            var company_name = $('#company_name').val();
+            var company_email = $('#company_email').val();
+            var company_contact = $('#company_contact').val();
+            var pic = $('#pic').val();
+            var pic_contact = $('#pic_contact').val();
 
             var formData = new FormData();
             formData.append("product_date" , date);
@@ -2528,6 +2547,7 @@
             formData.append("product_price" , price);
             formData.append("product_period" , product_period);
             formData.append("product_package" , package);
+            formData.append("package_id" , package_id);
             formData.append("product_location[]" , location1);
             formData.append("product_location[]" , location2);
             formData.append("product_location[]" , location3);
@@ -2557,6 +2577,11 @@
             formData.append("maincategory" , "waste");
             formData.append("user_id" , $userid);
             formData.append("tagging[]" , tagging);
+            formData.append("company_name" , company_name);
+            formData.append("company_email" , company_email);
+            formData.append("company_contact" , company_contact);
+            formData.append("name" , pic);
+            formData.append("contact" , pic_contact);
 
                 $.ajax({
                     url: "http://codeviable.com/w2w2/public/product/add",
@@ -2566,7 +2591,6 @@
                     contentType: false,
                 }).done(function(response){
                     console.log(response);             
-                    $('#submitmodal').modal();
                 });
         }
 
@@ -2578,6 +2602,7 @@
             var category = $('#category2').val();
             var season = $('#season2').val();
             var package = $('#package2').val();
+            var package_id = localStorage.getItem('paid_package');
             var location1 = $('#product_location4').val();
             var location2 = $('#product_location5').val();
             var location3 = $('#product_location6').val();
@@ -2603,6 +2628,11 @@
             var image3 = $("#productPicture8").prop('files');
             var image4 = $("#productPicture9").prop('files');
             var image5 = $("#productPicture10").prop('files');
+            var company_name = $('#company_name2').val();
+            var company_email = $('#company_email2').val();
+            var company_contact = $('#company_contact2').val();
+            var pic = $('#pic2').val();
+            var pic_contact = $('#pic_contact2').val();
 
             var formData = new FormData();
             formData.append("product_date" , date);
@@ -2611,6 +2641,7 @@
             formData.append("product_category" , category);
             formData.append("product_season" , season);
             formData.append("product_package" , package);
+            formData.append("package_id" , package_id);
             formData.append("product_location[]" , location1);
             formData.append("product_location[]" , location2);
             formData.append("product_location[]" , location3);
@@ -2639,7 +2670,12 @@
             formData.append("mainstatus" , "wanted");
             formData.append("maincategory" , "waste");
             formData.append("user_id" , $userid);
-            formData.append("tagging[]" , " ");
+            formData.append("tagging[]" , null);
+            formData.append("company_name" , company_name);
+            formData.append("company_email" , company_email);
+            formData.append("company_contact" , company_contact);
+            formData.append("name" , pic);
+            formData.append("contact" , pic_contact);
 
 
             $.ajax({

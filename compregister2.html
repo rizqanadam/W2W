@@ -51,7 +51,7 @@ i {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -90,7 +90,7 @@ i {
                     </div>
                     <div class="col-lg-10 text-right col-md-2 header-margin">
                         <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                        <button class="btn">Submit Enquiry</button>
+                        <button onclick="window.location.href='./enquiry-form-guestview.html';" class="btn">Submit Enquiry</button>
                         <button class="btn" style="margin-right: 12px;">Submit Demand</button>
                         <button onclick="window.location.href='./default-form-guestview.html';" class="btn btn-warning">Submit Ad</button>
                     </div>
@@ -122,22 +122,23 @@ i {
                             </div>
                           </div>
                         </div>
+                        <form action="./compregister3.html">
                             <div class="form-group">
                                 <p>Email and password</p>
-                                <label class="login-text" for="username">Company email address</label>
-                                <input type="text" class="form-control" id="email">
+                                <label class="login-text" for="username">Email</label>
+                                <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$+.com" class="form-control" id="email" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}" required>
                             </div>
                             <div class="form-group">
                                 <label class="login-text" for="pass">Password</label>
-                                <input type="password" class="form-control" id="password">
+                                <input type="password" class="form-control" id="password" required>
                             </div>
                             <div class="form-group" style="padding-bottom: 20px;">
                                 <label class="login-text" for="pass">Confirm password</label>
-                                <input type="password" class="form-control" id="confirmpassword">
-                            </div>
+                                <input type="password" class="form-control" id="confirmpassword" required>
                             
-                            <button id="next" value="submit" class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
-                           
+                            </div>
+                            <button id="next" type="submit" class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                        </form> 
                     </div>
                     </div>
                 </div>
@@ -158,7 +159,6 @@ i {
         $(document).on('click', function(){
             $('#next').on('click',function(){
                 AddUser();
-                window.location.href = "./compregister3.html";
             });
         });
 
@@ -176,6 +176,7 @@ i {
             existing['password'] = $('#password').val();
             existing['confirmpassword'] = $('#confirmpassword').val();
             existing['user_type'] = "company";
+            existing['user_role'] = "user";
           
             //set new data to localStorage
             localStorage.setItem('user', JSON.stringify(existing));

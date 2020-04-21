@@ -45,7 +45,7 @@ i {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Waste 2 Wealth</title>
-
+    <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -85,8 +85,8 @@ i {
                     </div>
                     <div class="col-lg-10 text-right col-md-2 header-margin">
                         <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                        <button class="btn">Contact Us</button>
-                        <button class="btn" style="margin-right: 12px;">Login</button>
+                        <button onclick="window.location.href='./enquiry-form-guestview.html';" class="btn">Contact Us</button>
+                        <button onclick="window.location.href='./login.html';" class="btn" style="margin-right: 12px;">Login</button>
                         <button onclick="window.location.href='./default-form-guestview.html';" class="btn btn-warning">Submit Ad</button>
                     </div>
                 </div>
@@ -112,7 +112,7 @@ i {
     <div class="container" style="margin-bottom: 30px; margin-left: 15px;">
         <div class="row">
         <div class="col-md-4">
-            <img id="main_image" src="img/hensemboi.jpg" style="width: 398px; height: 372px; object-fit: cover;">
+            <img id="main_image" src="../W2W/admin/plugins/images/bg.jpg" style="width: 398px; height: 372px; object-fit: cover; ">
             <!-- width: 398px; height: 372px; -->
         <div id="sub_image" class="row" style="margin-top: 20px;">
             <!-- <div class="col-md-3">
@@ -245,6 +245,7 @@ i {
                     <div id="product_price2">Free</div>
                 </div>
             </div>
+            
             <div id="location_display">
                 <!-- <div class="row detail-spacing">
                     <div class="col-md-4">
@@ -279,6 +280,8 @@ i {
                     </div>
                 </div> -->
             </div>
+            <div id="googleMap" style="width:60%;height:400px; margin-left: 365px;"></div>
+            <br>
             <div class="row detail-spacing">
                 <div class="col-md-4">
                     <label>Supplier</label>
@@ -365,20 +368,27 @@ i {
     </div>
     <div class="container" style="padding: 30px;">
         <div class="card" style="padding: 30px;">
+            
             <div style="font-size: 24px; font-weight: bold;">Question about this product</div>
             <div style="text-align: right;">View All</div>
             <div style="border-bottom: 2px solid lightgray;"></div>
+            <div id="listcomment" style="padding: 20px;">
             <div id="beforeask" style="padding: 20px;">
                 <div class="text-center">There are no question yet.</div>
                 <div class="text-center">Ask the seller now and their answer will be hear.</div>
                 <div id="ask_btn" class="text-center" style="color: #FF7600; margin-top: 10px; font-weight: bold; cursor: pointer;">Ask Question</div>
             </div>
+            
 
-            <div id="askquestion" style="margin-top: 30px; display: none;">
-                <textarea id="" cols="128" rows="2" placeholder="Ask your question..." class="form-control"></textarea>
-                <br>
-                <div id="submit" data-toggle="modal" data-dismiss="modal" data-target="#signin" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div>
             </div>
+            <form id="askform" onsubmit="return false">
+                <div id="askquestion" style="margin-top: 30px; display: none;">
+                    <textarea id="askquestion2" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea>
+                    <div id="error" style="color: red; font-size: 14px;"></div>
+                    <br>
+                    <div id="submit" type="button" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="container" style="padding: 30px; margin-bottom: 50px;">
@@ -489,6 +499,7 @@ i {
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script type="text/javascript" src="jquery.profanityfilter.js"></script>
 </body>
 
 </html> 
@@ -497,31 +508,68 @@ i {
 
     $(document).ready(function(){
         $product_id = localStorage.getItem('product_detail');
-
         productDetails();
         supplier_company();
 
-        $('#ask_btn').on('click',function(){
+        myMap();
+        displaycomment();
+        check_val();
+
+        $('#listcomment').delegate('#ask_btn', 'click', function() {
             $('#beforeask').css('display','none');
             $('#askquestion').css('display','block');
         });
 
+        $('#listcomment').delegate('#submit', 'click', function() {
+            if($('#askquestion2').val() == ""){
+                $('#error').html('Please fill this field');
+            }
+            else{
+                comment();
+            }
+        });
+
         //signin
         var highlightForm = document.querySelector("form#signinform");
-            highlightForm.addEventListener('submit',highlight , false);
+        highlightForm.addEventListener('submit',highlight , false);
 
-            function highlight(event)
-            {
-                event.preventDefault();
-                return false;
+        function highlight(event)
+        {
+            event.preventDefault();
+            return false;
 
-            }
+        }
 
-            $('#signin').on('click',function(){
-                    LoginUser();    
-            });
+        $('#signin').on('click',function(){
+            LoginUser();    
+        });
 
     });
+
+    function check_val(){
+        var bad_words=new Array("babi","kill","bodoh","gila","teruk","ass");
+        var check_text=document.getElementById("askquestion2").value;
+        var error=0;
+        for(var i=0;i<bad_words.length;i++)
+        {
+            var val=bad_words[i];
+        if((check_text.toLowerCase()).indexOf(val.toString())>-1)
+        {
+            error=error+1;
+        }
+        }
+            
+        if(error>0)
+        {
+            document.getElementById("submit").style.visibility = "hidden";
+            document.getElementById("error").innerHTML="Some bad words in your comment.";
+        }
+        else
+        {
+            document.getElementById("submit").style.visibility = "visible";
+            document.getElementById("error").innerHTML="";
+        }   
+    }
 
     function productDetails() {
         $.ajax({
@@ -529,7 +577,7 @@ i {
             type : "GET",
             data : {"product_id" : $product_id}
         }).done(function(response){
-            
+            console.log(response)
             $('#maincategory').html(response[0].maincategory).css('text-transform','capitalize');
             $('#name').html(response[0].product_name).css('text-transform','capitalize');
             $('#id').html(response[0].product_id).css('text-transform','capitalize');
@@ -546,14 +594,7 @@ i {
             
             $('#main_image').attr('src',response[0].product_image[0].image);
 
-            var tr2 = "";
-            var no = 1;
-            $.each(response[0].product_image, function(i,data){
-                console.log(response[0].product_image[no])
-                tr2 += '<div class="col-md-3"><img src='+response[0].product_image[i].image+' style="width: 70px; height: 50px; object-fit: cover;"></div>';
-                no++;
-            });
-            $('#sub_image').html(tr2);
+           
             
 
             if(response[0].product_desc != ""){
@@ -562,7 +603,7 @@ i {
             
             $('#product_quantityunit').html(response[0].product_quantity+" "+response[0].unit);
             $('#product_period').html(response[0].product_period).css('text-transform','capitalize');
-            $('#suggestedcustomer').html(response[0].suggestedcustomer).css('text-transform','capitalize');
+            $('#suggestedcustomer').html(response[0].suggestcustomer).css('text-transform','capitalize');
             
             if(response[0].product_price == "0.00"){
                 $('#product_price2').html('Free');
@@ -571,19 +612,42 @@ i {
                 $('#product_price2').html('RM ' +response[0].product_price).css('text-transform','capitalize');
             }
 
+            //product location
             var tr = "";
             var bil = 1;
             $.each(response[0].product_location, function(i,data){
-                if(response[0].product_location[i].location != "")
-                tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Waste (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
-                if(response[0].product_state[i].state !== "null")
-                tr += '<div class="row detail-spacing"><div class="col-md-4"><label>State</label></div> <div class="col-md-8"><div id="product_state1">'+response[0].product_state[i].state+'</div> </div></div>'
-                bil++;     
+                    if(response[0].maincategory == "waste" && response[0].product_location[i].location != "")
+                        tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Waste (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
+                    
+                    else if(response[0].maincategory == "technology" && response[0].product_location[i].location != "")
+                        tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Technology (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
+                    
+                    else if(response[0].maincategory == "service" && response[0].product_location[i].location != "")
+                        tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Service (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
+                    
+                    if(response[0].product_state[i].state !== "null" && response[0].product_state[i].state !== "undefined")
+                        tr += '<div class="row detail-spacing"><div class="col-md-4"><label>State</label></div> <div class="col-md-8"><div id="product_state1">'+response[0].product_state[i].state+'</div></div></div>'
+                        bil++;     
             });
             $('#location_display').html(tr);
-            var product_user = localStorage.setItem('product_user',response[0].user_id);
+
+            localStorage.setItem('product_user',response[0].user_id);
+
+            var tr2 = "";
+            var no = 1;
+            $.each(response[0].product_image, function(i,data){
+                    if( i != 0){
+                    tr2 += '<div class="col-md-3"><img src='+response[0].product_image[i].image+' style="width: 70px; height: 50px; object-fit: cover;"></div>';
+                    }
+                    no++;
+            });
+            $('#sub_image').html(tr2);
+
+            localStorage.setItem('latitude', response[0].latitud[0].latitud);
+            localStorage.setItem('longitude', response[0].longitud[0].longitud);
         });
     }
+
 
     function supplier_company(){
         var product_user = localStorage.getItem('product_user');
@@ -592,11 +656,11 @@ i {
             url : "http://codeviable.com/w2w2/public/user/detail?user_id=",
             data : {"user_id" : product_user}
         }).done(function(response){
-            
+            console.log(response)
             $('#supplier').html(response.user_fname+" "+response.user_lname).css('text-transform','capitalize');
             
             if(response.companyname != null){
-            $('#companyname').html(response.companyname);
+                S$('#companyname').html(response.companyname);
             }
         });
     }
@@ -619,6 +683,66 @@ i {
                     }
                 }
             });
-    }   
+    }
+
+    
+    var lat = localStorage.getItem('latitude');
+        var lng = localStorage.getItem('longitude');
+        function myMap() {
+        var mapProp = {
+            center: new google.maps.LatLng(lat, lng),
+            zoom: 15,
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        var marker = new google.maps.Marker({ position: new google.maps.LatLng(lat, lng), map: map });
+        }   
+        $(document).ready(myMap);
+
+        function comment() {
+            var comment = $('#askquestion2').val();
+            var postdata = {
+                "product_id" : $product_id,
+                "description" : comment
+            }
+
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/comment?product_id=&title=&description=",
+                type : "POST",
+                data : postdata
+            }).done(function(response){
+                console.log(response);
+                $('#questionmodal').modal('toggle');
+                $("#questionmodal").on('hide.bs.modal', function() { 
+                    location.reload();
+                });
+            });
+        }
+        
+
+        function displaycomment(){
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/comment/listing?product_id=",
+                type : "GET",
+                data : { "product_id" : $product_id }
+            }).done(function(response){
+                console.log(response);
+                var tr = "";
+                if(response == 0){
+                        tr += '<div id="beforeask" style="padding: 20px;"><div class="text-center">There are no question yet.</div><div class="text-center">Ask the seller now and their answer will be hear.</div><div id="ask_btn" class="text-center ask_btn" style="color: #FF7600; margin-top: 10px; font-weight: bold; cursor: pointer;">Ask Question</div></div>'
+                        tr += '<form id="askform" onsubmit="return false"><div id="askquestion" style="margin-top: 30px; display: none;"><textarea onKeyUp="check_val()" id="askquestion2" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea><div id="error" style="margin-top: 10px; color: red; font-size: 14px;"></div><br><div id="submit" type="button" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div></div></form>';
+                } 
+
+                else if(response != 0){  
+                 $.each(response, function(i,data){
+                    var date = data.created_at[8]+''+data.created_at[9]+'/'+data.created_at[5]+''+data.created_at[6]+'/'+data.created_at[0]+''+data.created_at[1]+''+data.created_at[2]+''+data.created_at[3];
+                    console.log(date)
+                    tr += '<div class="row detail-spacing"><div class="col-md-4"><div style="color: #0099FF; margin-top: 5px; font-size: 16px;">Ronnie Hussein</div><div style="margin-top: 5px; font-size: 12px;">'+date+'</div></div><div class="col-md-8"><div>'+data.description+'</div></div></div>';
+                 });
+                 tr += '<form id="askform" onsubmit="return false"><div id="askquestion" style="margin-top: 30px;"><textarea onKeyUp="check_val()" id="askquestion2" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea><div id="error" style="color: red; font-size: 14px; margin-top: 10px;"></div><br><div id="submit" type="button" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div></div></form>';   
+                }
+                 $('#listcomment').html(tr)
+            })
+        }
 
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFV9i4F6pI4UF94WD-7k-TZ0ZzW6Hz3AA&callback=myMap"></script>

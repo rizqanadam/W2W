@@ -124,14 +124,14 @@ i {
                 <div class="row">
                     <div class="col-lg-2 col-md-2" style="padding: 0;">
                         <div class="logo">
-                            <a href="./index.html">
+                            <a href="./index1.html">
                                 <img src="img/website-logo.png">
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-10 text-right col-md-10" style="padding: 10px;">
                         <button onclick="window.location.href='./index1.html';" class="btn">Home</button>
-                        <button class="btn">Contact Us</button>
+                        <button onclick="window.location.href='./enquiry-form-userview.html';" class="btn">Contact Us</button>
                         <div class="dropdown">
                           <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
                           <h5 style="margin-top: 8px; color: black;">My Account</h5>
@@ -154,7 +154,7 @@ i {
     <div class="col-md-8 row" style="padding-bottom: 30px;">
         <a href="./index.html" style="text-decoration: underline; color: black;">Home</a>
         <div>&nbsp;>>&nbsp;</div>
-        <a href="./productlistings-viewall.html" style="text-decoration: underline; color: black;">Available</a>
+        <a href="./productlistings1-viewall.html" style="text-decoration: underline; color: black;">Available</a>
         <div>&nbsp;>>&nbsp;</div>
         <a style="text-decoration: underline;">Entire Malaysia</a>
         <div>&nbsp;>>&nbsp;</div>
@@ -333,6 +333,7 @@ i {
                     </div>
                 </div> -->
             </div>
+            <div id="googleMap" style="width:60%;height:400px; margin-left: 365px;"></div>
             <div class="row detail-spacing">
                 <div class="col-md-4">
                     <label>Supplier</label>
@@ -419,17 +420,27 @@ i {
     </div>
     <div class="container" style="padding: 30px;">
         <div class="card" style="padding: 30px;">
+            
             <div style="font-size: 24px; font-weight: bold;">Question about this product</div>
             <div style="text-align: right;">View All</div>
             <div style="border-bottom: 2px solid lightgray;"></div>
-            <div id="askquestion" style="margin-top: 30px;">
-                <div id="error" style="color: red; font-size: 12px; font-weight: lighter;"></div>
-                    <textarea id="question_area" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea>
-                    
-                    <br>    
-                    <div id="submit" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div>
-                
+            <div id="listcomment" style="padding: 20px;">
+            <div id="beforeask" style="padding: 20px;">
+                <div class="text-center">There are no question yet.</div>
+                <div class="text-center">Ask the seller now and their answer will be hear.</div>
+                <div id="ask_btn" class="text-center" style="color: #FF7600; margin-top: 10px; font-weight: bold; cursor: pointer;">Ask Question</div>
             </div>
+            
+
+            </div>
+            <form id="askform" onsubmit="return false">
+                <div id="askquestion" style="margin-top: 30px; display: none;">
+                    <textarea id="askquestion2" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea>
+                    <div id="error" style="color: red; font-size: 14px;"></div>
+                    <br>
+                    <div id="submit" type="button" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="container" style="padding: 30px; margin-bottom: 50px;">
@@ -591,33 +602,70 @@ i {
 
 <script>
 
-    $(document).ready(function(){
+$(document).ready(function(){
         $product_id = localStorage.getItem('product_detail');
-        $userid = localStorage.getItem('user_id');
-
         productDetails();
         supplier_company();
 
-        $('#submit').on('click', function(){
-            askQuestion();
-            
+        myMap();
+        displaycomment();
+        check_val();
+
+        $('#listcomment').delegate('#ask_btn', 'click', function() {
+            $('#beforeask').css('display','none');
+            $('#askquestion').css('display','block');
         });
 
-        //submit reserve product
-        var highlightForm = document.querySelector("form#reserveform");
-            highlightForm.addEventListener('submit',highlight , false);
-
-            function highlight(event)
-            {
-                event.preventDefault();
-                reserveProduct();
-                $('#reservemodal').modal('hide');
-                $('#successmodal').modal('toggle');
-                return false;
-
+        $('#listcomment').delegate('#submit', 'click', function() {
+            if($('#askquestion2').val() == ""){
+                $('#error').html('Please fill this field');
             }
+            else{
+                comment();
+            }
+        });
+
+        //signin
+        var highlightForm = document.querySelector("form#signinform");
+        highlightForm.addEventListener('submit',highlight , false);
+
+        function highlight(event)
+        {
+            event.preventDefault();
+            return false;
+
+        }
+
+        $('#signin').on('click',function(){
+            LoginUser();    
+        });
 
     });
+
+    function check_val(){
+        var bad_words=new Array("babi","kill","bodoh","gila","teruk","ass");
+        var check_text=document.getElementById("askquestion2").value;
+        var error=0;
+        for(var i=0;i<bad_words.length;i++)
+        {
+            var val=bad_words[i];
+        if((check_text.toLowerCase()).indexOf(val.toString())>-1)
+        {
+            error=error+1;
+        }
+        }
+            
+        if(error>0)
+        {
+            document.getElementById("submit").style.visibility = "hidden";
+            document.getElementById("error").innerHTML="Some bad words in your comment.";
+        }
+        else
+        {
+            document.getElementById("submit").style.visibility = "visible";
+            document.getElementById("error").innerHTML="";
+        }   
+    }
 
     function productDetails() {
         $.ajax({
@@ -625,7 +673,7 @@ i {
             type : "GET",
             data : {"product_id" : $product_id}
         }).done(function(response){
-            
+            console.log(response)
             $('#maincategory').html(response[0].maincategory).css('text-transform','capitalize');
             $('#name').html(response[0].product_name).css('text-transform','capitalize');
             $('#id').html(response[0].product_id).css('text-transform','capitalize');
@@ -642,13 +690,7 @@ i {
             
             $('#main_image').attr('src',response[0].product_image[0].image);
 
-            var tr2 = "";
-            var no = 1;
-            $.each(response[0].product_image, function(i,data){
-                tr2 += '<div class="col-md-3"><img src='+response[0].product_image[i].image+' style="width: 70px; height: 50px; object-fit: cover;"></div>';
-                no++;
-            });
-            $('#sub_image').html(tr2);
+           
             
 
             if(response[0].product_desc != ""){
@@ -657,7 +699,7 @@ i {
             
             $('#product_quantityunit').html(response[0].product_quantity+" "+response[0].unit);
             $('#product_period').html(response[0].product_period).css('text-transform','capitalize');
-            $('#suggestedcustomer').html(response[0].suggestedcustomer).css('text-transform','capitalize');
+            $('#suggestedcustomer').html(response[0].suggestcustomer).css('text-transform','capitalize');
             
             if(response[0].product_price == "0.00"){
                 $('#product_price2').html('Free');
@@ -666,19 +708,42 @@ i {
                 $('#product_price2').html('RM ' +response[0].product_price).css('text-transform','capitalize');
             }
 
+            //product location
             var tr = "";
             var bil = 1;
             $.each(response[0].product_location, function(i,data){
-                if(response[0].product_location[i].location != "")
-                tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Waste (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
-                if(response[0].product_state[i].state !== "null")
-                tr += '<div class="row detail-spacing"><div class="col-md-4"><label>State</label></div> <div class="col-md-8"><div id="product_state1">'+response[0].product_state[i].state+'</div> </div></div>'
-                bil++;     
+                    if(response[0].maincategory == "waste" && response[0].product_location[i].location != "")
+                        tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Waste (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
+                    
+                    else if(response[0].maincategory == "technology" && response[0].product_location[i].location != "")
+                        tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Technology (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
+                    
+                    else if(response[0].maincategory == "service" && response[0].product_location[i].location != "")
+                        tr += '<div class="row detail-spacing"><div class="col-md-4"><label>Service (location '+bil+')</label></div><div class="col-md-8"><div id="product_location1">'+response[0].product_location[i].location+'</div></div></div>';
+                    
+                    if(response[0].product_state[i].state !== "null" && response[0].product_state[i].state !== "undefined")
+                        tr += '<div class="row detail-spacing"><div class="col-md-4"><label>State</label></div> <div class="col-md-8"><div id="product_state1">'+response[0].product_state[i].state+'</div></div></div>'
+                        bil++;     
             });
             $('#location_display').html(tr);
-            var product_user = localStorage.setItem('product_user',response[0].user_id);
+
+            localStorage.setItem('product_user',response[0].user_id);
+
+            var tr2 = "";
+            var no = 1;
+            $.each(response[0].product_image, function(i,data){
+                    if( i != 0){
+                    tr2 += '<div class="col-md-3"><img src='+response[0].product_image[i].image+' style="width: 70px; height: 50px; object-fit: cover;"></div>';
+                    }
+                    no++;
+            });
+            $('#sub_image').html(tr2);
+
+            localStorage.setItem('latitude', response[0].latitud[0].latitud);
+            localStorage.setItem('longitude', response[0].longitud[0].longitud);
         });
     }
+
 
     function supplier_company(){
         var product_user = localStorage.getItem('product_user');
@@ -687,11 +752,11 @@ i {
             url : "http://codeviable.com/w2w2/public/user/detail?user_id=",
             data : {"user_id" : product_user}
         }).done(function(response){
-            
+            console.log(response)
             $('#supplier').html(response.user_fname+" "+response.user_lname).css('text-transform','capitalize');
             
             if(response.companyname != null){
-            $('#companyname').html(response.companyname);
+                S$('#companyname').html(response.companyname);
             }
         });
     }
@@ -708,63 +773,72 @@ i {
                     if(response[0].user_email === email && response[0].password === password || response[0].email === email && response[0].password === password ){
                         console.log(response[0]);
                         console.log("Logged in");
-                        localStorage.setItem("user_id", JSON.stringify(response.id));
+                        localStorage.setItem("user_id", JSON.stringify(response[0].user_id));
+                        localStorage.setItem("user_type", JSON.stringify(response[0].user_type));
                         window.location.href = "./productdetails-defaultview1.html"; 
                     }
                 }
             });
-    }   
+    }
 
-    function askQuestion() {
-        var question = $('#question_area').val();
-        
-        var data = {
-            "product_id" : $product_id,
-            "description" : question,
-            "user_id" : $userid
-        }
+    
+    var lat = localStorage.getItem('latitude');
+        var lng = localStorage.getItem('longitude');
+        function myMap() {
+        var mapProp = {
+            center: new google.maps.LatLng(lat, lng),
+            zoom: 15,
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        var marker = new google.maps.Marker({ position: new google.maps.LatLng(lat, lng), map: map });
+        }   
+        $(document).ready(myMap);
 
-        if($('#question_area').val() === " "){
-            $('#error').html('Please fill out this field.').delay(2000).fadeOut(300);
-            setTimeout(() => {
-            $('#error').html('').css('display', 'block');
-            }, 3000);
-        }
+        function comment() {
+            var comment = $('#askquestion2').val();
+            var postdata = {
+                "product_id" : $product_id,
+                "description" : comment
+            }
 
-        if($('#question_area').val() != " "){
             $.ajax({
                 url : "http://codeviable.com/w2w2/public/comment?product_id=&title=&description=",
                 type : "POST",
-                data : data
+                data : postdata
             }).done(function(response){
-                console.log(response)
-                $('#ask_modal').modal('toggle');
+                console.log(response);
+                $('#questionmodal').modal('toggle');
+                $("#questionmodal").on('hide.bs.modal', function() { 
+                    location.reload();
+                });
             });
         }
-    }
+        
 
-    function reserveProduct() {
-        var offeredprice = $('#offerprice').val();
-        var quantity = $('#quantity_reserve').val();
-        var unit = $('#unit_reserve').val();
-        var additional = $('#additional_reserve').val();
+        function displaycomment(){
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/comment/listing?product_id=",
+                type : "GET",
+                data : { "product_id" : $product_id }
+            }).done(function(response){
+                console.log(response);
+                var tr = "";
+                if(response == 0){
+                        tr += '<div id="beforeask" style="padding: 20px;"><div class="text-center">There are no question yet.</div><div class="text-center">Ask the seller now and their answer will be hear.</div><div id="ask_btn" class="text-center ask_btn" style="color: #FF7600; margin-top: 10px; font-weight: bold; cursor: pointer;">Ask Question</div></div>'
+                        tr += '<form id="askform" onsubmit="return false"><div id="askquestion" style="margin-top: 30px; display: none;"><textarea onKeyUp="check_val()" id="askquestion2" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea><div id="error" style="margin-top: 10px; color: red; font-size: 14px;"></div><br><div id="submit" type="button" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div></div></form>';
+                } 
 
-        var postdata = {
-            "offeredprice" : offeredprice,
-            "quantity" : quantity,
-            "unit" : unit,
-            "info" : additional,
-            "buyer_id" : $userid,
-            "product_id" : $product_id
+                else if(response != 0){  
+                 $.each(response, function(i,data){
+                    var date = data.created_at[8]+''+data.created_at[9]+'/'+data.created_at[5]+''+data.created_at[6]+'/'+data.created_at[0]+''+data.created_at[1]+''+data.created_at[2]+''+data.created_at[3];
+                    console.log(date)
+                    tr += '<div class="row detail-spacing"><div class="col-md-4"><div style="color: #0099FF; margin-top: 5px; font-size: 16px;">Ronnie Hussein</div><div style="margin-top: 5px; font-size: 12px;">'+date+'</div></div><div class="col-md-8"><div>'+data.description+'</div></div></div>';
+                 });
+                 tr += '<form id="askform" onsubmit="return false"><div id="askquestion" style="margin-top: 30px;"><textarea onKeyUp="check_val()" id="askquestion2" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea><div id="error" style="color: red; font-size: 14px; margin-top: 10px;"></div><br><div id="submit" type="button" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div></div></form>';   
+                }
+                 $('#listcomment').html(tr)
+            })
         }
 
-        $.ajax({
-            url : "http://codeviable.com/w2w2/public/reserve",
-            type : "POST",
-            data : postdata
-        }).done(function(response){
-            console.log(response)
-        })
-    }
-
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFV9i4F6pI4UF94WD-7k-TZ0ZzW6Hz3AA&callback=myMap"></script>

@@ -391,14 +391,20 @@ span.checkmark {
                                         <div class="col-md-2" style="color: black; font-weight: bold; text-align: right;">Category&nbsp;<i class="fa fa-info-circle" id="showinfoad" 
                                             style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Available ('I want to sell...'),
                                             Wanted ('I want to buy')." data-placement="bottom"></i></div> 
-                                        <div class="col-md-10"style="color: black;"><input type="text" style="width: 90%; padding: 5px;"></div>
+                                        <div class="col-md-10"style="color: black;">
+                                            <input id="name" type="text" style="width: 90%; padding: 5px;">
+                                        </div>
                                     </div>
 
                                     <div class="row" style="margin-top: 10px;">
                                         <div class="col-md-2" style="color: black; font-weight: bold; text-align: right;">Parent Category&nbsp;<i class="fa fa-info-circle" id="showinfoad" 
                                             style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Available ('I want to sell...'),
                                             Wanted ('I want to buy')." data-placement="bottom"></i></div> 
-                                            <div class="col-md-10"style="color: black;"><input type="text" style="width: 90%; padding: 5px;" placeholder="[None]"></div>
+                                            <div class="col-md-9"style="color: black;">
+                                                <select id="category" style="cursor:pointer " class="form-control" required>
+                                                    
+                                                </select>
+                                            </div>
                                     </div>
 
                                     <div class="row" style="margin-top: 10px; padding-bottom: 30px;">
@@ -430,7 +436,7 @@ span.checkmark {
                     <br><br><br>
                     <div style="text-align: right;">
                         <a href="./pricing-token-edit.html" style="color: #0099FF; cursor: pointer;" data-dismiss="modal">CANCEL</a>
-                        <a id="btn_delete" style="color: #C10000; cursor: pointer; padding-left: 10px;">DELETE</a>
+                        <a id="btn_delete" style="color: #C10000; cursor: pointer; padding-left: 10px;" data-toggle="modal" data-dismiss="modal" data-target="#delete_status">DELETE</a>
                     </div>
                 </div>
             </div>
@@ -451,6 +457,20 @@ span.checkmark {
                     </div>
                 </div>
             </div>
+            </div>
+            </div>
+        </div>
+
+        <!--delete_status-->
+        <div class="modal fade bd-example-modal-sm mx-auto"  style="top: 30%; left: 10%;" id="delete_status" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              
+                <div class="modal-content" style="text-align: center; width: 130%; padding: 40px; border-radius: 10px;">
+                    <div class="modal-body mx-auto">
+                      <img src="../plugins/images/Icon_Trash_Deleted_Red.svg">
+                    </div>
+                    <div class="mx-auto" style="margin: 10px; color: #F44336; font-size: 28px;">Category deleted.</div>
+                </div>
             </div>
             </div>
         </div>
@@ -486,11 +506,127 @@ span.checkmark {
 
 <script>
     
-     $(document).ready(function() {    
-        
-        // $('#datetimepicker6').pickadate();
+    $(document).ready(function() {    
+        $newList = [];
+        $tempArr = [];
+        listmain();
 
+        
+        $("#category").on('change', function () {
+            var id = $(this).find('option:selected').attr('id');
+            var name = $(this).find('option:selected').val();
+            localStorage.setItem('add_category', id);
+            localStorage.setItem('name_category', name);
+        });
+
+        $('#btn_delete').on('click',function(){
+            deletecategory();
+        });
+
+        $("#delete_status").on('hide.bs.modal', function() { 
+            window.location.href = "./listing-productcategory.html"
+        });
+        
      });
+
+    function listmain() {
+        $.ajax({
+            url: 'http://codeviable.com/w2w2/public/category',
+            type: "GET"
+        }).done(function (response) {
+            var data = response;
+            var currentIndex = 0;
+                
+            $.each(response, function (i, data) {
+                var index = i + 1;
+                $tempArr.push(data);
+                $newList = $tempArr;
+            });
+  
+            listsubwaste(); 
+            listsubtechnology();  
+            listsubservice(); 
+            console.log($newList) 
+            
+
+                
+        });
+    }
+
+    function listsubwaste() {
+        $.ajax({
+            url: 'http://codeviable.com/w2w2/public/category/sub?id=63',
+            type: "GET"
+        }).done(function (response) {
+            var data = response;
+            var currentIndex = 0;
+                
+            $.each(response, function (i, data) {
+                var index = i + 1;
+                $tempArr.push(data);
+                $newList = $tempArr;
+            });
+           
+        });
+    }
+
+    function listsubtechnology() {
+        $.ajax({
+            url: 'http://codeviable.com/w2w2/public/category/sub?id=64',
+            type: "GET"
+        }).done(function (response) {
+            var data = response;
+            var currentIndex = 0;
+                
+            $.each(response, function (i, data) {
+                var index = i + 1;
+                $tempArr.push(data);
+                $newList = $tempArr;
+            });
+           
+        });
+    }
+
+    function listsubservice() {
+        $.ajax({
+            url: 'http://codeviable.com/w2w2/public/category/sub?id=65',
+            type: "GET"
+        }).done(function (response) {
+            var data = response;
+            var currentIndex = 0;
+                
+            $.each(response, function (i, data) {
+                var index = i + 1;
+                $tempArr.push(data);
+                $newList = $tempArr;
+            });
+            allcategory();
+        });
+    }
+
+    function allcategory() {
+            var tr = "";
+
+            tr += '<option disabled selected value="">Please choose</option>';
+            
+            $.each($newList, function(i,data){
+                tr += '<option class="item" id='+data.id+' value='+data.name+' style="text-transform: capitalize;">'+data.name+'</option>';
+            });
+
+            $('#category').html(tr);
+    }
+
+    function deletecategory() {
+        var id = localStorage.getItem('category');
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/category/delete",
+            type : "DELETE",
+            data : {"id" : id}
+        }).done(function(response){
+            console.log(response);
+        })
+    }
      
   </script>
 

@@ -250,14 +250,14 @@ input[type="checkbox"] {
                           </div>
                           
                           <div class="dropdown">
-                            <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
-                            <span style="margin-top: 8px; color: black;">My Account</span>
+                            <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/User.png">
+                            <h5 style="margin-top: 8px; color: black;">My Account</h5>
                             </button>
                             <div class="dropdown-content">
                               <a href="./myaccount-defaultview.html">My account</a>
                               <a href="./index.html">Logout</a>
                             </div>
-                          </div>
+                        </div>
                           <button onclick="window.location.href='./default-form-userview.html';" class="btn btn-warning">Submit Ad</button>
                       </div>
                   </div>
@@ -290,7 +290,7 @@ input[type="checkbox"] {
                     </ul>
                   </li>
                   <li><a href="./myaccount-notification.html">Notifications</a></li> 
-                  <li><a href="#">Review & Ratings</a></li>
+                  <li><a href="./myaccount-reviewrating-product.html">Review & Ratings</a></li>
               </ul>
           </div>
 
@@ -399,8 +399,8 @@ input[type="checkbox"] {
         </div>
         <div class="text-center">Satisfied making business? Let your seller know.</div>
         <div class="row">
-          <div id="review" class="form-group ">
-              <div class="items-collection row">
+          <div class="form-group ">
+              <div id="review" class="items-collection row">
   
                   <div class="items ">
                       <div class="info-block block-info clearfix">
@@ -488,13 +488,41 @@ input[type="checkbox"] {
             <label style="color: gray; background-color: #F2F2F2; border-radius: 10px; padding: 5px; margin: 10px;">Good product quality</label>
             <label style="color: gray; background-color: #F2F2F2; border-radius: 10px; padding: 5px; margin: 10px;">Brilliant prices</label>
           </div> -->
-            <textarea placeholder="Share your experience" class="form-control" style="width: 100%;"></textarea>
-            <button id="submit" class="btn btn-success" style="width: 100%; margin-top: 20px;">Submit</button>
+            <textarea id="description" placeholder="Share your experience" class="form-control" style="width: 100%;"></textarea>
+            <button id="submit" class="btn btn-success" style="width: 100%; margin-top: 20px;" data-dismiss="modal" data-toggle="modal" data-target="#ratingmodal">Submit</button>
         </div>
     </div>
     </div>
     </div>
 
+    <!-- submitted token modal -->
+    <div class="modal fade" id="ratingmodal" role="dialog"  style="top: 10%; left: 4%;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body" style="padding: 30px;">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            <div style="font-size: 28px; font-weight: bold; margin-bottom: 30px;"></div>
+          
+            <div class="" style="margin-top: 40px; text-align: center;"> 
+              <img src="./img/checkijau.svg">  
+            </div>
+            <div class="col-md-12" style="margin-top: 60px; text-align: center; font-weight: bold; font-size: 20px;" >
+              Your review have been submitted!
+            </div>
+
+            <div class="col-md-12" style="margin-top: 30px; text-align: center; color: #707070;" >
+              Thank you for your feedback.
+            </div>
+
+            <div class="col-md-12" style="margin-top: 30px; text-align: center;" >
+              <a href="./myaccount-mypurchase-purchasehistory.html" style="color: #0099FF;">< — Back</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <!-- Js Plugins -->
@@ -522,26 +550,26 @@ input[type="checkbox"] {
 
       userData();
       purchasehistory();
-
+      
       /* 1. Visualizing things on Hover - See next part for action on click */
       $('#stars li').on('mouseover', function(){
         var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
       
-        // Now highlight all the stars that's not after the current hovered star
-        $(this).parent().children('li.star').each(function(e){
-          if (e < onStar) {
-            $(this).addClass('hover');
-          }
-          else {
+          // Now highlight all the stars that's not after the current hovered star
+          $(this).parent().children('li.star').each(function(e){
+            if (e < onStar) {
+              $(this).addClass('hover');
+            }
+            else {
+              $(this).removeClass('hover');
+            }
+          });
+          
+        }).on('mouseout', function(){
+          $(this).parent().children('li.star').each(function(e){
             $(this).removeClass('hover');
-          }
+          });
         });
-        
-      }).on('mouseout', function(){
-        $(this).parent().children('li.star').each(function(e){
-          $(this).removeClass('hover');
-        });
-      });
       
       
       /* 2. Action to perform on click */
@@ -557,43 +585,42 @@ input[type="checkbox"] {
           $(stars[i]).addClass('selected');
         }
         
-        // JUST RESPONSE (Not needed)
-        var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+        $ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
 
-        if( ratingValue == 1){
+        if( $ratingValue == 1){
           $('#rating_status').html('Poor')
         }
-        else if( ratingValue == 2){
+        else if( $ratingValue == 2){
           $('#rating_status').html('Fair')
         }
-        else if( ratingValue == 3){
+        else if( $ratingValue == 3){
           $('#rating_status').html('Good')
         }
-        else if( ratingValue == 4){
+        else if( $ratingValue == 4){
           $('#rating_status').html('Great')
         }
-        else if( ratingValue == 5){
+        else if( $ratingValue == 5){
           $('#rating_status').html('Excellent')
         }
-        console.log(ratingValue);
+        console.log($ratingValue);
 
-        // $("#submit").click(function(){
-        //     var favorite = [];
-        //     $.each($("input[name='review']:checked"), function(){
-        //         favorite.push($(this).val());
-        //     });
-        //     alert("My favourite sports are: " + favorite.join(", "));
-        // }); 
-
-        $('#review').delegate('#submit', 'click', function() {
-          var favorite = [];
-            $.each($("input[name='review']:checked"), function(){
-                favorite.push($(this).val());
-            });
-            alert("My favourite sports are: " + favorite.join(", "));
-                });
       });
-  
+
+      $("#submit").click(function () {
+            $selected = new Array();
+ 
+            $("#review input[type=checkbox]:checked").each(function () {
+                $selected.push(this.value);
+            });
+ 
+            if ($selected.length > 0) {
+                console.log("Selected values: " + $selected.join(","));
+                console.log($selected);
+                $('#ratingmodal').modal('toggle');
+            }
+            
+            // rate_review();
+      });
 
     });
 
@@ -619,12 +646,55 @@ input[type="checkbox"] {
             var tr = "";
 
             $.each(response, function(i,data){
-                tr += '<div class="row"><div class="col-md-2"><img src='+response[i].image[0].image+' style="width: 70px; height: 70px; object-fit: cover;"></div><div class="col-md-7"><p style="font-weight: bold; color: #272727; margin-bottom: 10px;">Rate your experience upon your recent purchase</p><span style="color: #707070;">Please considering giving us your review. Let us know your opinions on our product or business. Thank you.</span></div><div class="col-md-3" style="margin-top: 15px;"><div class="container"><button type="button" class="btn ratenow-btn" data-toggle="modal" data-target="#myModal">RATE NOW</button></div></div></div>';
+                tr += '<div data-product='+response[i].product_id+' class="row"><div class="col-md-2"><img src='+response[i].image[0].image+' style="width: 70px; height: 70px; object-fit: cover;"></div><div class="col-md-7"><p style="font-weight: bold; color: #272727; margin-bottom: 10px;">Rate your experience upon your recent purchase</p><span style="color: #707070; font-size: 14px;">Please considering giving us your review. Let us know your opinions on our product or business. Thank you.</span></div><div class="col-md-3" style="margin-top: 15px;"><div class="container"><button type="button" class="btn ratenow-btn" data-toggle="modal" data-target="#myModal">RATE NOW</button></div></div></div>';
                 tr += '<div class="line-bottom"></div>';
             });
 
-            $('#list').html(tr)
+            $('#list').html(tr);
+
+            $('#list').delegate('.ratenow-btn', 'click', function() {
+              var id = $(this).parent().parent().parent().data('product');
+              localStorage.setItem('rate_productID', id);
+              console.log(id);
+              sellerID();
+            });
         })
+    }
+
+    function sellerID() {
+      var id = localStorage.getItem('rate_productID');
+      
+      $.ajax({
+        url : "http://codeviable.com/w2w2/public/product/detail?product_id=",
+        type : "GET",
+        data : { "product_id" : id }
+      }).done(function(response){
+        console.log(response);
+        localStorage.setItem('rate_sellerID', response[0].user_id);
+      })
+    }
+
+    function rate_review() {
+      
+      var product_id = localStorage.getItem('rate_productID');
+      var seller_id = localStorage.getItem('rate_sellerID');
+      var desc = $('#description').val();
+
+      var postdata = {
+        "product_id" : product_id,
+        "user_id" : seller_id,
+        "rating" : $ratingValue,
+        "title" : $selected.join(","),
+        "description" : desc
+      }
+        
+      $.ajax({
+        url : "http://codeviable.com/w2w2/public/review?user_id=&product_id=&title=&description=&rating=",
+        type : "POST",
+        data : postdata
+      }).done(function(response){
+        console.log(response);
+      })
     }
 
     </script>

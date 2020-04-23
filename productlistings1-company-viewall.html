@@ -228,7 +228,7 @@ i {
         </div>
         </div>
     </div>
-    <div style="border: 1px solid lightgrey; margin-bottom: 20px;"></div>
+    <div style="margin-bottom: 20px;"></div>
     </header>
     <!-- Header End -->
 
@@ -313,9 +313,9 @@ i {
             <div class="card" style="margin-bottom: 20px; border: none;">
                 <ul class="d-flex justify-content-between">
                     <div class="d-flex">
-                    <a class="active-nav nav-style" href="./productlistings1-viewall.html">All 1-10 of 43</a>
+                    <a class="nav-style" href="./productlistings1-viewall.html">All 1-10 of 43</a>
                     <a class="nav-style" href="./productlistings1-individual-viewall.html">Individual 13</a>
-                    <a class="nav-style" href="./productlistings1-company-viewall.html">Company 30</a>
+                    <a class="active-nav  nav-style" href="./productlistings1-company-viewall.html">Company 30</a>
                     </div>
 
                     <div class="d-flex" style="display: none !important;">
@@ -472,15 +472,7 @@ i {
                     console.log(data);
                     //display date in formatted
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
-                    if(data.premiumlist == "premium" && data.user_type == "individual"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
-                        tr += '<div class="line-bottom"></div>';
-                    }
-                    else if(data.premiumlist == "Regular" && data.user_type == "individual"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
-                        tr += '<div class="line-bottom"></div>';
-                    }
-                    else if(data.premiumlist == "premium" && data.user_type == "company"){
+                     if(data.premiumlist == "premium" && data.user_type == "company"){
                         tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
@@ -511,7 +503,7 @@ i {
                 var currentIndex = 0;
                 
                 $.each(response, function (i, data) {
-                    if(response[i].mainstatus == "available" && response[i].publishstatus == "yes"){
+                    if(response[i].mainstatus == "available" && response[i].publishstatus == "yes" && response[i].user_type == "company"){
                         var index = i + 1;
                         $tempArr.push(data);
                         $newList[currentIndex] = $tempArr;
@@ -534,7 +526,7 @@ i {
                 var currentIndex = 0;
                 
                 $.each(response, function (i, data) {
-                    if(response[i].mainstatus == "available" && response[i].publishstatus == "yes"){
+                    if(response[i].mainstatus == "available" && response[i].publishstatus == "yes" && response[i].user_type == "company"){
                         var index = i + 1;
                         $tempArr.push(data);
                         $newList[currentIndex] = $tempArr;
@@ -561,15 +553,7 @@ i {
                 $.each($newList[0], function (i, data) {                 
                     //display date in formatted
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
-                    if(data.premiumlist == "premium" && data.user_type == "individual" && data.publishstatus == "yes"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
-                        tr += '<div class="line-bottom"></div>';
-                    }
-                    else if(data.premiumlist == "regular" && data.user_type == "individual" && data.publishstatus == "yes"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
-                        tr += '<div class="line-bottom"></div>';
-                    }
-                    else if(data.premiumlist == "premium" && data.user_type == "company" && data.publishstatus == "yes"){
+                    if(data.premiumlist == "premium" && data.user_type == "company" && data.publishstatus == "yes"){
                         tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }

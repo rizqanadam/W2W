@@ -227,74 +227,71 @@ i {
         </div>
         </div>
     </div>
-    <div style="border: 1px solid lightgrey; margin-bottom: 20px;"></div>
+    <div style="margin-bottom: 20px;"></div>
     </header>
     <!-- Header End -->
 
 
-    <div class="card col-md-10" style="background-color: #3A595D; margin-left: auto; margin-right: auto; padding: 20px;;">
+    <div id="search_area" class="card col-md-10" style="background-color: #3A595D; margin-left: auto; margin-right: auto; padding: 20px;;">
         <div class="row">
         <div class="col-md-3">
             <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-              <option disabled selected>Please choose</option>
-              <option>Transportation</option>
-              <option>Analysis</option>
-              <option>Packaging</option>
-              <option>Waste Treatment</option>
-              <option>Recycling</option>
-              <option>Others</option>
+                <option disabled selected>Entire Malaysia</option>
+                <option>Johor</option>
+                <option>Kedah</option>
+                <option>Kelantan</option>
+                <option>Melaka</option>
+                <option>Negeri Sembilan</option>
+                <option>Pahang</option>
+                <option>Perak</option>
+                <option>Perlis</option>
+                <option>Pulau Pinang</option>
+                <option>Sabah</option>
+                <option>Sarawak</option>
+                <option>Selangor</option>
+                <option>Terengganu</option>
+                <option>Wilayah Persekutuan Malaysia</option>  
             </select>
         </div> 
         <div class="col-md-3">
-            <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-              <option disabled selected>Please choose</option>
-              <option>Transportation</option>
-              <option>Analysis</option>
-              <option>Packaging</option>
-              <option>Waste Treatment</option>
-              <option>Recycling</option>
-              <option>Others</option>
+            <select id="category_search" style="cursor:pointer" class="form-control">
+                <option disabled selected value="">Category</option>
+                <option value="waste">Waste</option>
+                <option value="technology">Technology</option>
+                <option value="service">Service</option>
             </select>
         </div> 
         <div class="col-md-3">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" placeholder="Enter tag or keyword">
         </div> 
         <div class="col-md-3">
-            <button class="btn btn-success"><i class="fa fa-search"></i> Search now</button>
+            <button id="search_btn" class="btn btn-success"><i class="fa fa-search"></i> Search now</button>
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
             <div class="col-md-3">
                 <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                  <option disabled selected>Please choose</option>
-                  <option>Transportation</option>
-                  <option>Analysis</option>
-                  <option>Packaging</option>
-                  <option>Waste Treatment</option>
-                  <option>Recycling</option>
-                  <option>Others</option>
+                    <option disabled selected>Product status</option>
+                    <option>Available</option>
+                    <option>Sold-out</option>
+                    <option>On-going</option>
                 </select>
             </div> 
             <div class="col-md-3">
                 <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                  <option disabled selected>Please choose</option>
-                  <option>Transportation</option>
-                  <option>Analysis</option>
-                  <option>Packaging</option>
-                  <option>Waste Treatment</option>
-                  <option>Recycling</option>
-                  <option>Others</option>
+                    <option disabled selected>Rating</option>
+                    <option>1 star</option>
+                    <option>2 star</option>
+                    <option>3 star</option>
+                    <option>4 star</option>
+                    <option>5 star</option>
                 </select>
             </div> 
             <div class="col-md-3">
                 <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                  <option disabled selected>Please choose</option>
-                  <option>Transportation</option>
-                  <option>Analysis</option>
-                  <option>Packaging</option>
-                  <option>Waste Treatment</option>
-                  <option>Recycling</option>
-                  <option>Others</option>
+                    <option disabled selected>Price range</option>
+                    <option>RM0 - RM100</option>
+                    <option>RM101 - 200</option>
                 </select>
             </div> 
             <div class="col-md-3">
@@ -483,6 +480,7 @@ i {
         $(document).ready(function(){
             $newList = [];
             $tempArr = [];
+            $fullList = [];
             getRequest();
             
 
@@ -498,7 +496,7 @@ i {
                         tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
-                    else if(data.premiumlist == "Regular" && data.user_type == "individual"){
+                    else if(data.premiumlist == "regular" && data.user_type == "individual"){
                         tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
@@ -506,7 +504,7 @@ i {
                         tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
-                    else if(data.premiumlist == "Regular" && data.user_type == "company"){
+                    else if(data.premiumlist == "regular" && data.user_type == "company"){
                         tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
@@ -520,6 +518,60 @@ i {
                 console.log(id);
                 var product_detail = localStorage.setItem('product_detail' , id);
                 window.location.href="./productdetails-defaultview1.html"
+            });
+
+            $('#search_btn').on('click', function() {
+
+                $newList = [];
+                $tempArr = [];
+
+                var currentIndex = 0;
+                var inputCategory = $('#category_search').find('option:selected').val();
+                
+                console.log('Searched : ' + inputCategory);
+
+                $.each($fullList,function(x, dataX){
+                    $.each(dataX,function(y, dataY){
+                        
+                            if(inputCategory.toLowerCase() == (dataY['maincategory']).toLowerCase()){
+                                var index = y + 1;
+                                $tempArr.push(dataY);
+                                $newList[currentIndex] = $tempArr;
+                                if(index % 10 == 0){
+                                    currentIndex++;
+                                    $tempArr = [];
+                                }
+                            }
+                        
+                    });
+                });
+                
+                console.log($newList)
+
+                var tr = "";
+                $.each($newList[currentIndex], function (i, data) {
+                    console.log(data);
+                    //display date in formatted
+                    var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
+                    if(data.premiumlist == "premium" && data.user_type == "individual"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "regular" && data.user_type == "individual"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "premium" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "regular" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                });
+                    
+                $('#product_display').html(tr);  
             });
                 
         })
@@ -567,12 +619,16 @@ i {
                     }
                 });
 
+                $fullList = $newList;
+
                 console.log($newList);
                 var pageBtn = $('#pagination');
                 pageBtn.html('');
                 for(var i=0; i<$newList.length; i++) {
                     pageBtn.append('<div class="col-md-2"><button data-id=' + i + ' class="btn btn-number" style="width: 100%;">'+(i+1)+'</button></div>');
                 }
+
+                
 
                 displayproduct();       
             });

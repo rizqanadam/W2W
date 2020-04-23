@@ -391,14 +391,20 @@ span.checkmark {
                                         <div class="col-md-2" style="color: black; font-weight: bold; text-align: right;">Category&nbsp;<i class="fa fa-info-circle" id="showinfoad" 
                                             style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Available ('I want to sell...'),
                                             Wanted ('I want to buy')." data-placement="bottom"></i></div> 
-                                        <div class="col-md-10"style="color: black;"><input type="text" style="width: 90%; padding: 5px;"></div>
+                                        <div class="col-md-10"style="color: black;">
+                                            <input id="name" type="text" style="width: 90%; padding: 5px;">
+                                        </div>
                                     </div>
 
                                     <div class="row" style="margin-top: 10px;">
                                         <div class="col-md-2" style="color: black; font-weight: bold; text-align: right;">Parent Category&nbsp;<i class="fa fa-info-circle" id="showinfoad" 
                                             style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Available ('I want to sell...'),
                                             Wanted ('I want to buy')." data-placement="bottom"></i></div> 
-                                            <div class="col-md-10"style="color: black;"><input type="text" style="width: 90%; padding: 5px;" placeholder="[None]"></div>
+                                            <div class="col-md-9"style="color: black;">
+                                                <select id="category" style="cursor:pointer " class="form-control" required>
+                                                    
+                                                </select>
+                                            </div>
                                     </div>
 
                                     <div class="row" style="margin-top: 10px; padding-bottom: 30px;">
@@ -487,10 +493,132 @@ span.checkmark {
 <script>
     
      $(document).ready(function() {    
-        
-        // $('#datetimepicker6').pickadate();
+        $newList = [];
+        $tempArr = [];
+        listmain();
 
+        
+        $("#category").on('change', function () {
+            var id = $(this).find('option:selected').attr('id');
+            var name = $(this).find('option:selected').val();
+            localStorage.setItem('add_category', id);
+            localStorage.setItem('name_category', name);
+        });
+
+        $('#status').on('click',function(){
+            addcategory();
+        })
+        
      });
+
+    function listmain() {
+        $.ajax({
+            url: 'http://codeviable.com/w2w2/public/category',
+            type: "GET"
+        }).done(function (response) {
+            var data = response;
+            var currentIndex = 0;
+                
+            $.each(response, function (i, data) {
+                var index = i + 1;
+                $tempArr.push(data);
+                $newList = $tempArr;
+            });
+  
+            listsubwaste(); 
+            listsubtechnology();  
+            listsubservice(); 
+            console.log($newList) 
+            
+
+                
+        });
+    }
+
+    function listsubwaste() {
+        $.ajax({
+            url: 'http://codeviable.com/w2w2/public/category/sub?id=63',
+            type: "GET"
+        }).done(function (response) {
+            var data = response;
+            var currentIndex = 0;
+                
+            $.each(response, function (i, data) {
+                var index = i + 1;
+                $tempArr.push(data);
+                $newList = $tempArr;
+            });
+           
+        });
+    }
+
+    function listsubtechnology() {
+        $.ajax({
+            url: 'http://codeviable.com/w2w2/public/category/sub?id=64',
+            type: "GET"
+        }).done(function (response) {
+            var data = response;
+            var currentIndex = 0;
+                
+            $.each(response, function (i, data) {
+                var index = i + 1;
+                $tempArr.push(data);
+                $newList = $tempArr;
+            });
+           
+        });
+    }
+
+    function listsubservice() {
+        $.ajax({
+            url: 'http://codeviable.com/w2w2/public/category/sub?id=65',
+            type: "GET"
+        }).done(function (response) {
+            var data = response;
+            var currentIndex = 0;
+                
+            $.each(response, function (i, data) {
+                var index = i + 1;
+                $tempArr.push(data);
+                $newList = $tempArr;
+            });
+            allcategory();
+        });
+    }
+
+    function allcategory() {
+            var tr = "";
+
+            tr += '<option disabled selected value="">Please choose</option>';
+            
+            $.each($newList, function(i,data){
+                tr += '<option class="item" id='+data.id+' value='+data.name+' style="text-transform: capitalize;">'+data.name+'</option>';
+            });
+
+            $('#category').html(tr);
+    }
+
+    function addcategory() {
+        var name = $('#name').val();
+        var idmaincategory = localStorage.getItem('name_category');
+        var sub = localStorage.getItem('add_category');
+        
+        var postdata = {
+            "idmaincategory" : idmaincategory,
+            "sub" : sub,
+            "name" : name,
+            "publishstatus" : "yes",
+        }
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/category/add",
+            type : "POST",
+            data : postdata
+        }).done(function(response){
+            console.log(response)
+        })
+    }
+    
      
   </script>
 

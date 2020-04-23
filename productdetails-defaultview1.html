@@ -358,7 +358,7 @@ i {
             <div style="font-size: 24px; font-weight: bold;">Ratings and Review</div>
             <div style="text-align: right; color: #0099FF;">View All</div>
             <div style="border-bottom: 2px solid lightgray;"></div>
-            <div style="padding: 20px;">
+            <div id="rating_list" style="padding: 20px;">
             <div class="row detail-spacing">
                 <div class="col-md-4">
                     <i class="fa fa-star checked"></i>
@@ -415,7 +415,7 @@ i {
                     <div>A product description is the marketing copy used to describe a product's value proposition to potential customers. As the shopper browses, they instinctively imagine having each product in hand, using it and enjoying it. The more powerful the customer's fantasy of owning the product, the more likely they are to buy it.</div>
                 </div>
             </div>
-        </div>
+            </div>
         </div>
     </div>
     <div class="container" style="padding: 30px;">
@@ -606,7 +606,7 @@ $(document).ready(function(){
         $product_id = localStorage.getItem('product_detail');
         productDetails();
         supplier_company();
-
+        listRating();
         myMap();
         displaycomment();
         check_val();
@@ -837,6 +837,26 @@ $(document).ready(function(){
                  tr += '<form id="askform" onsubmit="return false"><div id="askquestion" style="margin-top: 30px;"><textarea onKeyUp="check_val()" id="askquestion2" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea><div id="error" style="color: red; font-size: 14px; margin-top: 10px;"></div><br><div id="submit" type="button" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div></div></form>';   
                 }
                  $('#listcomment').html(tr)
+            })
+        }
+
+        function listRating() {
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/review/list?product_id=",
+                type : "GET",
+                data : { "product_id" : $product_id}
+            }).done(function(response){
+                console.log(response);
+
+                var row = "";
+
+                $.each(response, function(i,data){
+                    var date = data.created_at[8]+''+data.created_at[9]+'/'+data.created_at[5]+''+data.created_at[6]+'/'+data.created_at[0]+''+data.created_at[1]+''+data.created_at[2]+''+data.created_at[3];
+
+                    row += '<div class="row detail-spacing"><div class="col-md-4"><i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><div style="color: blue; margin-top: 5px;">Ronnie Hussein</div><div style="margin-top: 5px; font-size: 12px;">'+date+'</div></div><div class="col-md-8"><div>'+response[i].description+'</div></div></div>';
+                });
+
+                $('#rating_list').html(row);
             })
         }
 

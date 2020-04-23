@@ -220,7 +220,7 @@ ul li a.active{
           <div class="col-md-3" style="margin-top: 40px;">
             <div class="row">
             <div class="col-md-4">
-              <img src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
+              <img id="image1" src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
             </div>
             <div class="col-md-8">
               <div id="user_name" style="font-weight: bold; text-transform: capitalize;"> </div>
@@ -234,22 +234,22 @@ ul li a.active{
                   <li><a href="./myaccount-myproduct-adsubmitted.html">My Products</a></li> 
                   <li><a href="./myaccount-mypurchase-reserveproduct.html">My Purchases</a></li>
                   <li><a href="./myaccount-notification.html" class="active">Notifications</a></li> 
-                  <li><a href="#">Review & Ratings</a></li>
+                  <li><a href="./myaccount-reviewrating-product.html">Review & Ratings</a></li>
               </ul>
           </div>
 
           <div class="card col-md-8" style="padding: 40px; margin-bottom: 50px;">
-            <div>
-            <div class="notification-text">You have 1 product to be reviewed</div>
-            <div class="row">
-              <div class="col-md-3">
-                <img src="img/organic-compose.jpg">
+            <div id="list">
+              <!-- <div class="notification-text">You have 1 product to be reviewed</div>
+              <div class="row">
+                <div class="col-md-3">
+                  <img src="img/organic-compose.jpg">
+                </div>
+                <div class="col-md-8">
+                  <p>lorem ipsum luomlum dodumida dolleru bulotu nonubalorim rilosim</p>
+                </div>
               </div>
-              <div class="col-md-8">
-                <p>lorem ipsum luomlum dodumida dolleru bulotu nonubalorim rilosim</p>
-              </div>
-            </div>
-            <div class="line-bottom"></div>
+              <div class="line-bottom"></div> -->
           </div>
           </div>
         </div>
@@ -298,7 +298,7 @@ ul li a.active{
       $userid = localStorage.getItem("user_id");
 
       userData();
-    
+      notification();
     });
 
     function userData(){
@@ -307,10 +307,30 @@ ul li a.active{
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-                $("#image1").html(response.profilepicture);
+                $("#image1").attr('src' , response.profilepicture);
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
       });
+    }
+
+    function notification(){
+      $.ajax({
+        url : "http://codeviable.com/w2w2/public/notification/status?user_id=&status=approved",
+        type : "GET",
+        data : {"user_id" : $userid}
+      }).done(function(response){
+        console.log(response);
+
+        var tr = "";
+
+        $.each(response,function(i,data){
+          tr += '<div class="notification-text">Your product has been approved</div><div class="row"><div class="col-md-3"><img src='+response[i].product_image[0].image+'></div><div class="col-md-8"><p>lorem ipsum luomlum dodumida dolleru bulotu nonubalorim rilosim</p></div></div><div class="line-bottom"></div>';
+        });
+
+        $('#list').html(tr)
+
+        
+      })
     }
 
     </script>

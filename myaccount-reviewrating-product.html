@@ -257,7 +257,7 @@ ul ul a {
           <div class="col-md-3" style="margin-top: 40px;">
             <div class="row">
             <div class="col-md-4">
-              <img src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
+              <img id="image1" src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
             </div>
             <div class="col-md-8">
               <div id="user_name" style="font-weight: bold; text-transform:capitalize;"> </div>
@@ -270,39 +270,37 @@ ul ul a {
                   <li><a href="./myaccount-defaultview.html">My Account</a></li>
                   <li><a href="./myaccount-myproduct-adsubmitted.html">My Products</a></li>
                   <li><a href="./myaccount-mypurchase-purchasehistory.html">My Purchases</a></li>
-                  <li><a href="">Notifications</a></li>
-                  <li><a href="#" class="active">Review & Ratings</a></li> 
+                  <li><a href="./myaccount-notification.html">Notifications</a></li>
+                  <li><a href="./myaccount-reviewrating-product.html" class="active">Review & Ratings</a></li> 
               </ul>
           </div>
 
           <div class="col-md-8">
             <div class="card" style="margin-bottom: 20px; border: none;">
               <ul class="nav-reserveproduct">
-                <li class="col-md-6"><a class="nav-style active-nav" href="#">Product</a></li>
-                <li class="col-md-6"><a class="nav-style" href="#">Seller</a></li>
+                <li class="col-md-6"><a class="nav-style active-nav" href="./myaccount-reviewrating-product.html">Product</a></li>
+                <li class="col-md-6"><a class="nav-style" href="./myaccount-reviewrating-seller.html">Seller</a></li>
               </ul>
             </div>
              
             <div class="card" style="padding: 20px; margin-bottom: 50px;">
               <div id="display_product">
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-md-2">
                     <img src="img/organic-compose.jpg">
                 </div>
                 <div class="col-md-10">
                     <div class="detail-spacing">
-                        <i class="fa fa-star checked"></i>
-                        <i class="fa fa-star checked"></i>
-                        <i class="fa fa-star checked"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                      <div id="star">
+
+                      </div>
                         <div style="margin-top: 10px;">A product description is the marketing copy used to describe a product's value proposition to potential customers.</div>
                     </div>
                 </div>
 
                 <div class="line-bottom"></div>
                 
-              </div>
+              </div> -->
               </div>
             </div>
           </div>
@@ -345,6 +343,7 @@ ul ul a {
                 localStorage.clear();
             });
             
+            listrating();
         });
 
         //display user data
@@ -354,8 +353,7 @@ ul ul a {
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-              console.log(response);
-                $("#image1").html(response.profilepicture);
+                $("#image1").attr('src' , response.profilepicture);
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
           });
@@ -373,6 +371,35 @@ ul ul a {
                 };
                 reader.readAsDataURL(input.files[0]);
             }
+        }
+
+        function listrating() {
+          $.ajax({
+            url : "http://codeviable.com/w2w2/public/review/listuser?user_id=",
+            type : "GET",
+            data : { "user_id" : $userid}
+          }).done(function(response){
+            console.log(response);
+
+            var tr = "";
+            var tr2 = "";
+            var no = 0;
+            
+            $.each(response, function(i,data){
+              tr2 += '<div class="row"><div class="col-md-2"><img src="img/organic-compose.jpg"></div><div class="col-md-10"><div class="detail-spacing"><div id="star"></div><div style="margin-top: 10px;">'+response[i].description+'</div></div></div><div class="line-bottom"></div></div>';
+
+              for(var a=0; a < 5; a++){
+                if( a < response[i].rating)
+                  tr += '<i class="fa fa-star checked"></i>';
+                else
+                  tr += '<i class="fa fa-star"></i>';
+              }
+            });
+
+
+            $('#display_product').html(tr2)
+            $('#star').html(tr)
+          })
         }
     </script>
 

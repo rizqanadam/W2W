@@ -187,63 +187,63 @@ i {
     <div class="card col-md-10" style="background-color: #3A595D; margin-left: auto; margin-right: auto; padding: 20px;;">
         <div class="row">
         <div class="col-md-3">
-            <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                <option disabled selected>Entire Malaysia</option>
-                <option>Johor</option>
-                <option>Kedah</option>
-                <option>Kelantan</option>
-                <option>Melaka</option>
-                <option>Negeri Sembilan</option>
-                <option>Pahang</option>
-                <option>Perak</option>
-                <option>Perlis</option>
-                <option>Pulau Pinang</option>
-                <option>Sabah</option>
-                <option>Sarawak</option>
-                <option>Selangor</option>
-                <option>Terengganu</option>
-                <option>Wilayah Persekutuan Malaysia</option>  
+            <select id="state_search" style="cursor:pointer" class="form-control">
+              <option disabled selected value="">Entire Malaysia</option>
+              <option>Johor</option>
+              <option>Kedah</option>
+              <option>Kelantan</option>
+              <option>Melaka</option>
+              <option>Negeri Sembilan</option>
+              <option>Pahang</option>
+              <option>Perak</option>
+              <option>Perlis</option>
+              <option>Pulau Pinang</option>
+              <option>Sabah</option>
+              <option>Sarawak</option>
+              <option>Selangor</option>
+              <option>Terengganu</option>
+              <option>Wilayah Persekutuan Malaysia</option>  
             </select>
         </div> 
         <div class="col-md-3">
-            <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                <option disabled selected>Category</option>
-                <option>Waste</option>
-                <option>Technology</option>
-                <option>Service</option>
+            <select id="category_search" style="cursor:pointer" class="form-control">
+              <option disabled selected value="">Category</option>
+              <option>Waste</option>
+              <option>Technology</option>
+              <option>Service</option>
             </select>
         </div> 
         <div class="col-md-3">
             <input type="text" class="form-control" placeholder="Enter tag or keyword">
         </div> 
         <div class="col-md-3">
-            <button class="btn btn-success"><i class="fa fa-search"></i> Search now</button>
+            <button id="search_btn" class="btn btn-success"><i class="fa fa-search"></i> Search now</button>
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
             <div class="col-md-3">
-                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                    <option disabled selected>Product status</option>
-                    <option>Available</option>
-                    <option>Sold-out</option>
-                    <option>On-going</option>
+                <select id="status_search" style="cursor:pointer" class="form-control">
+                  <option disabled selected value="">Product status</option>
+                  <option>Available</option>
+                  <option>Sold-out</option>
+                  <option>On-going</option>
                 </select>
             </div> 
             <div class="col-md-3">
-                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                    <option disabled selected>Rating</option>
-                    <option>1 star</option>
-                    <option>2 star</option>
-                    <option>3 star</option>
-                    <option>4 star</option>
-                    <option>5 star</option>
+                <select id="rating_search" style="cursor:pointer" class="form-control">
+                  <option disabled selected value="">Rating</option>
+                  <option>1 star</option>
+                  <option>2 star</option>
+                  <option>3 star</option>
+                  <option>4 star</option>
+                  <option>5 star</option>
                 </select>
             </div> 
             <div class="col-md-3">
-                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                    <option disabled selected>Price range</option>
-                    <option>RM0 - RM100</option>
-                    <option>RM101 - 200</option>
+                <select id="price_search" style="cursor:pointer" class="form-control">
+                  <option disabled selected value="">Price range</option>
+                  <option aria-valuemin="0.00" aria-valuemax="100.00">RM0 - RM100</option>
+                  <option>RM101 - 200</option>
                 </select>
             </div> 
             <div class="col-md-3">
@@ -453,12 +453,101 @@ i {
         $(document).ready(function(){
             $newList = [];
             $tempArr = [];
-            
+            $fullList = [];
             $('#signin').on('click',function(){
                     LoginUser();    
             });
 
             getRequest();
+
+            $('#search_btn').on('click', function() {
+
+                $newList = [];
+                $tempArr = [];
+
+                var currentIndex = 0;
+                var inputCategory = $('#category_search').find('option:selected').val();
+                var inputState = $('#state_search').find('option:selected').val();
+                var inputStatus = $('#status_search').find('option:selected').val();
+                var inputRating = $('#rating_search').find('option:selected').val();
+                var inputPrice = $('#price_search').find('option:selected').val();
+
+                console.log('Searched : ' + inputCategory+ ' ' + inputStatus + ' ' + inputState);
+
+                $.each($fullList,function(x, dataX){
+                    $.each(dataX,function(y, dataY){
+                        
+                            if(inputCategory.toLowerCase() == (dataY['maincategory']).toLowerCase() && inputStatus.toLowerCase() == (dataY['availability']).toLowerCase()){
+                                var index = y + 1;
+                                $tempArr.push(dataY);
+                                $newList[currentIndex] = $tempArr;
+                                if(index % 10 == 0){
+                                    currentIndex++;
+                                    $tempArr = [];
+                                }
+                            }
+                            else if(inputCategory.toLowerCase() == (dataY['maincategory']).toLowerCase()){
+                                var index = y + 1;
+                                $tempArr.push(dataY);
+                                $newList[currentIndex] = $tempArr;
+                                if(index % 10 == 0){
+                                    currentIndex++;
+                                    $tempArr = [];
+                                }
+                            }
+                            else if(inputStatus.toLowerCase() == (dataY['availability']).toLowerCase()){
+                                var index = y + 1;
+                                $tempArr.push(dataY);
+                                $newList[currentIndex] = $tempArr;
+                                if(index % 10 == 0){
+                                    currentIndex++;
+                                    $tempArr = [];
+                                }
+                            }
+                            else if(inputState == dataY.product_state[y].state){
+                                if( dataY.product_state[y].state != "undefined" && dataY.product_state[y].state != "null"){
+                                    var index = y + 1;
+                                    $tempArr.push(dataY);
+                                    $newList[currentIndex] = $tempArr;
+                                    if(index % 10 == 0){
+                                        currentIndex++;
+                                        $tempArr = [];
+                                    }
+                                }
+                            }
+                            else if(inputRating == dataY.availability){
+                                var index = y + 1;
+                                $tempArr.push(dataY);
+                                $newList[currentIndex] = $tempArr;
+                                if(index % 10 == 0){
+                                    currentIndex++;
+                                    $tempArr = [];
+                                }
+                            }
+                        
+                    });
+                });
+
+                console.log($newList)
+
+                var tr = "";
+                $.each($newList[currentIndex], function (i, data) {
+                    console.log(data);
+                    //display date in formatted
+                    var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
+                    if(data.premiumlist == "premium"){
+                        tr += '<div class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;" ></div><div class="col-md-7"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'<i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><a id="signin"><div style="color: blue; cursor: pointer;" data-toggle="modal" data-dismiss="modal" data-target="#signinmodal"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact details</div></a></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+", "+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "regular"){
+                        tr += '<div class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;" ></div><div class="col-md-7"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'</div><p>'+data.product_desc+'</p><label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><a id="signin"><div style="color: blue; cursor: pointer;" data-toggle="modal" data-dismiss="modal" data-target="#signinmodal"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact details</div></a></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+", "+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }   
+                });
+                    
+                $('#product_display').html(tr);  
+                });
+
         });
 
         function getRequest() {
@@ -504,7 +593,7 @@ i {
                         }
                     }
                 });
-
+                $fullList = $newList;
                 console.log($newList);
                 var pageBtn = $('#pagination');
                 pageBtn.html('');

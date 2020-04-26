@@ -377,12 +377,38 @@ i {
         <script>
             $(document).ready(function(){
                 $userid = localStorage.getItem('user_id');
-                    
+                $listpackage = [];
+                $status = "";
+
+                listofpackage();
+                $('.loader').addClass("hide-loader");  
+                
+                $('#packagerow').delegate('.btn', 'click', function() {
+                    var id = $(this).parent().parent().data('id');
+                    localStorage.setItem('package_id', id);
+                    $packageid = localStorage.getItem('package_id');
+                    validatepackage();
+                    console.log(id);
+                });
+
+                $('#buy').on('click',function(){                  
+                    if($status == "yes"){
+                        alert("buy");
+                        buypackage();
+                        $('#packagemodal').modal('toggle');
+                    }
+                    else
+                        alert("cannot");                    
+                });
+                
+            });
+
+            function listofpackage() {
                 $.ajax({
                     url: "http://codeviable.com/w2w2/public/packages",
                     type: "GET",
                     success: function(response){
-                        
+                        console.log(response)
                         var tr = "";
                         $.each(response,function(i,data){
                             if(response[i].premiumlist == "regular"){
@@ -393,33 +419,54 @@ i {
                             }
                         });
                         $("#packagerow").html(tr);
-
-
-                        $('#packagerow').delegate('.btn', 'click', function() {
-                            var id = $(this).parent().parent().data('id');
-                            var package_id = localStorage.setItem('package_id', id);
-                            console.log(id);
-                        });
+                    
                     }
                 });
-
-                $('#buy').on('click',function(){
-                    buypackage();
-                    $('#packagemodal').modal('toggle');
-                });
-                
-            });
+            }
 
             function buypackage() {
-                var packageid = localStorage.getItem('package_id');
 
                 $.ajax({
                     url : "http://codeviable.com/w2w2/public/user/addpackage?user_id=&package_id=",
                     type : "POST",
-                    data : {"user_id":$userid , "package_id":packageid}
+                    data : {"user_id":$userid , "package_id": $packageid}
+                }).done(function(response){
+                    userData();
+                    console.log(response);
+                });
+            }
+
+            function validatepackage() {
+
+                $.ajax({
+                    url : "http://codeviable.com/w2w2/public/paidpackage/user?user_id=",
+                    type : "GET",
+                    data : {"user_id":$userid}
                 }).done(function(response){
                     console.log(response);
-                    userData();
+                    $listpackage = response;
+                    // console.log($listpackage);
+
+                   
+                    $.each($listpackage, function(i,data){
+                    // for(var i = 0; i < $listpackage.length; i++){
+                        if($packageid === response[i].package_id){
+                            console.log(response[i].package_id);
+                            alert("existing package");
+                            $status = "no";
+                            return false;
+                        }
+                        else if($packageid !== response[i].package_id){
+                            console.log($packageid);
+                            alert("you can buy");
+                            $status = "yes";
+                            return false;
+                        }
+                    // }
+                    });
+
+                    console.log($status)
+                    
                 })
             }
 
@@ -430,7 +477,7 @@ i {
                 type: 'GET',
                 data: { "user_id" : $userid },
                 success: function(response){
-                $('#balance').html("Your remaining token is: "+response.balancetoken)
+                    $('#balance').html("Your remaining token is: "+response.balancetoken);
                 }
                 });
             }

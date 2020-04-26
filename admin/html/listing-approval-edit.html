@@ -287,9 +287,9 @@ span.checkmark {
                     </li>
                     <li>
                         <div class="dropdown" style="margin: 5px;">
-                        <button class="btn btn-light" style=" background-color: transparent; border:none;"><a href="#"></a>John Doe  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
-                        <img src="../plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle">
-                        </button>
+                            <button class="btn btn-light" style=" background-color: transparent; border:none;"><a style=" color: black;" href="#" id="user_name"></a>  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
+                            <img id="profilepicture" src="../plugins/images/default-profile.png" alt="user-img" width="36" class="img-circle">
+                            </button>
                           <div class="dropdown-content" style="margin-left: -70px;">
                             <a href="#">Logout</a>
                           </div>
@@ -329,7 +329,7 @@ span.checkmark {
                             <a href="./listing-available.html" class="waves-effect padding_side"><img src="../plugins/images/Icon_Available.svg">&nbsp;&nbsp;&nbsp;Available</a>
                             <a href="./listing-wanted.html" class="waves-effect padding_side"><img src="../plugins/images/wanted.png">&nbsp;&nbsp;&nbsp;Wanted</a>
                             <a href="./listing-comment.html" class="waves-effect padding_side"><img src="../plugins/images/comment_icon.png">&nbsp;&nbsp;&nbsp;Comment</a>
-                            <a href="./listing-formmanagement.html" class="waves-effect padding_side"><img src="../plugins/images/form_icon.png">&nbsp;&nbsp;&nbsp;Form Management</a>
+                            <!-- <a href="./listing-formmanagement.html" class="waves-effect padding_side"><img src="../plugins/images/form_icon.png">&nbsp;&nbsp;&nbsp;Form Management</a> -->
                             <a href="./listing-productcategory.html" class="waves-effect padding_side"><img src="../plugins/images/category_icon.png">&nbsp;&nbsp;&nbsp;Product Category</a>
                         </ul>
                     </li>
@@ -353,7 +353,7 @@ span.checkmark {
                     <li>
                         <a href="userM" class="waves-effect"><img src="../plugins/images/folder-open-solid.svg">&nbsp;&nbsp;&nbsp;User Management<i class="fa fa-angle-down fa-sm" style="padding-left: 27px;"></i></a>
                         <ul>
-                            <a href="#" class="waves-effect active padding_side "><img src="../plugins/images/circle-regular.svg">&nbsp;&nbsp;&nbsp;Users</a>
+                            <a href="./user-management.html" class="waves-effect active padding_side "><img src="../plugins/images/circle-regular.svg">&nbsp;&nbsp;&nbsp;Users</a>
                         </ul>
                     </li>
                 </ul>
@@ -760,14 +760,17 @@ span.checkmark {
     
      $(document).ready(function() {   
         $product_id = localStorage.getItem('product_id'); 
-       
+        $userid = localStorage.getItem('user_id');
+
+        UserDetails(); 
         materialInformation();
         typeAd();
         packageInformation();
-        
+
         $tag1 = localStorage.getItem('tag1');
         $tag2 = localStorage.getItem('tag2');
         $tag3 = localStorage.getItem('tag3');
+        
         $('#product_tag').val($tag1 +" , "+$tag2+" , "+$tag3 );
 
         $('#showinfoad').popover({
@@ -811,6 +814,7 @@ span.checkmark {
 
         $("#approvebtn").on('click', function(){
             approveProduct();
+            statusActive();
         });
 
         
@@ -819,7 +823,7 @@ span.checkmark {
             exportPDF();
         });
 
-        statusActive();
+        
 
         //submit available product
         var highlightForm = document.querySelector("form#rejectform");
@@ -836,6 +840,20 @@ span.checkmark {
             }
      });
 
+     function UserDetails() {
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/user/detail?user_id=",
+            type : "GET",
+            data : {"user_id" : $userid}
+        }).done(function(response){
+            $('#user_name').html(response.user_fname+" "+response.user_lname);
+            if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
+                $('#profilepicture').attr('src' , response.profilepicture);
+            }
+        });
+     }
+
      function materialInformation(){
         $.ajax({
             url: "http://codeviable.com/w2w2/public/product/detail?product_id=",
@@ -846,6 +864,7 @@ span.checkmark {
             var tag1 = localStorage.setItem('tag1',response[0].product_name);
             var tag2 = localStorage.setItem('tag2',response[0].product_material);
             var tag3 = localStorage.setItem('tag3',response[0].product_category);
+            localStorage.setItem('approve_user',response[0].user_id);
             console.log(response)
             $('#product_id').html(response[0].product_id);
             $('#product_date').html(response[0].product_date);
@@ -880,16 +899,7 @@ span.checkmark {
                 $('#previewProfile5').attr('src' , response[0].product_image[4].image)
             }
 
-            
 
-            if(response[0].publishstatus == "active"){
-                $('#status').prop('checked', true);
-                console.log(response[0].publishstatus)
-            }
-            else{
-                $('#status').prop('checked', false);
-                console.log(response[0].publishstatus)
-            }
         });
      }
 
@@ -956,12 +966,14 @@ span.checkmark {
 
      function approveProduct() {
 
-        var status = 'success';
+        // var status = 'success';
         var product_target = localStorage.getItem('suggested');
+        var user_id = localStorage.getItem('approve_user')
 
         var formData = new FormData();
         formData.append('product_id', $product_id);
-        formData.append('product_status', status);
+        // formData.append('product_status', status);
+        formData.append('user_id', user_id);
         formData.append('suggestcustomer', product_target);
         formData.append('tagging[]', $tag1);
         formData.append('tagging[]', $tag2);
@@ -972,26 +984,19 @@ span.checkmark {
                 type: "POST",
                 data: formData,
                 processData: false,
-            contentType: false,
+                contentType: false,
             }).done(function(response){
                 console.log(response);
             });
-      
+            
      }
 
      function statusActive(){
-        $('#status').click(function(){
-            if ($(this).is(":checked")) {
-                $('#status').prop('checked', true);
-                $status = "yes";
-                console.log("yes")
-            }
-            else{
-                $('#status').prop('checked', false);
-                $status = "no";
-                console.log("no")
-            }
- 
+         
+            $('#status').prop('checked', true);
+            $status = "yes";
+            console.log("yes")
+
 
             var formData = new FormData();
             formData.append('product_id' , $product_id);
@@ -1006,7 +1011,6 @@ span.checkmark {
             }).done(function(response){
                 console.log(response)
             })
-        });
     }
 
      

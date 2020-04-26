@@ -106,33 +106,78 @@ ul li a:hover{
 }
 
 ul li a.active{
-    font-weight: bolder;
     color: #27AE60!important;
 }
 
+ul ul a {
+  font-weight: normal;
+}
+
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: small;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #27AE60;
+}
+
+.text-product{
+  font-size: 12px;
+}
+
+.nav-reserveproduct {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
   }
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-    font-size: small;
-  }
-
-  .dropdown:hover .dropdown-content {
+  .nav-style {
     display: block;
+    color: black;
+    text-align: center;
+    padding: 2px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: normal;
   }
 
-  .dropdown-content a:hover {
-    color: #27AE60 ;
+  .active-nav {
+    border-bottom: 6px solid #27AE60;
+    color: #27AE60;
   }
+
+  .footer-stay {
+     position: absolute;
+     bottom: 0; 
+     width: 100%;
+    }
+
+    .detail-spacing {
+    margin-bottom: 15px;
+    color: #707070;
+    }
+    .checked {
+    color: orange;
+    }
 
 </style>
 <head>
@@ -167,7 +212,7 @@ ul li a.active{
 
     <!-- Header Section Begin -->
   <div class="col-md-12 page-color">
-    <div class="col-md-10 offset-md-1" style="height: 1000px">
+    <div class="col-md-10 offset-md-1">
           <div class="header-top">
           <div class="container" style="padding: 0;">
               <div class="inner-header">
@@ -175,20 +220,11 @@ ul li a.active{
                       <div class="col-lg-2 col-md-2" style="padding: 0;">
                           <div class="logo">
                               <a href="./index1.html">
-                                  <img src="img/website-logo.png">
+                                <img src="img/website-logo.png">
                               </a>
                           </div>
                       </div>
-                      <div class="col-lg-6 col-md-6" style="padding: 20px;padding-left: 60px;">
-                          <div class="advanced-search">
-                              <button type="button" class="category-btn">Category</button>
-                              <div class="input-group">
-                                  <input type="text" placeholder="What are you looking for?">
-                                  <button type="button"><i class="fa fa-search"></i>  Search  </button>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-4 text-right col-md-4" style="padding: 10px;">
+                      <div class="col-lg-10 text-right col-md-10" style="padding: 10px;">
                           <div class="dropdown">
                           <button class="btn"><a href="#"></a><img src="img/ukk.png"></button>
                             <div class="dropdown-content">
@@ -197,17 +233,18 @@ ul li a.active{
                               <a href="#">Link 3</a>
                             </div>
                           </div>
-                          
+                         
                           <div class="dropdown">
                             <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/user.svg">
-                            <h5 style="margin-top: 8px; color: gray;">My Account</h5>
+                            <h5 style="margin-top: 8px; color: black;">My Account</h5>
                             </button>
                             <div class="dropdown-content">
                               <a href="./myaccount-defaultview.html">My account</a>
                               <a href="./index.html">Logout</a>
                             </div>
                           </div>
-                          <button class="btn btn-warning">Submit Ad</button>
+                      </button>
+                          <button onclick="window.location.href='./default-form-userview.html';" class="btn btn-warning">Submit Ad</button>
                       </div>
                   </div>
               </div>
@@ -223,55 +260,56 @@ ul li a.active{
               <img id="image1" src="img/default-profile.png" alt="Avatar" style="width:300px; border-radius: 50%">
             </div>
             <div class="col-md-8">
-              <div id="user_name" style="font-weight: bold; text-transform: capitalize;"> </div>
+              <div id="user_name" style="font-weight: bold; text-transform:capitalize;"> </div>
               <!-- <span style='font-size:100px;'>&#9998;</span> -->
-              <p style="cursor:pointer" onclick ="window.location.href='./myaccount-defaultview.html';">&#9998;  Edit profile</p>
+              <a href="./myaccount-defaultview.html"><p style="color: #8B8B8B;">&#9998; Edit profile</p></a>
             </div>
           </div>
             <div class="line-bottom"></div>
               <ul style="list-style-type: none;">
                   <li><a href="./myaccount-defaultview.html">My Account</a></li>
-                  <li><a href="./myaccount-myproduct-adsubmitted.html">My Products</a></li> 
-                  <li><a href="./myaccount-mypurchase-reserveproduct.html">My Purchases</a></li>
-                  <li><a href="./myaccount-notification.html" class="active">Notifications</a></li> 
-                  <li><a href="./myaccount-reviewrating-product.html">Review & Ratings</a></li>
+                  <li><a href="./myaccount-myproduct-adsubmitted.html">My Products</a></li>
+                  <li><a href="./myaccount-mypurchase-purchasehistory.html">My Purchases</a></li>
+                  <li><a href="./myaccount-notification.html" class="active">Notifications</a></li>
+                  <li><a href="./myaccount-reviewrating-product.html">Review & Ratings</a></li> 
               </ul>
           </div>
 
-          <div class="card col-md-8" style="padding: 40px; margin-bottom: 50px;">
-            <div id="list">
-              <!-- <div class="notification-text">You have 1 product to be reviewed</div>
-              <div class="row">
-                <div class="col-md-3">
-                  <img src="img/organic-compose.jpg">
+            <div class="card col-md-8" style="padding: 40px; margin-bottom: 50px;">
+              <div id="list">
+                <!-- <div class="notification-text">You have 1 product to be reviewed</div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <img src="img/organic-compose.jpg">
+                  </div>
+                  <div class="col-md-8">
+                    <p>lorem ipsum luomlum dodumida dolleru bulotu nonubalorim rilosim</p>
+                  </div>
                 </div>
-                <div class="col-md-8">
-                  <p>lorem ipsum luomlum dodumida dolleru bulotu nonubalorim rilosim</p>
-                </div>
+                <div class="line-bottom"></div> -->
               </div>
-              <div class="line-bottom"></div> -->
-          </div>
-          </div>
+            </div>
+
         </div>
       </div>
     </div>
   </div>
 
 
-  <footer class="footer-section" style="background-color: #3A595D;">
-     <div class="container">
-          <div class="row" style="padding-top: 5px;">
-          <div class="col-lg-2 ">
-              <a href="#" style="color: white;">Contact Us</a>
-          </div>
-          <div class="col-lg-6">
-              <a href="#" style="color: white;">Terms and Conditions</a>
-          </div>
-          <div class="col-lg-4 text-right">
-              <p style="color: white;"><i class="fa fa-copyright"></i> Prospect W2W. All rights reserved.</p>
-          </div>
-          </div>
-      </div>
+  <footer class="footer-section" style="background-color: #3A595D; margin-top: 15px;">
+    <div class="container">
+         <div class="row" style="padding-top: 5px;">
+         <div class="col-lg-2 ">
+             <a href="#" style="color: white;">Contact Us</a>
+         </div>
+         <div class="col-lg-6">
+             <a href="#" style="color: white;">Terms and Conditions</a>
+         </div>
+         <div class="col-lg-4 text-right">
+             <p style="color: white;"><i class="fa fa-copyright"></i> Prospect W2W. All rights reserved.</p>
+         </div>
+         </div>
+     </div>
   </footer>
 
     <!-- Js Plugins -->
@@ -329,7 +367,6 @@ ul li a.active{
 
         $('#list').html(tr)
 
-        
       })
     }
 

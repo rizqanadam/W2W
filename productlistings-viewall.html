@@ -181,8 +181,8 @@ i {
     <div class="card col-md-10" style="background-color: #3A595D; margin-left: auto; margin-right: auto; padding: 20px;;">
         <div class="row">
         <div class="col-md-3">
-            <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-              <option disabled selected>Entire Malaysia</option>
+            <select id="state_search" style="cursor:pointer" class="form-control">
+              <option disabled selected value="">Entire Malaysia</option>
               <option>Johor</option>
               <option>Kedah</option>
               <option>Kelantan</option>
@@ -201,7 +201,7 @@ i {
         </div> 
         <div class="col-md-3">
             <select id="category_search" style="cursor:pointer" class="form-control">
-              <option disabled selected>Category</option>
+              <option disabled selected value="">Category</option>
               <option>Waste</option>
               <option>Technology</option>
               <option>Service</option>
@@ -216,16 +216,16 @@ i {
         </div>
         <div class="row" style="margin-top: 10px;">
             <div class="col-md-3">
-                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                  <option disabled selected>Product status</option>
+                <select id="status_search" style="cursor:pointer" class="form-control">
+                  <option disabled selected value="">Product status</option>
                   <option>Available</option>
                   <option>Sold-out</option>
                   <option>On-going</option>
                 </select>
             </div> 
             <div class="col-md-3">
-                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                  <option disabled selected>Rating</option>
+                <select id="rating_search" style="cursor:pointer" class="form-control">
+                  <option disabled selected value="">Rating</option>
                   <option>1 star</option>
                   <option>2 star</option>
                   <option>3 star</option>
@@ -234,8 +234,8 @@ i {
                 </select>
             </div> 
             <div class="col-md-3">
-                <select id="categoryDropdown" style="cursor:pointer" class="form-control">
-                  <option disabled selected>Price range</option>
+                <select id="price_search" style="cursor:pointer" class="form-control">
+                  <option disabled selected value="">Price range</option>
                   <option>RM0 - RM100</option>
                   <option>RM101 - 200</option>
                 </select>
@@ -473,13 +473,35 @@ i {
 
                 var currentIndex = 0;
                 var inputCategory = $('#category_search').find('option:selected').val();
+                var inputState = $('#state_search').find('option:selected').val();
+                var inputStatus = $('#status_search').find('option:selected').val();
+                var inputRating = $('#rating_search').find('option:selected').val();
+                var inputPrice = $('#price_search').find('option:selected').val();
 
-                console.log('Searched : ' + inputCategory);
+                console.log('Searched : ' + inputCategory+ ' ' + inputStatus + ' ' + inputState);
 
                 $.each($fullList,function(x, dataX){
                     $.each(dataX,function(y, dataY){
                         
-                            if(inputCategory.toLowerCase() == (dataY['maincategory']).toLowerCase()){
+                            if(inputCategory.toLowerCase() == (dataY['maincategory']).toLowerCase() && inputStatus.toLowerCase() == (dataY['availability']).toLowerCase()){
+                                var index = y + 1;
+                                $tempArr.push(dataY);
+                                $newList[currentIndex] = $tempArr;
+                                if(index % 10 == 0){
+                                    currentIndex++;
+                                    $tempArr = [];
+                                }
+                            }
+                            else if(inputStatus.toLowerCase() == (dataY['availability']).toLowerCase()){
+                                var index = y + 1;
+                                $tempArr.push(dataY);
+                                $newList[currentIndex] = $tempArr;
+                                if(index % 10 == 0){
+                                    currentIndex++;
+                                    $tempArr = [];
+                                }
+                            }
+                            else if(inputState == dataY.product_state[y].state){
                                 var index = y + 1;
                                 $tempArr.push(dataY);
                                 $newList[currentIndex] = $tempArr;
@@ -541,7 +563,8 @@ i {
                         }
                     }
                 });
-                getRequest2();               
+                getRequest2(); 
+                $('.loader').addClass("hide-loader");              
             });
         }
 

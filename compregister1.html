@@ -178,7 +178,7 @@ i {
         function AddUser(){
 
             //get the existing data
-            var existing = localStorage.getItem('user');
+            var existing = localStorage.getItem('register');
 
             // If no existing data, create an array
             // Otherwise, convert the localStorage string to an array
@@ -192,7 +192,7 @@ i {
             existing['job_title'] = document.getElementById("jobtitle").value;
           
             //set new data to localStorage
-            localStorage.setItem('user', JSON.stringify(existing));
+            localStorage.setItem('register', JSON.stringify(existing));
     
         }
     </script>

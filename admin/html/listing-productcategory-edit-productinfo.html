@@ -279,9 +279,9 @@ span.checkmark {
                     </li>
                     <li>
                         <div class="dropdown" style="margin: 5px;">
-                        <button class="btn btn-light" style=" background-color: transparent; border:none;"><a href="#"></a>John Doe  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
-                        <img src="../plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle">
-                        </button>
+                            <button class="btn btn-light" style=" background-color: transparent; border:none;"><a href="#" id="user_name" style=" color: black;"></a>  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
+                                <img id="profilepicture" src="../plugins/images/default-profile.png" alt="user-img" width="36" class="img-circle">
+                                </button>
                           <div class="dropdown-content" style="margin-left: -70px;">
                             <a href="#">Logout</a>
                           </div>
@@ -321,7 +321,7 @@ span.checkmark {
                             <a href="./listing-available.html" class="waves-effect padding_side "><img src="../plugins/images/Icon_Available.svg">&nbsp;&nbsp;&nbsp;Available</a>
                             <a href="./listing-wanted.html" class="waves-effect padding_side"><img src="../plugins/images/wanted.png">&nbsp;&nbsp;&nbsp;Wanted</a>
                             <a href="./listing-comment.html" class="waves-effect padding_side"><img src="../plugins/images/comment_icon.png">&nbsp;&nbsp;&nbsp;Comment</a>
-                            <a href="./listing-formmanagement.html" class="waves-effect padding_side"><img src="../plugins/images/form_icon.png">&nbsp;&nbsp;&nbsp;Form Management</a>
+                            <!-- <a href="./listing-formmanagement.html" class="waves-effect padding_side"><img src="../plugins/images/form_icon.png">&nbsp;&nbsp;&nbsp;Form Management</a> -->
                             <a href="./listing-productcategory.html" class="waves-effect padding_side side_active"><img src="../plugins/images/category_icon.png">&nbsp;&nbsp;&nbsp;Product Category</a>
                         </ul>
                     </li>
@@ -342,7 +342,12 @@ span.checkmark {
                     <li>
                         <a href="./enquiry.html" class="waves-effect"><img src="../plugins/images/exclusion.svg">&nbsp;&nbsp;&nbsp;Enquiry</a>
                     </li>
-
+                    <li>
+                        <a href="userM" class="waves-effect"><img src="../plugins/images/folder-open-solid.svg">&nbsp;&nbsp;&nbsp;User Management<i class="fa fa-angle-down fa-sm" style="padding-left: 27px;"></i></a>
+                        <ul>
+                            <a href="./user-management.html" class="waves-effect active padding_side "><img src="../plugins/images/circle-regular.svg">&nbsp;&nbsp;&nbsp;Users</a>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 
@@ -401,7 +406,7 @@ span.checkmark {
                                             style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Available ('I want to sell...'),
                                             Wanted ('I want to buy')." data-placement="bottom"></i></div> 
                                             <div class="col-md-9"style="color: black;">
-                                                <select id="category" style="cursor:pointer " class="form-control" required>
+                                                <select id="category" style="cursor:pointer; text-transform: capitalize; " class="form-control" required>
                                                     
                                                 </select>
                                             </div>
@@ -506,12 +511,15 @@ span.checkmark {
 
 <script>
     
-    $(document).ready(function() {    
-        $newList = [];
-        $tempArr = [];
-        listmain();
+    $(document).ready(function() { 
+        $labelList = [];
+		$select = $('#category');
+        getLabel();
 
-        
+        $userid = localStorage.getItem('user_id');
+
+        UserDetails();
+
         $("#category").on('change', function () {
             var id = $(this).find('option:selected').attr('id');
             var name = $(this).find('option:selected').val();
@@ -529,92 +537,80 @@ span.checkmark {
         
      });
 
-    function listmain() {
+     function UserDetails() {
+
         $.ajax({
+            url : "http://codeviable.com/w2w2/public/user/detail?user_id=",
+            type : "GET",
+            data : {"user_id" : $userid}
+        }).done(function(response){
+            $('#user_name').html(response.user_fname+" "+response.user_lname);
+            if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
+                $('#profilepicture').attr('src' , response.profilepicture);
+            }
+        });
+     }
+
+     function getLabel() {
+		$labelList = [];
+		$select.html('');
+		var row = '';
+        var row2 = '';
+        var subRow = '';
+		$.ajax({
+			//process
             url: 'http://codeviable.com/w2w2/public/category',
             type: "GET"
-        }).done(function (response) {
-            var data = response;
-            var currentIndex = 0;
+		}).done(function(response) {
+			var results = response['name'];
+			//display label
+            row2 += '<option value="">[none]</option>'; 
+			$.each(response, function(i, data) {
+                subRow = '';
+                subRow += '<option value=" ' + data['id'] + ' ">' + data['name'] + '</option>';
+                row = '';
                 
-            $.each(response, function (i, data) {
-                var index = i + 1;
-                $tempArr.push(data);
-                $newList = $tempArr;
-            });
-  
-            listsubwaste(); 
-            listsubtechnology();  
-            listsubservice(); 
-            console.log($newList) 
+				row += '<optgroup id=' + data['id'] + '  label=" ' + data['name'] + ' "></optgroup>';
+                row += '<option id=" ' + data['id'] + ' " value=" ' + data['name'] + ' " style="font-weight: bold; color: red;">&nbsp;&nbsp;&nbsp;&nbsp;' + data['name'] + '</option>';
+                if(i==0){
+                    $select.append(row2);
+                }
+				$select.append(row);
+                
+				//request sub
+				getSub(data['id']);
+			});
+            $('#preloader').addClass("hide-loader");
             
-
-                
-        });
-    }
-
-    function listsubwaste() {
-        $.ajax({
-            url: 'http://codeviable.com/w2w2/public/category/sub?id=63',
-            type: "GET"
-        }).done(function (response) {
-            var data = response;
-            var currentIndex = 0;
-                
-            $.each(response, function (i, data) {
-                var index = i + 1;
-                $tempArr.push(data);
-                $newList = $tempArr;
+            $select.on('change', function () {
+                var id = $(this).find('option:selected').attr('id');
+                localStorage.setItem('main_category', id);
+                console.log(id);
             });
-           
-        });
-    }
-
-    function listsubtechnology() {
-        $.ajax({
-            url: 'http://codeviable.com/w2w2/public/category/sub?id=64',
-            type: "GET"
-        }).done(function (response) {
-            var data = response;
-            var currentIndex = 0;
-                
-            $.each(response, function (i, data) {
-                var index = i + 1;
-                $tempArr.push(data);
-                $newList = $tempArr;
-            });
-           
-        });
-    }
-
-    function listsubservice() {
-        $.ajax({
-            url: 'http://codeviable.com/w2w2/public/category/sub?id=65',
-            type: "GET"
-        }).done(function (response) {
-            var data = response;
-            var currentIndex = 0;
-                
-            $.each(response, function (i, data) {
-                var index = i + 1;
-                $tempArr.push(data);
-                $newList = $tempArr;
-            });
-            allcategory();
-        });
-    }
-
-    function allcategory() {
-            var tr = "";
-
-            tr += '<option disabled selected value="">Please choose</option>';
             
-            $.each($newList, function(i,data){
-                tr += '<option class="item" id='+data.id+' value='+data.name+' style="text-transform: capitalize;">'+data.name+'</option>';
-            });
+		});
+	}
 
-            $('#category').html(tr);
-    }
+    function getSub(id) {
+        console.log(id)
+		var optGroup = $('#' + id);
+		optGroup.html('');
+		var subRow = '';
+		$.ajax({
+			url: 'http://codeviable.com/w2w2/public/category/sub?id=' + id,
+            type : "GET"
+		}).done(function(response) {
+            console.log(response)
+			var results = response['name'];
+			//display sub
+			$.each(response, function(i, data) {
+                
+				subRow = '';
+				subRow += '<option id=" ' + data['id'] + ' " value=" ' + data['name'] + ' ">' + data['name'] + '</option>';
+				optGroup.append(subRow);
+			});
+		});
+	}
 
     function deletecategory() {
         var id = localStorage.getItem('category');

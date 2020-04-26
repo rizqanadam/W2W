@@ -199,7 +199,7 @@
                             <a href="./listing-available.html" class="waves-effect padding_side"><img src="../plugins/images/Icon_Available.svg">&nbsp;&nbsp;&nbsp;Available</a>
                             <a href="./listing-wanted.html" class="waves-effect padding_side"><img src="../plugins/images/wanted.png">&nbsp;&nbsp;&nbsp;Wanted</a>
                             <a href="./listing-comment.html" class="waves-effect padding_side"><img src="../plugins/images/comment_icon.png">&nbsp;&nbsp;&nbsp;Comment</a>
-                            <a href="./listing-formmanagement.html" class="waves-effect padding_side"><img src="../plugins/images/form_icon.png">&nbsp;&nbsp;&nbsp;Form Management</a>
+                            <!-- <a href="./listing-formmanagement.html" class="waves-effect padding_side"><img src="../plugins/images/form_icon.png">&nbsp;&nbsp;&nbsp;Form Management</a> -->
                             <a href="./listing-productcategory.html" class="waves-effect padding_side"><img src="../plugins/images/category_icon.png">&nbsp;&nbsp;&nbsp;Product Category</a>
                         </ul>
                     </li>
@@ -223,7 +223,7 @@
                     <li>
                         <a href="userM" class="waves-effect"><img src="../plugins/images/folder-open-solid.svg">&nbsp;&nbsp;&nbsp;User Management<i class="fa fa-angle-down fa-sm" style="padding-left: 27px;"></i></a>
                         <ul>
-                            <a href="#" class="waves-effect active padding_side "><img src="../plugins/images/circle-regular.svg">&nbsp;&nbsp;&nbsp;Users</a>
+                            <a href="./user-management.html" class="waves-effect active padding_side "><img src="../plugins/images/circle-regular.svg">&nbsp;&nbsp;&nbsp;Users</a>
                         </ul>
                     </li>
 
@@ -370,7 +370,7 @@
         $userid = localStorage.getItem('user_id');
 
         UserDetails();
-
+        dashboard();
         new Chart(document.getElementById("doughnut-chart"), {
         type: 'doughnut',
         data: {
@@ -403,5 +403,15 @@
                 $('#profilepicture').attr('src' , response.profilepicture);
             }
         });
+    }
+
+    function dashboard() {
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/dash",
+            type : "GET",
+        }).done(function(response){
+            console.log(response.totaluser)
+        })
     }
 </script>

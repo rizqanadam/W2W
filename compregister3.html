@@ -150,13 +150,16 @@ i {
     <script>
 
         $(document).ready(function(){
+            
             $('#create_acc').on('click',function(){
                 RegisterUser();
             });
         });
 
+        
+
         function RegisterUser(){
-            var userdata = JSON.parse(localStorage.getItem('user'));
+            var userdata = JSON.parse(localStorage.getItem('register'));
             
             $.ajax({
                 url: "http://codeviable.com/w2w2/public/user/add",

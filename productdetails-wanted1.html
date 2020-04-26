@@ -449,13 +449,15 @@ i {
             });
 
             $('#listcomment').delegate('#submit', 'click', function() {
-                if($('#askquestion2').val() == ""){
-                    $('#error').html('Please fill this field');
-                }
-                else{
-                    comment();
-                }
-            });
+            if($('#askquestion2').val() == ""){
+                $('#error').html('Please fill this field');
+            }
+            else{
+                document.getElementById('submit').style.pointerEvents = 'none';
+                $("#submit").html('Submitting...').css('cursor','').css('color','lightgrey');
+                comment();
+            }
+        });
             myMap();
         });
 
@@ -490,7 +492,6 @@ i {
                 type : "GET",
                 data : { "product_id" : $id }
             }).done(function(response){
-                console.log(response);
 
                 $('#maincategory').html(response[0].maincategory).css('text-transform','capitalize');
                 $('#name').html(response[0].product_name).css('text-transform','capitalize');
@@ -560,7 +561,7 @@ i {
         function myMap() {
         var mapProp = {
             center: new google.maps.LatLng(lat, lng),
-            zoom: 15,
+            zoom: 16,
         };
         var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
         var marker = new google.maps.Marker({ position: new google.maps.LatLng(lat, lng), map: map });
@@ -571,7 +572,9 @@ i {
             var comment = $('#askquestion2').val();
             var postdata = {
                 "product_id" : $id,
-                "description" : comment
+                "title" : null,
+                "description" : comment,
+                "user_id" : $userid
             }
 
             $.ajax({
@@ -579,7 +582,6 @@ i {
                 type : "POST",
                 data : postdata
             }).done(function(response){
-                console.log(response);
                 $('#questionmodal').modal('toggle');
                 $("#questionmodal").on('hide.bs.modal', function() { 
                     location.reload();
@@ -594,7 +596,6 @@ i {
                 type : "GET",
                 data : { "product_id" : $id }
             }).done(function(response){
-                console.log(response);
                 var tr = "";
                 if(response == 0){
                         tr += '<div id="beforeask" style="padding: 20px;"><div class="text-center">There are no question yet.</div><div class="text-center">Ask the seller now and their answer will be hear.</div><div id="ask_btn" class="text-center ask_btn" style="color: #FF7600; margin-top: 10px; font-weight: bold; cursor: pointer;">Ask Question</div></div>'
@@ -603,9 +604,8 @@ i {
 
                 else if(response != 0){  
                  $.each(response, function(i,data){
-                    var date = data.created_at[8]+''+data.created_at[9]+'/'+data.created_at[5]+''+data.created_at[6]+'/'+data.created_at[0]+''+data.created_at[1]+''+data.created_at[2]+''+data.created_at[3];
-                    console.log(date)
-                    tr += '<div class="row detail-spacing"><div class="col-md-4"><div style="color: #0099FF; margin-top: 5px; font-size: 16px;">Ronnie Hussein</div><div style="margin-top: 5px; font-size: 12px;">'+date+'</div></div><div class="col-md-8"><div>'+data.description+'</div></div></div>';
+                    var date = data.created_at[0]+''+data.created_at[1]+' '+data.created_at[3]+data.created_at[4]+data.created_at[5]+' '+data.created_at[7]+data.created_at[8]+data.created_at[9]+data.created_at[10];
+                    tr += '<div class="row detail-spacing"><div class="col-md-4"><div style="color: #0099FF; margin-top: 5px; font-size: 16px; text-transform: capitalize;">'+data.user_fname+' '+data.user_lname+'</div><div style="margin-top: 5px; font-size: 12px;">'+date+'</div></div><div class="col-md-8"><div>'+data.description+'</div></div></div>';
                  });
                  tr += '<form id="askform" onsubmit="return false"><div id="askquestion" style="margin-top: 30px;"><textarea onKeyUp="check_val()" id="askquestion2" cols="128" rows="2" placeholder="Ask your question..." class="form-control" required></textarea><div id="error" style="color: red; font-size: 14px; margin-top: 10px;"></div><br><div id="submit" type="button" style="cursor: pointer; color: #FF7600; margin-top: 10px; font-weight: bold; text-align: right;">Submit</div></div></form>';   
                 }

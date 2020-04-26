@@ -122,11 +122,12 @@ i {
                             </div>
                           </div>
                         </div>
-                        <form action="./compregister3.html">
+                        <form >
                             <div class="form-group">
                                 <p>Email and password</p>
                                 <label class="login-text" for="username">Email</label>
                                 <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$+.com" class="form-control" id="email" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}" required>
+                                <div id="error" style="color: red; font-size: 12px; font-weight: lighter; margin-top: 5px;"></div>
                             </div>
                             <div class="form-group">
                                 <label class="login-text" for="pass">Password</label>
@@ -137,7 +138,7 @@ i {
                                 <input type="password" class="form-control" id="confirmpassword" required>
                             
                             </div>
-                            <button id="next" type="submit" class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                            <button id="next" type="button" class="btn btn-primary float-right" onclick="validateEmail()" >Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
                         </form> 
                     </div>
                     </div>
@@ -157,15 +158,26 @@ i {
     <script>
 
         $(document).on('click', function(){
-            $('#next').on('click',function(){
-                AddUser();
+            $newList = [];
+            $tempArr = [];
+            $email = "";
+
+            $('#next').click(function(){
+                
+                if( $email === "invalid"){
+                    $('#error').html("Existing email address");
+                }
+                else if( $email === "valid"){
+                    AddUser();
+                    window.location.href = "./compregister3.html"
+                }
             });
         });
 
         function AddUser(){
         
             //get the existing data
-            var existing = localStorage.getItem('user');
+            var existing = localStorage.getItem('register');
 
             // If no existing data, create an array
             // Otherwise, convert the localStorage string to an array
@@ -179,8 +191,44 @@ i {
             existing['user_role'] = "user";
           
             //set new data to localStorage
-            localStorage.setItem('user', JSON.stringify(existing));
+            localStorage.setItem('register', JSON.stringify(existing));
     
+        }
+
+        function validateEmail () {
+            var email = $('#email').val();
+            var status = "";
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/user",
+                type : "GET",
+            }).done(function(response){
+                // console.log(response)
+
+                var data = response;
+                var currentIndex = 0;
+                
+                $.each(response, function (i, data) {
+                        var index = i + 1;
+                        $tempArr.push(data);
+                        $newList[currentIndex] = $tempArr;
+                });
+
+                
+
+                $.each($newList, function (i, data) {
+                    if(email === data[i].user_email){
+                        status = 'Existing email address';
+                        $email = "invalid"
+                    }
+
+                    else if(email !== data[i].user_email){ 
+                        status = '';
+                        $email = "valid"
+                    }
+                });
+                $('#error').html(status);
+                
+            })
         }
     </script>
 

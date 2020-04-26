@@ -295,9 +295,9 @@ span.checkmark {
                     </li>
                     <li>
                         <div class="dropdown" style="margin: 5px;">
-                        <button class="btn btn-light" style=" background-color: transparent; border:none;"><a href="#"></a>John Doe  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
-                        <img src="../plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle">
-                        </button>
+                            <button class="btn btn-light" style=" background-color: transparent; border:none;"><a style=" color: black;" href="#" id="user_name"></a>  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
+                            <img id="profilepicture" src="../plugins/images/default-profile.png" alt="user-img" width="36" class="img-circle">
+                            </button>
                           <div class="dropdown-content" style="margin-left: -70px;">
                             <a href="#">Logout</a>
                           </div>
@@ -337,7 +337,7 @@ span.checkmark {
                             <a href="./listing-available.html" class="waves-effect padding_side"><img src="../plugins/images/Icon_Available.svg">&nbsp;&nbsp;&nbsp;Available</a>
                             <a href="./listing-wanted.html" class="waves-effect padding_side"><img src="../plugins/images/wanted.png">&nbsp;&nbsp;&nbsp;Wanted</a>
                             <a href="./listing-comment.html" class="waves-effect padding_side"><img src="../plugins/images/comment_icon.png">&nbsp;&nbsp;&nbsp;Comment</a>
-                            <a href="./listing-formmanagement.html" class="waves-effect padding_side"><img src="../plugins/images/form_icon.png">&nbsp;&nbsp;&nbsp;Form Management</a>
+                            <!-- <a href="./listing-formmanagement.html" class="waves-effect padding_side"><img src="../plugins/images/form_icon.png">&nbsp;&nbsp;&nbsp;Form Management</a> -->
                             <a href="./listing-productcategory.html" class="waves-effect padding_side"><img src="../plugins/images/category_icon.png">&nbsp;&nbsp;&nbsp;Product Category</a>
                         </ul>
                     </li>
@@ -357,6 +357,12 @@ span.checkmark {
                     </li>
                     <li>
                         <a href="./enquiry.html" class="waves-effect"><img src="../plugins/images/exclusion.svg">&nbsp;&nbsp;&nbsp;Enquiry</a>
+                    </li>
+                    <li>
+                        <a href="userM" class="waves-effect"><img src="../plugins/images/folder-open-solid.svg">&nbsp;&nbsp;&nbsp;User Management<i class="fa fa-angle-down fa-sm" style="padding-left: 27px;"></i></a>
+                        <ul>
+                            <a href="./user-management.html" class="waves-effect active padding_side "><img src="../plugins/images/circle-regular.svg">&nbsp;&nbsp;&nbsp;Users</a>
+                        </ul>
                     </li>
 
                 </ul>
@@ -404,10 +410,10 @@ span.checkmark {
                             <div class="row" style="margin-top: 20px;">
                                 <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Include URL link</div>
                                 <div class="col-md-9">
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon3">https://w2w.com/</span>
-                                        <input id="url" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" style="width: 70%;">
-                                    </div>
+                                    <!-- <div class="input-group"> -->
+                                        <!-- <span class="input-group-addon" id="basic-addon3">https://w2w.com/</span> -->
+                                        <input id="url" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" style="width: 65%;">
+                                    <!-- </div> -->
                                 </div>
                             </div>
 
@@ -495,6 +501,9 @@ span.checkmark {
     
      $(document).ready(function() {  
         $id = localStorage.getItem('banner_id');
+        $userid = localStorage.getItem('user_id');
+
+        UserDetails(); 
         detailbanner();
         publishstatus();
         // $('#removebutton').prop('disabled', true);
@@ -522,6 +531,20 @@ span.checkmark {
             $('#removebutton').css('background-color', 'gray');
         });
      });
+
+    function UserDetails() {
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/user/detail?user_id=",
+            type : "GET",
+            data : {"user_id" : $userid}
+        }).done(function(response){
+            $('#user_name').html(response.user_fname+" "+response.user_lname);
+            if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
+                $('#profilepicture').attr('src' , response.profilepicture);
+            }
+        });
+    }
 
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -588,6 +611,10 @@ span.checkmark {
                 console.log(response)
             })
         });
+    }
+
+    function editbanner(){
+        
     }
   </script>
 

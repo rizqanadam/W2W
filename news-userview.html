@@ -112,6 +112,10 @@ i {
     color: #27AE60 ;
 }
 
+.hide-loader{
+display:none;
+}
+
 </style>
 
 <head>
@@ -180,9 +184,9 @@ i {
                 <div class="container" style="display: flex;">
                     <nav class="nav-menu mobile-menu" style="margin-right: auto; margin-left: auto;">
                         <ul style="margin-bottom: 0px; margin-top: 0px;">
-                            <li><a href="./index.html">Home</a></li>
-                            <li><a href="./productlistings-viewall.html">Available</a></li>
-                            <li><a href="./productwanted-viewall.html">Wanted</a></li>
+                            <li><a href="./index1.html">Home</a></li>
+                            <li><a href="./productlistings1-viewall.html">Available</a></li>
+                            <li><a href="./productwanted1-viewall.html">Wanted</a></li>
                             <li><a href="./package-registered.html">Pricing</a></li>
                             <li class="active"><a href="#">News</a></li>
                             <li><a href="./enquiry-form-userview.html">Contact Us</a></li>
@@ -275,12 +279,16 @@ i {
 
     <script>
         $(document).ready(function(){
+            news();
+        })
+
+        function news() {
             $.ajax({
                 url : "http://codeviable.com/w2w2/public/news/status?publishstatus=publishstatus",
                 type : "GET",
             }).done(function(response){
                 console.log(response)
-               
+                
                 var tr = "";
 
                 $.each(response, function(i,data){
@@ -296,12 +304,17 @@ i {
 
                 $("#news_list").html(tr);
 
+                
+
                 $('#news_list').delegate('.title', 'click', function() {
                     var id = $(this).parent().data('id');
                     var news_display = localStorage.setItem('news_display', id);
                     window.location.href = "./news2-userview.html";
                     console.log(id);
                 });
+
+                $('.loader').addClass("hide-loader"); 
+                
             });
-        })
+        }
     </script>

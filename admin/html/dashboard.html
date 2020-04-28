@@ -82,6 +82,45 @@
     background: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.paginate_button {
+    border: 10px;
+    padding: 10px;
+    background-color: white;
+    margin: 0;
+    color: #0099FF;
+    cursor: pointer;
+}
+
+div#seller_buyer_paginate.dataTables_paginate.paging_simple_numbers,
+div#pending_table_paginate.dataTables_paginate.paging_simple_numbers,
+div#notification_table_paginate.dataTables_paginate.paging_simple_numbers{
+    margin: 15px;
+}
+a.paginate_button.current{
+    background-color: #0099FF;
+    color: white;
+}
+a#seller_buyer_next.paginate_button.next.disabled,
+a#seller_buyer_previous.paginate_button.previous.disabled,
+#seller_buyer_previous,
+a#pending_table_next.paginate_button.next.disabled,
+a#pending_table_previous.paginate_button.previous.disabled,
+#pending_table_previous,
+a#notification_table_next.paginate_button.next.disabled,
+a#notification_table_previous.paginate_button.previous.disabled,
+#notification_table_previous{
+    color: #B5B5B5;
+}
+a#seller_buyer_previous.paginate_button.previous,
+#seller_buyer_next,
+a#pending_table_previous.paginate_button.previous,
+#pending_table_next,
+a#notification_table_previous.paginate_button.previous,
+#notification_table_next{
+    color: #0099FF;
+}
+
 </style>
 
 <head>
@@ -112,6 +151,8 @@
     <!-- <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"> -->
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -330,28 +371,28 @@
                             </thead>
                             <tbody>
                                 
-                                <tr>
-                                    <td scope="" style="text-align: left;">Advertisment Waste</td>
-                                    <td scope="" style="text-align: center;">
-                                        <label style="background-color: green; color: white; border-radius: 10px; width: 80%; text-align: center;">APPROVE</label>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td scope="" style="text-align: left;">Advertisment Waste</td>
-                                    <td scope="" style="text-align: center;">
-                                        <label style="background-color: green; color: white; border-radius: 10px; width: 80%; text-align: center;">APPROVE</label>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td scope="" style="text-align: left;">Advertisment Waste</td>
-                                    <td scope="" style="text-align: center;">
-                                        <label style="background-color: green; color: white; border-radius: 10px; width: 80%; text-align: center;">APPROVE</label>
-                                    </td>
-                                </tr>
-
                                 <!-- <tr>
+                                    <td scope="" style="text-align: left;">Advertisment Waste</td>
+                                    <td scope="" style="text-align: center;">
+                                        <label style="background-color: green; color: white; border-radius: 10px; width: 80%; text-align: center;">APPROVE</label>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td scope="" style="text-align: left;">Advertisment Waste</td>
+                                    <td scope="" style="text-align: center;">
+                                        <label style="background-color: green; color: white; border-radius: 10px; width: 80%; text-align: center;">APPROVE</label>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td scope="" style="text-align: left;">Advertisment Waste</td>
+                                    <td scope="" style="text-align: center;">
+                                        <label style="background-color: green; color: white; border-radius: 10px; width: 80%; text-align: center;">APPROVE</label>
+                                    </td>
+                                </tr>
+
+                                <tr>
                                     <td scope="" style="text-align: left;">Advertisment Waste</td>
                                     <td scope="" style="text-align: center;">
                                         <label style="background-color: green; color: white; border-radius: 10px; width: 80%; text-align: center;">APPROVE</label>
@@ -369,17 +410,24 @@
                             </tbody>
                             
                         </table>
-                        <div>
-                            <button id="btn-example-load-more" style="display:block; background-color: transparent; border: none; color: blue;">Load More</button>
-                         </div>
+                        <div style="margin-left: 250px;">
+                            <button id="load_more" style="display:none; background-color: transparent; border: none; color: blue;">Show More</button>
+                        </div>
                     </div>
                     <div class="card2 col-md-4" style="width: 37%; padding-left: 30px; height: 400px;">
                         <h4 style="font-weight: bold; font-family: 'Roboto' !important;">Notifications</h4>
 
-                        <table id="pending_table" class="table" cellpadding="0">
+                        <table id="notification_table" class="table" cellpadding="0" >
+                            <thead  class="thead" style="text-align: left; font-size: 12px; background-color: #F5F6FA; color: gray; display: none;">
+
+                                <tr>
+                                    <td scope="" style="text-align: left; width: 80%;"></td>
+                                    <td scope="" style="text-align: center;"></td>
+                                </tr>
+                                </thead>
                             <tbody>
                                 
-                                <tr>
+                                <!-- <tr>
                                     <td scope="" style="text-align: left;">Advertisment Waste</td>
                                     <td scope="" style="text-align: center;">Last 24 hours</td>
                                 </tr>
@@ -387,7 +435,7 @@
                                 <tr>
                                     <td scope="" style="text-align: left;">Advertisment Waste</td>
                                     <td scope="" style="text-align: center;">Last 24 hours</td>
-                                </tr>
+                                </tr> -->
 
                             </tbody>
                         </table>
@@ -397,22 +445,22 @@
 
                 <!-- third row -->
                 <div class="row"  style="margin-top: 20px;">
-                    <div class="card col-md-11" style="padding-left: 30px; width: 97%; height: 400px;">
+                    <div class="card col-md-11" style="padding-left: 30px; width: 97%; height: auto;">
                         <h4 style="font-weight: bold; font-family: 'Roboto' !important;">Number of seller and buyer</h4>
                         <table id="seller_buyer" class="table" cellpadding="0">
                             <thead  class="thead" style="text-align: center; font-size: 12px; background-color: #F5F6FA; color: gray;">
 
                             <tr>
                                 <td scope="" style="text-align: center;">#</td>
-                                <td scope="" style="text-align: left; width: 10%;">COUNTRY</td>
+                                <td scope="" style="text-align: left;">COUNTRY</td>
                                 <td scope="" style="text-align: left;">PRODUCT CATEGORY</td>
-                                <td scope="" style="text-align: center; width: 40%;">BUYER</td>
+                                <td scope="" style="text-align: center;">BUYER</td>
                                 <td scope="" style="text-align: center;">SELLER</td>
                             </tr>
                             </thead>
                             <tbody>
                                 
-                                <tr>
+                                <!-- <tr>
                                     <td scope="" style="text-align: center;">1</td>
                                     <td scope="" style="text-align: left; width: 10%;">Country</td>
                                     <td scope="" style="text-align: left;">Waste</td>
@@ -426,7 +474,7 @@
                                     <td scope="" style="text-align: left;">Waste</td>
                                     <td scope="" style="text-align: center; width: 40%;">0</td>
                                     <td scope="" style="text-align: center;">0</td>
-                                </tr>
+                                </tr> -->
 
                             </tbody>
                         </table> 
@@ -468,63 +516,63 @@
     <script src="js/custom.min.js"></script>
     <!-- <script src="js/dashboard1.js"></script> -->
     <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.15/datatables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script src="https://gyrocode.github.io/jquery-datatables-pageLoadMore/1.0.0/js/dataTables.pageLoadMore.min.js"></script>
+    <script src="https://gyrocode.github.io/jquery-datatables-pageLoadMore/1.0.1/js/dataTables.pageLoadMore.min.js"></script>
+    
+    
 </body>
 
 </html>
 
 <script>
-
+    
     $(document).ready(function(){
+
+        $('#pending_table').dataTable( {
+                iDisplayLength: 4,
+                targets: 'no-sort',
+                bSort: false,
+                bFilter: false,
+                paging: true,
+                bInfo: false,
+                bPaginate: true,
+                // autoWidth: true,
+                "bLengthChange": false,
+                // dom: 'frt',
+                drawCallback: function(){
+                    // // If there is some more data
+                    // if($('#load_more').is(':visible')){
+                    //     // Scroll to the "Load more" button
+                    //     $('html, body').animate({
+                    //     scrollTop: $('#load_more').offset().top
+                    //     }, 800);
+                    // }
+
+                    // Show or hide "Load more" button based on whether there is more data available
+                    // $('#load_more').toggle(this.api().page.hasMore());
+                },  
+
+        });
+
+        // Handle click on "Load more" button
+        $('#load_more').on('click', function(){  
+            // Load more data
+            $('#pending_table').page.loadMore();
+        });
+ 
+
         dashboard();
+        pendingtask();
+        notification();
+        sellerbuyer();
+        
+
         $userid = localStorage.getItem('user_id');
         
         UserDetails();
-        
-        new Chart(document.getElementById("doughnut-chart"), {
-        type: 'doughnut',
-        data: {
-        labels: ["Service", "Technology", "Waste"],
-        datasets: [
-            {
-            backgroundColor: ["#24AEFC", "#9D6BD0","#43E0AA"],
-            data: [23,83,150]
-            }
-        ]
-        },
-    // options: {
-    //   title: {
-    //     display: true,
-    //     text: 'Predicted world population (millions) in 2050'
-    //   }
-    // }
-});
 
-
-// var table = $('#pending_table').DataTable({
-//       dom: 'frt',
-//       ajax: 'http://codeviable.com/w2w2/public/notification',
-//       drawCallback: function(){
-//          // If there is some more data
-//          if($('#btn-example-load-more').is(':visible')){
-//             // Scroll to the "Load more" button
-//             $('html, body').animate({
-//                scrollTop: $('#btn-example-load-more').offset().top
-//             }, 1000);
-//          }
-
-//          // Show or hide "Load more" button based on whether there is more data available
-//          $('#btn-example-load-more').toggle(this.api().page.hasMore());
-//       }      
-//    });
- 
-   // Handle click on "Load more" button
-   $('#btn-example-load-more').on('click', function(){  
-      // Load more data
-      table.page.loadMore();
-   });
+        $('#preloader').addClass("hide-loader");
     });
 
     function UserDetails() {
@@ -559,28 +607,291 @@
             $('#individual').html(response[0].total_individual);
             $('#company').html(response[0].total_company);
 
-            // $('#pending_table').DataTable({
-            //     targets: 'no-sort',
-            //     bSort: false,
-            //     modifier:{
-            //         selected: true
-            //     }
-            // });
 
-            // $('#pending_table').dataTable( {
-            //     "iDisplayLength": 4,
-            //     targets: 'no-sort',
-            //  bSort: false,
-            //  lengthChange: false,
-            //  bFilter: false,
-            //  modifier:{
-            //      selected: true
-            //  },
-            //  "paging": false
+            //active listing
+            new Chart(document.getElementById("doughnut-chart"), {
+            type: 'doughnut',
+            data: {
+            labels: ["Service", "Technology", "Waste"],
+            datasets: [
+                {
+                backgroundColor: ["#24AEFC", "#9D6BD0","#43E0AA"],
+                data: [response[0].total_approved_service,response[0].total_approved_technology,response[0].total_approved_waste]
+                }
+            ]
+            },
+            // options: {
+            //   title: {
+            //     display: true,
+            //     text: 'Predicted world population (millions) in 2050'
+            //   }
+            // }
+            });
 
-            // } );
+        });  
+    }
 
+    function pendingtask() {
+
+
+        $data = $('#pending_table').DataTable();
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/notification",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: left;">Advertisment To Be Approve</td><td scope="" style="text-align: center;"><label style="background-color: green; color: white; border-radius: 10px; width: 80%; text-align: center;">APPROVE</label></td></tr>';
+
+                $data.rows.add( $( $table_row ) ).draw();
+            });
+            
+        })
+    }
+
+    function sellerbuyer (){
+        
+        $('#seller_buyer').DataTable( {
+                iDisplayLength: 10,
+                targets: 'no-sort',
+                bSort: false,
+                bFilter: false,
+                paging: true,
+                bInfo: false,
+                bPaginate: true,
+                // autoWidth: true,
+                "bLengthChange": false,
         });
-        $('#preloader').addClass("hide-loader");
+            
+        $dataTable = $('#seller_buyer').DataTable(); 
+        $bil = 1;
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Johor",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Johor</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Pahang",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pahang</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Kedah",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Kedah</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Kelantan",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Kelantan</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Melaka",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Melaka</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Negeri Sembilan",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Negeri Sembilan</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Perak",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Perak</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Perlis",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Perlis</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Pulau Pinang",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Pulau Pinang</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Sabah",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Sabah</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Sarawak",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Sarawak</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Selangor",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Selangor</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Terengganu",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Terengganu</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Wilayah Persekutuan Malaysia",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Wilayah Persekutuan Malaysia</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td></tr>';
+ 
+                $dataTable.rows.add( $( $table_row ) ).draw();
+                $bil++;
+            });
+        });
+    }
+
+    function notification() {
+        $('#notification_table').DataTable( {
+                iDisplayLength: 4,
+                targets: 'no-sort',
+                bSort: false,
+                bFilter: false,
+                paging: true,
+                bInfo: false,
+                bPaginate: true,
+                // autoWidth: true,
+                "bLengthChange": false,
+        });
+
+        $db = $('#notification_table').DataTable();
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/notification",
+            type : "GET",
+        }).done(function(response){
+            console.log(response);
+
+            $.each(response, function(i,data){
+                $table='<tr><td scope="" style="text-align: left;">Advertisment to be approve</td><td scope="" style="text-align: center;">'+response[i].created_at+'</td></tr>';
+
+                $db.rows.add( $( $table ) ).draw();
+            });
+            
+        });
     }
 </script>

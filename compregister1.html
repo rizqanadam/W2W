@@ -112,7 +112,7 @@ i {
                         <h2 style="text-align: left; margin-bottom: 10px;">Create an account</h2>
                             <div class="login-text" style="text-align: left; padding-bottom: 10px;">
                                 <p>Already have an account?
-                                    <a href="./register.html" class="or-login" style="color: #0099FF;">Sign in</a>
+                                    <a href="./login.html" class="or-login" style="color: #0099FF;">Sign in</a>
                                 </p>
                             </div>
                         <div class="container" style="margin-bottom: 40px; padding: inherit;">
@@ -134,11 +134,27 @@ i {
                                 <div class="row">
                             <div class="form-group col-md-6">
                                 <label class="login-text" for="username"></label>
-                                <input type="text" placeholder="State" class="form-control" id="state" required>
+                                <select id="state" style="cursor:pointer" class="form-control"required>
+                                    <option disabled selected value="">State</option>
+                                    <option>Johor</option>
+                                    <option>Kedah</option>
+                                    <option>Kelantan</option>
+                                    <option>Melaka</option>
+                                    <option>Negeri Sembilan</option>
+                                    <option>Pahang</option>
+                                    <option>Perak</option>
+                                    <option>Perlis</option>
+                                    <option>Pulau Pinang</option>
+                                    <option>Sabah</option>
+                                    <option>Sarawak</option>
+                                    <option>Selangor</option>
+                                    <option>Terengganu</option>
+                                    <option>Wilayah Persekutuan Malaysia</option>  
+                                </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="login-text" for="username"></label>
-                                <input type="text" placeholder="Postal code" class="form-control" id="postalcode" required>
+                                <input type="text" placeholder="Postal code" pattern="\d*" class="form-control" id="postalcode" required>
                             </div>
                             </div>
                             <div class="form-group">
@@ -187,9 +203,10 @@ i {
             //Add new data to localStorage
             existing['address'] = document.getElementById("address").value + ", " + document.getElementById("address2").value + ", " 
                                   + document.getElementById("postalcode").value + " " + document.getElementById("city").value +
-                                  ", "+ document.getElementById("city").value;
+                                  ", "+ document.getElementById("state").value;
             existing['user_contact'] = document.getElementById("contactnumber").value;
             existing['job_title'] = document.getElementById("jobtitle").value;
+            existing['state'] = document.getElementById("state").value;
           
             //set new data to localStorage
             localStorage.setItem('register', JSON.stringify(existing));

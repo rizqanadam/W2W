@@ -145,8 +145,9 @@ html * {
     <script>
         $(document).ready(function(){
             $('#signin').on('click',function(){
-                    LoginUser();
-                    //setCookie();
+                LoginUser();
+
+                //setCookie();
             });
 
             $('#keepme_signedin').on('click',function(){
@@ -180,14 +181,22 @@ html * {
                 }).done(function(response){
                     console.log(response);
                     if(response[0].user_email === email && response[0].password === password || response[0].email === email && response[0].password === password ){
+                            
                             console.log(response);
                             console.log("Logged in");
                             localStorage.setItem("user_id", JSON.stringify(response[0].user_id));
                             localStorage.setItem("user_type", JSON.stringify(response[0].user_type));
-                            if(response[0].user_role == "user")
+                            if(response[0].user_role == "user"){
+                                $('#signin').prop('disabled', true);
+                                $('#signin').html('Sign in...');
                                  window.location.href = "./index1.html";
-                            else if(response[0].user_role == "admin")
+                                 }
+                            else if(response[0].user_role == "admin"){
+                                $('#signin').prop('disabled', true);
+                                $('#signin').html('Sign in...');
                                 window.location.href = "./index-admin.html";
+                            }
+                                
                     }
                     else if(response[0].user_email !== email && response[0].password !== password || response[0].email !== email && response[0].password !== password ){
                         $('#error_email2').html('Invalid email/password');

@@ -245,21 +245,23 @@ ul li a.active{
           <div class="card col-md-8" style="padding: 40px; margin-bottom: 50px;">
             <div style="color:lightgray; margin-bottom: 20px;">My Package</div>
             
-            <div class="row">
-              <div class="col-md-2">
-                <div>Package A</div> 
+            <div id="list_package">
+              <!-- <div class="row">
+                <div class="col-md-2">
+                  <div>Package A</div> 
+                </div>
               </div>
-            </div>
 
-            <div class="line-bottom"></div>
+              <div class="line-bottom"></div>
 
-            <div class="row">
-              <div class="col-md-2">
-                <div>Package B</div> 
+              <div class="row">
+                <div class="col-md-2">
+                  <div>Package B</div> 
+                </div>
               </div>
-            </div>
 
-            <div class="line-bottom"></div>
+              <div class="line-bottom"></div> -->
+            </div>
       </div>
     </div>
   </div>
@@ -292,6 +294,8 @@ ul li a.active{
         $(document).ready(function(){
             $userid = localStorage.getItem("user_id");
 
+            paidpackage();
+            
             $('#openFile').on('click',function(){
                 $('#imageUpload').trigger('click');
             });
@@ -378,6 +382,26 @@ ul li a.active{
                 };
                 reader.readAsDataURL(input.files[0]);
             }
+        }
+
+        function paidpackage() {
+          $.ajax({
+            url : "http://codeviable.com/w2w2/public/paidpackage/user?user_id=",
+            type : "GET",
+            data : { "user_id" : $userid },
+          }).done(function(response){
+            console.log(response);
+
+            var tr = "";
+
+            $.each(response, function(i,data){
+              tr += '<div class="row"><div class="col-md-2"><div>'+response[i].package_name+'</div> </div></div>';
+              tr += '<div class="line-bottom"></div>';
+            });
+
+            $('#list_package').html(tr)
+
+          })
         }
 
 

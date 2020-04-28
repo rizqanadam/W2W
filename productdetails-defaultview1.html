@@ -82,6 +82,10 @@ i {
   color: #27AE60 ;
 }
 
+.hide-loader{
+display:none;
+}
+
 </style>
 
 <head>
@@ -334,6 +338,7 @@ i {
                 </div> -->
             </div>
             <div id="googleMap" style="width:60%;height:400px; margin-left: 365px;"></div>
+            <br>
             <div class="row detail-spacing">
                 <div class="col-md-4">
                     <label>Supplier</label>
@@ -601,18 +606,19 @@ i {
 </html> 
 
 <script>
-
-$(document).ready(function(){
+    $locations = [];
+    $(document).ready(function(){
         $userid = localStorage.getItem('user_id');
         $product_id = localStorage.getItem('product_detail');
+        
         
         productDetails();
         supplier_company();
         listRating();
-        myMap();
+        // myMap();
         displaycomment();
         check_val();
-
+        $('.loader').addClass("hide-loader");
         $('#listcomment').delegate('#ask_btn', 'click', function() {
             $('#beforeask').css('display','none');
             $('#askquestion').css('display','block');
@@ -744,6 +750,15 @@ $(document).ready(function(){
             localStorage.setItem('latitude', response[0].latitud[0].latitud);
             localStorage.setItem('longitude', response[0].longitud[0].longitud);
 
+            for(var i = 0; i < 3; i++){
+                $locations.push({
+                    "lat": response[0].latitud[i].latitud,
+                    "lng": response[0].longitud[i].longitud,
+                })
+            }
+
+            console.log($locations);
+
             $('.loader').addClass("hide-loader");
         });
     }
@@ -765,17 +780,31 @@ $(document).ready(function(){
         });
     }
     
-    var lat = localStorage.getItem('latitude');
+        var lat = localStorage.getItem('latitude');
         var lng = localStorage.getItem('longitude');
+
         function myMap() {
-        var mapProp = {
-            center: new google.maps.LatLng(lat, lng),
-            zoom: 15,
-        };
-        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-        var marker = new google.maps.Marker({ position: new google.maps.LatLng(lat, lng), map: map });
+            var map = new google.maps.Map(document.getElementById('googleMap'), {
+                zoom: 10,
+                center: new google.maps.LatLng(lat, lng),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i;
+
+            for (i = 0; i < $locations.length; i++) {  
+                console.log($locations[i].lat)
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng($locations[i]['lat'], $locations[i]['lng']),
+                    map: map
+                });
+                alert('mark')
+            }
+            marker.setMap(map);
         }   
-        $(document).ready(myMap);
+        // $(document).ready(myMap);
 
         function comment() {
             var comment = $('#askquestion2').val();

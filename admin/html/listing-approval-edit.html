@@ -865,6 +865,7 @@ span.checkmark {
             var tag2 = localStorage.setItem('tag2',response[0].product_material);
             var tag3 = localStorage.setItem('tag3',response[0].product_category);
             localStorage.setItem('approve_user',response[0].user_id);
+            localStorage.setItem('approve_package',response[0].package_id);
             console.log(response)
             $('#product_id').html(response[0].product_id);
             $('#product_date').html(response[0].product_date);
@@ -886,16 +887,16 @@ span.checkmark {
             if(response[0].product_image[0] !== "https://codeviable.com/w2w2/public/image/"){
                 $('#previewProfile1').attr('src' , response[0].product_image[0].image)
             }
-            else if(response[0].product_image[1] !== "https://codeviable.com/w2w2/public/image/"){
+            if(response[0].product_image[1] !== "https://codeviable.com/w2w2/public/image/"){
                 $('#previewProfile2').attr('src' , response[0].product_image[1].image)
             }
-            else if(response[0].product_image[2] !== "https://codeviable.com/w2w2/public/image/"){
+            if(response[0].product_image[2] !== "https://codeviable.com/w2w2/public/image/"){
                 $('#previewProfile3').attr('src' , response[0].product_image[2].image)
             }
-            else if(response[0].product_image[3] !== "https://codeviable.com/w2w2/public/image/"){
+            if(response[0].product_image[3] !== "https://codeviable.com/w2w2/public/image/"){
                 $('#previewProfile4').attr('src' , response[0].product_image[3].image)
             }
-            else if(response[0].product_image[4] !== "https://codeviable.com/w2w2/public/image/"){
+            if(response[0].product_image[4] !== "https://codeviable.com/w2w2/public/image/"){
                 $('#previewProfile5').attr('src' , response[0].product_image[4].image)
             }
 
@@ -968,11 +969,12 @@ span.checkmark {
 
         // var status = 'success';
         var product_target = localStorage.getItem('suggested');
-        var user_id = localStorage.getItem('approve_user')
+        var user_id = localStorage.getItem('approve_user');
+        var package_id = localStorage.getItem('approve_package');
 
         var formData = new FormData();
         formData.append('product_id', $product_id);
-        // formData.append('product_status', status);
+        formData.append('package_id', package_id);
         formData.append('user_id', user_id);
         formData.append('suggestcustomer', product_target);
         formData.append('tagging[]', $tag1);

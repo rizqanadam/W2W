@@ -132,7 +132,9 @@ ul li a.active{
 .dropdown-content a:hover {
   color: #27AE60 ;
 }
-
+.hide-loader{
+  display:none;
+}
 
 </style>
 <head>
@@ -245,7 +247,7 @@ ul li a.active{
           <form>
           <div class="row">
           <div class="col-md-8">
-            <div class="row text-padding">
+            <div id="name_div" class="row text-padding">
                 <div class="col-md-4 text-right">
                     <label class="edit-text">Name</label>
                 </div>
@@ -269,7 +271,7 @@ ul li a.active{
                     <input id="user_email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$+" class="form-control" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}">
                 </div>
             </div>
-            <div class="form-group row text-padding">
+            <div id="company_div" class="form-group row text-padding">
                 <div class="col-md-4 text-right">
                     <label class="edit-text">Company</label>
                 </div>
@@ -346,14 +348,16 @@ ul li a.active{
         $(document).ready(function(){
             $userid = localStorage.getItem("user_id");
 
+            userData();
+            $('.loader').addClass("hide-loader"); 
             $('#openFile').on('click',function(){
                 $('#imageUpload').trigger('click');
             });
 
-            userData();
-
             $('#save_update').on('click',function(){
+
                 updateUser();
+
             });
 
             $('#btn_logout').on('click', function(){
@@ -364,24 +368,41 @@ ul li a.active{
 
         //display user data
         function userData(){
+          $type = localStorage.getItem("user_type");
 
           $.ajax({
             url: 'http://codeviable.com/w2w2/public/user/detail?user_id=',
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-              if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
-              $("#image1").attr('src' , response.profilepicture);
-              $("#previewProfile").attr('src' , response.profilepicture);
-              }
-                $("#user_name").html(response.user_fname+" "+response.user_lname);
-                $('#user_fname').val(response.user_fname);
-                $('#user_lname').val(response.user_lname);
-                $('#user_email').val(response.user_email);
-                $('#contactnumber').val(response.user_contact);
-                $('#company').val(response.companyname);
+                console.log(response)
+                if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
+                    $("#image1").attr('src' , response.profilepicture);
+                    $("#previewProfile").attr('src' , response.profilepicture);
+                }
+                
+                if(response.user_type == "individual"){
+                  console.log($type);
+                  $("#user_name").html(response.user_fname+" "+response.user_lname);
+                  $('#user_fname').val(response.user_fname);
+                  $('#user_lname').val(response.user_lname);
+                  $('#user_email').val(response.user_email);
+                  $('#contactnumber').val(response.user_contact);
+                  $('#company_div').css('display','none');
+                }
+                else if(response.user_type == "company"){
+                  console.log($type);
+                  $("#user_name").html(response.companyname);
+                  $('#name_div').css('display','none');
+                  $('#user_email').val(response.user_email);
+                  $('#contactnumber').val(response.user_contact);
+                  $('#company').val(response.companyname);
+                }
+                
             }
           });
+
+         
         }
 
         //update user information
@@ -409,6 +430,8 @@ ul li a.active{
             processData: false,
             contentType: false,
           }).done(function(response) {
+            $('#save_update').prop('disabled', true);
+            $('#save_update').html('Saving...');
             getUserProfile();
           });
         }
@@ -425,6 +448,8 @@ ul li a.active{
               $("#update_status").html("Successfully updated!").delay(2000).fadeOut(300);
               setTimeout(() => {
                 $('#update_status').html('').css('display', 'block');
+                $('#save_update').prop('disabled', false);
+                $('#save_update').html('Save');
               }, 3000);
           });
         }

@@ -112,7 +112,7 @@ i {
                         <h2 style="text-align: left; margin-bottom: 10px;">Create an account</h2>
                             <div class="login-text" style="text-align: left; padding-bottom: 10px;">
                                 <p>Already have an account?
-                                    <a href="./register.html" class="or-login" style="color: #0099FF;">Sign in</a>
+                                    <a href="./login.html" class="or-login" style="color: #0099FF;">Sign in</a>
                                 </p>
                             </div>
                         <div class="container" style="margin-bottom: 40px; padding: inherit;">
@@ -152,6 +152,7 @@ i {
         $(document).ready(function(){
             
             $('#create_acc').on('click',function(){
+                $('#create_acc').prop('disabled', true);
                 RegisterUser();
             });
         });

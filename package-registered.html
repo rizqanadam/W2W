@@ -140,7 +140,9 @@ i {
 .dropdown-content a:hover {
     color: #27AE60 ;
 }
-
+.hide-loader{
+display:none;
+}
 </style>
 
 <head>
@@ -349,6 +351,19 @@ i {
 </div>
 </div>
 
+<!--reject_status-->
+<div class="modal fade bd-example-modal-sm mx-auto"  style=" margin: 100px; margin-right: 60px;" id="reject_status" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      
+        <div class="modal-content" style="text-align: center; width: 130%; padding: 40px; border-radius: 10px;">
+            <div class="modal-body mx-auto">
+              <img src="img/rejected.svg">
+            </div>
+            <div class="mx-auto" style="margin: 10px; color: #F44336; font-size: 28px;">Existed package.</div>
+          </div>
+    </div>
+</div>
+
 
 
 
@@ -378,10 +393,10 @@ i {
             $(document).ready(function(){
                 $userid = localStorage.getItem('user_id');
                 $listpackage = [];
-                $status = "";
+                $status = "yes";
 
                 listofpackage();
-                $('.loader').addClass("hide-loader");  
+                
                 
                 $('#packagerow').delegate('.btn', 'click', function() {
                     var id = $(this).parent().parent().data('id');
@@ -393,12 +408,14 @@ i {
 
                 $('#buy').on('click',function(){                  
                     if($status == "yes"){
-                        alert("buy");
+                        console.log("buy");
                         buypackage();
                         $('#packagemodal').modal('toggle');
                     }
-                    else
-                        alert("cannot");                    
+                    else{
+                        console.log("cannot");  
+                        $('#reject_status').modal('toggle');   
+                    }               
                 });
                 
             });
@@ -419,9 +436,10 @@ i {
                             }
                         });
                         $("#packagerow").html(tr);
-                    
+                        $('.loader').addClass("hide-loader");  
                     }
                 });
+                
             }
 
             function buypackage() {
@@ -448,17 +466,17 @@ i {
                     // console.log($listpackage);
 
                    
-                    $.each($listpackage, function(i,data){
+                    $.each(response, function(i,data){
                     // for(var i = 0; i < $listpackage.length; i++){
                         if($packageid === response[i].package_id){
                             console.log(response[i].package_id);
-                            alert("existing package");
+                            console.log("existing package");
                             $status = "no";
                             return false;
                         }
                         else if($packageid !== response[i].package_id){
                             console.log($packageid);
-                            alert("you can buy");
+                            console.log("you can buy");
                             $status = "yes";
                             return false;
                         }

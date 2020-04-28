@@ -112,7 +112,7 @@ i {
                         <h2 style="text-align: left; margin-bottom: 10px;">Create an account</h2>
                             <div class="login-text" style="text-align: left; padding-bottom: 10px;">
                                 <p>Already have an account?
-                                    <a href="./register.html" class="or-login" style="color: #0099FF;">Sign in</a>
+                                    <a href="./login.html" class="or-login" style="color: #0099FF;">Sign in</a>
                                 </p>
                             </div>
                         <div class="container" style="margin-bottom: 40px; padding: inherit;">
@@ -130,11 +130,11 @@ i {
                             </div>
                             <div class="form-group">
                                 <label class="login-text" for="pass">Password</label>
-                                <input type="password" class="form-control" id="password" required>
+                                <input type="password" class="form-control" minlength="8" id="password" required>
                             </div>
                             <div class="form-group" style="padding-bottom: 20px;">
                                 <label class="login-text" for="pass">Confirm password</label>
-                                <input type="password" class="form-control" id="confirmpassword" required>
+                                <input type="password" class="form-control" minlength="8" id="confirmpassword" required>
                             
                             </div>
                             <button id="next" type="submit" class="btn btn-primary float-right">Next  <i class="fa fa-chevron-right" aria-hidden="true"></i></button>

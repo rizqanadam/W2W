@@ -393,7 +393,7 @@ span.checkmark {
                                 
                                 <div style="padding-left: 30px;">
                                     <div class="row" style="margin-top: 30px;">
-                                        <div class="col-md-2" style="color: black; font-weight: bold; text-align: right;">Category&nbsp;<i class="fa fa-info-circle" id="showinfoad" 
+                                        <div class="col-md-2" style="color: black; font-weight: bold; text-align: right;">Category&nbsp;<i class="fa fa-info-circle" id="categoryinfo" 
                                             style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Available ('I want to sell...'),
                                             Wanted ('I want to buy')." data-placement="bottom"></i></div> 
                                         <div class="col-md-10"style="color: black;">
@@ -402,9 +402,9 @@ span.checkmark {
                                     </div>
 
                                     <div class="row" style="margin-top: 10px;">
-                                        <div class="col-md-2" style="color: black; font-weight: bold; text-align: right;">Parent Category&nbsp;<i class="fa fa-info-circle" id="showinfoad" 
-                                            style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Available ('I want to sell...'),
-                                            Wanted ('I want to buy')." data-placement="bottom"></i></div> 
+                                        <div class="col-md-2" style="color: black; font-weight: bold; text-align: right;">Parent Category&nbsp;<i class="fa fa-info-circle" id="infoparent" 
+                                            style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Select parent category for this category.
+                                            Leave this field empty to make this the root level category." data-placement="bottom"></i></div> 
                                             <div class="col-md-9"style="color: black;">
                                                 <select id="category" style="cursor:pointer; text-transform: capitalize; " class="form-control" required>
                                                     
@@ -413,9 +413,9 @@ span.checkmark {
                                     </div>
 
                                     <div class="row" style="margin-top: 10px; padding-bottom: 30px;">
-                                        <div class="col-md-2" style="color: black; font-weight: bold; text-align: right;">Published&nbsp;<i class="fa fa-info-circle" id="showinfoad" 
-                                            style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Available ('I want to sell...'),
-                                            Wanted ('I want to buy')." data-placement="bottom"></i></div> 
+                                        <div class="col-md-2" style="color: black; font-weight: bold; text-align: right;">Published&nbsp;<i class="fa fa-info-circle" id="publishinfo" 
+                                            style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Select parent category for this category.
+                                            Leave this field empty to make this the root level category." data-placement="bottom"></i></div> 
                                         <div class="col-md-9" style="color: black;">
                                             <label class="container">
                                                 <input id="status" type="checkbox">
@@ -507,6 +507,18 @@ span.checkmark {
         $userid = localStorage.getItem('user_id');
 
         UserDetails();
+
+        $('#infoparent').popover({
+            trigger: 'hover'
+        });
+
+        $('#publishinfo').popover({
+            trigger: 'hover'
+        });
+
+        $('#categoryinfo').popover({
+            trigger: 'hover'
+        });
 
         $('#save').on('click',function(){
             
@@ -614,8 +626,8 @@ span.checkmark {
         else{
             console.log('sub');
             var postdata = {
-                "idmaincategory" : localStorage.getItem('name_category'),
-                "sub" : localStorage.getItem('add_category'),
+                "idmaincategory" : $idmaincategory,
+                "sub" : $sub,
                 "name" : name,
                 "publishstatus" : "yes",
             }

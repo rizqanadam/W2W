@@ -238,7 +238,7 @@ ul ul a {
                   <li><a href="./myaccount-defaultview.html">My Account</a></li>
                   <li><a href="./myaccount-myproduct-adsubmitted.html"class="active">My Products</a>
                   <ul style="margin-top: 0;">
-                    <a href="#" class="active" >Advertisment</a><br>
+                    <a href="#" class="active" >Advertisement</a><br>
                     <a href="./myaccount-myproduct-approveoffer.html">Approve Offer</a>
                   </ul>
                 </li>
@@ -592,7 +592,9 @@ ul ul a {
             data: { "user_id" : $userid },
             success: function(response){
               console.log(response);
-                $("#profilepicture").attr('src' , response.profilepicture);
+              if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
+                    $("#profilepicture").attr('src' , response.profilepicture);
+                }
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
           });

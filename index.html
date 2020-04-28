@@ -287,7 +287,7 @@ i {
                                           </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  SAVE SEARCH</button>
+                                        <!-- <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  SAVE SEARCH</button> -->
                                     </div>
                                 </div>
                             </div>
@@ -303,8 +303,8 @@ i {
     <div class="col-lg-6" style="margin-top: 50px; margin-bottom: 20px;">
         <h4 style="font-weight: bold;">Premium Listings  <i class="fa fa-fire" style="color: red;"></i></h4>
     </div>
-    <div class="row">
-        <div class="col-md-4">
+    <div id="premium" class="row">
+        <!-- <div class="col-md-4">
             <div class="row mx-auto">
                 <div class="col-md-5" style="background-color: lightgray;">
                     <img src="img/insta-6.jpg">
@@ -339,14 +339,14 @@ i {
                     <div style="margin-top: 40px;">Oil property</div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="col-lg-6" style="margin-top: 50px; margin-bottom: 20px;">
         <h4 style="font-weight: bold;">Latest Listings  <i class="fa fa-hourglass" style="color: darkorange;"></i></h4>
     </div>
-    <div class="row">
-        <div class="col-md-4">
+    <div id="latestisting" class="row">
+        <!-- <div class="col-md-4">
             <div class="row mx-auto">
                 <div class="col-md-5" style="background-color: lightgray;">
                     <img src="img/insta-6.jpg">
@@ -381,7 +381,7 @@ i {
                     <div style="margin-top: 40px;">Oil property</div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="col-lg-4" style="margin-top: 50px; margin-bottom: 10px;">
@@ -469,7 +469,7 @@ i {
                         <div class="copyright-text">
 
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website made by <a href="https://colorlib.com" target="_blank">PROSPECT W2W</a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website made by <a target="_blank">PROSPECT W2W</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
                         </div>
@@ -499,6 +499,8 @@ i {
             $("#carouselExampleControls").carousel();
 
             publishbanner();
+            premiumlisting();
+            latest();
             
             $(".carousel-control-prev").click(function(){
                 $("#carouselExampleControls").carousel("prev");
@@ -515,13 +517,13 @@ i {
                 url : "http://codeviable.com/w2w2/public/banner/status?publishstatus=publishstatus",
                 type : "GET",
             }).done(function(response){
-                console.log(response);
+                // console.log(response);
 
                 var tr = " ";
                 var tr2 = "";
 
                 $.each(response, function(i, data){
-                    console.log(response[i])
+                    // console.log(response[i])
                     if( i == 0){
                         tr2 += '<li data-target="#carouselExampleIndicators" data-slide-to='+i+' class="active item"></li>';
                         if(response[0].url != "undefined")
@@ -531,7 +533,7 @@ i {
                     }
                     else{
                         tr2 += '<li data-target="#carouselExampleIndicators" data-slide-to='+i+' class=" item"></li>';
-                        console.log(i)
+                        // console.log(i)
                         if(response[i].url != "undefined")
                             tr += '<div class="carousel-item"><a href='+response[i].url+' target="_blank" style="cursor: pointer;"><img class="d-block w-100" style="object-fit: cover; height: 410px; clear: both;" src='+response[i].image+' alt="First slide"></a></div>';
                         else if(response[i].url == "undefined")
@@ -547,6 +549,44 @@ i {
                         $("#carouselExampleControls").carousel(i);
                     });
                 })
+            })
+        }
+
+        function premiumlisting() {
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/product/premium?premiumlist=premium",
+                type : "GET"
+            }).done(function(response){
+                console.log(response);
+
+                var tr = "";
+
+                for( var i = 0; i < 3; i++){
+                    console.log(response);
+                    tr += '<div class="col-md-4"><div class="row mx-auto"><div class="col-md-5" style="background-color: lightgray;"><img src='+response[i].product_image[0].image+' style="width: 125px; height: 125px; object-fit: cover;"></div><div class="col-md-5" style="padding: 5px; background-color: lightgray; text-transform: capitalize;"><div>'+response[i].maincategory+'</div><div style="font-size: 18px; text-transform: capitalize;">'+response[i].product_name+'</div><div style="margin-top: 40px; text-transform: capitalize;">'+response[i].product_category+'</div></div></div></div>';
+                }
+
+                $('#premium').html(tr)
+            })
+        }
+
+        function latest() {
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/product",
+                type : "GET"
+            }).done(function(response){
+                console.log(response);
+
+                var tr2 = "";
+                for( var i = 0; i < 4; i++){
+                    if(response[i].publishstatus === "yes"){
+                        console.log(response);
+                        tr2 += '<div class="col-md-4"><div class="row mx-auto"><div class="col-md-5" style="background-color: lightgray;"><img src='+response[i].product_image[0].image+' style="width: 125px; height: 125px; object-fit: cover;"></div><div class="col-md-5" style="padding: 5px; background-color: lightgray; text-transform: capitalize;"><div>'+response[i].maincategory+'</div><div style="font-size: 18px; text-transform: capitalize;">'+response[i].product_name+'</div><div style="margin-top: 40px; text-transform: capitalize;">'+response[i].product_category+'</div></div></div></div>';
+                    }
+                }
+
+                $('#latestisting').html(tr2)
+
             })
         }
 

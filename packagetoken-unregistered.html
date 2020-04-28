@@ -177,7 +177,14 @@ i {
                 <a href="#"><h4 style="text-align: center;">Token Package</h4></a>
             </div>
         </div>
-        <div id="tokenrow" class="row" style="margin-top: 50px;">         
+        <div id="tokenrow" class="row" style="margin-top: 50px;"> 
+            <div id="spinner" style="margin-left: 40%; margin-top: 50px; margin-bottom: 160px;">
+                <button class="btn" disabled>
+                    <span class="spinner-border spinner-border-sm"></span>
+                    Loading..
+                </button>
+            </div>
+
             <!-- <div class="card col-md-3 mx-auto" style="background-color: #FAFAFA;">
                 <div style="margin-left: auto; margin-right: auto;">
                     <div class="text-center" style="font-weight: bold;">Single</div>
@@ -323,7 +330,7 @@ i {
 
                     }
                 });
-                $('.loader').addClass("hide-loader"); 
+                $('#spinner').css('display','none'); 
             });
 
             function LoginUser(){

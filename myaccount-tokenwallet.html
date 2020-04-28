@@ -245,7 +245,7 @@ ul li a.active{
           <div class="card col-md-8" style="padding: 40px; margin-bottom: 50px;">
             <div style="color:lightgray">My Wallet (Token)</div>
             <h2 id="balancetoken" style="margin-top: 10px;">50</h2>
-            <button class="btn" style="color: white; background-color: #FF7600; margin-top: 30px; width: 20%;">Topup</button>
+            <button onclick="window.location.href='./packagetoken-registered.html';" class="btn" style="color: white; background-color: #FF7600; margin-top: 30px; width: 20%;">Topup</button>
       </div>
     </div>
   </div>
@@ -302,7 +302,9 @@ ul li a.active{
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-                $("#profilepicture").attr('src' , response.profilepicture);
+              if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
+                    $("#profilepicture").attr('src' , response.profilepicture);
+                }
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
                 $("#balancetoken").html(response.balancetoken);
             }

@@ -353,7 +353,9 @@ ul ul a {
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-                $("#image1").attr('src' , response.profilepicture);
+              if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
+                    $("#image1").attr('src' , response.profilepicture);
+                }
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
           });

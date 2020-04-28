@@ -227,9 +227,9 @@ a#approval_table_previous.paginate_button.previous,
                             <button class="btn btn-light" style=" background-color: transparent; border:none;"><a href="#" id="user_name" style=" color: black;"></a>  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
                                 <img id="profilepicture" src="../plugins/images/default-profile.png" alt="user-img" width="36" class="img-circle">
                                 </button>
-                          <div class="dropdown-content" style="margin-left: -70px;">
-                            <a href="#">Logout</a>
-                          </div>
+                                <div class="dropdown-content">
+                                    <a id="btn_logout" href="../../index.html">Logout</a>
+                                  </div>
                         </div>
                     </li>
                 </ul>
@@ -410,6 +410,10 @@ a#approval_table_previous.paginate_button.previous,
         UserDetails();   
         customizeDatatable();
 
+        $('#btn_logout').on('click', function(){
+            localStorage.clear();
+        });
+        
      });
 
      function UserDetails() {

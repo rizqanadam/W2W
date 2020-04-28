@@ -290,9 +290,9 @@ span.checkmark {
                             <button class="btn btn-light" style=" background-color: transparent; border:none;"><a style=" color: black;" href="#" id="user_name"></a>  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
                             <img id="profilepicture" src="../plugins/images/default-profile.png" alt="user-img" width="36" class="img-circle">
                             </button>
-                          <div class="dropdown-content" style="margin-left: -70px;">
-                            <a href="#">Logout</a>
-                          </div>
+                            <div class="dropdown-content">
+                                <a id="btn_logout" href="../../index.html">Logout</a>
+                              </div>
                         </div>
                     </li>
                 </ul>
@@ -772,6 +772,10 @@ span.checkmark {
         $tag3 = localStorage.getItem('tag3');
         
         $('#product_tag').val($tag1 +" , "+$tag2+" , "+$tag3 );
+
+        $('#btn_logout').on('click', function(){
+            localStorage.clear();
+        });
 
         $('#showinfoad').popover({
             trigger: 'hover'

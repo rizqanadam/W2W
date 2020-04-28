@@ -345,7 +345,9 @@ ul ul a {
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-                $("#image1").attr('src' , response.profilepicture);
+              if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
+                    $("#image1").attr('src' , response.profilepicture);
+                }
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
       });
@@ -353,7 +355,7 @@ ul ul a {
 
     function notification(){
       $.ajax({
-        url : "http://codeviable.com/w2w2/public/notification/status?user_id=&status=approved",
+        url : "http://codeviable.com/w2w2/public/notification/listid?user_id=",
         type : "GET",
         data : {"user_id" : $userid}
       }).done(function(response){
@@ -362,7 +364,12 @@ ul ul a {
         var tr = "";
 
         $.each(response,function(i,data){
-          tr += '<div class="notification-text">Your product has been approved</div><div class="row"><div class="col-md-3"><img src='+response[i].product_image[0].image+'></div><div class="col-md-8"><p>lorem ipsum luomlum dodumida dolleru bulotu nonubalorim rilosim</p></div></div><div class="line-bottom"></div>';
+          if(response[i].type == "approval"){
+            tr += '<div class="notification-text">Your product has been approved</div><div class="row"><div class="col-md-3"><img src='+response[i].product_image[0].image+'></div><div class="col-md-8"><p>Approved</p></div></div><div class="line-bottom"></div>';
+          }
+          if(response[i].type == "review"){
+            tr += '<div class="notification-text">Your product has been reviewed</div><div class="row"><div class="col-md-3"><img src='+response[i].product_image[0].image+'></div><div class="col-md-8"><p>lorem ipsum luomlum dodumida dolleru bulotu nonubalorim rilosim</p></div></div><div class="line-bottom"></div>';
+          }
         });
 
         $('#list').html(tr)

@@ -616,10 +616,10 @@ input[type="checkbox"] {
             if ($selected.length > 0) {
                 console.log("Selected values: " + $selected.join(","));
                 console.log($selected);
-                $('#ratingmodal').modal('toggle');
-            }
+                
+            }          
+            rate_review();
             
-            // rate_review();
       });
 
     });
@@ -630,7 +630,9 @@ input[type="checkbox"] {
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-                $("#profilepicture").attr('src' , response.profilepicture);
+                if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
+                    $("#profilepicture").attr('src' , response.profilepicture);
+                }
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
       });
@@ -646,7 +648,7 @@ input[type="checkbox"] {
             var tr = "";
 
             $.each(response, function(i,data){
-                tr += '<div data-product='+response[i].product_id+' class="row"><div class="col-md-2"><img src='+response[i].image[0].image+' style="width: 70px; height: 70px; object-fit: cover;"></div><div class="col-md-7"><p style="font-weight: bold; color: #272727; margin-bottom: 10px;">Rate your experience upon your recent purchase</p><span style="color: #707070; font-size: 14px;">Please considering giving us your review. Let us know your opinions on our product or business. Thank you.</span></div><div class="col-md-3" style="margin-top: 15px;"><div class="container"><button type="button" class="btn ratenow-btn" data-toggle="modal" data-target="#myModal">RATE NOW</button></div></div></div>';
+                tr += '<div data-product='+response[i].product_id+' data-buyer='+response[i].buyer_id+' class="row"><div class="col-md-2"><img src='+response[i].image[0].image+' style="width: 70px; height: 70px; object-fit: cover;"></div><div class="col-md-7"><p style="font-weight: bold; color: #272727; margin-bottom: 10px;">Rate your experience upon your recent purchase</p><span style="color: #707070; font-size: 14px;">Please considering giving us your review. Let us know your opinions on our product or business. Thank you.</span></div><div class="col-md-3" style="margin-top: 15px;"><div class="container"><button type="button" class="btn ratenow-btn" data-toggle="modal" data-target="#myModal">RATE NOW</button></div></div></div>';
                 tr += '<div class="line-bottom"></div>';
             });
 
@@ -654,8 +656,10 @@ input[type="checkbox"] {
 
             $('#list').delegate('.ratenow-btn', 'click', function() {
               var id = $(this).parent().parent().parent().data('product');
+              var buyer_id = $(this).parent().parent().parent().data('buyer');
               localStorage.setItem('rate_productID', id);
-              console.log(id);
+              localStorage.setItem('rate_buyerID', buyer_id);
+              // console.log(buyer_id);
               sellerID();
             });
         })
@@ -678,9 +682,11 @@ input[type="checkbox"] {
       
       var product_id = localStorage.getItem('rate_productID');
       var seller_id = localStorage.getItem('rate_sellerID');
+      var buyer_id = localStorage.getItem('rate_buyerID');
       var desc = $('#description').val();
 
       var postdata = {
+        "buyer_id" : buyer_id,
         "product_id" : product_id,
         "user_id" : seller_id,
         "rating" : $ratingValue,
@@ -694,6 +700,7 @@ input[type="checkbox"] {
         data : postdata
       }).done(function(response){
         console.log(response);
+        $('#ratingmodal').modal('toggle');
       })
     }
 

@@ -239,9 +239,9 @@ a#approval_table_previous.paginate_button.previous,
                             <button class="btn btn-light" style=" background-color: transparent; border:none;"><a href="#" id="user_name" style=" color: black;"></a>  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
                             <img id="profilepicture" src="../plugins/images/default-profile.png" alt="user-img" width="36" class="img-circle">
                             </button>
-                          <div class="dropdown-content" style="margin-left: -70px;">
-                            <a href="#">Logout</a>
-                          </div>
+                            <div class="dropdown-content">
+                                <a id="btn_logout" href="../../index.html">Logout</a>
+                              </div>
                         </div>
                     </li>
                 </ul>
@@ -344,7 +344,7 @@ a#approval_table_previous.paginate_button.previous,
                                     
                                     <input type="file" id="imageUpload" onchange="readURL(this)" accept="image/*" style="display: none">
                                     <label val="yes" for="imageUpload" style="background-color: #0C9445; color: white; width: 20%;" class="btn btn-outlined">Upload a file</label>
-                                    <button id="removebutton" style="background-color: #D42C2C; color: white; width: 20%;" data-toggle="modal" data-target="#myModal2" data-dismiss="modal" class="btn btn-outlined">Remove picture</button>
+                                    <!-- <button id="removebutton" style="background-color: #D42C2C; color: white; width: 20%;" data-toggle="modal" data-target="#myModal2" data-dismiss="modal" class="btn btn-outlined">Remove picture</button> -->
                                 </div>
                             </div>
 
@@ -385,6 +385,20 @@ a#approval_table_previous.paginate_button.previous,
                             </div>
                         </div>
                       </div>
+                    </div>
+                    </div>
+                </div>
+
+                <!--approval_modal-->
+                <div class="modal fade bd-example-modal-sm mx-auto"  style="top: 20%; left: 40%;" id="approval_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    
+                        <div class="modal-content" style="text-align: center; width: 50%; padding: 50px; border-radius: 10px;">
+                            <div class="modal-body mx-auto">
+                            <img src="../plugins/images/checkijau.svg">
+                            </div>
+                            <div class="mx-auto" style="margin: 10px; color: #27AE60; font-size: 28px;">Published!</div>
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -439,7 +453,9 @@ a#approval_table_previous.paginate_button.previous,
     
      $(document).ready(function() {  
         $userid = localStorage.getItem('user_id');
-
+        $('#btn_logout').on('click', function(){
+            localStorage.clear();
+        });
         UserDetails();    
 
         $('#removebutton').prop('disabled', true);
@@ -469,7 +485,12 @@ a#approval_table_previous.paginate_button.previous,
 
         $('#publish').on('click',function(){
             addbanner();
-        })
+            $('#approval_modal').modal('toggle');
+        });
+
+        $("#approval_modal").on('hide.bs.modal', function() { 
+            window.location.href = "./contentmanagement-banner.html";
+        });
         
      });
 

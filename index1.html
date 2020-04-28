@@ -231,9 +231,9 @@ i {
                 </a>
             </div>
             <div class="main-text hidden-xs">
-                <div class="col-md-12 text-center">
-                    <div class="carousel-caption d-none d-md-block">
-                        <div class="row">
+                <div class="col-sm-12 text-center">
+                    <div class="carousel-caption d-md-block">
+                        
                             <div class="col-lg-6">
                                 <div class="card" style="background-color: #3A595D; padding: 20px;">
                                     <div class="row" style="margin-bottom: 15px;">
@@ -302,12 +302,12 @@ i {
                                               </select>
                                         </div>
                                         <div class="col-md-6">
-                                            <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  SAVE SEARCH</button>
+                                            <!-- <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  SAVE SEARCH</button> -->
                                         </div>
                                     </div>
                                 </div>
                             </div>    
-                        </div>
+                        
                     </div>
                 </div>
             </div>   
@@ -318,8 +318,8 @@ i {
         <div class="col-lg-6" style="margin-top: 50px; margin-bottom: 20px;">
             <h4 style="font-weight: bold;">Premium Listings  <i class="fa fa-fire" style="color: red;"></i></h4>
         </div>
-        <div class="row">
-            <div class="col-md-4">
+        <div id="premium" class="row">
+            <!-- <div class="col-md-4">
                 <div class="row mx-auto">
                     <div class="col-md-5" style="background-color: lightgray;">
                         <img src="img/plusimg.jpg">
@@ -354,14 +354,14 @@ i {
                         <div style="margin-top: 40px;">Oil property</div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     
         <div class="col-lg-6" style="margin-top: 50px; margin-bottom: 20px;">
             <h4 style="font-weight: bold;">Latest Listings  <i class="fa fa-hourglass" style="color: darkorange;"></i></h4>
         </div>
-        <div class="row">
-            <div class="col-md-4">
+        <div id="latestisting" class="row">
+            <!-- <div class="col-md-4">
                 <div class="row mx-auto">
                     <div class="col-md-5" style="background-color: lightgray;">
                         <img src="img/plusimg.jpg">
@@ -396,7 +396,7 @@ i {
                         <div style="margin-top: 40px;">Oil property</div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     
         <div class="col-lg-4" style="margin-top: 50px; margin-bottom: 10px;">
@@ -518,6 +518,8 @@ i {
         $("#carouselExampleControls").carousel();
 
         publishbanner();
+        premiumlisting();
+        latest();
             
         $(".carousel-control-prev").click(function(){
             $("#carouselExampleControls").carousel("prev");
@@ -584,6 +586,44 @@ i {
                         $("#carouselExampleControls").carousel(i);
                     });
                 });
+            })
+        }
+
+        function premiumlisting() {
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/product/premium?premiumlist=premium",
+                type : "GET"
+            }).done(function(response){
+                console.log(response);
+
+                var tr = "";
+
+                for( var i = 0; i < 3; i++){
+                    console.log(response);
+                    tr += '<div class="col-md-4"><div class="row mx-auto"><div class="col-md-5" style="background-color: lightgray;"><img src='+response[i].product_image[0].image+' style="width: 125px; height: 125px; object-fit: cover;"></div><div class="col-md-5" style="padding: 5px; background-color: lightgray; text-transform: capitalize;"><div>'+response[i].maincategory+'</div><div style="font-size: 18px; text-transform: capitalize;">'+response[i].product_name+'</div><div style="margin-top: 40px; text-transform: capitalize;">'+response[i].product_category+'</div></div></div></div>';
+                }
+
+                $('#premium').html(tr)
+            })
+        }
+
+        function latest() {
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/product",
+                type : "GET"
+            }).done(function(response){
+                console.log(response);
+
+                var tr2 = "";
+                for( var i = 0; i < 4; i++){
+                    if(response[i].publishstatus === "yes"){
+                        console.log(response);
+                        tr2 += '<div class="col-md-4"><div class="row mx-auto"><div class="col-md-5" style="background-color: lightgray;"><img src='+response[i].product_image[0].image+' style="width: 125px; height: 125px; object-fit: cover;"></div><div class="col-md-5" style="padding: 5px; background-color: lightgray; text-transform: capitalize;"><div>'+response[i].maincategory+'</div><div style="font-size: 18px; text-transform: capitalize;">'+response[i].product_name+'</div><div style="margin-top: 40px; text-transform: capitalize;">'+response[i].product_category+'</div></div></div></div>';
+                    }
+                }
+
+                $('#latestisting').html(tr2)
+
             })
         }
 

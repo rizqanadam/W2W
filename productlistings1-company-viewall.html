@@ -327,7 +327,14 @@ i {
             
             
             <div id="product_display">
-                <div class="row">
+                <div id="spinner" style="margin-left: 40%; margin-top: 50px; margin-bottom: 160px;">
+                    <button class="btn" disabled>
+                        <span class="spinner-border spinner-border-sm"></span>
+                        Loading..
+                    </button>
+                </div>
+
+                <!-- <div class="row">
                     <div class="col-md-2">
                       <img src="img/organic-compose.jpg">
                     </div>
@@ -380,7 +387,7 @@ i {
                   <p>Pasir Gudang</p>
                   <p><i class="fa fa-briefcase"></i></p>
                 </div>
-              </div>
+              </div> -->
           </div>
           </div>
 
@@ -513,7 +520,8 @@ i {
                         }
                     }
                 });
-                getRequest2();               
+                getRequest2();  
+                $('#spinner').css('display','none');             
             });
         }
 

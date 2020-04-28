@@ -310,9 +310,9 @@ i {
             <div class="card" style="margin-bottom: 20px; border: none;">
                 <ul class="d-flex justify-content-between">
                     <div class="d-flex">
-                    <a class="active-nav nav-style" href="./productlistings1-viewall.html">All 1-10 of 43</a>
-                    <a class="nav-style" href="./productlistings1-individual-viewall.html">Individual 13</a>
-                    <a class="nav-style" href="./productlistings1-company-viewall.html">Company 30</a>
+                    <a class="active-nav nav-style" href="./productlistings1-viewall.html">All 1-10</a>
+                    <a class="nav-style" href="./productlistings1-individual-viewall.html">Individual</a>
+                    <a class="nav-style" href="./productlistings1-company-viewall.html">Company</a>
                     </div>
 
                     <div class="d-flex" style="display: none !important;">
@@ -322,8 +322,17 @@ i {
                 </ul>
             </div>
             
-            
+
             <div id="product_display">
+                
+                <div id="spinner" style="margin-left: 40%; margin-top: 50px; margin-bottom: 160px;">
+                    <button class="btn" disabled>
+                        <span class="spinner-border spinner-border-sm"></span>
+                        Loading..
+                    </button>
+                </div>
+                
+
                 <!-- <div class="row">
                   <div class="col-md-2">
                     <img src="img/organic-compose.jpg">
@@ -536,7 +545,7 @@ i {
                 $.each($fullList,function(x, dataX){
                     $.each(dataX,function(y, dataY){
                         
-                            if(inputCategory.toLowerCase() == (dataY['maincategory']).toLowerCase() && inputStatus.toLowerCase() == (dataY['availability']).toLowerCase()){
+                            if(inputCategory.toLowerCase() == (dataY['maincategory']).toLowerCase() || inputStatus.toLowerCase() == (dataY['availability']).toLowerCase()){
                                 var index = y + 1;
                                 $tempArr.push(dataY);
                                 $newList[currentIndex] = $tempArr;
@@ -635,7 +644,7 @@ i {
                     }
                 });
                 getRequest2(); 
-                $('.loader').addClass("hide-loader");                
+                $('#spinner').css('display','none');                
             });
         }
 

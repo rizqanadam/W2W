@@ -281,7 +281,7 @@ i {
             {
                 event.preventDefault();
                 submitEnquiry();
-                $('#enquirymodal').modal('toggle');
+                
                 return false;
             }
 
@@ -306,6 +306,7 @@ i {
                 data: postdata,
             }).done(function(response){
                 console.log(response);
+                $('#enquirymodal').modal('toggle');
             })
         }
     

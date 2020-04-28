@@ -353,7 +353,9 @@ ul ul a {
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-                $("#image1").attr('src' , response.profilepicture);
+              if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
+                    $("#image1").attr('src' , response.profilepicture);
+                }
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
           });
@@ -386,7 +388,7 @@ ul ul a {
             var no = 0;
             
             $.each(response, function(i,data){
-              tr2 += '<div class="row"><div class="col-md-2"><img src="img/organic-compose.jpg"></div><div class="col-md-10"><div class="detail-spacing"><div id="star"></div><div style="margin-top: 10px;">'+response[i].description+'</div></div></div><div class="line-bottom"></div></div>';
+              tr2 += '<div class="row"><div class="col-md-2"><img src='+response[i].product_image[0].image+' style="width: 70px; height: 70px; object-fit: cover;"></div><div class="col-md-10"><div class="detail-spacing"><div id="star"></div><div style="margin-top: 10px;">'+response[i].description+'</div></div></div><div class="line-bottom"></div></div>';
 
               for(var a=0; a < 5; a++){
                 if( a < response[i].rating)

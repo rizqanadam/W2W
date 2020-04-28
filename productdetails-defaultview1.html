@@ -364,7 +364,7 @@ display:none;
             <div style="text-align: right; color: #0099FF;">View All</div>
             <div style="border-bottom: 2px solid lightgray;"></div>
             <div id="rating_list" style="padding: 20px;">
-            <div class="row detail-spacing">
+            <!-- <div class="row detail-spacing">
                 <div class="col-md-4">
                     <i class="fa fa-star checked"></i>
                     <i class="fa fa-star checked"></i>
@@ -419,7 +419,7 @@ display:none;
                 <div class="col-md-8">
                     <div>A product description is the marketing copy used to describe a product's value proposition to potential customers. As the shopper browses, they instinctively imagine having each product in hand, using it and enjoying it. The more powerful the customer's fantasy of owning the product, the more likely they are to buy it.</div>
                 </div>
-            </div>
+            </div> -->
             </div>
         </div>
     </div>
@@ -448,7 +448,7 @@ display:none;
             </form>
         </div>
     </div>
-    <div class="container" style="padding: 30px; margin-bottom: 50px;">
+    <!-- <div class="container" style="padding: 30px; margin-bottom: 50px;">
         <div style="font-size: 24px; font-weight: bold; margin: 20px;">Similar Ads</div>
         <div class="row">
         <div class="card col-md-2 mx-auto" style="padding: 20px;">
@@ -477,7 +477,7 @@ display:none;
             <div style="font-size: 24px; margin-bottom: 0;">RM 100</div>
         </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 
@@ -606,11 +606,11 @@ display:none;
 </html> 
 
 <script>
-    $locations = [];
+    
     $(document).ready(function(){
         $userid = localStorage.getItem('user_id');
         $product_id = localStorage.getItem('product_detail');
-        
+        $locations = [];
         
         productDetails();
         supplier_company();
@@ -645,7 +645,40 @@ display:none;
             return false;
         }
         
+        var lat = localStorage.getItem('latitude');
+        var lng = localStorage.getItem('longitude');
 
+        var map = new google.maps.Map(document.getElementById('googleMap'), {
+            zoom: 10,
+            center: new google.maps.LatLng(lat, lng),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(lat, lng),
+            map: map
+        });
+        
+        console.log($locations)
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+
+          for (i = 0; i < $locations.length; i++) {  
+            marker = new google.maps.Marker({
+              position: new google.maps.LatLng($locations[i]['lat'], $locations[i]['lng']),
+              map: map
+            });
+          }
+          
+          $('#googleMap').on('click', function() {
+            for (i = 0; i < $locations.length; i++) {  
+            marker = new google.maps.Marker({
+              position: new google.maps.LatLng($locations[i]['lat'], $locations[i]['lng']),
+              map: map
+            });
+          }
+    });
     });
 
     function check_val(){
@@ -752,9 +785,9 @@ display:none;
 
             for(var i = 0; i < 3; i++){
                 $locations.push({
-                    "lat": response[0].latitud[i].latitud,
-                    "lng": response[0].longitud[i].longitud,
-                })
+                    'lat' : response[0].latitud[i].latitud,
+                    'lng' : response[0].longitud[i].longitud,
+                });
             }
 
             console.log($locations);
@@ -780,30 +813,28 @@ display:none;
         });
     }
     
-        var lat = localStorage.getItem('latitude');
-        var lng = localStorage.getItem('longitude');
+        // var lat = localStorage.getItem('latitude');
+        // var lng = localStorage.getItem('longitude');
+        
+        // function myMap() {
+        //     var map = new google.maps.Map(document.getElementById('googleMap'), {
+        //     zoom: 10,
+        //     center: new google.maps.LatLng(lat, lng),
+        //     mapTypeId: google.maps.MapTypeId.ROADMAP
+        //   });
+        //   console.log($locations)
+        //   var infowindow = new google.maps.InfoWindow();
 
-        function myMap() {
-            var map = new google.maps.Map(document.getElementById('googleMap'), {
-                zoom: 10,
-                center: new google.maps.LatLng(lat, lng),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
+        //   var marker, i;
 
-            var infowindow = new google.maps.InfoWindow();
-
-            var marker, i;
-
-            for (i = 0; i < $locations.length; i++) {  
-                console.log($locations[i].lat)
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng($locations[i]['lat'], $locations[i]['lng']),
-                    map: map
-                });
-                alert('mark')
-            }
-            marker.setMap(map);
-        }   
+        //   for (i = 0; i < $locations.length; i++) {  
+        //     marker = new google.maps.Marker({
+        //       position: new google.maps.LatLng($locations[i]['lat'], $locations[i]['lng']),
+        //       map: map
+        //     });
+        //   }
+        //     marker.setMap(map);
+        // }   
         // $(document).ready(myMap);
 
         function comment() {
@@ -860,14 +891,22 @@ display:none;
                 console.log(response);
 
                 var row = "";
-
+                var tr = "";
                 $.each(response, function(i,data){
-                    var date = data.created_at[8]+''+data.created_at[9]+'/'+data.created_at[5]+''+data.created_at[6]+'/'+data.created_at[0]+''+data.created_at[1]+''+data.created_at[2]+''+data.created_at[3];
+                    // var date = data.created_at[8]+''+data.created_at[9]+'/'+data.created_at[5]+''+data.created_at[6]+'/'+data.created_at[0]+''+data.created_at[1]+''+data.created_at[2]+''+data.created_at[3];
 
-                    row += '<div class="row detail-spacing"><div class="col-md-4"><i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><div style="color: blue; margin-top: 5px;">Ronnie Hussein</div><div style="margin-top: 5px; font-size: 12px;">'+date+'</div></div><div class="col-md-8"><div>'+response[i].description+'</div></div></div>';
+                    row += '<div class="row detail-spacing"><div class="col-md-4"><div id="star"></div><div style="color: blue; margin-top: 5px; text-transform: capitalize;">'+response[i].user_fname+" "+response[i].user_lname+'</div><div style="margin-top: 5px; font-size: 12px;"></div></div><div class="col-md-8"><div>'+response[i].description+'</div></div></div>';
+                    
+                    for(var a=0; a < 5; a++){
+                        if( a < response[i].rating)
+                        tr += '<i class="fa fa-star checked"></i>';
+                        else
+                        tr += '<i class="fa fa-star"></i>';
+                    }
                 });
 
                 $('#rating_list').html(row);
+                $('#star').html(tr)
             })
         }
 
@@ -894,4 +933,4 @@ display:none;
         }
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFV9i4F6pI4UF94WD-7k-TZ0ZzW6Hz3AA&callback=myMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFV9i4F6pI4UF94WD-7k-TZ0ZzW6Hz3AA"></script>

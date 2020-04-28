@@ -298,9 +298,9 @@ span.checkmark {
                             <button class="btn btn-light" style=" background-color: transparent; border:none;"><a style=" color: black;" href="#" id="user_name"></a>  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
                             <img id="profilepicture" src="../plugins/images/default-profile.png" alt="user-img" width="36" class="img-circle">
                             </button>
-                          <div class="dropdown-content" style="margin-left: -70px;">
-                            <a href="#">Logout</a>
-                          </div>
+                            <div class="dropdown-content">
+                                <a id="btn_logout" href="../../index.html">Logout</a>
+                              </div>
                         </div>
                     </li>
                 </ul>
@@ -403,7 +403,7 @@ span.checkmark {
                                     
                                     <input type="file" id="imageUpload" onchange="readURL(this)" accept="image/*" style="display: none">
                                     <label val="yes" for="imageUpload" style="background-color: #0C9445; color: white; width: 20%;" class="btn btn-outlined">Upload a file</label>
-                                    <button id="removebutton" style="background-color: #D42C2C; color: white; width: 20%;" class="btn btn-outlined" data-toggle="modal" data-target="#myModal2" data-dismiss="modal">Remove picture</button>
+                                    <!-- <button id="removebutton" style="background-color: #D42C2C; color: white; width: 20%;" class="btn btn-outlined" data-toggle="modal" data-target="#myModal2" data-dismiss="modal">Remove picture</button> -->
                                 </div>
                             </div>
 
@@ -508,6 +508,9 @@ span.checkmark {
         publishstatus();
         // $('#removebutton').prop('disabled', true);
         // $('#removebutton').css('background-color', 'gray');
+        $('#btn_logout').on('click', function(){
+            localStorage.clear();
+        });
 
         $('#showinfodesc').popover({
             trigger: 'hover'

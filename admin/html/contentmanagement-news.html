@@ -215,9 +215,9 @@ a#approval_table_previous.paginate_button.previous,
                             <button class="btn btn-light" style=" background-color: transparent; border:none;"><a style=" color: black;" href="#" id="user_name"></a>  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
                             <img id="profilepicture" src="../plugins/images/default-profile.png" alt="user-img" width="36" class="img-circle">
                             </button>
-                          <div class="dropdown-content" style="margin-left: -70px;">
-                            <a href="#">Logout</a>
-                          </div>
+                            <div class="dropdown-content">
+                                <a id="btn_logout" href="../../index.html">Logout</a>
+                              </div>
                         </div>
                     </li>
                 </ul>
@@ -300,7 +300,7 @@ a#approval_table_previous.paginate_button.previous,
                     </div>
                     <div class="col-md-8 text-right">
                         <button class="btn" onclick="window.location.href='./contentmanagement-news-addnew.html';" style="background-color: #0073BF; color: white;"><img src="../plugins/images/Icon_Add_CreatePackage.svg" style="vertical-align: middle;">&nbsp;&nbsp;Add New</button>
-                        <button  id="deletebutton" class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button>
+                        <!-- <button  id="deletebutton" class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button> -->
                     </div>
                     </div>
                 
@@ -312,7 +312,7 @@ a#approval_table_previous.paginate_button.previous,
                         <thead  class="thead" style="text-align: center; font-size: 14px; font-weight: bold;">
                             <tr style="border-bottom: 1px solid #000;">
                         <tr>
-                            <td scope="" style="text-align: center; width: 40px;" class="dt-body-center"><input class="select" id="check_all" type="checkbox"></td>
+                            <!-- <td scope="" style="text-align: center; width: 40px;" class="dt-body-center"><input class="select" id="check_all" type="checkbox"></td> -->
                             <td scope="" style="text-align: left; width: 40%;">Title</td>
                             <td scope="" style="text-align: center;">Created On</td>
                             <td scope="" style="text-align: center;padding-right: 5%;">Last Updated</td>
@@ -415,15 +415,18 @@ a#approval_table_previous.paginate_button.previous,
             localStorage.removeItem('news_del');
         });
 
-        $('#delete').on('click', function(){
-            deleteNews2();
-            localStorage.removeItem('check_del');
-        });
+        // $('#delete').on('click', function(){
+        //     deleteNews2();
+        //     localStorage.removeItem('check_del');
+        // });
 
         $("#delete_status").on('hide.bs.modal', function() { 
             location.reload();
         });
 
+        $('#btn_logout').on('click', function(){
+            localStorage.clear();
+        });
      });
 
      function UserDetails() {
@@ -467,13 +470,13 @@ a#approval_table_previous.paginate_button.previous,
                    
 
                         if(data.publishstatus == "publishstatus"){
-                            $table_row='<tr id=' + data.news_id + ' class="select"><td scope="" style="text-align: center; width: 40px;"><input id="check" type="checkbox"></td><td scope="" style="text-align: left; width: 40%;">'+data.news_title+'</td><td scope="" style="text-align: center;">'+ createdate +'</td><td scope="" style="text-align: center; padding-right: 5%;">'+ updateddate +'</td><td scope="" style="text-align: center; padding-right: 5%;"><img src="../plugins/images/Check.svg"></td><td scope="" style="text-align: left; "><a id="editbutton" style="color: #0099FF; text-decoration: underline; cursor: pointer;">Edit</a><a style="color: #707070;">&nbsp;|&nbsp;</a><a id="btn_delete" style="color: #C10000; text-decoration: underline; cursor: pointer;" data-toggle="modal" data-target="#myModal2">Delete</a></td></tr>';
+                            $table_row='<tr id=' + data.news_id + ' class="select"><td scope="" style="text-align: left; width: 40%;">'+data.news_title+'</td><td scope="" style="text-align: center;">'+ createdate +'</td><td scope="" style="text-align: center; padding-right: 5%;">'+ updateddate +'</td><td scope="" style="text-align: center; padding-right: 5%;"><img src="../plugins/images/Check.svg"></td><td scope="" style="text-align: left; "><a id="editbutton" style="color: #0099FF; text-decoration: underline; cursor: pointer;">Edit</a><a style="color: #707070;">&nbsp;|&nbsp;</a><a id="btn_delete" style="color: #C10000; text-decoration: underline; cursor: pointer;" data-toggle="modal" data-target="#myModal2">Delete</a></td></tr>';
                             // add row to dataTable object
                             $dataTable.rows.add( $( $table_row ) ).draw();
                             $('#' + data.news_id).data('newsid', data.news_id);
                         }
                         else {
-                            $table_row='<tr id=' + data.news_id + ' class="select"><td scope="" style="text-align: center; width: 40px;"><input id="check" type="checkbox"></td><td scope="" style="text-align: left; width: 40%;">'+data.news_title+'</td><td scope="" style="text-align: center;">'+ createdate +'</td><td scope="" style="text-align: center; padding-right: 5%;">'+ updateddate +'</td><td scope="" style="text-align: center; padding-right: 5%;"><img src="../plugins/images/icon_cross.svg"></td><td scope="" style="text-align: left; "><a id="editbutton" style="color: #0099FF; text-decoration: underline; cursor: pointer;">Edit</a><a style="color: #707070;">&nbsp;|&nbsp;</a><a id="btn_delete" style="color: #C10000; text-decoration: underline; cursor: pointer;" data-toggle="modal" data-target="#myModal2">Delete</a></td></tr>';
+                            $table_row='<tr id=' + data.news_id + ' class="select"><td scope="" style="text-align: left; width: 40%;">'+data.news_title+'</td><td scope="" style="text-align: center;">'+ createdate +'</td><td scope="" style="text-align: center; padding-right: 5%;">'+ updateddate +'</td><td scope="" style="text-align: center; padding-right: 5%;"><img src="../plugins/images/icon_cross.svg"></td><td scope="" style="text-align: left; "><a id="editbutton" style="color: #0099FF; text-decoration: underline; cursor: pointer;">Edit</a><a style="color: #707070;">&nbsp;|&nbsp;</a><a id="btn_delete" style="color: #C10000; text-decoration: underline; cursor: pointer;" data-toggle="modal" data-target="#myModal2">Delete</a></td></tr>';
                             // add row to dataTable object
                             $dataTable.rows.add( $( $table_row ) ).draw();
                             $('#' + data.news_id).data('newsid', data.news_id);
@@ -493,11 +496,11 @@ a#approval_table_previous.paginate_button.previous,
                     console.log(id);
                 });
 
-                $('#news_table').delegate('#check', 'click', function() {
-                    var id = $(this).parent().parent().data('newsid');
-                    var check_del = localStorage.setItem('check_del', id);
-                    console.log(id);
-                });
+                // $('#news_table').delegate('#check', 'click', function() {
+                //     var id = $(this).parent().parent().data('newsid');
+                //     var check_del = localStorage.setItem('check_del', id);
+                //     console.log(id);
+                // });
 
          })
 
@@ -515,17 +518,17 @@ a#approval_table_previous.paginate_button.previous,
          });
      }
 
-     function deleteNews2(){
-         var id = localStorage.getItem('check_del');
+    //  function deleteNews2(){
+    //      var id = localStorage.getItem('check_del');
 
-         $.ajax({
-             url : "http://codeviable.com/w2w2/public/news/delete?news_id=",
-             type : "DELETE",
-             data : { 'news_id' : id}
-         }).done(function(response){
-            console.log(response);
-         });
-     }
+    //      $.ajax({
+    //          url : "http://codeviable.com/w2w2/public/news/delete?news_id=",
+    //          type : "DELETE",
+    //          data : { 'news_id' : id}
+    //      }).done(function(response){
+    //         console.log(response);
+    //      });
+    //  }
 
   </script>
 

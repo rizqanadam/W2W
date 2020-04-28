@@ -274,6 +274,13 @@ i {
             </div>
             
             <div id="product_display">
+                <div id="spinner" style="margin-left: 40%; margin-top: 50px; margin-bottom: 160px;">
+                    <button class="btn" disabled>
+                        <span class="spinner-border spinner-border-sm"></span>
+                        Loading..
+                    </button>
+                </div>
+                
             <!-- <div class="row">
                 <div class="col-md-2">
                     <img src="img/energy.jpg"></div>
@@ -570,7 +577,7 @@ i {
                     }
                 });
                 getRequest2();  
-                $('.loader').addClass("hide-loader");              
+                $('#spinner').css('display','none');            
             });
         }
 

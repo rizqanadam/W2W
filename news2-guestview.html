@@ -152,7 +152,12 @@ i {
                 </div>
                 <div id="published" style="font-size: 14px; color: #C4C4C4; margin-bottom: 10px;"></div>
                 <div id="content">
-                    
+                    <div id="spinner" style="margin-left: 40%; margin-top: 50px; margin-bottom: 160px;">
+                        <button class="btn" disabled>
+                            <span class="spinner-border spinner-border-sm"></span>
+                            Loading..
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -243,5 +248,6 @@ i {
             $('#published').html('Published on, '+ date);
             $('#content').html(response.news_desc);
         });
+        $('#spinner').css('display','none');
         })
     </script>

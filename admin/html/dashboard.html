@@ -202,7 +202,7 @@ a#notification_table_previous.paginate_button.previous,
                         <img id="profilepicture" src="../plugins/images/default-profile.png" alt="user-img" width="36" class="img-circle">
                         </button>
                           <div class="dropdown-content">
-                            <a href="#">Logout</a>
+                            <a id="btn_logout" href="../../index.html">Logout</a>
                           </div>
                         </div>
                     </li>
@@ -560,6 +560,10 @@ a#notification_table_previous.paginate_button.previous,
             // Load more data
             $('#pending_table').page.loadMore();
         });
+
+        $('#btn_logout').on('click', function(){
+                localStorage.clear();
+            });
  
 
         dashboard();

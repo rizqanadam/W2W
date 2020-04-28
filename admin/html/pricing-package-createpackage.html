@@ -228,9 +228,9 @@ a#approval_table_previous.paginate_button.previous,
                             <button class="btn btn-light" style=" background-color: transparent; border:none;"><a href="#" id="user_name" style=" color: black;"></a>  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
                                 <img id="profilepicture" src="../plugins/images/default-profile.png" alt="user-img" width="36" class="img-circle">
                                 </button>
-                          <div class="dropdown-content">
-                            <a href="#">Logout</a>
-                          </div>
+                                <div class="dropdown-content">
+                                    <a id="btn_logout" href="../../index.html">Logout</a>
+                                  </div>
                         </div>
                     </li>
                 </ul>
@@ -336,7 +336,7 @@ a#approval_table_previous.paginate_button.previous,
                                 <div class="row" style="margin-top: 10px;">
                                     <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Duration (Month)</div>
                                     <div class="col-md-9">
-                                        <input id="package_duration" type="text" class="form-control" style="width: 19%;" required>
+                                        <input id="package_duration" pattern="\d*" type="text" class="form-control" style="width: 19%;" placeholder="e.g. 3" required>
                                     </div>
                                 </div>
 
@@ -356,7 +356,7 @@ a#approval_table_previous.paginate_button.previous,
                                         style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Cost to buy a package by using tokens" data-placement="bottom"></i>
                                     </div>
                                     <div class="col-md-9">
-                                        <input id="package_cost" type="text" class="form-control" style="width: 70%;" required>
+                                        <input id="package_cost" type="text" pattern="\d*" class="form-control" style="width: 70%;" required>
                                     </div>
                                 </div>
 
@@ -369,7 +369,7 @@ a#approval_table_previous.paginate_button.previous,
 
                                 <div class="row" style="margin-top: 10px; padding-bottom: 10px; vertical-align: middle;">
                                     <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Count of Ad&nbsp;<i class="fa fa-info-circle" id="showinfocount" 
-                                        style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Set a maximum number of advertisment." data-placement="bottom"></i>
+                                        style="color: #3787B4; cursor: pointer;" pattern="\d*" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Set a maximum number of advertisment." data-placement="bottom"></i>
                                     </div>
                                     <div class="col-md-9">
                                         <input id="package_ad" type="text" class="form-control" style="width: 19%;" required>
@@ -447,6 +447,10 @@ a#approval_table_previous.paginate_button.previous,
             trigger: 'hover'
         });
 
+        $('#btn_logout').on('click', function(){
+            localStorage.clear();
+        });
+        
         //add token
         var highlightForm = document.querySelector("form#packageform");
             highlightForm.addEventListener('submit',highlight , false);

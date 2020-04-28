@@ -325,7 +325,7 @@
                                         <label class="login-text">Date of submission</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="date" type="text" class="form-control" placeholder="dd/mm/yyyy" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}"  required>
+                                        <input id="date" type="date" class="form-control" placeholder="dd/mm/yyyy" style="width: 180px;" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}"  required>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -1179,7 +1179,7 @@
                                         <label class="login-text">Date of submission</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="date2" type="text" class="form-control" placeholder="dd/mm/yyyy" required>
+                                        <input id="date2" type="date" class="form-control" placeholder="dd/mm/yyyy" style="width: 180px;"  required>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
@@ -1967,7 +1967,7 @@
                                     </div>
                                     <div class="col-md-5" style="margin-right: auto;">
                                         <div class="container">
-                                            <button id="submitButton2" class="btn btn-success" style="width: 100%">Submit</button>
+                                            <button id="submitButton2" type="button" class="btn btn-success" style="width: 100%">Submit</button>
                                           </div>
                                     </div>
                                 </div>
@@ -2577,6 +2577,7 @@
             formData.append("contact" , contact);
             formData.append("company_email" , email);
             formData.append("tagging[]" , null);
+            formData.append("availibility" , "available");
 
                 $.ajax({
                     url: "http://codeviable.com/w2w2/public/product/add",
@@ -2667,6 +2668,7 @@
             formData.append("name" , name);
             formData.append("contact" , contact);
             formData.append("company_email" , email);
+            formData.append("availibility" , "wanted");
 
 
             $.ajax({

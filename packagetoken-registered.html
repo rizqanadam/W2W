@@ -239,7 +239,14 @@ i {
                 <a href="#"><h4 style="text-align: center; cursor: pointer;">Token Package</h4></a>
             </div>
         </div>
-        <div id="tokenrow" class="row" style="margin-top: 50px;">         
+        <div id="tokenrow" class="row" style="margin-top: 50px;">  
+            <div id="spinner" style="margin-left: 40%; margin-top: 50px; margin-bottom: 160px;">
+                <button class="btn" disabled>
+                    <span class="spinner-border spinner-border-sm"></span>
+                    Loading..
+                </button>
+            </div>
+                   
             <!-- <div class="card col-md-3 mx-auto" style="background-color: #FAFAFA;">
                 <div style="margin-left: auto; margin-right: auto;">
                     <div id="type1" class="text-center" style="font-weight: bold;"></div>
@@ -385,14 +392,15 @@ i {
                             }
                         });
                         $("#tokenrow").html(tr);
-
+                        $('#spinner').css('display','none');
                         $('#tokenrow').delegate('.btn', 'click', function() {
                             var id = $(this).parent().parent().data('id');
                             var token_id = localStorage.setItem('token_id', id);
                             console.log(id);
                         });
                     }
-                })
+                });
+                
 
                 $('#buy').on('click', function(){
                     buyToken();

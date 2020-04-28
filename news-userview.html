@@ -51,7 +51,7 @@
 
 .footer-stay {
      position: absolute;
-     bottom: 0; 
+     margin-top: auto;
      width: 100%;
 }
 
@@ -199,7 +199,13 @@ display:none;
         <!-- Header End -->
 
         <div id="news_list"  class="col-md-10 mx-auto" style="padding: 40px; margin-bottom: 50px;">
-            
+            <!-- <div id="spinner" class="spinner-border text-dark" style="text-align: center;"></div> -->
+            <div id="spinner" style="margin-left: 40%; margin-top: 50px; margin-bottom: 160px;">
+                <button class="btn" disabled>
+                    <span class="spinner-border spinner-border-sm"></span>
+                    Loading..
+                </button>
+            </div>
                 <!-- <div class="row mx-auto">
                     <div class="col-md-8">
                         <a href="./news2-guestview.html" style="color: black;"><div style="font-size: 20px; font-weight: bold; padding-bottom: 10px;">The Hidden Power of Reward Systems In Design</div></a>
@@ -244,7 +250,7 @@ display:none;
     </div>
 
         <!-- Footer begin -->
-        <footer id="footer" class="footer-section" style="background-color: #3A595D;">
+        <footer id="footer" class="footer-section footer-stay" style="background-color: #3A595D;">
             <div class="container">
                 <div class="row" style="padding-top: 5px;">
                     <div class="col-lg-2 text-right">
@@ -304,7 +310,7 @@ display:none;
 
                 $("#news_list").html(tr);
 
-                
+                $('#spinner').css('display','none');
 
                 $('#news_list').delegate('.title', 'click', function() {
                     var id = $(this).parent().data('id');
@@ -313,7 +319,7 @@ display:none;
                     console.log(id);
                 });
 
-                $('.loader').addClass("hide-loader"); 
+                
                 
             });
         }

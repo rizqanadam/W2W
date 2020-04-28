@@ -163,8 +163,8 @@ i {
 
                 <div class="form-group">
                     <label class="login-text" for="name">Category</label>
-                    <select id="categoryDropdown" style="background-color: #F2F2F2; border: none;" class="form-control">
-                        <option disabled selected>Please choose</option>
+                    <select id="categoryDropdown" style="background-color: #F2F2F2; border: none;" class="form-control" required>
+                        <option disabled selected value="">Please choose</option>
                         <option>Support</option>
                         <option>Report</option>
                     </select>
@@ -172,7 +172,7 @@ i {
 
                 <div class="form-group">
                     <label class="login-text">Additional information</label>
-                    <textarea id="description" type="text" class="form-control" style="background-color: #F2F2F2; border: none; height: 200px;"></textarea>
+                    <textarea id="description" type="text" class="form-control" style="background-color: #F2F2F2; border: none; height: 200px;" required></textarea>
                 </div>
 
                 <div class="col-md-6 mx-auto" style="padding: 40px;">
@@ -229,49 +229,45 @@ i {
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous">
-    </script>
-
     <script>
 
         $(document).ready(function(){
 
-            //submit enquiry
-            var highlightForm = document.querySelector("form#enquiryform");
-            highlightForm.addEventListener('submit',highlight , false);
+        //submit enquiry
+        var highlightForm = document.querySelector("form#enquiryform");
+        highlightForm.addEventListener('submit',highlight , false);
 
-            function highlight(event)
-            {
-                event.preventDefault();
-                submitEnquiry();
-                $('#enquirymodal').modal('toggle');
-                return false;
-            }
+        function highlight(event)
+        {
+            event.preventDefault();
+            submitEnquiry();
+            
+            return false;
+        }
 
         });
 
         function submitEnquiry(){
-            var name = $('#name').val();
-            var email = $('#email').val();
-            var category = $('#categoryDropdown').val();
-            var description = $('#description').val();
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var category = $('#categoryDropdown').val();
+        var description = $('#description').val();
 
-            var postdata = {
-                "name" : name,
-                "email" : email,
-                "category" : category,
-                "description" : description
-            }
+        var postdata = {
+            "name" : name,
+            "email" : email,
+            "category" : category,
+            "description" : description
+        }
 
-            $.ajax({
-                url: "http://codeviable.com/w2w2/public/enquiry",
-                type: "POST",
-                data: postdata,
-            }).done(function(response){
-                console.log(response);
-            })
+        $.ajax({
+            url: "http://codeviable.com/w2w2/public/enquiry",
+            type: "POST",
+            data: postdata,
+        }).done(function(response){
+            console.log(response);
+            $('#enquirymodal').modal('toggle');
+        })
         }
     
     </script>

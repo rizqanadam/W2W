@@ -177,7 +177,15 @@ i {
                 <a href="./packagetoken-unregistered.html"><h4 style="text-align: center; color: lightgray;">Token Package</h4></a>
             </div>
         </div>
-        <div id="packagerow" class="row" style="margin-top: 50px;">         
+        <div id="packagerow" class="row" style="margin-top: 50px;">    
+            
+            <div id="spinner" style="margin-left: 40%; margin-top: 50px; margin-bottom: 160px;">
+                <button class="btn" disabled>
+                    <span class="spinner-border spinner-border-sm"></span>
+                    Loading..
+                </button>
+            </div>
+
             <!-- <div class="card col-md-2 mx-auto" style="background-color: #FAFAFA;">
                 <div style="margin-left: auto; margin-right: auto;">
                     <div class="text-center" style="font-weight: bold;">Package A</div>
@@ -332,7 +340,7 @@ i {
                     }
                 });
 
-                $('.loader').addClass("hide-loader"); 
+                $('#spinner').css('display','none');
 
             });
 

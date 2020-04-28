@@ -215,9 +215,9 @@ a#approval_table_previous.paginate_button.previous,
                             <button class="btn btn-light" style=" background-color: transparent; border:none;"><a style=" color: black;" href="#" id="user_name"></a>  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
                             <img id="profilepicture" src="../plugins/images/default-profile.png" alt="user-img" width="36" class="img-circle">
                             </button>
-                          <div class="dropdown-content" style="margin-left: -70px;">
-                            <a href="#">Logout</a>
-                          </div>
+                            <div class="dropdown-content">
+                                <a id="btn_logout" href="../../index.html">Logout</a>
+                              </div>
                         </div>
                     </li>
                 </ul>
@@ -301,7 +301,7 @@ a#approval_table_previous.paginate_button.previous,
                     </div>
                     <div class="col-md-8 text-right">
                         <button class="btn" onclick="window.location.href='./contentmanagement-banner-add.html';" style="background-color: #0073BF; color: white;"><img src="../plugins/images/Icon_Add_CreatePackage.svg" style="vertical-align: middle;">&nbsp;&nbsp;Add New</button>
-                        <button class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button>
+                        <!-- <button class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button> -->
                     </div>
                     </div>
                 
@@ -313,7 +313,7 @@ a#approval_table_previous.paginate_button.previous,
                         <thead  class="thead" style="text-align: center; font-size: 12px;">
                             <tr style="border-bottom: 1px solid #000;">
                         <tr>
-                            <td style="text-align: center; width: 35px;"><input id="check_all" type="checkbox"></td>
+                            <!-- <td style="text-align: center; width: 35px;"><input id="check_all" type="checkbox"></td> -->
                             <td style="text-align: left; width: 40%;">Image</td>
                             <td style="text-align: center;">Created On</td>
                             <td style="text-align: center;">Published</td>
@@ -404,7 +404,10 @@ a#approval_table_previous.paginate_button.previous,
         UserDetails();  
         customizeDatatable();
         listingBanner();
-
+        $('#btn_logout').on('click', function(){
+            localStorage.clear();
+        });
+        
         $('#btn_delete').on('click',function(){
             deleteBanner();
             localStorage.removeItem('banner_del');
@@ -454,13 +457,13 @@ a#approval_table_previous.paginate_button.previous,
                     console.log(createdate)
 
                     if(data.publishstatus == "publishstatus"){
-                        $table_row='<tr id=' + data.id +' ><td style="text-align: center; width: 35px;"><input class="select" id="check" type="checkbox"></td><td style="text-align: left; width: 40%; height: 20%;"><img src='+data.image+' style="width: 100%; height: 180px;"></td><td style="text-align: center;">' + createdate + '</td><td style="text-align: center;"><img src="../plugins/images/Check.svg"></td><td style="text-align: center;"><a id="editbutton" style="color: #0099FF; text-decoration: underline; cursor:pointer;">Edit</a></td></tr>';
+                        $table_row='<tr id=' + data.id +' ><td style="text-align: left; width: 40%; height: 20%;"><img src='+data.image+' style="width: 100%; height: 180px;"></td><td style="text-align: center;">' + createdate + '</td><td style="text-align: center;"><img src="../plugins/images/Check.svg"></td><td scope="" style="text-align: center;"><a id="editbutton" style="color: #0099FF; text-decoration: underline; cursor: pointer;">Edit</a><a style="color: #707070;">&nbsp;|&nbsp;</a><a id="btn_delete" style="color: #C10000; text-decoration: underline; cursor: pointer;" data-toggle="modal" data-target="#myModal2">Delete</a></td></tr>';
                         // add row to dataTable object
                         $dataTable.rows.add( $( $table_row ) ).draw();
                         $('#' + data.id).data('id', data.id);
                     }
                     else {
-                        $table_row='<tr id=' + data.id +' ><td style="text-align: center; width: 35px;"><input class="select" id="check" type="checkbox"></td><td style="text-align: left; width: 40%;"><img src='+data.image+' style="width: 100%; height: 180px;"></td><td style="text-align: center;">' + createdate + '</td><td style="text-align: center;"><img src="../plugins/images/icon_cross.svg"></td><td style="text-align: center;"><a id="editbutton" style="color: #0099FF; text-decoration: underline; cursor:pointer;">Edit</a></td></tr>';
+                        $table_row='<tr id=' + data.id +' ><td style="text-align: left; width: 40%;"><img src='+data.image+' style="width: 100%; height: 180px;"></td><td style="text-align: center;">' + createdate + '</td><td style="text-align: center;"><img src="../plugins/images/icon_cross.svg"></td><td scope="" style="text-align: center;"><a id="editbutton" style="color: #0099FF; text-decoration: underline; cursor: pointer;">Edit</a><a style="color: #707070;">&nbsp;|&nbsp;</a><a id="btn_delete" style="color: #C10000; text-decoration: underline; cursor: pointer;" data-toggle="modal" data-target="#myModal2">Delete</a></td></tr>';
                         // add row to dataTable object
                         $dataTable.rows.add( $( $table_row ) ).draw();
                         $('#' + data.id).data('id', data.id);
@@ -474,7 +477,7 @@ a#approval_table_previous.paginate_button.previous,
                     console.log(id);
                 });
 
-                $('#banner_table').delegate('#check', 'click', function() {
+                $('#banner_table').delegate('#btn_delete', 'click', function() {
                     var id = $(this).parent().parent().data('id');
                     var banner_id = localStorage.setItem('banner_del', id);
                     console.log(id);

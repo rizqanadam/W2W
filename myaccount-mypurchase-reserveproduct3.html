@@ -391,7 +391,9 @@
             type: 'GET',
             data: { "user_id" : $userid },
             success: function(response){
-                $("#profilepicture").attr('src' , response.profilepicture);
+                if(response.profilepicture !== "https://codeviable.com/w2w2/public/image/"){
+                    $("#profilepicture").attr('src' , response.profilepicture);
+                }
                 $("#user_name").html(response.user_fname+" "+response.user_lname);
             }
       });

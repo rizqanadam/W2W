@@ -275,9 +275,9 @@ span.checkmark {
                             <button class="btn btn-light" style=" background-color: transparent; border:none;"><a href="#" id="user_name" style=" color: black;"></a>  <i class="fa fa-caret-down" style="margin:5px; color: lightgray;"></i>
                                 <img id="profilepicture" src="../plugins/images/default-profile.png" alt="user-img" width="36" class="img-circle">
                                 </button>
-                          <div class="dropdown-content" style="margin-left: -70px;">
-                            <a href="#">Logout</a>
-                          </div>
+                                <div class="dropdown-content">
+                                    <a id="btn_logout" href="../../index.html">Logout</a>
+                                  </div>
                         </div>
                     </li>
                 </ul>
@@ -400,7 +400,9 @@ span.checkmark {
 
                                     <div class="row" style="margin-top: 10px;">
                                         <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Password</div>
-                                        <div id="password" class="col-md-9" style="color: black;"></div>
+                                        <div  class="col-md-9" style="color: black;">
+                                            <input id="password" type="password" style="border: none; background-color: transparent;" disabled>
+                                        </div>
                                     </div>
 
                                     <div class="row" style="margin-top: 10px;">
@@ -495,6 +497,10 @@ span.checkmark {
         convertDate2();
         
         statusActive();
+
+        $('#btn_logout').on('click', function(){
+            localStorage.clear();
+        });
      });
 
      function admin() {
@@ -634,7 +640,7 @@ span.checkmark {
         }).done(function(response){
         console.log(response)
         $('#email').html(response.user_email);
-        $('#password').html(response.password);
+        $('#password').val(response.password);
         $('#name').html(response.user_fname+ ' ' + response.user_lname);
         $('#address').html(response.address);
         $('#balance').html(response.balancetoken);

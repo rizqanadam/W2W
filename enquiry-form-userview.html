@@ -280,6 +280,7 @@ i {
             function highlight(event)
             {
                 event.preventDefault();
+                $('#submit').prop('disabled',true);
                 submitEnquiry();
                 
                 return false;

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <g id="Btn_BackToTop" transform="translate(-1601 -926)">
+    <g id="Rectangle_139" data-name="Rectangle 139" transform="translate(1601 926)" fill="#eaeaea" stroke="#c4c4c4" stroke-width="1">
+      <rect width="100" height="100" stroke="none"/>
+      <rect x="0.5" y="0.5" width="99" height="99" fill="none"/>
+    </g>
+    <g id="Group_164" data-name="Group 164" transform="translate(-143 -23)">
+      <path id="Icon_ionic-ios-arrow-dropup-circle" data-name="Icon ionic-ios-arrow-dropup-circle" d="M23.375,44.375a20.252,20.252,0,0,0,20-20.5,20.252,20.252,0,0,0-20-20.5,20.252,20.252,0,0,0-20,20.5A20.252,20.252,0,0,0,23.375,44.375Zm0-24.1-7.8,8.072a1.831,1.831,0,0,1-2.625,0,1.944,1.944,0,0,1,0-2.691l9.2-9.4a1.821,1.821,0,0,1,2.558-.059l9.067,9.264a1.937,1.937,0,0,1,.01,2.691,1.822,1.822,0,0,1-2.625,0Z" transform="translate(1770.625 959.625)"/>
+      <text id="Back_to_top" data-name="Back to top" transform="translate(1754 1031)" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Back to top</tspan></text>
+    </g>
+  </g>
+</svg>

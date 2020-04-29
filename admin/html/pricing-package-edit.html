@@ -417,8 +417,9 @@ a#approval_table_previous.paginate_button.previous,
                     </div>
                 </div>
 
-                <!-- savemodal
-                <div class="modal fade bd-example-modal-sm"  style="top: 50%; left: 10%;" id="savemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              
+                <!--savemodal-->
+                <div class="modal fade bd-example-modal-sm"  style="top: 30%; left: 10%;" id="savemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-sm" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -432,7 +433,7 @@ a#approval_table_previous.paginate_button.previous,
                     </div>
                     </div>
                     </div>
-                </div> -->
+                </div>
             <!-- /.container-fluid -->
         </div>
         <!-- ============================================================== -->
@@ -477,6 +478,7 @@ a#approval_table_previous.paginate_button.previous,
 
         $('#save_btn').on('click', function(){
             savePackage();
+            $('#savemodal').modal('toggle');
         });
 
         $("#btn_delete").on('click', function(){
@@ -538,6 +540,7 @@ a#approval_table_previous.paginate_button.previous,
                 $('#package_ad').val(response[i].package_limit);
                 $('#description').val(response[i].description);
                 $('#typeDropdown').val(response[i].premiumlist);
+                $('#description').val(response[i].description);
              });
          });
      }

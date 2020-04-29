@@ -379,7 +379,7 @@ span.checkmark {
                         <div class="btn-group">
                             <button type="button" class="btn" style="background-color: #27AE60; color: white;"><img src="../plugins/images/export.svg">&nbsp;&nbsp;Export</button>
                        </div>
-                        <button class="btn" data-toggle="modal" data-target="#deletemodal" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button>
+                       <button class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button>
                     </div>
                 </div><br>
                 <div class="white-box">
@@ -418,18 +418,18 @@ span.checkmark {
                                         <div id="mainstatus" class="col-md-9" style="color: black; text-transform: capitalize;">Available</div>
                                     </div>
 
-                                    <div class="row" style="margin-top: 10px;">
+                                    <div id="product_material1"  class="row" style="margin-top: 10px;">
                                         <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">State of Material</div>
                                         <div id="product_material" class="col-md-9" style="color: black;">Solid</div>
                                     </div>
 
-                                    <div class="row" style="margin-top: 10px;">
+                                    <div id="product_continuity1" class="row" style="margin-top: 10px;">
                                         <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Product Season&nbsp;<i class="fa fa-info-circle" id="showinfoseason" 
                                             style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Period of products availability throughout the year" data-placement="bottom"></i></div>
                                         <div id="product_continuity" class="col-md-9" style="color: black;">One-Time</div>
                                     </div>
 
-                                    <div class="row" style="margin-top: 10px;">
+                                    <div id="quantity_unit1" class="row" style="margin-top: 10px;">
                                         <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Quantity & Unit</div>
                                         <div id="quantity_unit" class="col-md-9" style="color: black;">80 mton</div>
                                     </div>
@@ -439,7 +439,7 @@ span.checkmark {
                                         <div id="product_price" class="col-md-9" style="color: black;">RM100</div>
                                     </div>
 
-                                    <div class="row" style="margin-top: 10px;">
+                                    <div id="product_period1" class="row" style="margin-top: 10px;">
                                         <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Shelflife&nbsp;<i class="fa fa-info-circle" id="showinfoshelflife" 
                                             style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="The length of time for which an item remains usable, fit for consumption, or saleable." data-placement="bottom"></i></div> 
                                         <div id="product_period" class="col-md-9" style="color: black;">Never</div>
@@ -447,7 +447,7 @@ span.checkmark {
 
                                     <div class="row" style="margin-top: 10px;">
                                         <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Advertisment Period</div>
-                                        <div class="col-md-9" style="color: black;">6 Months</div>
+                                        <div id="ad_period" class="col-md-9" style="color: black;"></div>
                                     </div>
 
                                     <div class="row" style="margin-top: 10px;">
@@ -460,7 +460,7 @@ span.checkmark {
                                         <div id="product_state" class="col-md-9" style="color: black;">Johor</div>
                                     </div>
 
-                                    <div class="row" style="margin-top: 10px;">
+                                    <div id="product_transport1" class="row" style="margin-top: 10px;">
                                         <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Transportation Mode</div>
                                         <div id="product_transport" class="col-md-9" style="color: black;">Delivered by seller.</div>
                                     </div>
@@ -514,15 +514,15 @@ span.checkmark {
                                         </div>
                                     </div>
 
-                                    <div class="row" style="margin-top: 10px;">
+                                    <!-- <div class="row" style="margin-top: 10px;">
                                         <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Created On</div>
-                                        <div id="created_at" class="col-md-9" style="color: black;">Saturday, March 17, 2020 12:45:44 AM</div>
+                                        <div id="created_at" class="col-md-9" style="color: black;"></div>
                                     </div> 
 
                                     <div class="row" style="margin-top: 10px; padding-bottom: 30px;">
                                         <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Updated On</div>
-                                        <div id="updated_at" class="col-md-9" style="color: black;">Saturday, March 17, 2020 12:45:44 AM</div>
-                                    </div> 
+                                        <div id="updated_at" class="col-md-9" style="color: black;"></div>
+                                    </div>  -->
                                 </div>
                             </div>  
                             <br>
@@ -667,8 +667,8 @@ span.checkmark {
                             </div>
                         </div>
 
-                        <!--deletemodal-->
-                        <div class="modal fade bd-example-modal-sm"  style="top: 30%;" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <!--myModal2-->
+                        <div class="modal fade bd-example-modal-sm" style="top: 30%; left: 10%;" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -677,10 +677,27 @@ span.checkmark {
                                     <br><br><br>
                                     <div style="text-align: right;">
                                         <a href="./pricing-token-edit.html" style="color: #0099FF; cursor: pointer;" data-dismiss="modal">CANCEL</a>
-                                        <a id="btn_delete" style="color: #C10000; cursor: pointer; padding-left: 10px;">DELETE</a>
+                                        <a id="delete" style="color: #C10000; cursor: pointer; padding-left: 10px;" data-toggle="modal" data-target="#delete_status" data-dismiss="modal">DELETE</a>
                                     </div>
                                 </div>
                             </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!--delete_status-->
+                        <div class="modal fade bd-example-modal-sm mx-auto"  style="top: 30%; left: 10%;" id="delete_status" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-sm" role="document">
+                            
+                                <div class="modal-content" style="text-align: center; width: 130%; padding: 40px; border-radius: 10px;">
+                                    <div class="modal-body mx-auto">
+                                    <img src="../plugins/images/Icon_Trash_Deleted_Red.svg">
+                                    </div>
+                                    <div class="mx-auto" style="margin: 10px; color: #F44336; font-size: 28px;">Ad deleted.</div>
+                                    <script>
+
+                                    </script>
+                                </div>
                             </div>
                             </div>
                         </div>
@@ -790,9 +807,18 @@ span.checkmark {
         });
 
         materialInformation();
+        
         typeAd();
         publishstatus();
-        
+        packageInformation();
+        $('#delete').on('click',function(){
+            deleteProduct();
+        });
+
+        $("#delete_status").on('hide.bs.modal', function() { 
+            window.location.href = "./listing-available.html";
+        });
+
      });
 
      function UserDetails() {
@@ -833,6 +859,14 @@ span.checkmark {
             $('#product_date').html(response[0].product_date);
             $('#product_name').html(response[0].product_name);
             $('#mainstatus').html(response[0].mainstatus);
+            if(response[0].product_material == null){
+                $('#product_material1').css('display','none');
+                $('#product_category1').css('display','none');
+                $('#product_continuity1').css('display','none');
+                $('#quantity_unit1').css('display','none');
+                $('#product_period1').css('display','none');
+                $('#product_transport1').css('display','none');
+            }
             $('#product_material').html(response[0].product_material);
             $('#product_category').html(response[0].product_category);
             $('#product_continuity').html(response[0].product_continuity);
@@ -847,6 +881,10 @@ span.checkmark {
             $('#pic').html(response[0].name);
             $('#suggestcustomer').val(response[0].suggestcustomer);
             $('#product_tag').val(response[0].tagging[0].tagging+", "+response[0].tagging[1].tagging+", "+response[0].tagging[2].tagging);
+            $('#textbox1').val(response[0].approved_at);
+            $('#textbox2').val(response[0].expired_at);
+            $('#created_at').html(response[0].created_at);
+            $('#updated_at').html(response[0].updated_at);
 
             if(response[0].product_image[0] !== "https://codeviable.com/w2w2/public/image/"){
                 $('#previewProfile1').attr('src' , response[0].product_image[0].image)
@@ -897,16 +935,39 @@ span.checkmark {
      }
 
      function packageInformation() {
-         var id = localStorage.getItem('product_packageID');
+         var package = localStorage.getItem('product_packageID');
+         $user_id = localStorage.getItem('product_userid')
 
+        $.ajax({
+            url: "http://codeviable.com/w2w2/public/paidpackage/user?user_id=",
+            type : "GET",
+            data : {'user_id' : $user_id}
+        }).done(function(response){
+            
+            
+            $.each(response, function(i,data){
+                if(package == response[i].package_id){
+                    localStorage.setItem('detail_packageID',response[i].package_id);
+                }
+            })
+        });
+
+        detailpackage();
+     }
+
+     function detailpackage() {
+       
+         var id = localStorage.getItem('detail_packageID');
         $.ajax({
             url: "http://codeviable.com/w2w2/public/packages/detail?package_id=",
             type : "GET",
             data : {'package_id' : id}
         }).done(function(response){
-            console.log(response)
+        
+            console.log(id)
             $('#product_package').html(response.package_name);
             $('#product_desc').html(response.description);
+            $('#ad_period').html(response.package_duration + " months")
         });
      }
 
@@ -937,6 +998,17 @@ span.checkmark {
                 console.log(response)
             })
         });
+     }
+
+     function deleteProduct(){
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/product/delete?product_id=",
+            type: "DELETE",
+            data : {"product_id" : $available_id },
+        }).done(function(response){
+            console.log(response);
+        })
      }
      
   </script>

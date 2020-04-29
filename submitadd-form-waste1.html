@@ -1154,7 +1154,7 @@
                                         <div class="container">
                                             <button id="previewbtn" type="button" class="btn btn-cancell" data-toggle="modal" data-target="#previewad" style="width: 100%">Preview ad</button>
                                             
-                                    </div>
+                                        </div>
                                     </div>
                                     <div class="col-md-5" style="margin-right: auto;">
                                         <div class="container">
@@ -1169,814 +1169,857 @@
                         </form>
 
                         <form id="wantedform" onsubmit="return false">
-                        <div id="test1" style="display: none">
-                            <div class="line-bottom"></div>
-
-                            <div style="padding: 70px">
-                                <div class="headtext-weight">Material Information</div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">Date of submission</label>
+                            <div id="test1" style="display: none">
+                                <div class="line-bottom"></div>
+    
+                                <div style="padding: 70px">
+                                    <div class="headtext-weight">Material Information</div>
+                                    <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">Date of submission</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input id="date2" type="date" class="form-control" placeholder="dd/mm/yyyy" style="width: 180px;" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}"  required>
+                                        </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <input id="date2" type="date" class="form-control" placeholder="dd/mm/yyyy" style="width: 180px;"  required>
+                                    <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">Name of material</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="material_name2" type="text" class="form-control" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}"  required>
+                                        </div>
                                     </div>
+                                    <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">State of material</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select id="material_state2" class="form-control" style="cursor:pointer" required>
+                                              <option disabled selected value="">Please choose</option>
+                                              <option>Solid</option>
+                                              <option>Liquid</option>
+                                              <option>Gaseous</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">Category</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select id="category2" class="form-control" style="cursor:pointer" required>
+                                             
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">Product season</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select id="season2" class="form-control" style="cursor:pointer" required>
+                                              <option disabled selected value="">Please choose</option>
+                                              <option>Continuous</option>
+                                              <option>One-Time</option>
+                                              <option>Seasonal</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">Quantity</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input id="quantity2" type="text" class="form-control" placeholder="0" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}"  required>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <label class="login-text float-right">Unit</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input id="unit2" type="text" class="form-control" placeholder="" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}"  required>
+                                        </div>
+                                    </div>
+                                    <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">Price</label>
+                                        </div>
+                                        <div class="col-md-1" style="padding-right: 0; margin-top: auto; margin-bottom: auto;">
+                                            <div>RM</div>
+                                        </div>
+                                        <div class="col-md-2" style="padding-left: 0;">
+                                            <input id="product_price2" type="text" class="form-control" placeholder="0.00" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}"  required>
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">Shelflife  <i class="fas fa-info-circle" id="shelflifepop" style="color: blue;"></i></label></label>
+                                            <div id="shelflife2" class="shelflife" style="width: 300px;border: solid lightgray; background-color: #F2F2F2; padding: 10px; margin-left: 50px;">
+                                                <p>Degradation period</p>
+                                                <h5>The length of time for which an item remains usable, fit for consumption, or saleable</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select id="product_period2" class="form-control" style="cursor:pointer" required>
+                                              <option disabled selected value="">Please choose</option>
+                                              <option>Within 3 months</option>
+                                              <option>Within 6 months</option>
+                                              <option>Within 1 year</option>
+                                              <option>Never</option>
+                                            </select>
+                                        </div>
+                                    </div> -->
+                                    <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">Package  <i class="fas fa-info-circle" id="showpackage" style="color: blue;"></i></label>
+                                            <div id="pop" class="pop" style="width: 650px; background-color: #F2F2F2; border: solid lightgray; padding-bottom: 10px; padding-top: 10px;">
+                                                <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="card col-md-2 mx-auto" style="padding: 10px; margin: 5px;">
+                                                        <div style="margin-left: auto; margin-right: auto;">
+                                                            <p class="text-center" style="margin-bottom: 35px; font-weight: bold;">Package A</p>
+                                                            <p class="text-center">Advertise :</p>
+                                                            <p class="text-center" style="margin-bottom: 15px;">3 Month</p>
+                                                            <p class="text-center">RM 100</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card col-md-2 mx-auto" style="padding: 10px; margin: 5px;">
+                                                        <div style="margin-left: auto; margin-right: auto;">
+                                                            <p class="text-center" style="margin-bottom: 35px; font-weight: bold;">Package B</p>
+                                                            <p class="text-center">Advertise :</p>
+                                                            <p class="text-center" style="margin-bottom: 15px;">6 Month</p>
+                                                            <p class="text-center">RM 200</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card col-md-2 mx-auto" style="padding: 10px; margin: 5px;">
+                                                        <div style="margin-left: auto; margin-right: auto;">
+                                                            <p class="text-center" style="margin-bottom: 35px; font-weight: bold;">Package C</p>
+                                                            <p class="text-center">Advertise :</p>
+                                                            <p class="text-center" style="margin-bottom: 15px;">12 Month</p>
+                                                            <p class="text-center">RM 300</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card col-md-2 mx-auto" style="padding: 10px; margin: 5px;">
+                                                        <div style="margin-left: auto; margin-right: auto;">
+                                                            <p class="text-center" style="margin-bottom: 10px; font-weight: bold;">Premium Package A</p>
+                                                            <p class="text-center">Advertise :</p>
+                                                            <p class="text-center" style="margin-bottom: 15px;">3 Month</p>
+                                                            <p class="text-center">RM 400</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card col-md-2 mx-auto" style="padding: 10px; margin: 5px;">
+                                                        <div style="margin-left: auto; margin-right: auto;">
+                                                            <p class="text-center" style="margin-bottom: 10px; font-weight: bold;">Premium Package B</p>
+                                                            <p class="text-center">Advertise :</p>
+                                                            <p class="text-center" style="margin-bottom: 15px;">6 Month</p>
+                                                            <p class="text-center">RM 500</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select id="package2" class="form-control" style="cursor:pointer" required>
+                                             
+                                            </select>
+                                        </div>
+                                    </div>
+                                <div style="margin-top: 30px; margin-bottom: 20px;">
+                                    <div style="margin-bottom: 10px; font-weight: bold;">Location</div>
+                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
+                                    <input id="product_location4" type="text" class="form-control" placeholder="Enter your waste Address, City, Postcode and State" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}"  required>
+                                        <br>
+                                        <select id="city4" style="cursor:pointer" class="form-control" required>
+                                          <option disabled selected value="">City</option>
+                                          <option>Johor Bahru</option>
+                                          <option>Batu Pahat</option>
+                                          <option>Kluang</option>
+                                          <option>Kulai</option>
+                                          <option>Muar</option>
+                                          <option>Kota Tinggi</option>
+                                          <option>Segamat</option>
+                                          <option>Pontian</option>
+                                          <option>Tangkak</option>
+                                          <option>Mersing</option>
+                                          <option>Sungai Petani</option>
+                                          <option>Alor Setar</option>
+                                          <option>Kulim</option>
+                                          <option>Kubang Pasu</option>
+                                          <option>Baling</option>
+                                          <option>Pendang</option>
+                                          <option>Langkawi</option>
+                                          <option>Yan</option>
+                                          <option>Sik</option>
+                                          <option>Padang Terap</option>
+                                          <option>Pokok Sena</option>
+                                          <option>Bandar Baharu</option>
+                                          <option>Kota Bharu</option>
+                                          <option>Pasir Mas</option>
+                                          <option>Tumpat</option>
+                                          <option>Bachok</option>
+                                          <option>Tanah Merah</option>
+                                          <option>Pasir Puteh</option>
+                                          <option>Kuala Krai</option>
+                                          <option>Machang</option>
+                                          <option>Gua Musang</option>
+                                          <option>Jeli</option>
+                                          <option>Lojing</option>
+                                          <option>Melaka Tengah</option>
+                                          <option>Alor Gajah</option>
+                                          <option>Jasin</option>
+                                          <option>Seremban</option>
+                                          <option>Jempol</option>
+                                          <option>Port Dickson</option>
+                                          <option>Tampin</option>
+                                          <option>Kuala Pilah</option>
+                                          <option>Rembah</option>
+                                          <option>Jelebu</option>
+                                          <option>Kuantan</option>
+                                          <option>Temerloh</option>
+                                          <option>Bentong</option>
+                                          <option>Maran</option>
+                                          <option>Rompin</option>
+                                          <option>Pekan</option>
+                                          <option>Bera</option>
+                                          <option>Raub</option>
+                                          <option>Jerantut</option>
+                                          <option>Lipis</option>
+                                          <option>Cameron Highlands</option>
+                                          <option>Kinta</option>
+                                          <option>Larut, Matang, Selama</option>
+                                          <option>Manjung</option>
+                                          <option>Hilir Perak</option>
+                                          <option>Kerian</option>
+                                          <option>Batang Padang</option>
+                                          <option>Kuala Kangsar</option>
+                                          <option>Perak Tengah</option>
+                                          <option>Hulu Perak</option>
+                                          <option>Kampar</option>
+                                          <option>Muallim</option>
+                                          <option>Bagan Datuk</option>
+                                          <option>Perlis</option>
+                                          <option>Timur Laut Pulau Pinang</option>
+                                          <option>Seberang Perai Tengah</option>
+                                          <option>Seberang Perai Utara</option>
+                                          <option>Barat Daya Pulau Pinang</option>
+                                          <option>Seberang Perai Selatan</option>
+                                          <option>Kota Kinabalu</option>
+                                          <option>Tawau</option>
+                                          <option>Sandakan</option>
+                                          <option>Lahad Datu</option>
+                                          <option>Keningau</option>
+                                          <option>Kinabatangan</option>
+                                          <option>Semporna</option>
+                                          <option>Papar</option>
+                                          <option>Penampang</option>
+                                          <option>Beluran</option>
+                                          <option>Tuaran</option>
+                                          <option>Ranau</option>
+                                          <option>Kota Belud</option>
+                                          <option>Kudat</option>
+                                          <option>Kota Marudu</option>
+                                          <option>Beaufort</option>
+                                          <option>Kunak</option>
+                                          <option>Tenom</option>
+                                          <option>Putatan</option>
+                                          <option>Pitas</option>
+                                          <option>Tambunan</option>
+                                          <option>Tongod</option>
+                                          <option>Sipitang</option>
+                                          <option>Nabawan</option>
+                                          <option>Kuala Penyu</option>
+                                          <option>Kuching</option>
+                                          <option>Miri</option>
+                                          <option>Sibu</option>
+                                          <option>Bintulu</option>
+                                          <option>Serian</option>
+                                          <option>Samarahan</option>
+                                          <option>Sri Aman</option>
+                                          <option>Marudu</option>
+                                          <option>Betong</option>
+                                          <option>Sarikei</option>
+                                          <option>Kapit</option>
+                                          <option>Bau</option>
+                                          <option>Limbang</option>
+                                          <option>Saratok</option>
+                                          <option>Mukah</option>
+                                          <option>Simunjan</option>
+                                          <option>Lawas</option>
+                                          <option>Belaga</option>
+                                          <option>Lundu</option>
+                                          <option>Asajaya</option>
+                                          <option>Daro</option>
+                                          <option>Tatau</option>
+                                          <option>Maradong</option>
+                                          <option>Kanowit</option>
+                                          <option>Lubok Antu</option>
+                                          <option>Selangau</option>
+                                          <option>Song</option>
+                                          <option>Dalat</option>
+                                          <option>Matu</option>
+                                          <option>Julau</option>
+                                          <option>Pakan	</option>
+                                          <option>Padawan</option>
+                                          <option>Petaling</option>
+                                          <option>Hulu Langat</option>
+                                          <option>Klang</option>
+                                          <option>Gombak</option>
+                                          <option>Kuala Langat</option>
+                                          <option>Sepang</option>
+                                          <option>Kuala Selangor</option>
+                                          <option>Hulu Selangor</option>
+                                          <option>Sabak Bernam</option>
+                                          <option>Kuala Terengganu</option>
+                                          <option>Kemaman</option>
+                                          <option>Dungun</option>
+                                          <option>Besut</option>
+                                          <option>Marang</option>
+                                          <option>Hulu Terengganu</option>
+                                          <option>Setiu</option>
+                                          <option>Kuala Nerus</option>
+                                          <option>Kuala Lumpur</option>
+                                          <option>Labuan</option>
+                                          <option>Putrajaya</option>
+                                        </select>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <select id="state4" style="cursor:pointer" class="form-control" required>
+                                                <option disabled selected value="">State</option>
+                                                <option>Johor</option>
+                                                <option>Kedah</option>
+                                                <option>Kelantan</option>
+                                                <option>Melaka</option>
+                                                <option>Negeri Sembilan</option>
+                                                <option>Pahang</option>
+                                                <option>Perak</option>
+                                                <option>Perlis</option>
+                                                <option>Pulau Pinang</option>
+                                                <option>Sabah</option>
+                                                <option>Sarawak</option>
+                                                <option>Selangor</option>
+                                                <option>Terengganu</option>
+                                                <option>Wilayah Persekutuan Malaysia</option>  
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input id="postalcode4" type="text" class="form-control" placeholder="Postal Code" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}"  required>
+                                        </div>
+                                    </div> 
+                                    <br>
+                                    
+                                    <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
+                                    <div class="row">
+                                    <div class="col-md-6">
+                                        <input id="latitude4" type="text" class="form-control" placeholder="Latitude" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}"  required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input id="longitude4" type="text" class="form-control" placeholder="Longitude" oninput="if (typeof this.reportValidity === 'function') {this.reportValidity();}"  required>
+                                    </div>
+                                    </div>
+                                    <div  id="locationextra3" class="location-none" style="margin-top: 30px;">
+                                        <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
+                                        <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
+                                        <input id="product_location5" type="text" class="form-control" placeholder="Enter your waste Address, City, Postcode and State">
+                                        <br>
+                                        <select id="city5" style="cursor:pointer" class="form-control">
+                                          <option disabled selected>City</option>
+                                          <option>Johor Bahru</option>
+                                          <option>Batu Pahat</option>
+                                          <option>Kluang</option>
+                                          <option>Kulai</option>
+                                          <option>Muar</option>
+                                          <option>Kota Tinggi</option>
+                                          <option>Segamat</option>
+                                          <option>Pontian</option>
+                                          <option>Tangkak</option>
+                                          <option>Mersing</option>
+                                          <option>Sungai Petani</option>
+                                          <option>Alor Setar</option>
+                                          <option>Kulim</option>
+                                          <option>Kubang Pasu</option>
+                                          <option>Baling</option>
+                                          <option>Pendang</option>
+                                          <option>Langkawi</option>
+                                          <option>Yan</option>
+                                          <option>Sik</option>
+                                          <option>Padang Terap</option>
+                                          <option>Pokok Sena</option>
+                                          <option>Bandar Baharu</option>
+                                          <option>Kota Bharu</option>
+                                          <option>Pasir Mas</option>
+                                          <option>Tumpat</option>
+                                          <option>Bachok</option>
+                                          <option>Tanah Merah</option>
+                                          <option>Pasir Puteh</option>
+                                          <option>Kuala Krai</option>
+                                          <option>Machang</option>
+                                          <option>Gua Musang</option>
+                                          <option>Jeli</option>
+                                          <option>Lojing</option>
+                                          <option>Melaka Tengah</option>
+                                          <option>Alor Gajah</option>
+                                          <option>Jasin</option>
+                                          <option>Seremban</option>
+                                          <option>Jempol</option>
+                                          <option>Port Dickson</option>
+                                          <option>Tampin</option>
+                                          <option>Kuala Pilah</option>
+                                          <option>Rembah</option>
+                                          <option>Jelebu</option>
+                                          <option>Kuantan</option>
+                                          <option>Temerloh</option>
+                                          <option>Bentong</option>
+                                          <option>Maran</option>
+                                          <option>Rompin</option>
+                                          <option>Pekan</option>
+                                          <option>Bera</option>
+                                          <option>Raub</option>
+                                          <option>Jerantut</option>
+                                          <option>Lipis</option>
+                                          <option>Cameron Highlands</option>
+                                          <option>Kinta</option>
+                                          <option>Larut, Matang, Selama</option>
+                                          <option>Manjung</option>
+                                          <option>Hilir Perak</option>
+                                          <option>Kerian</option>
+                                          <option>Batang Padang</option>
+                                          <option>Kuala Kangsar</option>
+                                          <option>Perak Tengah</option>
+                                          <option>Hulu Perak</option>
+                                          <option>Kampar</option>
+                                          <option>Muallim</option>
+                                          <option>Bagan Datuk</option>
+                                          <option>Perlis</option>
+                                          <option>Timur Laut Pulau Pinang</option>
+                                          <option>Seberang Perai Tengah</option>
+                                          <option>Seberang Perai Utara</option>
+                                          <option>Barat Daya Pulau Pinang</option>
+                                          <option>Seberang Perai Selatan</option>
+                                          <option>Kota Kinabalu</option>
+                                          <option>Tawau</option>
+                                          <option>Sandakan</option>
+                                          <option>Lahad Datu</option>
+                                          <option>Keningau</option>
+                                          <option>Kinabatangan</option>
+                                          <option>Semporna</option>
+                                          <option>Papar</option>
+                                          <option>Penampang</option>
+                                          <option>Beluran</option>
+                                          <option>Tuaran</option>
+                                          <option>Ranau</option>
+                                          <option>Kota Belud</option>
+                                          <option>Kudat</option>
+                                          <option>Kota Marudu</option>
+                                          <option>Beaufort</option>
+                                          <option>Kunak</option>
+                                          <option>Tenom</option>
+                                          <option>Putatan</option>
+                                          <option>Pitas</option>
+                                          <option>Tambunan</option>
+                                          <option>Tongod</option>
+                                          <option>Sipitang</option>
+                                          <option>Nabawan</option>
+                                          <option>Kuala Penyu</option>
+                                          <option>Kuching</option>
+                                          <option>Miri</option>
+                                          <option>Sibu</option>
+                                          <option>Bintulu</option>
+                                          <option>Serian</option>
+                                          <option>Samarahan</option>
+                                          <option>Sri Aman</option>
+                                          <option>Marudu</option>
+                                          <option>Betong</option>
+                                          <option>Sarikei</option>
+                                          <option>Kapit</option>
+                                          <option>Bau</option>
+                                          <option>Limbang</option>
+                                          <option>Saratok</option>
+                                          <option>Mukah</option>
+                                          <option>Simunjan</option>
+                                          <option>Lawas</option>
+                                          <option>Belaga</option>
+                                          <option>Lundu</option>
+                                          <option>Asajaya</option>
+                                          <option>Daro</option>
+                                          <option>Tatau</option>
+                                          <option>Maradong</option>
+                                          <option>Kanowit</option>
+                                          <option>Lubok Antu</option>
+                                          <option>Selangau</option>
+                                          <option>Song</option>
+                                          <option>Dalat</option>
+                                          <option>Matu</option>
+                                          <option>Julau</option>
+                                          <option>Pakan	</option>
+                                          <option>Padawan</option>
+                                          <option>Petaling</option>
+                                          <option>Hulu Langat</option>
+                                          <option>Klang</option>
+                                          <option>Gombak</option>
+                                          <option>Kuala Langat</option>
+                                          <option>Sepang</option>
+                                          <option>Kuala Selangor</option>
+                                          <option>Hulu Selangor</option>
+                                          <option>Sabak Bernam</option>
+                                          <option>Kuala Terengganu</option>
+                                          <option>Kemaman</option>
+                                          <option>Dungun</option>
+                                          <option>Besut</option>
+                                          <option>Marang</option>
+                                          <option>Hulu Terengganu</option>
+                                          <option>Setiu</option>
+                                          <option>Kuala Nerus</option>
+                                          <option>Kuala Lumpur</option>
+                                          <option>Labuan</option>
+                                          <option>Putrajaya</option>
+                                        </select>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <select id="state5" style="cursor:pointer" class="form-control">
+                                                <option disabled selected>State</option>
+                                                <option>Johor</option>
+                                                <option>Kedah</option>
+                                                <option>Kelantan</option>
+                                                <option>Melaka</option>
+                                                <option>Negeri Sembilan</option>
+                                                <option>Pahang</option>
+                                                <option>Perak</option>
+                                                <option>Perlis</option>
+                                                <option>Pulau Pinang</option>
+                                                <option>Sabah</option>
+                                                <option>Sarawak</option>
+                                                <option>Selangor</option>
+                                                <option>Terengganu</option>
+                                                <option>Wilayah Persekutuan Malaysia</option>  
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input id="postalcode5" type="text" class="form-control" placeholder="Postal Code">
+                                        </div>
+                                    </div> 
+                                    <br>
+                                        <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
+                                        <div class="row">
+                                        <div class="col-md-6">
+                                            <input id="latitude5" type="text" class="form-control" placeholder="Latitude">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input id="longitude5" type="text" class="form-control" placeholder="Longitude">
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div  id="locationextra4" class="location-none" style="margin-top: 30px;">
+                                        <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
+                                        <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
+                                        <input id="product_location6" type="text" class="form-control" placeholder="Enter your waste Address, City, Postcode and State">
+                                        <br>
+                                        <select id="city6" style="cursor:pointer" class="form-control">
+                                          <option disabled selected>City</option>
+                                          <option>Johor Bahru</option>
+                                          <option>Batu Pahat</option>
+                                          <option>Kluang</option>
+                                          <option>Kulai</option>
+                                          <option>Muar</option>
+                                          <option>Kota Tinggi</option>
+                                          <option>Segamat</option>
+                                          <option>Pontian</option>
+                                          <option>Tangkak</option>
+                                          <option>Mersing</option>
+                                          <option>Sungai Petani</option>
+                                          <option>Alor Setar</option>
+                                          <option>Kulim</option>
+                                          <option>Kubang Pasu</option>
+                                          <option>Baling</option>
+                                          <option>Pendang</option>
+                                          <option>Langkawi</option>
+                                          <option>Yan</option>
+                                          <option>Sik</option>
+                                          <option>Padang Terap</option>
+                                          <option>Pokok Sena</option>
+                                          <option>Bandar Baharu</option>
+                                          <option>Kota Bharu</option>
+                                          <option>Pasir Mas</option>
+                                          <option>Tumpat</option>
+                                          <option>Bachok</option>
+                                          <option>Tanah Merah</option>
+                                          <option>Pasir Puteh</option>
+                                          <option>Kuala Krai</option>
+                                          <option>Machang</option>
+                                          <option>Gua Musang</option>
+                                          <option>Jeli</option>
+                                          <option>Lojing</option>
+                                          <option>Melaka Tengah</option>
+                                          <option>Alor Gajah</option>
+                                          <option>Jasin</option>
+                                          <option>Seremban</option>
+                                          <option>Jempol</option>
+                                          <option>Port Dickson</option>
+                                          <option>Tampin</option>
+                                          <option>Kuala Pilah</option>
+                                          <option>Rembah</option>
+                                          <option>Jelebu</option>
+                                          <option>Kuantan</option>
+                                          <option>Temerloh</option>
+                                          <option>Bentong</option>
+                                          <option>Maran</option>
+                                          <option>Rompin</option>
+                                          <option>Pekan</option>
+                                          <option>Bera</option>
+                                          <option>Raub</option>
+                                          <option>Jerantut</option>
+                                          <option>Lipis</option>
+                                          <option>Cameron Highlands</option>
+                                          <option>Kinta</option>
+                                          <option>Larut, Matang, Selama</option>
+                                          <option>Manjung</option>
+                                          <option>Hilir Perak</option>
+                                          <option>Kerian</option>
+                                          <option>Batang Padang</option>
+                                          <option>Kuala Kangsar</option>
+                                          <option>Perak Tengah</option>
+                                          <option>Hulu Perak</option>
+                                          <option>Kampar</option>
+                                          <option>Muallim</option>
+                                          <option>Bagan Datuk</option>
+                                          <option>Perlis</option>
+                                          <option>Timur Laut Pulau Pinang</option>
+                                          <option>Seberang Perai Tengah</option>
+                                          <option>Seberang Perai Utara</option>
+                                          <option>Barat Daya Pulau Pinang</option>
+                                          <option>Seberang Perai Selatan</option>
+                                          <option>Kota Kinabalu</option>
+                                          <option>Tawau</option>
+                                          <option>Sandakan</option>
+                                          <option>Lahad Datu</option>
+                                          <option>Keningau</option>
+                                          <option>Kinabatangan</option>
+                                          <option>Semporna</option>
+                                          <option>Papar</option>
+                                          <option>Penampang</option>
+                                          <option>Beluran</option>
+                                          <option>Tuaran</option>
+                                          <option>Ranau</option>
+                                          <option>Kota Belud</option>
+                                          <option>Kudat</option>
+                                          <option>Kota Marudu</option>
+                                          <option>Beaufort</option>
+                                          <option>Kunak</option>
+                                          <option>Tenom</option>
+                                          <option>Putatan</option>
+                                          <option>Pitas</option>
+                                          <option>Tambunan</option>
+                                          <option>Tongod</option>
+                                          <option>Sipitang</option>
+                                          <option>Nabawan</option>
+                                          <option>Kuala Penyu</option>
+                                          <option>Kuching</option>
+                                          <option>Miri</option>
+                                          <option>Sibu</option>
+                                          <option>Bintulu</option>
+                                          <option>Serian</option>
+                                          <option>Samarahan</option>
+                                          <option>Sri Aman</option>
+                                          <option>Marudu</option>
+                                          <option>Betong</option>
+                                          <option>Sarikei</option>
+                                          <option>Kapit</option>
+                                          <option>Bau</option>
+                                          <option>Limbang</option>
+                                          <option>Saratok</option>
+                                          <option>Mukah</option>
+                                          <option>Simunjan</option>
+                                          <option>Lawas</option>
+                                          <option>Belaga</option>
+                                          <option>Lundu</option>
+                                          <option>Asajaya</option>
+                                          <option>Daro</option>
+                                          <option>Tatau</option>
+                                          <option>Maradong</option>
+                                          <option>Kanowit</option>
+                                          <option>Lubok Antu</option>
+                                          <option>Selangau</option>
+                                          <option>Song</option>
+                                          <option>Dalat</option>
+                                          <option>Matu</option>
+                                          <option>Julau</option>
+                                          <option>Pakan	</option>
+                                          <option>Padawan</option>
+                                          <option>Petaling</option>
+                                          <option>Hulu Langat</option>
+                                          <option>Klang</option>
+                                          <option>Gombak</option>
+                                          <option>Kuala Langat</option>
+                                          <option>Sepang</option>
+                                          <option>Kuala Selangor</option>
+                                          <option>Hulu Selangor</option>
+                                          <option>Sabak Bernam</option>
+                                          <option>Kuala Terengganu</option>
+                                          <option>Kemaman</option>
+                                          <option>Dungun</option>
+                                          <option>Besut</option>
+                                          <option>Marang</option>
+                                          <option>Hulu Terengganu</option>
+                                          <option>Setiu</option>
+                                          <option>Kuala Nerus</option>
+                                          <option>Kuala Lumpur</option>
+                                          <option>Labuan</option>
+                                          <option>Putrajaya</option>
+                                        </select>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <select id="state6" style="cursor:pointer" class="form-control">
+                                                <option disabled selected>State</option>
+                                                <option>Johor</option>
+                                                <option>Kedah</option>
+                                                <option>Kelantan</option>
+                                                <option>Melaka</option>
+                                                <option>Negeri Sembilan</option>
+                                                <option>Pahang</option>
+                                                <option>Perak</option>
+                                                <option>Perlis</option>
+                                                <option>Pulau Pinang</option>
+                                                <option>Sabah</option>
+                                                <option>Sarawak</option>
+                                                <option>Selangor</option>
+                                                <option>Terengganu</option>
+                                                <option>Wilayah Persekutuan Malaysia</option>  
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input id="postalcode6" type="text" class="form-control" placeholder="Postal Code">
+                                        </div>
+                                    </div> 
+                                    <br>
+                                        <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
+                                        <div class="row">
+                                        <div class="col-md-6">
+                                            <input id="latitude6" type="text" class="form-control" placeholder="Latitude">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input id="longitude6" type="text" class="form-control" placeholder="Longitude">
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <button id="addlocation1" class="btn btn-location" style="margin-bottom: 20px;">+ Add another location</button>
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Name of material</label>
+                                        <label class="login-text">Transportation mode</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input id="material_name2" type="text" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">State of material</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <select id="material_state2" class="form-control" style="cursor:pointer" required>
+                                        <select id="transportation2" class="form-control" style="cursor:pointer" required>
                                           <option disabled selected value="">Please choose</option>
-                                          <option>Solid</option>
-                                          <option>Liquid</option>
-                                          <option>Gaseous</option>
+                                          <option>Pick up by customer</option>
+                                          <option>Delivered by seller</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row text-padding">
                                     <div class="col-md-3">
-                                        <label class="login-text">Category</label>
+                                        <label class="login-text">Additional information</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="category2" class="form-control" style="cursor:pointer" required>
-                                          
-                                        </select>
+                                        <textarea id="product_desc2" type="text" class="form-control" placeholder="Write your additional information..."></textarea>
                                     </div>
                                 </div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">Product season</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <select id="season2" class="form-control" style="cursor:pointer" required>
-                                          <option disabled selected value=""> Please choose</option>
-                                          <option>Continuous</option>
-                                          <option>One-Time</option>
-                                          <option>Seasonal</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">Package  <i class="fas fa-info-circle" id="showpackage2" style="color: blue;"></i></label>
-                                        <div id="pop2" class="pop" style="width: 650px; background-color: #F2F2F2; border: solid lightgray; padding-bottom: 10px; padding-top: 10px;">
-                                            <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="card col-md-2 mx-auto" style="padding: 10px; margin: 5px;">
-                                                    <div style="margin-left: auto; margin-right: auto;">
-                                                        <p class="text-center" style="margin-bottom: 35px; font-weight: bold;">Package A</p>
-                                                        <p class="text-center">Advertise :</p>
-                                                        <p class="text-center" style="margin-bottom: 15px;">3 Month</p>
-                                                        <p class="text-center">RM 100</p>
-                                                    </div>
-                                                </div>
-                                                <div class="card col-md-2 mx-auto" style="padding: 10px; margin: 5px;">
-                                                    <div style="margin-left: auto; margin-right: auto;">
-                                                        <p class="text-center" style="margin-bottom: 35px; font-weight: bold;">Package B</p>
-                                                        <p class="text-center">Advertise :</p>
-                                                        <p class="text-center" style="margin-bottom: 15px;">6 Month</p>
-                                                        <p class="text-center">RM 200</p>
-                                                    </div>
-                                                </div>
-                                                <div class="card col-md-2 mx-auto" style="padding: 10px; margin: 5px;">
-                                                    <div style="margin-left: auto; margin-right: auto;">
-                                                        <p class="text-center" style="margin-bottom: 35px; font-weight: bold;">Package C</p>
-                                                        <p class="text-center">Advertise :</p>
-                                                        <p class="text-center" style="margin-bottom: 15px;">12 Month</p>
-                                                        <p class="text-center">RM 300</p>
-                                                    </div>
-                                                </div>
-                                                <div class="card col-md-2 mx-auto" style="padding: 10px; margin: 5px;">
-                                                    <div style="margin-left: auto; margin-right: auto;">
-                                                        <p class="text-center" style="margin-bottom: 10px; font-weight: bold;">Premium Package A</p>
-                                                        <p class="text-center">Advertise :</p>
-                                                        <p class="text-center" style="margin-bottom: 15px;">3 Month</p>
-                                                        <p class="text-center">RM 400</p>
-                                                    </div>
-                                                </div>
-                                                <div class="card col-md-2 mx-auto" style="padding: 10px; margin: 5px;">
-                                                    <div style="margin-left: auto; margin-right: auto;">
-                                                        <p class="text-center" style="margin-bottom: 10px; font-weight: bold;">Premium Package B</p>
-                                                        <p class="text-center">Advertise :</p>
-                                                        <p class="text-center" style="margin-bottom: 15px;">6 Month</p>
-                                                        <p class="text-center">RM 500</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div style="margin-top: 30px;">
+                                    <div style="margin-bottom: 20px; font-weight: bold;">Attachment</div>
+                                    <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">Upload photos</label>
+                                            <div style="color: lightgray; font-size: 12px; font-style: italic;">(Max. size : 1MB for each photo uploaded)</div>
+                                        </div>
+                                        <div class="col-md-9">
+                                        <div>
+                                            <input id="productPicture6" type="file" onchange="readURL(this, 'previewProfile6')" style="display: none">
+                                            <div id="openFile6" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="dependantImg choose-photo">
+                                            <img id="previewProfile6" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <select id="package2" class="form-control" style="cursor:pointer" required>
-                                          
-                                        </select>
-                                    </div>
-                                </div>
-                            <div style="margin-top: 30px; margin-bottom: 20px;">
-                                <div style="margin-bottom: 10px; font-weight: bold;">Location</div>
-                                <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                <input id="product_location4" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State" required>
-                                    <br>
-                                    <select id="city4" style="cursor:pointer" class="form-control" required>
-                                      <option disabled selected value="">City</option>
-                                      <option>Johor Bahru</option>
-                                      <option>Batu Pahat</option>
-                                      <option>Kluang</option>
-                                      <option>Kulai</option>
-                                      <option>Muar</option>
-                                      <option>Kota Tinggi</option>
-                                      <option>Segamat</option>
-                                      <option>Pontian</option>
-                                      <option>Tangkak</option>
-                                      <option>Mersing</option>
-                                      <option>Sungai Petani</option>
-                                      <option>Alor Setar</option>
-                                      <option>Kulim</option>
-                                      <option>Kubang Pasu</option>
-                                      <option>Baling</option>
-                                      <option>Pendang</option>
-                                      <option>Langkawi</option>
-                                      <option>Yan</option>
-                                      <option>Sik</option>
-                                      <option>Padang Terap</option>
-                                      <option>Pokok Sena</option>
-                                      <option>Bandar Baharu</option>
-                                      <option>Kota Bharu</option>
-                                      <option>Pasir Mas</option>
-                                      <option>Tumpat</option>
-                                      <option>Bachok</option>
-                                      <option>Tanah Merah</option>
-                                      <option>Pasir Puteh</option>
-                                      <option>Kuala Krai</option>
-                                      <option>Machang</option>
-                                      <option>Gua Musang</option>
-                                      <option>Jeli</option>
-                                      <option>Lojing</option>
-                                      <option>Melaka Tengah</option>
-                                      <option>Alor Gajah</option>
-                                      <option>Jasin</option>
-                                      <option>Seremban</option>
-                                      <option>Jempol</option>
-                                      <option>Port Dickson</option>
-                                      <option>Tampin</option>
-                                      <option>Kuala Pilah</option>
-                                      <option>Rembah</option>
-                                      <option>Jelebu</option>
-                                      <option>Kuantan</option>
-                                      <option>Temerloh</option>
-                                      <option>Bentong</option>
-                                      <option>Maran</option>
-                                      <option>Rompin</option>
-                                      <option>Pekan</option>
-                                      <option>Bera</option>
-                                      <option>Raub</option>
-                                      <option>Jerantut</option>
-                                      <option>Lipis</option>
-                                      <option>Cameron Highlands</option>
-                                      <option>Kinta</option>
-                                      <option>Larut, Matang, Selama</option>
-                                      <option>Manjung</option>
-                                      <option>Hilir Perak</option>
-                                      <option>Kerian</option>
-                                      <option>Batang Padang</option>
-                                      <option>Kuala Kangsar</option>
-                                      <option>Perak Tengah</option>
-                                      <option>Hulu Perak</option>
-                                      <option>Kampar</option>
-                                      <option>Muallim</option>
-                                      <option>Bagan Datuk</option>
-                                      <option>Perlis</option>
-                                      <option>Timur Laut Pulau Pinang</option>
-                                      <option>Seberang Perai Tengah</option>
-                                      <option>Seberang Perai Utara</option>
-                                      <option>Barat Daya Pulau Pinang</option>
-                                      <option>Seberang Perai Selatan</option>
-                                      <option>Kota Kinabalu</option>
-                                      <option>Tawau</option>
-                                      <option>Sandakan</option>
-                                      <option>Lahad Datu</option>
-                                      <option>Keningau</option>
-                                      <option>Kinabatangan</option>
-                                      <option>Semporna</option>
-                                      <option>Papar</option>
-                                      <option>Penampang</option>
-                                      <option>Beluran</option>
-                                      <option>Tuaran</option>
-                                      <option>Ranau</option>
-                                      <option>Kota Belud</option>
-                                      <option>Kudat</option>
-                                      <option>Kota Marudu</option>
-                                      <option>Beaufort</option>
-                                      <option>Kunak</option>
-                                      <option>Tenom</option>
-                                      <option>Putatan</option>
-                                      <option>Pitas</option>
-                                      <option>Tambunan</option>
-                                      <option>Tongod</option>
-                                      <option>Sipitang</option>
-                                      <option>Nabawan</option>
-                                      <option>Kuala Penyu</option>
-                                      <option>Kuching</option>
-                                      <option>Miri</option>
-                                      <option>Sibu</option>
-                                      <option>Bintulu</option>
-                                      <option>Serian</option>
-                                      <option>Samarahan</option>
-                                      <option>Sri Aman</option>
-                                      <option>Marudu</option>
-                                      <option>Betong</option>
-                                      <option>Sarikei</option>
-                                      <option>Kapit</option>
-                                      <option>Bau</option>
-                                      <option>Limbang</option>
-                                      <option>Saratok</option>
-                                      <option>Mukah</option>
-                                      <option>Simunjan</option>
-                                      <option>Lawas</option>
-                                      <option>Belaga</option>
-                                      <option>Lundu</option>
-                                      <option>Asajaya</option>
-                                      <option>Daro</option>
-                                      <option>Tatau</option>
-                                      <option>Maradong</option>
-                                      <option>Kanowit</option>
-                                      <option>Lubok Antu</option>
-                                      <option>Selangau</option>
-                                      <option>Song</option>
-                                      <option>Dalat</option>
-                                      <option>Matu</option>
-                                      <option>Julau</option>
-                                      <option>Pakan	</option>
-                                      <option>Padawan</option>
-                                      <option>Petaling</option>
-                                      <option>Hulu Langat</option>
-                                      <option>Klang</option>
-                                      <option>Gombak</option>
-                                      <option>Kuala Langat</option>
-                                      <option>Sepang</option>
-                                      <option>Kuala Selangor</option>
-                                      <option>Hulu Selangor</option>
-                                      <option>Sabak Bernam</option>
-                                      <option>Kuala Terengganu</option>
-                                      <option>Kemaman</option>
-                                      <option>Dungun</option>
-                                      <option>Besut</option>
-                                      <option>Marang</option>
-                                      <option>Hulu Terengganu</option>
-                                      <option>Setiu</option>
-                                      <option>Kuala Nerus</option>
-                                      <option>Kuala Lumpur</option>
-                                      <option>Labuan</option>
-                                      <option>Putrajaya</option>
-                                    </select>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <select id="state4" style="cursor:pointer" class="form-control" required>
-                                            <option disabled selected value="">State</option>
-                                            <option>Johor</option>
-                                            <option>Kedah</option>
-                                            <option>Kelantan</option>
-                                            <option>Melaka</option>
-                                            <option>Negeri Sembilan</option>
-                                            <option>Pahang</option>
-                                            <option>Perak</option>
-                                            <option>Perlis</option>
-                                            <option>Pulau Pinang</option>
-                                            <option>Sabah</option>
-                                            <option>Sarawak</option>
-                                            <option>Selangor</option>
-                                            <option>Terengganu</option>
-                                            <option>Wilayah Persekutuan Malaysia</option>  
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input id="postalcode4" type="text" class="form-control" placeholder="Postal Code" required>
-                                    </div>
-                                </div> 
-                                <br>
-                                <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
-                                <div class="row">
-                                <div class="col-md-6">
-                                    <input id="latitude4" type="text" class="form-control" placeholder="Latitude" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <input id="longitude4" type="text" class="form-control" placeholder="Longitude" required>
-                                </div>
-                                </div>
-                                <div  id="locationextra3" class="location-none" style="margin-top: 30px;">
-                                    <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
-                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                    <input id="product_location5" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
-                                    <br>
-                                    <select id="city5" style="cursor:pointer" class="form-control">
-                                      <option disabled selected>City</option>
-                                      <option>Johor Bahru</option>
-                                      <option>Batu Pahat</option>
-                                      <option>Kluang</option>
-                                      <option>Kulai</option>
-                                      <option>Muar</option>
-                                      <option>Kota Tinggi</option>
-                                      <option>Segamat</option>
-                                      <option>Pontian</option>
-                                      <option>Tangkak</option>
-                                      <option>Mersing</option>
-                                      <option>Sungai Petani</option>
-                                      <option>Alor Setar</option>
-                                      <option>Kulim</option>
-                                      <option>Kubang Pasu</option>
-                                      <option>Baling</option>
-                                      <option>Pendang</option>
-                                      <option>Langkawi</option>
-                                      <option>Yan</option>
-                                      <option>Sik</option>
-                                      <option>Padang Terap</option>
-                                      <option>Pokok Sena</option>
-                                      <option>Bandar Baharu</option>
-                                      <option>Kota Bharu</option>
-                                      <option>Pasir Mas</option>
-                                      <option>Tumpat</option>
-                                      <option>Bachok</option>
-                                      <option>Tanah Merah</option>
-                                      <option>Pasir Puteh</option>
-                                      <option>Kuala Krai</option>
-                                      <option>Machang</option>
-                                      <option>Gua Musang</option>
-                                      <option>Jeli</option>
-                                      <option>Lojing</option>
-                                      <option>Melaka Tengah</option>
-                                      <option>Alor Gajah</option>
-                                      <option>Jasin</option>
-                                      <option>Seremban</option>
-                                      <option>Jempol</option>
-                                      <option>Port Dickson</option>
-                                      <option>Tampin</option>
-                                      <option>Kuala Pilah</option>
-                                      <option>Rembah</option>
-                                      <option>Jelebu</option>
-                                      <option>Kuantan</option>
-                                      <option>Temerloh</option>
-                                      <option>Bentong</option>
-                                      <option>Maran</option>
-                                      <option>Rompin</option>
-                                      <option>Pekan</option>
-                                      <option>Bera</option>
-                                      <option>Raub</option>
-                                      <option>Jerantut</option>
-                                      <option>Lipis</option>
-                                      <option>Cameron Highlands</option>
-                                      <option>Kinta</option>
-                                      <option>Larut, Matang, Selama</option>
-                                      <option>Manjung</option>
-                                      <option>Hilir Perak</option>
-                                      <option>Kerian</option>
-                                      <option>Batang Padang</option>
-                                      <option>Kuala Kangsar</option>
-                                      <option>Perak Tengah</option>
-                                      <option>Hulu Perak</option>
-                                      <option>Kampar</option>
-                                      <option>Muallim</option>
-                                      <option>Bagan Datuk</option>
-                                      <option>Perlis</option>
-                                      <option>Timur Laut Pulau Pinang</option>
-                                      <option>Seberang Perai Tengah</option>
-                                      <option>Seberang Perai Utara</option>
-                                      <option>Barat Daya Pulau Pinang</option>
-                                      <option>Seberang Perai Selatan</option>
-                                      <option>Kota Kinabalu</option>
-                                      <option>Tawau</option>
-                                      <option>Sandakan</option>
-                                      <option>Lahad Datu</option>
-                                      <option>Keningau</option>
-                                      <option>Kinabatangan</option>
-                                      <option>Semporna</option>
-                                      <option>Papar</option>
-                                      <option>Penampang</option>
-                                      <option>Beluran</option>
-                                      <option>Tuaran</option>
-                                      <option>Ranau</option>
-                                      <option>Kota Belud</option>
-                                      <option>Kudat</option>
-                                      <option>Kota Marudu</option>
-                                      <option>Beaufort</option>
-                                      <option>Kunak</option>
-                                      <option>Tenom</option>
-                                      <option>Putatan</option>
-                                      <option>Pitas</option>
-                                      <option>Tambunan</option>
-                                      <option>Tongod</option>
-                                      <option>Sipitang</option>
-                                      <option>Nabawan</option>
-                                      <option>Kuala Penyu</option>
-                                      <option>Kuching</option>
-                                      <option>Miri</option>
-                                      <option>Sibu</option>
-                                      <option>Bintulu</option>
-                                      <option>Serian</option>
-                                      <option>Samarahan</option>
-                                      <option>Sri Aman</option>
-                                      <option>Marudu</option>
-                                      <option>Betong</option>
-                                      <option>Sarikei</option>
-                                      <option>Kapit</option>
-                                      <option>Bau</option>
-                                      <option>Limbang</option>
-                                      <option>Saratok</option>
-                                      <option>Mukah</option>
-                                      <option>Simunjan</option>
-                                      <option>Lawas</option>
-                                      <option>Belaga</option>
-                                      <option>Lundu</option>
-                                      <option>Asajaya</option>
-                                      <option>Daro</option>
-                                      <option>Tatau</option>
-                                      <option>Maradong</option>
-                                      <option>Kanowit</option>
-                                      <option>Lubok Antu</option>
-                                      <option>Selangau</option>
-                                      <option>Song</option>
-                                      <option>Dalat</option>
-                                      <option>Matu</option>
-                                      <option>Julau</option>
-                                      <option>Pakan	</option>
-                                      <option>Padawan</option>
-                                      <option>Petaling</option>
-                                      <option>Hulu Langat</option>
-                                      <option>Klang</option>
-                                      <option>Gombak</option>
-                                      <option>Kuala Langat</option>
-                                      <option>Sepang</option>
-                                      <option>Kuala Selangor</option>
-                                      <option>Hulu Selangor</option>
-                                      <option>Sabak Bernam</option>
-                                      <option>Kuala Terengganu</option>
-                                      <option>Kemaman</option>
-                                      <option>Dungun</option>
-                                      <option>Besut</option>
-                                      <option>Marang</option>
-                                      <option>Hulu Terengganu</option>
-                                      <option>Setiu</option>
-                                      <option>Kuala Nerus</option>
-                                      <option>Kuala Lumpur</option>
-                                      <option>Labuan</option>
-                                      <option>Putrajaya</option>
-                                    </select>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <select id="category5" style="cursor:pointer" class="form-control">
-                                            <option disabled selected>State</option>
-                                            <option>Johor</option>
-                                            <option>Kedah</option>
-                                            <option>Kelantan</option>
-                                            <option>Melaka</option>
-                                            <option>Negeri Sembilan</option>
-                                            <option>Pahang</option>
-                                            <option>Perak</option>
-                                            <option>Perlis</option>
-                                            <option>Pulau Pinang</option>
-                                            <option>Sabah</option>
-                                            <option>Sarawak</option>
-                                            <option>Selangor</option>
-                                            <option>Terengganu</option>
-                                            <option>Wilayah Persekutuan Malaysia</option>  
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input id="postalcode5" type="text" class="form-control" placeholder="Postal Code">
-                                    </div>
-                                </div> 
-                                <br>
-                                    <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
-                                    <div class="row">
-                                    <div class="col-md-6">
-                                        <input id="latitude5" type="text" class="form-control" placeholder="Latitude">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input id="longitude5" type="text" class="form-control" placeholder="Longitude">
-                                    </div>
-                                    </div>
-                                </div>
-                                <div  id="locationextra4" class="location-none" style="margin-top: 30px;">
-                                    <div class="line-bottom" style="margin-bottom: 30px; width: 100%"></div>
-                                    <div style="font-style: italic; font-size: 12px;">Step 1 - Enter your material location</div>
-                                    <input id="product_location6" type="text" class="form-control" placeholder="Enter your service Address, City, Postcode and State">
-                                    <br>
-                                    <select id="city6" style="cursor:pointer" class="form-control">
-                                      <option disabled selected>City</option>
-                                      <option>Johor Bahru</option>
-                                      <option>Batu Pahat</option>
-                                      <option>Kluang</option>
-                                      <option>Kulai</option>
-                                      <option>Muar</option>
-                                      <option>Kota Tinggi</option>
-                                      <option>Segamat</option>
-                                      <option>Pontian</option>
-                                      <option>Tangkak</option>
-                                      <option>Mersing</option>
-                                      <option>Sungai Petani</option>
-                                      <option>Alor Setar</option>
-                                      <option>Kulim</option>
-                                      <option>Kubang Pasu</option>
-                                      <option>Baling</option>
-                                      <option>Pendang</option>
-                                      <option>Langkawi</option>
-                                      <option>Yan</option>
-                                      <option>Sik</option>
-                                      <option>Padang Terap</option>
-                                      <option>Pokok Sena</option>
-                                      <option>Bandar Baharu</option>
-                                      <option>Kota Bharu</option>
-                                      <option>Pasir Mas</option>
-                                      <option>Tumpat</option>
-                                      <option>Bachok</option>
-                                      <option>Tanah Merah</option>
-                                      <option>Pasir Puteh</option>
-                                      <option>Kuala Krai</option>
-                                      <option>Machang</option>
-                                      <option>Gua Musang</option>
-                                      <option>Jeli</option>
-                                      <option>Lojing</option>
-                                      <option>Melaka Tengah</option>
-                                      <option>Alor Gajah</option>
-                                      <option>Jasin</option>
-                                      <option>Seremban</option>
-                                      <option>Jempol</option>
-                                      <option>Port Dickson</option>
-                                      <option>Tampin</option>
-                                      <option>Kuala Pilah</option>
-                                      <option>Rembah</option>
-                                      <option>Jelebu</option>
-                                      <option>Kuantan</option>
-                                      <option>Temerloh</option>
-                                      <option>Bentong</option>
-                                      <option>Maran</option>
-                                      <option>Rompin</option>
-                                      <option>Pekan</option>
-                                      <option>Bera</option>
-                                      <option>Raub</option>
-                                      <option>Jerantut</option>
-                                      <option>Lipis</option>
-                                      <option>Cameron Highlands</option>
-                                      <option>Kinta</option>
-                                      <option>Larut, Matang, Selama</option>
-                                      <option>Manjung</option>
-                                      <option>Hilir Perak</option>
-                                      <option>Kerian</option>
-                                      <option>Batang Padang</option>
-                                      <option>Kuala Kangsar</option>
-                                      <option>Perak Tengah</option>
-                                      <option>Hulu Perak</option>
-                                      <option>Kampar</option>
-                                      <option>Muallim</option>
-                                      <option>Bagan Datuk</option>
-                                      <option>Perlis</option>
-                                      <option>Timur Laut Pulau Pinang</option>
-                                      <option>Seberang Perai Tengah</option>
-                                      <option>Seberang Perai Utara</option>
-                                      <option>Barat Daya Pulau Pinang</option>
-                                      <option>Seberang Perai Selatan</option>
-                                      <option>Kota Kinabalu</option>
-                                      <option>Tawau</option>
-                                      <option>Sandakan</option>
-                                      <option>Lahad Datu</option>
-                                      <option>Keningau</option>
-                                      <option>Kinabatangan</option>
-                                      <option>Semporna</option>
-                                      <option>Papar</option>
-                                      <option>Penampang</option>
-                                      <option>Beluran</option>
-                                      <option>Tuaran</option>
-                                      <option>Ranau</option>
-                                      <option>Kota Belud</option>
-                                      <option>Kudat</option>
-                                      <option>Kota Marudu</option>
-                                      <option>Beaufort</option>
-                                      <option>Kunak</option>
-                                      <option>Tenom</option>
-                                      <option>Putatan</option>
-                                      <option>Pitas</option>
-                                      <option>Tambunan</option>
-                                      <option>Tongod</option>
-                                      <option>Sipitang</option>
-                                      <option>Nabawan</option>
-                                      <option>Kuala Penyu</option>
-                                      <option>Kuching</option>
-                                      <option>Miri</option>
-                                      <option>Sibu</option>
-                                      <option>Bintulu</option>
-                                      <option>Serian</option>
-                                      <option>Samarahan</option>
-                                      <option>Sri Aman</option>
-                                      <option>Marudu</option>
-                                      <option>Betong</option>
-                                      <option>Sarikei</option>
-                                      <option>Kapit</option>
-                                      <option>Bau</option>
-                                      <option>Limbang</option>
-                                      <option>Saratok</option>
-                                      <option>Mukah</option>
-                                      <option>Simunjan</option>
-                                      <option>Lawas</option>
-                                      <option>Belaga</option>
-                                      <option>Lundu</option>
-                                      <option>Asajaya</option>
-                                      <option>Daro</option>
-                                      <option>Tatau</option>
-                                      <option>Maradong</option>
-                                      <option>Kanowit</option>
-                                      <option>Lubok Antu</option>
-                                      <option>Selangau</option>
-                                      <option>Song</option>
-                                      <option>Dalat</option>
-                                      <option>Matu</option>
-                                      <option>Julau</option>
-                                      <option>Pakan	</option>
-                                      <option>Padawan</option>
-                                      <option>Petaling</option>
-                                      <option>Hulu Langat</option>
-                                      <option>Klang</option>
-                                      <option>Gombak</option>
-                                      <option>Kuala Langat</option>
-                                      <option>Sepang</option>
-                                      <option>Kuala Selangor</option>
-                                      <option>Hulu Selangor</option>
-                                      <option>Sabak Bernam</option>
-                                      <option>Kuala Terengganu</option>
-                                      <option>Kemaman</option>
-                                      <option>Dungun</option>
-                                      <option>Besut</option>
-                                      <option>Marang</option>
-                                      <option>Hulu Terengganu</option>
-                                      <option>Setiu</option>
-                                      <option>Kuala Nerus</option>
-                                      <option>Kuala Lumpur</option>
-                                      <option>Labuan</option>
-                                      <option>Putrajaya</option>
-                                    </select>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <select id="state6" style="cursor:pointer" class="form-control">
-                                            <option disabled selected>State</option>
-                                            <option>Johor</option>
-                                            <option>Kedah</option>
-                                            <option>Kelantan</option>
-                                            <option>Melaka</option>
-                                            <option>Negeri Sembilan</option>
-                                            <option>Pahang</option>
-                                            <option>Perak</option>
-                                            <option>Perlis</option>
-                                            <option>Pulau Pinang</option>
-                                            <option>Sabah</option>
-                                            <option>Sarawak</option>
-                                            <option>Selangor</option>
-                                            <option>Terengganu</option>
-                                            <option>Wilayah Persekutuan Malaysia</option>  
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input id="postalcode6" type="text" class="form-control" placeholder="Postal Code">
-                                    </div>
-                                </div> 
-                                <br>
-                                    <div style="font-style: italic; font-size: 12px;">Step 2 - Enter your latitude and longitude</div>
-                                    <div class="row">
-                                    <div class="col-md-6">
-                                        <input id="latitude6" type="text" class="form-control" placeholder="Latitude">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input id="longitude6" type="text" class="form-control" placeholder="Longitude">
-                                    </div>
-                                    </div>
-                                </div> 
-                                <br>
-                                <button id="addlocation1" class="btn btn-location" style="margin-bottom: 20px;">+ Add another location</button>
-                            </div>
-                            <div class="row text-padding">
-                                <div class="col-md-3">
-                                    <label class="login-text">Transportation mode</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <select id="transportation2" class="form-control">
-                                      <option disabled selected>Please choose</option>
-                                      <option>Pick up by customer</option>
-                                      <option>Delivered by seller</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row text-padding">
-                                <div class="col-md-3">
-                                    <label class="login-text">Additional information</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <textarea id="product_desc2" type="text" class="form-control" placeholder="Write your additional information..."></textarea>
-                                </div>
-                            </div>
-                            <div style="margin-top: 30px;">
-                                <div style="margin-bottom: 20px; font-weight: bold;">Attachment</div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">Upload photos</label>
-                                        <div style="color: lightgray; font-size: 12px; font-style: italic;">(Max. size : 1MB for each photo uploaded)</div>
-                                    </div>
-                                    <div class="col-md-9">
-                                    <div>
-                                        <input id="productPicture6" type="file" onchange="readURL(this, 'previewProfile6')" style="display: none">
-                                        <div id="openFile6" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="dependantImg choose-photo">
-                                        <img id="previewProfile6" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <div class="row">
+                                        <div class="col-md-3">
+                                            <input id="productPicture7" type="file" onchange="readURL(this, 'previewProfile7')" style="display: none">
+                                            <div id="openFile7" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="dependantImg choose-photo">
+                                            <img id="previewProfile7" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                    <div class="col-md-3">
-                                        <input id="productPicture7" type="file" onchange="readURL(this, 'previewProfile7')" style="display: none">
-                                        <div id="openFile7" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="dependantImg choose-photo">
-                                        <img id="previewProfile7" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <div class="col-md-3">
+                                            <input id="productPicture8" type="file" onchange="readURL(this, 'previewProfile8')" style="display: none">
+                                            <div id="openFile8" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="dependantImg choose-photo">
+                                            <img id="previewProfile8" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input id="productPicture8" type="file" onchange="readURL(this, 'previewProfile8')" style="display: none">
-                                        <div id="openFile8" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%" class="dependantImg choose-photo">
-                                        <img id="previewProfile8" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <div class="col-md-3">
+                                            <input id="productPicture9" type="file" onchange="readURL(this, 'previewProfile9')" style="display: none">
+                                            <div id="openFile9" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
+                                             class="dependantImg choose-photo">
+                                            <img id="previewProfile9" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input id="productPicture9" type="file" onchange="readURL(this, 'previewProfile9')" style="display: none">
-                                        <div id="openFile9" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
-                                         class="dependantImg choose-photo">
-                                        <img id="previewProfile9" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                        <div class="col-md-3">
+                                            <input id="productPicture10" type="file" onchange="readURL(this, 'previewProfile10')" style="display: none">
+                                            <div id="openFile10" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
+                                             class="dependantImg choose-photo">
+                                            <img id="previewProfile10" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input id="productPicture10" type="file" onchange="readURL(this, 'previewProfile10')" style="display: none">
-                                        <div id="openFile10" style="width: 100px; height: 100px; background-color: white; margin-bottom: 20px; display: flex; border-radius: 5%"
-                                         class="dependantImg choose-photo">
-                                        <img id="previewProfile10" class="icon-center" style="width: 50px; height: 50px; border-radius: 5%" src="img/addphoto.svg">
                                         </div>
                                     </div>
                                     </div>
                                 </div>
-                                </div>
-                            </div>
-                            <div style="margin-top: 30px;">
-                                <div style="margin-bottom: 20px; font-weight: bold;">Contact Information</div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">Name</label>
+                                <div style="margin-top: 30px;">
+                                    <div style="margin-bottom: 20px; font-weight: bold;">Contact Information</div>
+                                    <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">Name</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="name2" type="text" class="form-control" disabled>
+                                        </div>
                                     </div>
-                                    <div class="col-md-9">
-                                        <input id="name2" type="text" class="form-control" disabled>
+                                    <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">Email address</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="email2" type="text" class="form-control" disabled>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">Email address</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input id="email2" type="text" class="form-control" disabled>
-                                    </div>
-                                </div>
-                                <div class="row text-padding">
-                                    <div class="col-md-3">
-                                        <label class="login-text">Telephone number</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input id="contact2" type="text" class="form-control" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="margin-top: 50px;">
-                            <div class="col-md-10" style="margin-left: auto; margin-right: auto;">
-                                <input id="agree_cb2" type="checkbox">
-                                <label> I agree that I have read and accepted the <a href="#" style="color: #0099FF;">Terms and Conditions</a></label><br> 
-                                <div class="row" style="margin-top: 20px;">
-                                    <div class="col-md-5" style="margin-left: auto;">
-                                        <div class="container">
-                                            <button id="previewbtn2" type="button" class="btn btn-cancell" data-toggle="modal" data-target="#previewad" style="width: 100%">Preview ad</button>
-                                    </div>
-                                    </div>
-                                    <div class="col-md-5" style="margin-right: auto;">
-                                        <div class="container">
-                                            <button id="submitButton2" type="button" class="btn btn-success" style="width: 100%">Submit</button>
-                                          </div>
+                                    <div class="row text-padding">
+                                        <div class="col-md-3">
+                                            <label class="login-text">Telephone number</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="contact2" type="text" class="form-control" disabled>
+                                        </div>
                                     </div>
                                 </div>
+                                <div style="margin-top: 50px;">
+                                <div class="col-md-10" style="margin-left: auto; margin-right: auto;">
+                                    <input id="agree_cb2" type="checkbox">
+                                    <label> I agree that I have read and accepted the <a href="#" style="color: #0099FF;">Terms and Conditions</a></label><br> 
+                                    <div class="row" style="margin-top: 20px;">
+                                        <div class="col-md-5" style="margin-left: auto;">
+                                            <div class="container">
+                                                <button id="previewbtn2" type="button" class="btn btn-cancell" data-toggle="modal" data-target="#previewad" style="width: 100%">Preview ad</button>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5" style="margin-right: auto;">
+                                            <div class="container">
+                                                <button id="submitButton2" class="btn btn-success" style="width: 100%">Submit</button>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>    
                             </div>
-                            
                             </div>
-                            
-                            </div>
-                        </div>
                         </form>
                         </div>
                     </div>
@@ -2424,19 +2467,27 @@
                 return false;
 
             }
+
+            $("#submitmodal").on('hide.bs.modal', function() { 
+                window.location.href = "./index1.html";
+            });
             
-            //submit wanted product
-            var highlightForm2 = document.querySelector("form#wantedform");
-            highlightForm2.addEventListener('submit',highlight2 , false);
+            // $('#submitButton2').on('click',function(){
+                //submit wanted product
+                var highlightForm = document.querySelector("form#wantedform");
+                highlightForm.addEventListener('submit',highlight2 , false);
 
-            function highlight2(event)
-            {
-                event.preventDefault();
-                submitWantedProduct();
-                $('#submitmodal').modal('toggle');
-                return false;
+                function highlight2(event)
+                {
+                    event.preventDefault();
+                    submitWantedProduct();
+                    $('#submitButton2').prop('disabled', true);
+                    $('#previewbtn2').prop('disabled', true);
+                    return false;
 
-            }
+                }
+            // })
+            
 
             $('#agree_cb').on('click',function(){
                 storePreviewAdAvailable();
@@ -2450,16 +2501,22 @@
 
         function categoryDropdownList(){
             $.ajax({
-                url: "http://codeviable.com/w2w2/public/category?idmaincategory=waste",
+                url: "http://codeviable.com/w2w2/public/category/sub?id=63",
                 type: "GET",
             }).done(function(response){
                 var tr = '<option disabled selected value="">Please choose</option>';  
 
                 $.each(response, function(i, data){
-                    tr += '<option style="text-transform:capitalize;">'+ data.name + '</option>';
+                    tr += '<option id='+ data.id +' style="text-transform:capitalize;">'+ data.name + '</option>';
                 })
                 $('#category').html(tr);
                 $('#category2').html(tr);
+
+                $("#category").on('change', function () {
+                    var id = $(this).find('option:selected').attr('id');
+                    // localStorage.setItem('paid_package', id);
+                    console.log(id);
+                });
             })
         }
 
@@ -2679,6 +2736,7 @@
                 contentType: false,
             }).done(function(response){
                 console.log(response);
+                $('#submitmodal').modal('toggle');
             })
 
         }

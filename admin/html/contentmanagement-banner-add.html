@@ -363,7 +363,12 @@ a#approval_table_previous.paginate_button.previous,
                                     style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="Check to publish and visible on the website. Uncheck it, the news will be invisible." data-placement="bottom"></i>
                                 </div>
                                 <div class="col-md-9">
-                                    <input id="publish" value="publishstatus" type="checkbox">
+                                    <input id="publish1" value="publishstatus" type="checkbox">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 10px; padding-bottom: 30px;">
+                                <div class="col-md-4" style="color: black; font-weight: bold; text-align: right;">
+                                    <button class="btn btn-primary" id="publish">Publish</button>
                                 </div>
                             </div>
                         </div>
@@ -528,7 +533,7 @@ a#approval_table_previous.paginate_button.previous,
 
           var title = '';
           var url = $("#url").val();
-          var publishstatus = $('#publish').val();
+          var publishstatus = "publishstatus";
           var image = $("#imageUpload").prop('files');
 
           var formData = new FormData();

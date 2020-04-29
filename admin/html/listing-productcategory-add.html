@@ -458,7 +458,7 @@ span.checkmark {
                 <div style="font-weight: 400; font-size: 20px;">Saved changes!</div>
                     <br><br><br>
                     <div style="text-align: right;">
-                        <a href="./pricing-token-edit.html" style="color: #0099FF; cursor: pointer; font-weight: 500;" data-dismiss="modal">OKAY</a>
+                        <a href="./pricing-token.html" style="color: #0099FF; cursor: pointer; font-weight: 500;" data-dismiss="modal">OKAY</a>
                     </div>
                 </div>
             </div>
@@ -520,9 +520,11 @@ span.checkmark {
             trigger: 'hover'
         });
 
-        $('#save').on('click',function(){
-            
+        $('#save').on('click',function(){  
             addcategory();
+            localStorage.removeItem('name_category');
+            localStorage.removeItem('add_category');
+            localStorage.removeItem('main_category');
         });
 
         $('#back').on('click',function(i,data){
@@ -570,8 +572,8 @@ span.checkmark {
                 subRow += '<option value=" ' + data['id'] + ' ">' + data['name'] + '</option>';
                 row = '';
                 
-				row += '<optgroup id=' + data['id'] + '  label=" ' + data['name'] + ' "></optgroup>';
-                row += '<option id=" ' + data['id'] + ' " value=" ' + data['name'] + ' " style="font-weight: bold; color: red;">&nbsp;&nbsp;&nbsp;&nbsp;' + data['name'] + '</option>';
+				row += '<optgroup id='+ data['id'] +'  label='+ data['name'] +' ></optgroup>';
+                row += '<option id='+ data['id'] +' value='+ data['name'] +' style="font-weight: bold; color: orange;">&nbsp;&nbsp;&nbsp;&nbsp;' + data['name'] + '</option>';
                 if(i==0){
                     $select.append(row2);
                 }
@@ -609,7 +611,7 @@ span.checkmark {
 			$.each(response, function(i, data) {
                 
 				subRow = '';
-				subRow += '<option id=" ' + data['id'] + ' " value=" ' + data['name'] + ' ">' + data['name'] + '</option>';
+				subRow += '<option id='+ data['id'] +' value=' + data['name'] +'>' + data['name'] + '</option>';
 				optGroup.append(subRow);
 			});
 		});
@@ -619,13 +621,14 @@ span.checkmark {
         var name = $('#name').val();
         $sub = localStorage.getItem('add_category');
         $idmaincategory = localStorage.getItem('name_category');
-        console.log($sub);console.log($idmaincategory);
         
         if($sub == null && $idmaincategory == null){
             var postdata = {
                 "name" : name,
-                "publishstatus" : "yes",
+                "publishstatus" : "yes"
             }
+
+            console.log(postdata)
         }
         else{
             console.log('sub');
@@ -638,7 +641,7 @@ span.checkmark {
         }
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/category/add",
+            url : "http://codeviable.com/w2w2/public/category/add?name=&idmaincategory=&sub=&publishstatus=",
             type : "POST",
             data : postdata,
         }).done(function(response){

@@ -649,7 +649,7 @@ span.checkmark {
                     <br><br><br>
                     <div style="text-align: right;">
                         <a href="./pricing-token-edit.html" style="color: #0099FF; cursor: pointer;" data-dismiss="modal">CANCEL</a>
-                        <a id="btn_delete" style="color: #C10000; cursor: pointer; padding-left: 10px;" data-toggle="modal" data-target="#delete_status" data-dismiss="modal">DELETE</a>
+                        <a id="delete" style="color: #C10000; cursor: pointer; padding-left: 10px;" data-toggle="modal" data-target="#delete_status" data-dismiss="modal">DELETE</a>
                     </div>
                 </div>
               </div>
@@ -842,6 +842,14 @@ span.checkmark {
                 return false;
 
             }
+
+        $('#delete').on('click',function(){
+            deleteProduct();
+        });
+
+        $("#delete_status").on('hide.bs.modal', function() { 
+            window.location.href = "./listing-approval.html";
+        });
      });
 
      function UserDetails() {
@@ -1017,6 +1025,17 @@ span.checkmark {
             }).done(function(response){
                 console.log(response)
             })
+    }
+
+    function deleteProduct(){
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/product/delete?product_id=",
+            type: "DELETE",
+            data : {"product_id" : $product_id },
+        }).done(function(response){
+            console.log(response);
+        })
     }
 
      

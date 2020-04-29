@@ -97,16 +97,16 @@ ul a:hover {
     font-size: 18px;
     border: none;
     outline: none;
-    background-color: red;
+    background-color: transparent;
     color: white;
     cursor: pointer;
     padding: 15px;
     border-radius: 4px;
     }
 
-    #myBtn:hover {
+    /* #myBtn:hover {
     background-color: gray;
-    } 
+    }  */
 
 html * {
     font-family: 'Roboto' !important;
@@ -247,7 +247,7 @@ i {
                 </select>
             </div> 
             <div class="col-md-3">
-                <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  Save search</button>
+                <!-- <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  Save search</button> -->
             </div>
             </div>
         </div>
@@ -337,7 +337,7 @@ i {
             </div>
           </div>
 
-          <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
+          <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="img/Btn_BackToTop.svg"></button>
 
           <div class="col-md-6" style="margin-left: auto; margin-right: auto; margin-bottom: 40px;">
             <div class="row" style="justify-content: center;">
@@ -408,7 +408,7 @@ i {
                             </div>
                           </form>
                           <div>
-                              <a href="#" class="forget-pass float-right login-text" style="color: #D91F1F; padding-top: 20px;">Forgot pasword?</a>
+                              <!-- <a href="#" class="forget-pass float-right login-text" style="color: #D91F1F; padding-top: 20px;">Forgot pasword?</a> -->
                           </div>
                   </div>
                   </div>
@@ -543,13 +543,13 @@ i {
                     //display date in formatted
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
                     if(data.premiumlist == "premium"){
-                        tr += '<div class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;" ></div><div class="col-md-7"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'<i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><a id="signin"><div style="color: blue; cursor: pointer;" data-toggle="modal" data-dismiss="modal" data-target="#signinmodal"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact details</div></a></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+", "+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                     else if(data.premiumlist == "regular"){
-                        tr += '<div class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;" ></div><div class="col-md-7"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'</div><p>'+data.product_desc+'</p><label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><a id="signin"><div style="color: blue; cursor: pointer;" data-toggle="modal" data-dismiss="modal" data-target="#signinmodal"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact details</div></a></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+", "+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
                         tr += '<div class="line-bottom"></div>';
-                    }   
+                    }
                 });
                     
                 $('#product_display').html(tr);  
@@ -618,11 +618,11 @@ i {
                 $.each($newList[0], function (i, data) {   
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
                     if(data.premiumlist == "premium"){
-                        tr += '<div class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;" ></div><div class="col-md-7"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'<i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><a id="signin"><div style="color: blue; cursor: pointer;" data-toggle="modal" data-dismiss="modal" data-target="#signinmodal"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact details</div></a></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+", "+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                     else if(data.premiumlist == "regular"){
-                        tr += '<div class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;" ></div><div class="col-md-7"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'</div><p>'+data.product_desc+'</p><label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><a id="signin"><div style="color: blue; cursor: pointer;" data-toggle="modal" data-dismiss="modal" data-target="#signinmodal"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact details</div></a></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+", "+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                 });

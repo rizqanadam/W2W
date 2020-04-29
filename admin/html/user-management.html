@@ -402,6 +402,14 @@ a#approval_table_previous.paginate_button.previous,
         $('#btn_logout').on('click', function(){
             localStorage.clear();
         });
+
+        $('#btn_delete').on('click',function(){
+            deleteAdmin();
+        });
+
+        $("#delete_status").on('hide.bs.modal', function() { 
+            location.reload();
+        });
      });
 
      function admin() {
@@ -514,8 +522,26 @@ a#approval_table_previous.paginate_button.previous,
                     var user_id = localStorage.setItem('admin_id', id);
                     window.location.href = "./user-management-edit.html";
                 });
+
+                $('#admin_table').delegate('#btn_delete', 'click', function() {
+                    var id = $(this).parent().parent().data('id');
+                    localStorage.setItem('del_admin', id);
+                    console.log(id);
+                });
              
          });
+     }
+
+     function deleteAdmin() {
+         var user_id = localStorage.getItem('del_admin');
+
+         $.ajax({
+             url : "http://codeviable.com/w2w2/public/user/delete?user_id=",
+             type : "DELETE",
+             data : {"user_id" :user_id}
+         }).done(function(response){
+             console.log(response)
+         })
      }
     
 

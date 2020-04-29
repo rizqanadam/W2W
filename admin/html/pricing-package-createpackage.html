@@ -450,6 +450,10 @@ a#approval_table_previous.paginate_button.previous,
         $('#btn_logout').on('click', function(){
             localStorage.clear();
         });
+
+        $("#packagemodal").on('hide.bs.modal', function() { 
+            window.location.href = "./pricing-package.html";
+        });
         
         //add token
         var highlightForm = document.querySelector("form#packageform");
@@ -497,13 +501,15 @@ a#approval_table_previous.paginate_button.previous,
         var cost = $('#package_cost').val();
         var count_ad = $('#package_ad').val();
         var premium = $('#typeDropdown').val();
+        var desc = $('#package_desc').val();
 
         var postdata = {
             "package_name" : name,
             "package_duration" : duration,
             "package_price" : cost,
             "package_limit" : count_ad,
-            "premiumlist" : premium
+            "premiumlist" : premium,
+            "description" : desc
         }
 
         $.ajax({

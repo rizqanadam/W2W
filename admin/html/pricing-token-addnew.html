@@ -438,6 +438,10 @@ a#approval_table_previous.paginate_button.previous,
             localStorage.clear();
         });
 
+        $("#tokenmodal").on('hide.bs.modal', function() { 
+            window.location.href = "./pricing-token.html";
+        });
+
         //add token
         var highlightForm = document.querySelector("form#tokenform");
             highlightForm.addEventListener('submit',highlight , false);

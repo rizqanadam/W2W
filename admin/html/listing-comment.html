@@ -299,7 +299,7 @@ a#approval_table_previous.paginate_button.previous,
                         <div style="font-size: 28px; font-weight: bold;">Comment &nbsp;&nbsp;</div>
                     </div>
                     <div class="col-md-8 text-right">
-                        <button class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button>
+                        <!-- <button class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button> -->
                     </div>
                 </div>
                 
@@ -311,11 +311,11 @@ a#approval_table_previous.paginate_button.previous,
                         <thead  class="thead" style="text-align: center; font-size: 14px;">
                             <tr style="border-bottom: 1px solid #000;">
                         <tr>
-                            <td scope="" style="text-align: center;"><input id="check_all" type="checkbox"></td>
+                            <!-- <td scope="" style="text-align: center;"><input id="check_all" type="checkbox"></td> -->
                             <td scope="" style="text-align: left;">ID</td>
                             <td scope="" style="text-align: left; ">Product</td>
-                            <td scope="" style="text-align: left; ">User</td>
-                            <td scope="" style="text-align: left; ">Comment</td>
+                            <td scope="" style="text-align: left; width: 15%;">User</td>
+                            <td scope="" style="text-align: left; width: 40%;">Comment</td>
                             <td scope="" style="text-align: left;">Created On</td>
                             <td scope="" style="text-align: left;">Delete</td>
                         </tr>
@@ -460,7 +460,7 @@ a#approval_table_previous.paginate_button.previous,
          }).done(function(response){
                 var a = 1;
                 $.each(response, function(i, data){
-                        $table_row='<tr data-id='+data.id+'><td scope="" style="text-align: center; width:5%;"><input id="check_all" type="checkbox"></td><td scope="" style="text-align: left;">'+ a +'</td><td scope="" style="text-align: left;">'+ data.product_id +'</td><td scope="" style="text-align: left;">Asma Husna</td><td scope="" style="text-align: left;">'+ data.description +'</td><td scope="" style="text-align: left;">'+data.created_at+'</td><td scope="" style="text-align: left;"><a class="delete" data-toggle="modal" data-target="#myModal2" href="" style=" color:#C10000; text-decoration:underline;">Delete</a></td></tr>';
+                        $table_row='<tr data-id='+data.id+'><td scope="" style="text-align: left;">'+ a +'</td><td scope="" style="text-align: left;">'+ data.product_id +'</td><td scope="" style="text-align: left; text-transform: capitalize;">'+data.user_fname+" "+data.user_lname+'</td><td scope="" style="text-align: left;">'+ data.description +'</td><td scope="" style="text-align: left;">'+data.created_at+'</td><td scope="" style="text-align: left;"><a class="delete" data-toggle="modal" data-target="#myModal2" href="" style=" color:#C10000; text-decoration:underline;">Delete</a></td></tr>';
                         // add row to dataTable object
                         $dataTable.rows.add( $( $table_row ) ).draw();
                         a++;

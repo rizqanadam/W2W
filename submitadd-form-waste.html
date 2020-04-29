@@ -335,7 +335,7 @@ ul li a.active i {
                     
                     </div>
                     <div>
-                        <a href="#" class="forget-pass float-right login-text" style="color: #D91F1F; padding-top: 20px;">Forgot pasword?</a>
+                        <!-- <a href="#" class="forget-pass float-right login-text" style="color: #D91F1F; padding-top: 20px;">Forgot pasword?</a> -->
                     </div>
                 </div>
             </div>
@@ -446,6 +446,8 @@ ul li a.active i {
     <script> 
         $(document).ready(function(){
             $('#signin').on('click',function(){
+                $('#signin').prop('disabled', true);
+                $('#signin').html('Sign in...');
                 LoginUser();    
                 setCookie();
             });
@@ -465,10 +467,12 @@ ul li a.active i {
                     type: 'POST',
                     data: { 'user_email' : email, 'password' : password },
                     success: function (response){
-                        if(response.email === email && response.password === password){
+                        if(response[0].user_email === email && response[0].password === password || response[0].email === email && response[0].password === password ){
+                            
                             console.log(response);
                             console.log("Logged in");
-                            localStorage.setItem("user_id", JSON.stringify(response.id));
+                            localStorage.setItem("user_id", JSON.stringify(response[0].user_id));
+                            localStorage.setItem("user_type", JSON.stringify(response[0].user_type));
                             window.location.href = "./submitadd-form-waste1.html"; 
                         }
                         else{

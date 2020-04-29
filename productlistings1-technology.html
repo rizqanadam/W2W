@@ -81,6 +81,53 @@ ul a:hover {
         background-color: white !important;
         border-color: lightgray !important;
     }
+
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    font-size: small;
+    }
+
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+
+    .dropdown-content a:hover {
+    color: #27AE60 ;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        /*z-index: 1;*/
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 6px;
+        text-align: left;
+        text-decoration: none;
+        display: block;
+    }
+
     #myBtn {
     display: none;
     position: fixed;
@@ -98,9 +145,8 @@ ul a:hover {
     }
 
     /* #myBtn:hover {
-        background-color: gray;
-    }     */
-
+    background-color: gray;
+    }  */
 
 html * {
     font-family: 'Roboto' !important;
@@ -157,16 +203,24 @@ i {
                 <div class="row">
                     <div class="col-lg-2 col-md-2" style="padding: 0;">
                         <div class="logo">
-                            <a href="./index.html">
+                            <a href="./index1.html">
                                 <img src="img/website-logo.png">
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-10 text-right col-md-2 header-margin">
-                        <button onclick="window.location.href='./index.html';" class="btn">Home</button>
-                        <button onclick="window.location.href='./enquiry-form-guestview.html';" class="btn">Contact Us</button>
-                        <button onclick="window.location.href='./login.html';" class="btn" style="margin-right: 12px;">Login</button>
-                        <button onclick="window.location.href='./default-form-guestview.html';" class="btn btn-warning">Submit Ad</button>
+                        <button onclick="window.location.href='./index1.html';" class="btn">Home</button>
+                        <button onclick="window.location.href='./enquiry-form-userview.html';" class="btn">Contact Us</button>
+                        <div class="dropdown">
+                            <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/User.png">
+                            <h5 style="margin-top: 8px; color: black;">My Account</h5>
+                            </button>
+                            <div class="dropdown-content">
+                              <a href="./myaccount-defaultview.html">My account</a>
+                              <a href="./index.html">Logout</a>
+                            </div>
+                          </div>
+                        <button onclick="window.location.href='./default-form-userview.html';" class="btn btn-warning">Submit Ad</button>
                     </div>
                 </div>
             </div>
@@ -177,89 +231,88 @@ i {
     </header>
     <!-- Header End -->
 
-
-    <div class="card col-md-10" style="background-color: #3A595D; margin-left: auto; margin-right: auto; padding: 20px;;">
-        <div class="row">
-        <div class="col-md-3">
-            <select id="state_search" style="cursor:pointer" class="form-control">
-              <option disabled selected value="">Entire Malaysia</option>
-              <option>Johor</option>
-              <option>Kedah</option>
-              <option>Kelantan</option>
-              <option>Melaka</option>
-              <option>Negeri Sembilan</option>
-              <option>Pahang</option>
-              <option>Perak</option>
-              <option>Perlis</option>
-              <option>Pulau Pinang</option>
-              <option>Sabah</option>
-              <option>Sarawak</option>
-              <option>Selangor</option>
-              <option>Terengganu</option>
-              <option>Wilayah Persekutuan Malaysia</option>  
-            </select>
-        </div> 
-        <div class="col-md-3">
-            <select id="category_search" style="cursor:pointer" class="form-control">
-              <option disabled selected value="">Category</option>
-              <option>Waste</option>
-              <option>Technology</option>
-              <option>Service</option>
-            </select>
-        </div> 
-        <div class="col-md-3">
-            <input type="text" class="form-control" placeholder="Enter tag or keyword">
-        </div> 
-        <div class="col-md-3">
-            <button id="search_btn" class="btn btn-success"><i class="fa fa-search"></i> Search now</button>
-        </div>
-        </div>
-        <div class="row" style="margin-top: 10px;">
+        <div class="card col-md-10" style="background-color: #3A595D; margin-left: auto; margin-right: auto; padding: 20px;;">
+            <div class="row">
             <div class="col-md-3">
-                <select id="status_search" style="cursor:pointer" class="form-control">
-                  <option disabled selected value="">Product status</option>
-                  <option>Available</option>
-                  <option>Sold-out</option>
-                  <option>On-going</option>
+                <select id="state_search" style="cursor:pointer" class="form-control">
+                  <option disabled selected value="">Entire Malaysia</option>
+                  <option>Johor</option>
+                  <option>Kedah</option>
+                  <option>Kelantan</option>
+                  <option>Melaka</option>
+                  <option>Negeri Sembilan</option>
+                  <option>Pahang</option>
+                  <option>Perak</option>
+                  <option>Perlis</option>
+                  <option>Pulau Pinang</option>
+                  <option>Sabah</option>
+                  <option>Sarawak</option>
+                  <option>Selangor</option>
+                  <option>Terengganu</option>
+                  <option>Wilayah Persekutuan Malaysia</option>  
                 </select>
             </div> 
             <div class="col-md-3">
-                <select id="rating_search" style="cursor:pointer" class="form-control">
-                  <option disabled selected value="">Rating</option>
-                  <option>1 star</option>
-                  <option>2 star</option>
-                  <option>3 star</option>
-                  <option>4 star</option>
-                  <option>5 star</option>
+                <select id="category_search" style="cursor:pointer" class="form-control">
+                  <option disabled selected value="">Category</option>
+                  <option>Waste</option>
+                  <option>Technology</option>
+                  <option>Service</option>
                 </select>
             </div> 
             <div class="col-md-3">
-                <select id="price_search" style="cursor:pointer" class="form-control">
-                  <option disabled selected value="">Price range</option>
-                  <option aria-valuemin="0.00" aria-valuemax="100.00">RM0 - RM100</option>
-                  <option>RM101 - 200</option>
-                </select>
+                <input type="text" class="form-control" placeholder="Enter tag or keyword">
             </div> 
             <div class="col-md-3">
-                <!-- <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  Save search</button> -->
+                <!-- <button id="search_btn" class="btn btn-success"><i class="fa fa-search"></i> Search now</button> -->
             </div>
             </div>
-        </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-md-3">
+                    <select id="status_search" style="cursor:pointer" class="form-control">
+                      <option disabled selected value="">Product status</option>
+                      <option>Available</option>
+                      <option>Sold-out</option>
+                      <option>On-going</option>
+                    </select>
+                </div> 
+                <div class="col-md-3">
+                    <select id="rating_search" style="cursor:pointer" class="form-control">
+                      <option disabled selected value="">Rating</option>
+                      <option>1 star</option>
+                      <option>2 star</option>
+                      <option>3 star</option>
+                      <option>4 star</option>
+                      <option>5 star</option>
+                    </select>
+                </div> 
+                <div class="col-md-3">
+                    <select id="price_search" style="cursor:pointer" class="form-control">
+                      <option disabled selected value="">Price range</option>
+                      <option aria-valuemin="0.00" aria-valuemax="100.00">RM0 - RM100</option>
+                      <option>RM101 - 200</option>
+                    </select>
+                </div> 
+                <div class="col-md-3">
+                    <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  Save search</button>
+                </div>
+                </div>
+            </div>
         
         <div class="card col-md-8" style="padding: 40px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
-            <h3>Product Available for sale in Malaysia - Page 1 of 1</h3>
+            <h3>Technology for sale in Malaysia</h3>
             <div class="col-md-4 row" style="padding-bottom: 20px;;">
                 <a style="text-decoration: underline;">Home</a>
-                <div>&nbsp;>>&nbsp;</div>
-                <a style="text-decoration: underline; color: #008D50; font-weight: bold;">Entire Malaysia</a>
+                <div>>></div>
+                <a style="text-decoration: underline; color: #008D50;">Entire Malaysia</a>
             </div>
 
             <div class="card" style="margin-bottom: 20px; border: none;">
                 <ul class="d-flex justify-content-between">
                     <div class="d-flex">
-                    <a class="active-nav nav-style" href="#">All 1-10 of 43</a>
-                    <a class="nav-style" href="./productlistings-individual-viewall.html">Individual 13</a>
-                    <a class="nav-style" href="./productlistings-company-viewall.html">Company 30</a>
+                    <a class="active-nav nav-style" href="./productlistings1-viewall.html">All 1-10</a>
+                    <!-- <a class="nav-style" href="./productlistings1-individual-viewall.html">Individual</a>
+                    <a class="nav-style" href="./productlistings1-company-viewall.html">Company</a> -->
                     </div>
 
                     <div class="d-flex" style="display: none !important;">
@@ -271,6 +324,7 @@ i {
             
 
             <div id="product_display">
+                
                 <div id="spinner" style="margin-left: 40%; margin-top: 50px; margin-bottom: 160px;">
                     <button class="btn" disabled>
                         <span class="spinner-border spinner-border-sm"></span>
@@ -278,6 +332,7 @@ i {
                     </button>
                 </div>
                 
+
                 <!-- <div class="row">
                   <div class="col-md-2">
                     <img src="img/organic-compose.jpg">
@@ -337,7 +392,7 @@ i {
 
                   <div class="row">
                     <div class="col-md-2">
-                      <a href="./productdetails-defaultview.html"></a><img src="img/organic-compose.jpg">
+                      <img src="img/organic-compose.jpg">
                     </div>
                     <div class="col-md-7">
                       <div style="font-size: 18px;">Plastic pellets</div>
@@ -358,19 +413,19 @@ i {
               </div>           
           </div>
 
-            <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="img/Btn_BackToTop.svg"></button>
+          <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="img/Btn_BackToTop.svg"></button>
         
-          <div class="col-md-6" style="margin-left: auto; margin-right: auto; margin-bottom: 40px;">
-              <div class="row" style="justify-content: center;">
-                    <div class="col-md-1">
-                        <button onclick="previousPage();" class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-left"></i></button>
-                    </div>
-                    <div id="pagination" style="display: contents;"></div>
-                    <div class="col-md-1">
-                        <button onclick="nextPage();"  class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-right"></i></button>
-                    </div>
-              </div>
-          </div>
+            <div class="col-md-6" style="margin-left: auto; margin-right: auto; margin-bottom: 40px;">
+                <div class="row" style="justify-content: center;">
+                      <div class="col-md-1">
+                          <button onclick="previousPage();" class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-left"></i></button>
+                      </div>
+                      <div id="pagination" style="display: contents;"></div>
+                      <div class="col-md-1">
+                          <button onclick="nextPage();"  class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-right"></i></button>
+                      </div>
+                </div>
+            </div>
 
 
           <footer class="footer-section" style="background-color: #3A595D;">
@@ -470,7 +525,7 @@ i {
                 var id = $(this).parent().data('index');
                 console.log(id);
                 var product_detail = localStorage.setItem('product_detail' , id);
-                window.location.href="./productdetails-defaultview.html"
+                window.location.href="./productdetails-defaultview1.html"
             });
 
             $('#search_btn').on('click', function() {
@@ -490,7 +545,7 @@ i {
                 $.each($fullList,function(x, dataX){
                     $.each(dataX,function(y, dataY){
                         
-                            if(inputCategory.toLowerCase() == (dataY['maincategory']).toLowerCase() && inputStatus.toLowerCase() == (dataY['availability']).toLowerCase()){
+                            if(inputCategory.toLowerCase() == (dataY['maincategory']).toLowerCase() || inputStatus.toLowerCase() == (dataY['availability']).toLowerCase()){
                                 var index = y + 1;
                                 $tempArr.push(dataY);
                                 $newList[currentIndex] = $tempArr;
@@ -538,7 +593,7 @@ i {
                         
                     });
                 });
-
+                
                 console.log($newList)
 
                 var tr = "";
@@ -578,7 +633,7 @@ i {
                 var currentIndex = 0;
                 
                 $.each(response, function (i, data) {
-                    if(response[i].mainstatus == "available" && response[i].publishstatus == "yes"){
+                    if(response[i].maincategory == "technology" && response[i].publishstatus == "yes"){
                         var index = i + 1;
                         $tempArr.push(data);
                         $newList[currentIndex] = $tempArr;
@@ -589,20 +644,20 @@ i {
                     }
                 });
                 getRequest2(); 
-                $('#spinner').css('display','none');              
+                $('#spinner').css('display','none');                
             });
         }
 
         function getRequest2() {
             $.ajax({
-                url: 'http://codeviable.com/w2w2/public/product/premium?premiumlist=regular',
+                url: 'http://codeviable.com/w2w2/public/product/premium?premiumlist=Regular',
                 type: "GET"
             }).done(function (response) {
                 var data = response;
                 var currentIndex = 0;
                 
                 $.each(response, function (i, data) {
-                    if(response[i].mainstatus == "available" && response[i].publishstatus == "yes"){
+                    if(response[i].maincategory == "technology" && response[i].publishstatus == "yes"){
                         var index = i + 1;
                         $tempArr.push(data);
                         $newList[currentIndex] = $tempArr;
@@ -614,6 +669,7 @@ i {
                 });
 
                 $fullList = $newList;
+
                 console.log($newList);
                 var pageBtn = $('#pagination');
                 pageBtn.html('');
@@ -621,7 +677,10 @@ i {
                     pageBtn.append('<div class="col-md-2"><button data-id=' + i + ' class="btn btn-number" style="width: 100%;">'+(i+1)+'</button></div>');
                 }
 
-                displayproduct();       
+                
+
+                displayproduct(); 
+                    
             });
         }
 
@@ -651,7 +710,6 @@ i {
         }
 
     </script>
-
 </body>
 
 </html>

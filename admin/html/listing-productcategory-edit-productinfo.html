@@ -374,7 +374,7 @@ span.checkmark {
                         <a href="./listing-productcategory.html" style="color: #0099FF; font-weight: 500;">< back to list of categories</a>
                     </div>
                     <div class="col-md-8 text-right">
-                        <button class="btn" data-toggle="modal" data-target="#savemodal" data-dismiss="modal" style="background-color: #0073BF; color: white;"><img src="../plugins/images/save-solid.svg">Save</button>
+                        <button id="savebtn"  class="btn" data-toggle="modal" data-target="#savemodal" data-dismiss="modal" style="background-color: #0073BF; color: white;"><img src="../plugins/images/save-solid.svg">Save</button>
                         <button class="btn" data-toggle="modal" data-target="#deletemodal" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button>
                     </div>
                 </div><br>
@@ -514,12 +514,13 @@ span.checkmark {
     $(document).ready(function() { 
         $labelList = [];
 		$select = $('#category');
+        $status = "";
         getLabel();
 
         $userid = localStorage.getItem('user_id');
 
         UserDetails();
-
+        details();
         $('#btn_logout').on('click', function(){
             localStorage.clear();
         });
@@ -535,11 +536,82 @@ span.checkmark {
             deletecategory();
         });
 
+        $('#savebtn').on('click',function(){
+            statusActive();
+        });
+
         $("#delete_status").on('hide.bs.modal', function() { 
             window.location.href = "./listing-productcategory.html"
         });
         
      });
+
+     function details(){
+         $id = localStorage.getItem('category')
+         $.ajax({
+             url : "http://codeviable.com/w2w2/public/category/detail?id=",
+             type : "GET",
+             data : {"id":$id}
+         }).done(function(response){
+             console.log(response);
+
+             $('#name').val(response.name);
+             $('#category').val(response.name);
+             
+             if(response.publishstatus == "yes"){
+                $('#status').prop('checked', true);
+                console.log(response.status)
+            }
+            else{
+                    $('#status').prop('checked', false);
+                    console.log(response.status)
+             }
+         })
+     }
+
+     function update (){
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/category/edit",
+            type : "POST",
+            data : formData,
+            processData: false,
+            contentType: false,
+        }).done(function(response){
+            console.log(response);
+        })
+     }
+
+     function statusActive(){
+        $('#status').click(function(){
+            if ($(this).is(":checked")) {
+                $('#status').prop('checked', true);
+                $status = "yes";
+                console.log("yes")
+            }
+            else{
+                $('#status').prop('checked', false);
+                $status = "not";
+                console.log("not active")
+            }
+        
+
+            $id = localStorage.getItem('category')
+
+            var formData = new FormData();
+            formData.append('id' , $id);
+            formData.append('publishstatus' , $status);
+
+            $.ajax({
+                url : "http://codeviable.com/w2w2/public/category/edit",
+                type : "POST",
+                data : formData,
+                processData: false,
+                contentType: false,
+            }).done(function(response){
+                console.log(response)
+            })
+        });
+    }
 
      function UserDetails() {
 
@@ -575,7 +647,7 @@ span.checkmark {
                 row = '';
                 
 				row += '<optgroup id=' + data['id'] + '  label=" ' + data['name'] + ' "></optgroup>';
-                row += '<option id=" ' + data['id'] + ' " value=" ' + data['name'] + ' " style="font-weight: bold; color: red;">&nbsp;&nbsp;&nbsp;&nbsp;' + data['name'] + '</option>';
+                row += '<option id=" ' + data['id'] + ' " value=" ' + data['name'] + ' " style="font-weight: bold; color: orange;">&nbsp;&nbsp;&nbsp;&nbsp;' + data['name'] + '</option>';
                 if(i==0){
                     $select.append(row2);
                 }

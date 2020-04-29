@@ -348,6 +348,13 @@ a#approval_table_previous.paginate_button.previous,
                             </div>
 
                             <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">News photo&nbsp;</div>
+                                <div class="col-md-9">
+                                    <input type="file" id="newsphoto" onchange="readURL(this)" accept="image/*" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
                                 <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Short Description&nbsp;<i class="fa fa-info-circle" id="showinfodesc" 
                                     style="color: #3787B4; cursor: pointer;" tabindex="0" data-trigger="hover" data-toggle="pop" data-content="News tagline or brief description of the whole news." data-placement="bottom"></i>
                                 </div>
@@ -567,20 +574,22 @@ a#approval_table_previous.paginate_button.previous,
         var title = $('#title').val();
         var shortdesc = $('#shortdesc').val();
         var fulldesc = $('#summernote').val();
+        var news_photo = $("#newsphoto").prop('files');
         
 
-        var postdata = {
-            'news_id' : $id,
-            'news_title' : title,
-            'shortdesc' : shortdesc,
-            'news_desc' : fulldesc,
-
-        }
+        var formData = new FormData();
+        formData.append("news_id" , $id);
+        formData.append("news_title" , title);
+        formData.append("shortdesc" , shortdesc);
+        formData.append("news_desc" , fulldesc);
+        formData.append("news_photo" , news_photo[0]);
 
         $.ajax({
             url: "http://codeviable.com/w2w2/public/news/update",
             type: "POST",
-            data: postdata,
+            data: formData,
+             processData: false,
+             contentType: false,
         }).done(function(response){
 
             console.log(response);

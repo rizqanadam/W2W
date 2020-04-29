@@ -81,53 +81,6 @@ ul a:hover {
         background-color: white !important;
         border-color: lightgray !important;
     }
-
-    .dropdown {
-    position: relative;
-    display: inline-block;
-    }
-
-    .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-    font-size: small;
-    }
-
-    .dropdown:hover .dropdown-content {
-    display: block;
-    }
-
-    .dropdown-content a:hover {
-    color: #27AE60 ;
-    }
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        /*z-index: 1;*/
-    }
-
-    .dropdown-content a {
-        color: black;
-        padding: 6px;
-        text-align: left;
-        text-decoration: none;
-        display: block;
-    }
-
     #myBtn {
     display: none;
     position: fixed;
@@ -145,8 +98,9 @@ ul a:hover {
     }
 
     /* #myBtn:hover {
-    background-color: gray;
-    }  */
+        background-color: gray;
+    }     */
+
 
 html * {
     font-family: 'Roboto' !important;
@@ -203,24 +157,16 @@ i {
                 <div class="row">
                     <div class="col-lg-2 col-md-2" style="padding: 0;">
                         <div class="logo">
-                            <a href="./index1.html">
+                            <a href="./index.html">
                                 <img src="img/website-logo.png">
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-10 text-right col-md-2 header-margin">
-                        <button onclick="window.location.href='./index1.html';" class="btn">Home</button>
-                        <button onclick="window.location.href='./enquiry-form-userview.html';" class="btn">Contact Us</button>
-                        <div class="dropdown">
-                            <button class="btn" type="button" data-toggle="dropdown" style="padding: 10px;"><img href="#" src="img/User.png">
-                            <h5 style="margin-top: 8px; color: black;">My Account</h5>
-                            </button>
-                            <div class="dropdown-content">
-                              <a href="./myaccount-defaultview.html">My account</a>
-                              <a href="./index.html">Logout</a>
-                            </div>
-                          </div>
-                        <button onclick="window.location.href='./default-form-userview.html';" class="btn btn-warning">Submit Ad</button>
+                        <button onclick="window.location.href='./index.html';" class="btn">Home</button>
+                        <button onclick="window.location.href='./enquiry-form-guestview.html';" class="btn">Contact Us</button>
+                        <button onclick="window.location.href='./login.html';" class="btn" style="margin-right: 12px;">Login</button>
+                        <button onclick="window.location.href='./default-form-guestview.html';" class="btn btn-warning">Submit Ad</button>
                     </div>
                 </div>
             </div>
@@ -295,24 +241,25 @@ i {
                 </select>
             </div> 
             <div class="col-md-3">
-                <!-- <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  Save search</button> -->
+                <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  Save search</button>
             </div>
             </div>
         </div>
         
         <div class="card col-md-8" style="padding: 40px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
-            <h3>Product Wanted in Malaysia - Page 1 of 1</h3>
+            <h3>Waste for sale in Malaysia</h3>
             <div class="col-md-4 row" style="padding-bottom: 20px;;">
                 <a style="text-decoration: underline;">Home</a>
-                <div>>></div>
-                <a style="text-decoration: underline; color: #008D50;">Wanted</a>
+                <div>&nbsp;>>&nbsp;</div>
+                <a style="text-decoration: underline; color: #008D50; font-weight: bold;">Entire Malaysia</a>
             </div>
-            
-        
+
             <div class="card" style="margin-bottom: 20px; border: none;">
                 <ul class="d-flex justify-content-between">
                     <div class="d-flex">
                     <a class="active-nav nav-style" href="#">All 1-10</a>
+                    <!-- <a class="nav-style" href="./productlistings-individual-viewall.html">Individual</a>
+                    <a class="nav-style" href="./productlistings-company-viewall.html">Company</a> -->
                     </div>
 
                     <div class="d-flex" style="display: none !important;">
@@ -321,87 +268,109 @@ i {
                     </div>
                 </ul>
             </div>
-            <div id="product_display"> 
+            
 
+            <div id="product_display">
                 <div id="spinner" style="margin-left: 40%; margin-top: 50px; margin-bottom: 160px;">
                     <button class="btn" disabled>
                         <span class="spinner-border spinner-border-sm"></span>
                         Loading..
                     </button>
                 </div>
-
-            <!-- <div class="row">
-                <div class="col-md-2">
-                    <img src="img/energy.jpg"></div>
-                <div class="col-md-7">
-                    <div style="font-size: 18px; margin-bottom: 10px;">Organic Compose  <i class="fa fa-fire" style="color: red;"></i></div>
-                    <p>We need 80 moon of plastic pellets on monthly basis. Contact us if you have the requirement that we need.</p>
-                    <label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label>
-                    <div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div>
-                    <div style="color: #008D50;"><i class="fa fa-phone"></i>014567892</div>
-                    <div style="color: #008D50;"><i class="fa fa-envelope"></i>ismail@gmail.com</div>
-                </div>
-                <div class="col-md-3 text-right">
+                
+                <!-- <div class="row">
+                  <div class="col-md-2">
+                    <img src="img/organic-compose.jpg">
+                  </div>
+                  <div class="col-md-7">
+                    <div style="font-size: 18px;">Plastic pellets  <i class="fa fa-fire" style="color: red;"></i></div>
+                    <div class="price-tag">RM 200</div>
+                    <label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label>
+                    <div style="font-size: 18px;color: #8B8B8B; position: absolute;bottom: 0;">Sugarcane Bagasse</div>
+                  </div>
+                  <div class="col-md-3 text-right">
                     <p>Dec 16 2019</p>
-                    <p>Pasir Gudang, Johor</p>
+                    <p>Pasir Gudang</p>
+                    <p><i class="fa fa-briefcase"></i></p>
+                  </div>
                 </div>
-            </div>
+    
+                <div class="line-bottom"></div>
+    
+                <div class="row">
+                    <div class="col-md-2">
+                      <img src="img/organic-compose.jpg">
+                    </div>
+                    <div class="col-md-7">
+                      <div style="font-size: 18px;">Plastic pellets  <i class="fa fa-fire" style="color: red;"></i></div>
+                      <div class="price-tag">RM 200</div>
+                      <label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label>
+                      <div style="font-size: 18px;color: #8B8B8B; position: absolute;bottom: 0;">Sugarcane Bagasse</div>
+                    </div>
+                    <div class="col-md-3 text-right">
+                      <p>Dec 16 2019</p>
+                      <p>Pasir Gudang</p>
+                      <p><i class="fa fa-user"></i></p>
+                    </div>
+                  </div>
 
-            <div class="line-bottom"></div>
+                  <div class="line-bottom"></div>
 
-            <div class="row">
-                <div class="col-md-2">
-                    <img src="img/energy.jpg"></div>
-                <div class="col-md-7">
-                    <div style="font-size: 18px; margin-bottom: 10px;">Organic Compose</div>
-                    <p>We need 80 moon of plastic pellets on monthly basis. Contact us if you have the requirement that we need.</p>
-                    <label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Fulfilled</label>
-                    <div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div>
-                    <div style="color: #008D50;"><i class="fa fa-phone"></i>014567892</div>
-                    <div style="color: #008D50;"><i class="fa fa-envelope"></i>ismail@gmail.com</div>
-                </div>
-                <div class="col-md-3 text-right">
-                    <p>Dec 16 2019</p>
-                    <p>Pasir Gudang, Johor</p>
-                </div>
-            </div>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <img src="img/organic-compose.jpg">
+                    </div>
+                    <div class="col-md-7">
+                      <div style="font-size: 18px;">Plastic pellets</div>
+                      <div class="price-tag">RM 200</div>
+                      <label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Sold Out</label>
+                      <div style="font-size: 18px;color: #8B8B8B; position: absolute;bottom: 0;">Sugarcane Bagasse</div>
+                    </div>
+                    <div class="col-md-3 text-right">
+                      <p>Dec 16 2019</p>
+                      <p>Pasir Gudang</p>
+                      <p><i class="fa fa-briefcase"></i></p>
+                    </div>
+                  </div>
+      
+                  <div class="line-bottom"></div>
 
-            <div class="line-bottom"></div>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <a href="./productdetails-defaultview.html"></a><img src="img/organic-compose.jpg">
+                    </div>
+                    <div class="col-md-7">
+                      <div style="font-size: 18px;">Plastic pellets</div>
+                      <div class="price-tag">RM 200</div>
+                      <label style="color: white; background-color: red; border-radius: 10px; padding: 5px;">Sold Out</label>
+                      <div style="font-size: 18px;color: #8B8B8B; position: absolute;bottom: 0;">Sugarcane Bagasse</div>
+                    </div>
+                    <div class="col-md-3 text-right">
+                      <p>Dec 16 2019</p>
+                      <p>Pasir Gudang</p>
+                      <p><i class="fa fa-user"></i></p>
+                    </div>
+                  </div>
+      
+                  <div class="line-bottom"></div> -->
 
-            <div class="row">
-                <div class="col-md-2">
-                    <img src="img/energy.jpg"></div>
-                <div class="col-md-7">
-                    <div style="font-size: 18px; margin-bottom: 10px;">Organic Compose</div>
-                    <p>We need 80 moon of plastic pellets on monthly basis. Contact us if you have the requirement that we need.</p>
-                    <label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label>
-                    <div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div>
-                    <div style="color: #008D50;"><i class="fa fa-phone"></i>014567892</div>
-                    <div style="color: #008D50;"><i class="fa fa-envelope"></i>ismail@gmail.com</div>
-                </div>
-                <div class="col-md-3 text-right">
-                    <p>Dec 16 2019</p>
-                    <p>Pasir Gudang, Johor</p>
-                </div>
-            </div>
-
-            <div class="line-bottom"></div> -->
-        </div> 
+              </div>
+              </div>           
           </div>
-        </div>
-        <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="img/Btn_BackToTop.svg"></button>
 
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="img/Btn_BackToTop.svg"></button>
+        
           <div class="col-md-6" style="margin-left: auto; margin-right: auto; margin-bottom: 40px;">
-            <div class="row" style="justify-content: center;">
-                  <div class="col-md-1">
-                      <button onclick="previousPage();" class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-left"></i></button>
-                  </div>
-                  <div id="pagination" style="display: contents;"></div>
-                  <div class="col-md-1">
-                      <button onclick="nextPage();"  class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-right"></i></button>
-                  </div>
-            </div>
-        </div>
+              <div class="row" style="justify-content: center;">
+                    <div class="col-md-1">
+                        <button onclick="previousPage();" class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-left"></i></button>
+                    </div>
+                    <div id="pagination" style="display: contents;"></div>
+                    <div class="col-md-1">
+                        <button onclick="nextPage();"  class="btn" style="padding: 0; margin-top: 8px; color: lightgrey;"><i class="fa fa-chevron-right"></i></button>
+                    </div>
+              </div>
+          </div>
 
 
           <footer class="footer-section" style="background-color: #3A595D;">
@@ -420,7 +389,6 @@ i {
             </div>
         </footer>
 
-        
 
 
     <!-- Js Plugins -->
@@ -467,6 +435,7 @@ i {
             $tempArr = [];
             $fullList = [];
             getRequest();
+            
 
             $('#pagination').delegate('button', 'click', function() {
                 var id = $(this).data('id');
@@ -476,12 +445,20 @@ i {
                     console.log(data);
                     //display date in formatted
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
-                    if(data.premiumlist == "premium"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                    if(data.premiumlist == "premium" && data.user_type == "individual" ){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
-                    else if(data.premiumlist == "regular"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                    else if(data.premiumlist == "regular" && data.user_type == "individual"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "premium" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "regular" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                 });
@@ -492,8 +469,8 @@ i {
             $('#product_display').delegate('.title', 'click', function() {
                 var id = $(this).parent().data('index');
                 console.log(id);
-                localStorage.setItem('wanted_detail' , id);
-                window.location.href="./productdetails-wanted1.html";
+                var product_detail = localStorage.setItem('product_detail' , id);
+                window.location.href="./productdetails-defaultview.html"
             });
 
             $('#search_btn').on('click', function() {
@@ -569,19 +546,28 @@ i {
                     console.log(data);
                     //display date in formatted
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
-                    if(data.premiumlist == "premium"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                    if(data.premiumlist == "premium" && data.user_type == "individual" ){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
-                    else if(data.premiumlist == "regular"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                    else if(data.premiumlist == "regular" && data.user_type == "individual"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "premium" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "regular" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                 });
                     
                 $('#product_display').html(tr);  
-                });
-        });
+            });
+                
+        })
 
         function getRequest() {
             $.ajax({
@@ -592,7 +578,7 @@ i {
                 var currentIndex = 0;
                 
                 $.each(response, function (i, data) {
-                    if(response[i].mainstatus == "wanted" && response[i].publishstatus == "yes"){
+                    if(response[i].maincategory == "waste" && response[i].publishstatus == "yes"){
                         var index = i + 1;
                         $tempArr.push(data);
                         $newList[currentIndex] = $tempArr;
@@ -602,8 +588,8 @@ i {
                         }
                     }
                 });
-                getRequest2();    
-                $('#spinner').css('display','none')               
+                getRequest2(); 
+                $('#spinner').css('display','none');              
             });
         }
 
@@ -616,7 +602,7 @@ i {
                 var currentIndex = 0;
                 
                 $.each(response, function (i, data) {
-                    if(response[i].mainstatus == "wanted" && response[i].publishstatus == "yes"){
+                    if(response[i].maincategory == "waste" && response[i].publishstatus == "yes"){
                         var index = i + 1;
                         $tempArr.push(data);
                         $newList[currentIndex] = $tempArr;
@@ -626,6 +612,7 @@ i {
                         }
                     }
                 });
+
                 $fullList = $newList;
                 console.log($newList);
                 var pageBtn = $('#pagination');
@@ -638,25 +625,33 @@ i {
             });
         }
 
-        function displayproduct(){
+        function displayproduct() {
             var tr = "";
-
-                $.each($newList[0], function (i, data) {   
+                $.each($newList[0], function (i, data) {                 
+                    //display date in formatted
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
-                    if(data.premiumlist == "premium"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                    if(data.premiumlist == "premium" && data.user_type == "individual" ){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
-                    else if(data.premiumlist == "regular"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                    else if(data.premiumlist == "regular" && data.user_type == "individual"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "premium" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                        tr += '<div class="line-bottom"></div>';
+                    }
+                    else if(data.premiumlist == "regular" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                 });
-
-                $("#product_display").html(tr);
+                $('#product_display').html(tr); 
         }
-        
+
     </script>
+
 </body>
 
 </html>

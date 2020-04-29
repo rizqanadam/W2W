@@ -137,16 +137,16 @@ ul a:hover {
     font-size: 18px;
     border: none;
     outline: none;
-    background-color: red;
+    background-color: transparent;
     color: white;
     cursor: pointer;
     padding: 15px;
     border-radius: 4px;
     }
 
-    #myBtn:hover {
+    /* #myBtn:hover {
     background-color: gray;
-    } 
+    }  */
 
 html * {
     font-family: 'Roboto' !important;
@@ -294,7 +294,7 @@ i {
                     </select>
                 </div> 
                 <div class="col-md-3">
-                    <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  Save search</button>
+                    <!-- <button class="btn btn-primary"><i class="fa fa-bookmark"></i>  Save search</button> -->
                 </div>
                 </div>
             </div>
@@ -413,7 +413,7 @@ i {
               </div>           
           </div>
 
-            <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
+          <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="img/Btn_BackToTop.svg"></button>
         
             <div class="col-md-6" style="margin-left: auto; margin-right: auto; margin-bottom: 40px;">
                 <div class="row" style="justify-content: center;">
@@ -500,12 +500,12 @@ i {
                     console.log(data);
                     //display date in formatted
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
-                    if(data.premiumlist == "premium" && data.user_type == "individual"){
+                    if(data.premiumlist == "premium" && data.user_type == "individual" ){
                         tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                     else if(data.premiumlist == "regular" && data.user_type == "individual"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                     else if(data.premiumlist == "premium" && data.user_type == "company"){
@@ -513,7 +513,7 @@ i {
                         tr += '<div class="line-bottom"></div>';
                     }
                     else if(data.premiumlist == "regular" && data.user_type == "company"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                 });
@@ -545,7 +545,7 @@ i {
                 $.each($fullList,function(x, dataX){
                     $.each(dataX,function(y, dataY){
                         
-                            if(inputCategory.toLowerCase() == (dataY['maincategory']).toLowerCase() || inputStatus.toLowerCase() == (dataY['availability']).toLowerCase()){
+                        if(inputCategory.toLowerCase() == (dataY['maincategory']).toLowerCase() || inputStatus.toLowerCase() == (dataY['availability']).toLowerCase()){
                                 var index = y + 1;
                                 $tempArr.push(dataY);
                                 $newList[currentIndex] = $tempArr;
@@ -601,12 +601,12 @@ i {
                     console.log(data);
                     //display date in formatted
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
-                    if(data.premiumlist == "premium" && data.user_type == "individual"){
+                    if(data.premiumlist == "premium" && data.user_type == "individual" ){
                         tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                     else if(data.premiumlist == "regular" && data.user_type == "individual"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                     else if(data.premiumlist == "premium" && data.user_type == "company"){
@@ -614,7 +614,7 @@ i {
                         tr += '<div class="line-bottom"></div>';
                     }
                     else if(data.premiumlist == "regular" && data.user_type == "company"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                 });
@@ -689,20 +689,20 @@ i {
                 $.each($newList[0], function (i, data) {                 
                     //display date in formatted
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
-                    if(data.premiumlist == "premium" && data.user_type == "individual" && data.publishstatus == "yes"){
+                    if(data.premiumlist == "premium" && data.user_type == "individual" ){
                         tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
-                    else if(data.premiumlist == "regular" && data.user_type == "individual" && data.publishstatus == "yes"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
+                    else if(data.premiumlist == "regular" && data.user_type == "individual"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-user"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
-                    else if(data.premiumlist == "premium" && data.user_type == "company" && data.publishstatus == "yes"){
+                    else if(data.premiumlist == "premium" && data.user_type == "company"){
                         tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
-                    else if(data.premiumlist == "regular" && data.user_type == "company" && data.publishstatus == "yes"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: #C30E0E; border-radius: 6px; padding: 4px; font-size: 14px;">Sold Out</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
+                    else if(data.premiumlist == "regular" && data.user_type == "company"){
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-3"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: fill;" ></div><div class=" title col-md-6"><div style="font-size: 18px; text-transform: capitalize; margin-bottom: 15px;"><a   style="color: black; cursor: pointer;">'+data.product_name+'</a></div><div class="price-tag" style="font-weight: bold;">RM '+data.product_price+'</div><label style="color: white; background-color: green; border-radius: 10px; padding: 5px;">Available</label><div style="font-size: 14px;color: #8B8B8B;">'+data.product_category+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_state[0].state+'</p><p><i class="fa fa-briefcase"></i></p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                 });

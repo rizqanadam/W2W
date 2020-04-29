@@ -412,6 +412,16 @@ a#inbox_table_previous.paginate_button.previous,
         UserDetails(); 
         customizeDatatable();
         listingApproval();
+
+        $('#delete_btn').on('click', function(){
+            deleteInbox();
+            localStorage.removeItem('inbox_del');
+        });
+
+        $("#delete_status").on('hide.bs.modal', function() { 
+            location.reload();
+        });
+
      });
 
      function customizeDatatable(){
@@ -448,14 +458,32 @@ a#inbox_table_previous.paginate_button.previous,
                 a = 1;
                 $.each(response, function(i, data){
                     
-                        $table_row='<tr class="selected"><td scope="" style="text-align: center;">'+ a +'</td><td scope="" style="text-align: center;">'+data.email+'</td><td scope="" style="text-align: center;">ADVERTISMENT TO BE APPROVED!</td><td scope="" style="text-align: center;">'+data.created_at+'</td><td scope="" style="text-align: center;"><a id="btn_delete" style="color: #C10000; text-decoration: underline; cursor: pointer;" data-toggle="modal" data-target="#myModal2">Delete</a></td></tr>';
+                        $table_row='<tr data-id=' + data.id + ' class="selected"><td scope="" style="text-align: center;">'+ a +'</td><td scope="" style="text-align: center;">'+data.email+'</td><td scope="" style="text-align: center;">ADVERTISMENT TO BE APPROVED!</td><td scope="" style="text-align: center;">'+data.created_at+'</td><td scope="" style="text-align: center;"><a id="btn_delete" style="color: #C10000; text-decoration: underline; cursor: pointer;" data-toggle="modal" data-target="#myModal2">Delete</a></td></tr>';
                         // add row to dataTable object
                         $dataTable.rows.add( $( $table_row ) ).draw();
                         a++;
-                })
+                });
+
+                $('#inbox_table').delegate('#btn_delete', 'click', function() {
+                    var id = $(this).parent().parent().data('id');
+                    localStorage.setItem('inbox_del', id);
+                    console.log(id);
+                });
          })
 
     }
+
+    function deleteInbox(){
+         var id = localStorage.getItem('inbox_del');
+
+         $.ajax({
+             url : "http://codeviable.com/w2w2/public/notification/delete?id=",
+             type : "DELETE",
+             data : { 'id' : id}
+         }).done(function(response){
+            console.log(response);
+         });
+     }
 
   </script>
 

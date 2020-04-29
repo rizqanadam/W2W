@@ -146,7 +146,7 @@ i {
                 <div class="row">
                     <div class="col-lg-2 col-md-2" style="padding: 0;">
                         <div class="logo">
-                            <a href="./index.html">
+                            <a href="./index1.html">
                                 <img src="img/website-logo.png">
                             </a>
                         </div>
@@ -407,7 +407,7 @@ i {
                 <div class="row">
                     <div class="col-md-4" style="padding-left: 0;">
                     <div class="card banner-card" style="border: none;">
-                        <a href="#">
+                        <a href="./productlistings1-waste.html">
                         <div style="display: flex; height: 200px;">
                             <div class="margin-centre">
                                 <div>
@@ -423,7 +423,7 @@ i {
                 </div>
                     <div class="col-md-4">
                         <div class="card banner-card" style="border: none;">
-                        <a href="#">
+                        <a href="./productlistings1-technology.html">
                         <div style="display: flex; height: 200px;">
                             <div class="margin-centre">
                                 <div>
@@ -437,7 +437,7 @@ i {
                 </div>
                     <div class="col-md-4" style="padding-right: 0;">
                         <div class="card banner-card" style="border: none;">
-                        <a href="#">
+                        <a href="./productlistings1-service.html">
                         <div style="display: flex; height: 200px;">
                             <div class="margin-centre">
                                 <div>
@@ -597,14 +597,29 @@ i {
                 console.log(response);
 
                 var tr = "";
-
-                for( var i = 0; i < 3; i++){
+                
+                for( var i = 0; i < response.length; i++){
                     console.log(response);
-                    tr += '<div class="col-md-4"><div class="row mx-auto"><div class="col-md-5" style="background-color: lightgray;"><img src='+response[i].product_image[0].image+' style="width: 125px; height: 125px; object-fit: cover;"></div><div class="col-md-5" style="padding: 5px; background-color: lightgray; text-transform: capitalize;"><div>'+response[i].maincategory+'</div><div style="font-size: 18px; text-transform: capitalize;">'+response[i].product_name+'</div><div style="margin-top: 40px; text-transform: capitalize;">'+response[i].product_category+'</div></div></div></div>';
+                    tr += '<div data-index=' + response[i].product_id + ' data-category=' + response[i].mainstatus + ' style="cursor: pointer;" class="col-md-4 title"><div class="row mx-auto"><div class="col-md-5" style="background-color: lightgray;"><img src='+response[i].product_image[0].image+' style="width: 125px; height: 125px; object-fit: cover;"></div><div class="col-md-5" style="padding: 5px; background-color: lightgray; text-transform: capitalize;"><div>'+response[i].maincategory+'</div><div style="font-size: 18px; text-transform: capitalize;">'+response[i].product_name+'</div><div style="margin-top: 40px; text-transform: capitalize;">'+response[i].product_category+'</div></div></div></div>';
                 }
 
-                $('#premium').html(tr)
-            })
+                $('#premium').html(tr);
+
+                $('#premium').delegate('.title', 'click', function() {
+                    var id = $(this).data('index');
+                    var mainstatus = $(this).data('category');
+                    console.log(mainstatus);
+                    localStorage.setItem('product_detail' , id);
+                    localStorage.setItem('mainstatus' , mainstatus);
+                    if( localStorage.getItem('mainstatus') == "available"){
+                        window.location.href="./productdetails-defaultview.html";
+                    }
+                    else{
+                        window.location.href="./productdetails1-wanted.html";
+                    }
+                    
+                });
+            });
         }
 
         function latest() {
@@ -615,16 +630,31 @@ i {
                 console.log(response);
 
                 var tr2 = "";
-                for( var i = 0; i < 4; i++){
+                for( var i = 0; i < 3; i++){
                     if(response[i].publishstatus === "yes"){
                         console.log(response);
-                        tr2 += '<div class="col-md-4"><div class="row mx-auto"><div class="col-md-5" style="background-color: lightgray;"><img src='+response[i].product_image[0].image+' style="width: 125px; height: 125px; object-fit: cover;"></div><div class="col-md-5" style="padding: 5px; background-color: lightgray; text-transform: capitalize;"><div>'+response[i].maincategory+'</div><div style="font-size: 18px; text-transform: capitalize;">'+response[i].product_name+'</div><div style="margin-top: 40px; text-transform: capitalize;">'+response[i].product_category+'</div></div></div></div>';
+                        tr2 += '<div data-index=' + response[i].product_id + ' data-category=' + response[i].mainstatus + ' style="cursor: pointer;" class="col-md-4 title"><div class="row mx-auto"><div class="col-md-5" style="background-color: lightgray;"><img src='+response[i].product_image[0].image+' style="width: 125px; height: 125px; object-fit: cover;"></div><div class="col-md-5" style="padding: 5px; background-color: lightgray; text-transform: capitalize;"><div>'+response[i].maincategory+'</div><div style="font-size: 18px; text-transform: capitalize;">'+response[i].product_name+'</div><div style="margin-top: 40px; text-transform: capitalize;">'+response[i].product_category+'</div></div></div></div>';
                     }
                 }
 
-                $('#latestisting').html(tr2)
+                $('#latestisting').html(tr2);
 
-            })
+                $('#latestisting').delegate('.title', 'click', function() {
+                    var id = $(this).data('index');
+                    var mainstatus = $(this).data('category');
+                    console.log(mainstatus);
+                    localStorage.setItem('product_detail' , id);
+                    localStorage.setItem('mainstatus' , mainstatus);
+                    if( localStorage.getItem('mainstatus') == "available"){
+                        window.location.href="./productdetails-defaultview1.html";
+                    }
+                    else{
+                        window.location.href="./productdetails1-wanted.html";
+                    }
+                    
+                });
+
+            });
         }
 
 </script>

@@ -340,27 +340,27 @@ a#approval_table_previous.paginate_button.previous,
                             <div class="row" style="margin-top: 30px;">
                                 <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Date</div>
                                 <div id="product_id" class="col-md-9"style="color: black;">
-                                    <input id="date" type="text" class="form-control" style="width: 90%;">
+                                    <input id="date" type="text" class="form-control" style="width: 90%;" disabled>
                                 </div>
                             </div>
 
                             <div class="row" style="margin-top: 10px;">
                                 <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Name</div>
                                 <div id="product_id" class="col-md-9"style="color: black;">
-                                    <input id="name" type="text" class="form-control" style="width: 90%;">
+                                    <input id="name" type="text" class="form-control" style="width: 90%;" disabled>
                                 </div>
                             </div>
 
                             <div class="row" style="margin-top: 10px;">
                                 <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Email</div>
                                 <div id="product_id" class="col-md-9"style="color: black;">
-                                    <input id="email" type="text" class="form-control" style="width: 90%;">
+                                    <input id="email" type="text" class="form-control" style="width: 90%;" disabled>
                                 </div>
                             </div>
 
                             <div class="row" style="margin-top: 10px; padding-bottom: 30px;">
                                 <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Message</div>
-                                <div  class="col-md-9" style="color: black;"><textarea id="message" style="width: 90%;" rows="5" cols="33" type="text" class="form-control"></textarea></div>
+                                <div  class="col-md-9" style="color: black;"><textarea id="message" style="width: 90%;" rows="5" cols="33" type="text" class="form-control" disabled></textarea></div>
                             </div>
                         </div>
                     </div>
@@ -472,6 +472,7 @@ a#approval_table_previous.paginate_button.previous,
         $("#btn_delete").on('click', function(){
             deleteEnquiry();
         });
+        
         $("#delete_status").on('hide.bs.modal', function() { 
             window.location.href = "./enquiry.html"; 
         }); 

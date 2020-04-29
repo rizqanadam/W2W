@@ -671,200 +671,221 @@ a#notification_table_previous.paginate_button.previous,
             
         $dataTable = $('#seller_buyer').DataTable(); 
         $bil = 1;
-
+        $table_row3 = "";
+        
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Johor",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=johor",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Johor</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Johor</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Johor</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Johor</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Pahang",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Pahang",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pahang</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pahang</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pahang</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pahang</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Kedah",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Kedah",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Kedah</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Kedah</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Kedah</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Kedah</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Kelantan",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Kelantan",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Kelantan</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Kelantan</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Kelantan</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Kelantan</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Melaka",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Melaka",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Melaka</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Melaka</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Melaka</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Melaka</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Negeri Sembilan",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Negeri Sembilan",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Negeri Sembilan</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Negeri Sembilan</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Negeri Sembilan</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Negeri Sembilan</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Perak",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Perak",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Perak</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Perak</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Perak</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Perak</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Perlis",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Perlis",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Perlis</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">0</td><td scope="" style="text-align: center;">0</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Perlis</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Perlis</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Perlis</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Pulau Pinang",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Pulau Pinang",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Pulau Pinang</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pulau Pinang</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pulau Pinang</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pulau Pinang</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Sabah",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Sabah",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Sabah</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Sabah</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Sabah</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Sabah</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Sarawak",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Sarawak",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Sarawak</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Sarawak</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Sarawak</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Sarawak</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Selangor",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Selangor",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Selangor</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Selangor</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Selangor</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Selangor</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Terengganu",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Terengganu",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Terengganu</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Terengganu</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Terengganu</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Terengganu</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
 
         $.ajax({
-            url : "http://codeviable.com/w2w2/public/admin/statedash?state=Wilayah Persekutuan Malaysia",
+            url : "http://codeviable.com/w2w2/public/admin/statecategory?state=Wilayah Persekutuan Malaysia",
             type : "GET",
         }).done(function(response){
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left;">Wilayah Persekutuan Malaysia</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td><td scope="" style="text-align: center;">'+response[0].total_user+'</td></tr>';
- 
-                $dataTable.rows.add( $( $table_row ) ).draw();
-                $bil++;
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Wilayah Persekutuan Malaysia</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Wilayah Persekutuan Malaysia</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Wilayah Persekutuan Malaysia</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $dataTable.rows.add( $( $table_row3 ) ).draw();
+                
             });
         });
     }

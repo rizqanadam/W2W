@@ -638,7 +638,7 @@ a#approval_table_previous.paginate_button.previous,
 
                 $('#approval_table').delegate('#editbutton', 'click', function() {
                     var id = $(this).parent().parent().data('id');
-                    localStorage.setItem('available_id', id);
+                    localStorage.setItem('wanted_id', id);
                     window.location.href = "./listing-available-edit-productinfo.html";
                     console.log(id);
                 });

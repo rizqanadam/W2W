@@ -103,7 +103,11 @@ i {
     width: 96.66666666666666%;
     color: #FFF;
 }
-
+.btn_banner {
+    position: absolute;
+    top: 15px;
+    left: 850px;
+}
 
 </style>
 <head>
@@ -541,15 +545,15 @@ i {
                     if( i == 0){
                         tr2 += '<li data-target="#carouselExampleIndicators" data-slide-to='+i+' class="active item"></li>';
                         if(response[0].url != "undefined")
-                            tr += '<div class="carousel-item active"><a href='+response[i].url+' target="_blank" style="cursor: pointer;"><img class="d-block w-100" style="object-fit: cover; height: 410px; clear: both;" src='+response[i].image+' alt="First slide"></a></div>';
+                            tr += '<div class="carousel-item active"><a href='+response[i].url+' target="_blank" style="cursor: pointer;"><button class="btn btn-primary btn_banner">Click here</button><img class="d-block w-100" style="object-fit: cover; height: 410px; clear: both;" src='+response[i].image+' alt="First slide"></a></div>';
                         else if(response[0].url == "undefined")
                             tr += '<div class="carousel-item active"><img class="d-block w-100" style="object-fit: cover; height: 410px; clear: both;" src='+response[i].image+' alt="First slide"></div>';
                     }
                     else{
                         tr2 += '<li data-target="#carouselExampleIndicators" data-slide-to='+i+' class=" item"></li>';
-                        console.log(i)
+                        // console.log(i)
                         if(response[i].url != "undefined")
-                            tr += '<div class="carousel-item"><a href='+response[i].url+' target="_blank" style="cursor: pointer;"><img class="d-block w-100" style="object-fit: cover; height: 410px; clear: both;" src='+response[i].image+' alt="First slide"></a></div>';
+                            tr += '<div class="carousel-item"><a href='+response[i].url+' target="_blank" style="cursor: pointer;"><button class="btn btn-primary btn_banner">Click here</button><img class="d-block w-100" style="object-fit: cover; height: 410px; clear: both;" src='+response[i].image+' alt="First slide"></a></div>';
                         else if(response[i].url == "undefined")
                             tr += '<div class="carousel-item"><img class="d-block w-100" style="object-fit: cover; height: 410px; clear: both;" src='+response[i].image+' alt="First slide"></div>';
                     }

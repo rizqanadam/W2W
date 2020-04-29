@@ -443,7 +443,7 @@ a#approval_table_previous.paginate_button.previous,
          }).done(function(response){
             console.log(response)
              $.each(response, function(i,data){
-                 $table_row = '<tr><td scope="" style="text-align: center;">'+ data.product_id +'</td><td scope="" style="text-align: center;">'+ data.product_name +'</td><td scope="" style="text-align: center;">'+ data.product_package +'</td><td scope="" style="text-align: center;">'+ data.company_name +'</td><td scope="" style="text-align: center;">'+ data.company_contact+'</td><td scope="" style="text-align: center;">'+ data.product_location[0].location +'</td><td scope="" style="text-align: center;">20/04/2019</td></tr>';
+                 $table_row = '<tr><td scope="" style="text-align: center;">'+ data.product_id +'</td><td scope="" style="text-align: center;">'+ data.product_name +'</td><td scope="" style="text-align: center;">'+ data.product_package +'</td><td scope="" style="text-align: center;">'+ data.name +'</td><td scope="" style="text-align: center;">'+ data.contact+'</td><td scope="" style="text-align: center;">'+ data.product_location[0].location +'</td><td scope="" style="text-align: center;">20/04/2019</td></tr>';
                  // add row to dataTable object
                  $dataTable.rows.add( $( $table_row ) ).draw();
              })

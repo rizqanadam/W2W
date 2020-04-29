@@ -444,7 +444,7 @@ span.checkmark {
                                     <div style="padding-left: 30px;">
                                         <div class="row" style="margin-top: 30px; padding-bottom: 30px;">
                                             <div class="col-md-3" style="color: black; font-weight: bold; text-align: right;">Token</div>
-                                        <div id="balance" class="col-md-9"style="color: black;"></div>
+                                        <div id="balance" class="col-md-9"style="color: black;">0</div>
                                     </div>
                                 </div>
                             </div>
@@ -528,11 +528,12 @@ span.checkmark {
      $(document).ready(function() {   
         $user_id = localStorage.getItem('detail_user');
         $userid = localStorage.getItem('user_id');
-
+        $status ="";
         admin(); 
-        userDetails();
+        userDetails();    
         convertDate();
         convertDate2();
+        
         statusActive();
 
         $('#btn_logout').on('click', function(){
@@ -681,6 +682,7 @@ span.checkmark {
             $('#password').val(response.password);
             $('#companyname').html(response.companyname);
             $('#address').html(response.address);
+            if(response.balancetoken != null)
             $('#balance').html(response.balancetoken);
  
             if(response.status == "active"){
@@ -709,10 +711,8 @@ span.checkmark {
             }
         
 
-            $id = localStorage.getItem('user_id');
-
             var formData = new FormData();
-            formData.append('user_id' , $id);
+            formData.append('user_id' , $user_id);
             formData.append('status' , $status);
 
             $.ajax({

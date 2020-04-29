@@ -299,7 +299,7 @@ a#approval_table_previous.paginate_button.previous,
                         <div style="font-size: 28px; font-weight: bold;">Enquiry &nbsp;&nbsp;</div>
                     </div>
                     <div class="col-md-8 text-right">
-                        <button class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button>
+                        <!-- <button class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #C10000; color: white;"><img src="../plugins/images/Icon_Delete.svg" style="vertical-align: middle;">&nbsp;&nbsp;Delete</button> -->
                     </div>
                 </div>
                 
@@ -311,7 +311,7 @@ a#approval_table_previous.paginate_button.previous,
                         <thead  class="thead" style="text-align: center; font-size: 14px;">
                            
                         <tr>
-                            <td scope="" style="text-align: center; width: 5%;"><input id="check_all" type="checkbox"></td>
+                            <!-- <td scope="" style="text-align: center; width: 5%;"><input id="check_all" type="checkbox"></td> -->
                             <td scope="" style="text-align: left; width: 5%;">Bil</td>
                             <td scope="" style="text-align: left; ">Name</td>
                             <td scope="" style="text-align: left; ">Email</td>
@@ -341,7 +341,7 @@ a#approval_table_previous.paginate_button.previous,
                     <br><br><br>
                     <div style="text-align: right;">
                         <a href="./pricing-token-edit.html" style="color: #0099FF; cursor: pointer;" data-dismiss="modal">CANCEL</a>
-                        <a id="btn_delete" style="color: #C10000; cursor: pointer; padding-left: 10px;" data-toggle="modal" data-target="#delete_status" data-dismiss="modal">DELETE</a>
+                        <a id="delete" style="color: #C10000; cursor: pointer; padding-left: 10px;" data-toggle="modal" data-target="#delete_status" data-dismiss="modal">DELETE</a>
                     </div>
                 </div>
               </div>
@@ -412,16 +412,16 @@ a#approval_table_previous.paginate_button.previous,
         customizeDatatable();
         listingEnquiry();
 
-        $('#enquiry_table').delegate('#check', 'click', function() {
-            var id = $(this).parent().parent().data('id');
-            var delete_id = localStorage.setItem('deleteid', id);
-            console.log(id);
+       
+
+        $('#delete').on('click',function(){
+            deleteEnquiry();
+            // location.reload();
         });
 
-        $('#btn_delete').on('click',function(){
-            deleteEnquiry();
-            $( "#enquiry_table" ).load( "enquiry.html #enquiry_table" );
-        })
+        $("#delete_status").on('hide.bs.modal', function() { 
+            location.reload();
+        });
         
      });
 
@@ -465,7 +465,7 @@ a#approval_table_previous.paginate_button.previous,
                     var date = response[i].created_at[0] + response[i].created_at[1] + " " + response[i].created_at[3] + response[i].created_at[4] + response[i].created_at[5] + " " + response[i].created_at[7] + response[i].created_at[8] + response[i].created_at[9] + response[i].created_at[10]
                     console.log(date)
 
-                        $table_row='<tr id='+ data.id +'><td class="true" style="text-align: center; width:5%;"><input id="check" type="checkbox"></td><td scope="" style="text-align: left;">'+ a +'</td><td scope="" style="text-align: left;">'+ data.name +'</td><td scope="" style="text-align: left;">'+ data.email +'</td><td scope="" style="text-align: left;">'+ data.description +'</td><td scope="" style="text-align: left;">'+ date +'</td><td scope="" style="text-align: center;"><a id="searchbutton"><img src="../plugins/images/Btn_View.png"></a></td></tr>';
+                        $table_row='<tr id='+ data.id +'><td scope="" style="text-align: left;">'+ a +'</td><td scope="" style="text-align: left; text-transform: capitalize;">'+ data.name +'</td><td scope="" style="text-align: left;">'+ data.email +'</td><td scope="" style="text-align: left;">'+ data.description +'</td><td scope="" style="text-align: left;">'+ date +'</td><td scope="" style="text-align: center;"><a id="searchbutton"><img src="../plugins/images/Btn_View.png"></a><a style="color: #707070;">&nbsp;|&nbsp;</a><a id="btn_delete" style="color: #C10000; text-decoration: underline; cursor: pointer;" data-toggle="modal" data-target="#myModal2">Delete</a></td></tr>';
                         a++;
                         // add row to dataTable object
                         $dataTable.rows.add( $( $table_row ) ).draw();
@@ -478,27 +478,27 @@ a#approval_table_previous.paginate_button.previous,
                     window.location.href = "./enquiry-edit.html";
                     console.log(id);
                 });
+
+                $('#enquiry_table').delegate('#btn_delete', 'click', function() {
+                    var id = $(this).parent().parent().data('id');
+                    var delete_id = localStorage.setItem('deleteid', id);
+                    console.log(id);
+                });
          });
 
     }
 
-    function deleteEnquiry(){
-
-        var id = localStorage.getItem('deleteid');
-        var table = $('#enquiry_table').DataTable();
-        var $button = $('#btn_delete');
-        console.log(id);
-        
-            $.ajax({
-                url: "http://codeviable.com/w2w2/public/enquiry/delete?id=",
-                type: "DELETE",
-                data: { "id" : id},
-            }).done(function(response){
-                console.log(response);
-                window.location.reload();
-            });
-        
-    }
+    function deleteEnquiry() {
+        $enquiry_id = localStorage.getItem('deleteid');
+        $.ajax({
+            url: "http://codeviable.com/w2w2/public/enquiry/delete?id=",
+            type: "DELETE",
+            data: { 'id' : $enquiry_id }
+        }).done(function(response){
+            console.log(response);
+            // location.reload();
+        })
+    } 
     
 
   </script>

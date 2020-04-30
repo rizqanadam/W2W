@@ -451,7 +451,7 @@ a#notification_table_previous.paginate_button.previous,
                             <thead  class="thead" style="text-align: center; font-size: 12px; background-color: #F5F6FA; color: gray;">
 
                             <tr>
-                                <td scope="" style="text-align: center;">#</td>
+                                <!-- <td scope="" style="text-align: center;">#</td> -->
                                 <td scope="" style="text-align: left;">COUNTRY</td>
                                 <td scope="" style="text-align: left;">PRODUCT CATEGORY</td>
                                 <td scope="" style="text-align: center;">BUYER</td>
@@ -680,11 +680,11 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Johor</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Johor</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
                 
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Johor</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Johor</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
                 
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Johor</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Johor</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -697,11 +697,11 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pahang</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Pahang</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
                 
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pahang</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Pahang</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
                 
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pahang</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Pahang</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -714,11 +714,11 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Kedah</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Kedah</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
                 
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Kedah</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Kedah</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
                 
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Kedah</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Kedah</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -731,9 +731,9 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Kelantan</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Kelantan</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Kelantan</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Kelantan</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Kelantan</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Kelantan</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -746,9 +746,9 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Melaka</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Melaka</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Melaka</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Melaka</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Melaka</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Melaka</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -761,9 +761,9 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Negeri Sembilan</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Negeri Sembilan</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Negeri Sembilan</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Negeri Sembilan</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Negeri Sembilan</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Negeri Sembilan</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -776,9 +776,9 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Perak</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Perak</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Perak</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Perak</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Perak</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Perak</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -791,9 +791,9 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Perlis</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Perlis</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Perlis</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Perlis</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Perlis</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Perlis</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -806,9 +806,9 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pulau Pinang</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pulau Pinang</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Pulau Pinang</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Pulau Pinang</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Pulau Pinang</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Pulau Pinang</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -821,9 +821,9 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Sabah</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Sabah</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Sabah</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Sabah</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Sabah</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Sabah</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -836,9 +836,9 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Sarawak</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Sarawak</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Sarawak</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Sarawak</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Sarawak</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Sarawak</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -851,9 +851,9 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Selangor</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Selangor</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Selangor</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Selangor</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Selangor</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Selangor</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -866,9 +866,9 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Terengganu</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Terengganu</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Terengganu</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Terengganu</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Terengganu</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Terengganu</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });
@@ -881,9 +881,9 @@ a#notification_table_previous.paginate_button.previous,
             console.log(response);
 
             $.each(response, function(i,data){
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Wilayah Persekutuan Malaysia</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Wilayah Persekutuan Malaysia</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
-                $table_row3+='<tr><td scope="" style="text-align: center;">'+$bil+'</td><td scope="" style="text-align: left; ">Wilayah Persekutuan Malaysia</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Wilayah Persekutuan Malaysia</td><td scope="" style="text-align: left;">Waste</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td><td scope="" style="text-align: center;">'+response[0].total_waste+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Wilayah Persekutuan Malaysia</td><td scope="" style="text-align: left;">Technology</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td><td scope="" style="text-align: center;">'+response[0].total_technology+'</td></tr>';
+                $table_row3+='<tr><td scope="" style="text-align: left; ">Wilayah Persekutuan Malaysia</td><td scope="" style="text-align: left;">Service</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td><td scope="" style="text-align: center;">'+response[0].total_service+'</td></tr>';
                 $dataTable.rows.add( $( $table_row3 ) ).draw();
                 
             });

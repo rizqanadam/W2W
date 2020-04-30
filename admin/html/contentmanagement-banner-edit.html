@@ -611,13 +611,34 @@ span.checkmark {
                 processData: false,
                 contentType: false,
             }).done(function(response){
-                console.log(response)
+                console.log(response);
+                editbanner();
             })
         });
     }
 
     function editbanner(){
-        
+        var title = '';
+          var url = $("#url").val();
+          var publishstatus = "publishstatus";
+          var image = $("#imageUpload").prop('files');
+
+          var formData = new FormData();
+          formData.append("id" , $id)
+          formData.append("title" , title);
+          formData.append("url" , url);
+          formData.append("publishstatus" , publishstatus);
+          formData.append("image" , image[0]);
+
+        $.ajax({
+            url : "http://codeviable.com/w2w2/public/banner/edit",
+            type : "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+        }).done(function(response){
+            console.log(response);
+        })
     }
   </script>
 

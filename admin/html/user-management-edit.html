@@ -411,6 +411,19 @@ a#approval_table_previous.paginate_button.previous,
                     </div>
                     </div>
                 </div>
+
+                <div class="modal fade bd-example-modal-sm mx-auto"  style="top: 20%; left: 40%;" id="updated_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    
+                        <div class="modal-content" style="text-align: center; width: 50%; padding: 50px; border-radius: 10px;">
+                            <div class="modal-body mx-auto">
+                            <img src="../plugins/images/checkijau.svg">
+                            </div>
+                            <div class="mx-auto" style="margin: 10px; color: #27AE60; font-size: 28px;">Updated!</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             
             <!-- /.container-fluid -->
         </div>
@@ -470,10 +483,15 @@ a#approval_table_previous.paginate_button.previous,
 
         $('#save_btn').on('click', function(){
             updateAdmin();
+            $('#updated_modal').modal('toggle');
         });
 
         $('#btn_delete').on('click', function(){
             deleteAdmin();
+        });
+
+        $("#updated_modal").on('hide.bs.modal', function() { 
+            location.reload();
         });
 
         $("#delete_status").on('hide.bs.modal', function() { 
@@ -524,7 +542,6 @@ a#approval_table_previous.paginate_button.previous,
          var email = $('#email').val();
          var password = $('#password').val();
          var confirmpassword = $('#confirmpassword').val();
-         var role = $('#role').val();
 
          var postdata = {
              "user_id" : $user_id,
@@ -532,7 +549,6 @@ a#approval_table_previous.paginate_button.previous,
              "user_lname" : lname,
              "user_email" : email,
              "password" : password,
-             "user_role" : role
          }
 
          $.ajax({

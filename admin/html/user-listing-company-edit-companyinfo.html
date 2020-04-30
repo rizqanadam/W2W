@@ -255,7 +255,7 @@ span.checkmark {
         <!-- ============================================================== -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header">
-              <a class="logo" href="dashboard.html">
+                <a class="logo" href="../../index-admin.html">
                 <b>
                 <div class="top-left-header" style="margin-left:10px;">
                   <img src="../plugins/images/website-logo.png" style="width:94px; height:50px;">
@@ -487,6 +487,33 @@ span.checkmark {
         <!-- ============================================================== -->
     </div>
     </div>
+
+
+    <!--active_modal-->
+    <div class="modal fade bd-example-modal-sm mx-auto"  style=" margin: 100px; margin-right: 60px;" id="active_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          
+            <div class="modal-content" style="text-align: center; width: 130%; padding: 40px; border-radius: 10px;">
+                <div class="modal-body mx-auto">
+                    <img src="../plugins/images/checkijau.svg">
+                </div>
+                <div class="mx-auto" style="margin: 10px; color: #27AE60; font-size: 28px;">User is set to active.</div>
+              </div>
+        </div>
+    </div>
+
+    <!--reject_status-->
+    <div class="modal fade bd-example-modal-sm mx-auto"  style=" margin: 100px; margin-right: 60px;" id="block_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          
+            <div class="modal-content" style="text-align: center; width: 130%; padding: 40px; border-radius: 10px;">
+                <div class="modal-body mx-auto">
+                  <img src="../plugins/images/rejected.svg">
+                </div>
+                <div class="mx-auto" style="margin: 10px; color: #F44336; font-size: 28px;">User is set to block.</div>
+              </div>
+        </div>
+    </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
@@ -702,12 +729,14 @@ span.checkmark {
             if ($(this).is(":checked")) {
                 $('#status').prop('checked', true);
                 $status = "active";
-                console.log("active")
+                console.log("active");
+                $('#active_modal').modal('toggle');
             }
             else{
                 $('#status').prop('checked', false);
                 $status = "not";
-                console.log("not active")
+                console.log("not active");
+                $('#block_modal').modal('toggle');
             }
         
 

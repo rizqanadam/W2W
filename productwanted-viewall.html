@@ -130,7 +130,7 @@ i {
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Waste 2 Wealth</title>
+    <title>EcoWaste Market</title>
     <link rel="icon" type="image/png" sizes="16x16" href="img/website-logo.png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -263,7 +263,7 @@ i {
             <div class="card" style="margin-bottom: 20px; border: none;">
                 <ul class="d-flex justify-content-between">
                     <div class="d-flex">
-                    <a class="active-nav nav-style" href="#">All 1-10 of 43</a>
+                    <a class="active-nav nav-style" href="#">All 1-10</a>
                     </div>
 
                     <div class="d-flex" style="display: none !important;">
@@ -543,11 +543,11 @@ i {
                     //display date in formatted
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
                     if(data.premiumlist == "premium"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"><div style="color: blue;"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact deatails</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                     else if(data.premiumlist == "regular"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"><div style="color: blue;"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact deatails</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                 });
@@ -618,11 +618,11 @@ i {
                 $.each($newList[0], function (i, data) {   
                     var date = data.updated_at[3] + data.updated_at[4] + data.updated_at[5]+ " " + data.updated_at[0] + data.updated_at[1] + ", "  + data.updated_at[7] + data.updated_at[8] + data.updated_at[9] + data.updated_at[10];
                     if(data.premiumlist == "premium"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px; cursor: pointer;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"><div style="color: blue;"><a data-toggle="modal" data-dismiss="modal" data-target="#signinmodal" style="cursor: pointer;"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact deatails</a></div></div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                     else if(data.premiumlist == "regular"){
-                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"></div><div style="color: #008D50;"><i class="fa fa-phone"></i>&nbsp;'+data.contact+'</div><div style="color: #008D50;"><i class="fa fa-envelope"></i>&nbsp;'+data.company_email+'</div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
+                        tr += '<div data-index=' + data.product_id + ' class="row"><div class="col-md-2"><img src='+data.product_image[0].image+' style="width: 184px; height: 123px; object-fit: cover;"></div><div class="col-md-7 title"><div style="font-size: 18px; margin-bottom: 10px;">'+data.product_name+'  <i class="fa fa-fire" style="color: red;"></i></div><p>'+data.product_desc+'</p><label style="color: white; background-color: orange; border-radius: 10px; padding: 5px;">Wanted</label><div style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;"><div style="color: blue;"><div style="color: blue;"><a data-toggle="modal" data-dismiss="modal" data-target="#signinmodal" style="cursor: pointer;"><i class="fa fa-phone" style="color: grey;"></i>  Log in to view contact deatails</a>/div></div></div><div class="col-md-3 text-right"><p>'+date+'</p><p>'+data.product_location[0].location+', '+data.product_state[0].state+'</p></div></div>';
                         tr += '<div class="line-bottom"></div>';
                     }
                 });
@@ -640,6 +640,8 @@ i {
                 data: { 'user_email' : email, 'password' : password },
                 success: function (response){
                     if(response[0].user_email === email && response[0].password === password || response[0].email === email && response[0].password === password ){
+                        $('#signin').prop('disabled', true);
+                        $('#signin').html('Sign in...');
                         console.log(response[0]);
                         console.log("Logged in");
                         localStorage.setItem("user_id", JSON.stringify(response[0].user_id));
